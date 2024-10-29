@@ -1,0 +1,277 @@
+﻿namespace DVLD__PresentationLayer_WinForm
+{
+    partial class frmChangePassword
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCurrentPass = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ucUserDetails1 = new DVLD__PresentationLayer_WinForm.ucUserDetails();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
+            this.guna2Button2.BorderRadius = 10;
+            this.guna2Button2.BorderThickness = 2;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
+            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.Location = new System.Drawing.Point(928, 698);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(153, 45);
+            this.guna2Button2.TabIndex = 11;
+            this.guna2Button2.Text = "Save";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnClose.BorderRadius = 10;
+            this.BtnClose.BorderThickness = 2;
+            this.BtnClose.CheckedState.Parent = this.BtnClose;
+            this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.FillColor = System.Drawing.Color.White;
+            this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClose.ForeColor = System.Drawing.Color.Black;
+            this.BtnClose.HoverState.Parent = this.BtnClose;
+            this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
+            this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnClose.Location = new System.Drawing.Point(757, 698);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
+            this.BtnClose.Size = new System.Drawing.Size(153, 45);
+            this.BtnClose.TabIndex = 12;
+            this.BtnClose.Text = "Close";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtConfirmPassword.DefaultText = "";
+            this.txtConfirmPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtConfirmPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtConfirmPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtConfirmPassword.DisabledState.Parent = this.txtConfirmPassword;
+            this.txtConfirmPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtConfirmPassword.FocusedState.Parent = this.txtConfirmPassword;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtConfirmPassword.HoverState.Parent = this.txtConfirmPassword;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(323, 652);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(52, 68, 52, 68);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '●';
+            this.txtConfirmPassword.PlaceholderText = "";
+            this.txtConfirmPassword.SelectedText = "";
+            this.txtConfirmPassword.ShadowDecoration.Parent = this.txtConfirmPassword;
+            this.txtConfirmPassword.Size = new System.Drawing.Size(193, 33);
+            this.txtConfirmPassword.TabIndex = 78;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(65, 652);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 28);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Confirm Password :";
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNewPassword.DefaultText = "";
+            this.txtNewPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNewPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNewPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNewPassword.DisabledState.Parent = this.txtNewPassword;
+            this.txtNewPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNewPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNewPassword.FocusedState.Parent = this.txtNewPassword;
+            this.txtNewPassword.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNewPassword.HoverState.Parent = this.txtNewPassword;
+            this.txtNewPassword.Location = new System.Drawing.Point(323, 607);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(52, 68, 52, 68);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '●';
+            this.txtNewPassword.PlaceholderText = "";
+            this.txtNewPassword.SelectedText = "";
+            this.txtNewPassword.ShadowDecoration.Parent = this.txtNewPassword;
+            this.txtNewPassword.Size = new System.Drawing.Size(193, 33);
+            this.txtNewPassword.TabIndex = 79;
+            // 
+            // txtCurrentPass
+            // 
+            this.txtCurrentPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCurrentPass.DefaultText = "";
+            this.txtCurrentPass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCurrentPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCurrentPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCurrentPass.DisabledState.Parent = this.txtCurrentPass;
+            this.txtCurrentPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCurrentPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCurrentPass.FocusedState.Parent = this.txtCurrentPass;
+            this.txtCurrentPass.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrentPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCurrentPass.HoverState.Parent = this.txtCurrentPass;
+            this.txtCurrentPass.Location = new System.Drawing.Point(323, 555);
+            this.txtCurrentPass.Margin = new System.Windows.Forms.Padding(8);
+            this.txtCurrentPass.Name = "txtCurrentPass";
+            this.txtCurrentPass.PasswordChar = '\0';
+            this.txtCurrentPass.PlaceholderText = "";
+            this.txtCurrentPass.SelectedText = "";
+            this.txtCurrentPass.ShadowDecoration.Parent = this.txtCurrentPass;
+            this.txtCurrentPass.Size = new System.Drawing.Size(193, 33);
+            this.txtCurrentPass.TabIndex = 75;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(65, 607);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 28);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "New Password        :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(65, 560);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 28);
+            this.label2.TabIndex = 72;
+            this.label2.Text = "Current Password  :";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.reset_password;
+            this.pictureBox1.Location = new System.Drawing.Point(268, 653);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 77;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.secure;
+            this.pictureBox4.Location = new System.Drawing.Point(271, 556);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 74;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.reset_password;
+            this.pictureBox3.Location = new System.Drawing.Point(268, 603);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 73;
+            this.pictureBox3.TabStop = false;
+            // 
+            // ucUserDetails1
+            // 
+            this.ucUserDetails1.BackColor = System.Drawing.Color.White;
+            this.ucUserDetails1.Location = new System.Drawing.Point(18, 12);
+            this.ucUserDetails1.Name = "ucUserDetails1";
+            this.ucUserDetails1.Size = new System.Drawing.Size(1070, 507);
+            this.ucUserDetails1.TabIndex = 0;
+            this.ucUserDetails1.Load += new System.EventHandler(this.ucUserDetails1_Load);
+            // 
+            // frmChangePassword
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1100, 755);
+            this.Controls.Add(this.txtConfirmPassword);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNewPassword);
+            this.Controls.Add(this.txtCurrentPass);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.BtnClose);
+            this.Controls.Add(this.ucUserDetails1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "frmChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmChangePassword";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private ucUserDetails ucUserDetails1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button BtnClose;
+        private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox txtNewPassword;
+        private Guna.UI2.WinForms.Guna2TextBox txtCurrentPass;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+    }
+}
