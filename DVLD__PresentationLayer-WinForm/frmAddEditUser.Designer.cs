@@ -33,7 +33,6 @@
             this.tabControlUser = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.ucPersondetailsWithFilter1 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chkIsActive = new Guna.UI2.WinForms.Guna2CheckBox();
             this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,6 +49,7 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ucPersondetailsWithFilter1 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
             this.tabControlUser.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -113,16 +113,6 @@
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = "Next";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // ucPersondetailsWithFilter1
-            // 
-            this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucPersondetailsWithFilter1.Gender = "_";
-            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
-            this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
-            this.ucPersondetailsWithFilter1.PersonID = "_";
-            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
-            this.ucPersondetailsWithFilter1.TabIndex = 10;
             // 
             // tabPage2
             // 
@@ -372,6 +362,16 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // ucPersondetailsWithFilter1
+            // 
+            this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucPersondetailsWithFilter1.Gender = "_";
+            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
+            this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
+            this.ucPersondetailsWithFilter1.PersonID = "_";
+            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
+            this.ucPersondetailsWithFilter1.TabIndex = 10;
+            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -384,6 +384,7 @@
             this.Controls.Add(this.lblCaption);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddEditUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditUser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddEditUser_FormClosing);
             this.Load += new System.EventHandler(this.frmAddEditUser_Load);

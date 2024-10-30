@@ -60,13 +60,14 @@ namespace DVLD__PresentationLayer_WinForm
                     if (cbActiveState == null || cbActiveState.SelectedIndex == 0) // All
                         return string.Empty;
                     else if (cbActiveState.SelectedIndex == 1) // Yes
-                        return "IsActive = true";
+                        return "IsActive = 1";
                     else if (cbActiveState.SelectedIndex == 2) // No
-                        return "IsActive = false";
+                        return "IsActive = 0";
                     else
                         return string.Empty;
                 default:
                     return string.Empty;
+
             }
         }
 
@@ -177,6 +178,22 @@ namespace DVLD__PresentationLayer_WinForm
                 {
                     MessageBox.Show("User Can't Be Deleted Due Data Related to it", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (SelectedUserID != -1)
+            {
+                //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
+                frmChangePassword frm = new frmChangePassword(SelectedUserID);
+                frm.frmClose += _LoadData;
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a user from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

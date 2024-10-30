@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.components = new System.ComponentModel.Container();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,31 +40,34 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.ucUserDetails1 = new DVLD__PresentationLayer_WinForm.ucUserDetails();
+            this.UserDetails = new DVLD__PresentationLayer_WinForm.ucUserDetails();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2Button2
+            // btnSave
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(928, 698);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(153, 45);
-            this.guna2Button2.TabIndex = 11;
-            this.guna2Button2.Text = "Save";
+            this.btnSave.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderThickness = 2;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.FillColor = System.Drawing.Color.White;
+            this.btnSave.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSave.Location = new System.Drawing.Point(928, 698);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(153, 45);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // BtnClose
             // 
@@ -84,6 +88,7 @@
             this.BtnClose.Size = new System.Drawing.Size(153, 45);
             this.BtnClose.TabIndex = 12;
             this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // txtConfirmPassword
             // 
@@ -108,6 +113,7 @@
             this.txtConfirmPassword.ShadowDecoration.Parent = this.txtConfirmPassword;
             this.txtConfirmPassword.Size = new System.Drawing.Size(193, 33);
             this.txtConfirmPassword.TabIndex = 78;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
             // label1
             // 
@@ -143,6 +149,7 @@
             this.txtNewPassword.ShadowDecoration.Parent = this.txtNewPassword;
             this.txtNewPassword.Size = new System.Drawing.Size(193, 33);
             this.txtNewPassword.TabIndex = 79;
+            this.txtNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtNewPassword_Validating);
             // 
             // txtCurrentPass
             // 
@@ -167,6 +174,7 @@
             this.txtCurrentPass.ShadowDecoration.Parent = this.txtCurrentPass;
             this.txtCurrentPass.Size = new System.Drawing.Size(193, 33);
             this.txtCurrentPass.TabIndex = 75;
+            this.txtCurrentPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtCurrentPass_Validating);
             // 
             // label3
             // 
@@ -220,14 +228,18 @@
             this.pictureBox3.TabIndex = 73;
             this.pictureBox3.TabStop = false;
             // 
-            // ucUserDetails1
+            // UserDetails
             // 
-            this.ucUserDetails1.BackColor = System.Drawing.Color.White;
-            this.ucUserDetails1.Location = new System.Drawing.Point(18, 12);
-            this.ucUserDetails1.Name = "ucUserDetails1";
-            this.ucUserDetails1.Size = new System.Drawing.Size(1070, 507);
-            this.ucUserDetails1.TabIndex = 0;
-            this.ucUserDetails1.Load += new System.EventHandler(this.ucUserDetails1_Load);
+            this.UserDetails.BackColor = System.Drawing.Color.White;
+            this.UserDetails.Location = new System.Drawing.Point(18, 12);
+            this.UserDetails.Name = "UserDetails";
+            this.UserDetails.Size = new System.Drawing.Size(1070, 507);
+            this.UserDetails.TabIndex = 0;
+            this.UserDetails.Load += new System.EventHandler(this.ucUserDetails1_Load);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmChangePassword
             // 
@@ -244,16 +256,18 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.ucUserDetails1);
+            this.Controls.Add(this.UserDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChangePassword";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmChangePassword_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,8 +275,8 @@
 
         #endregion
 
-        private ucUserDetails ucUserDetails1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private ucUserDetails UserDetails;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
         private System.Windows.Forms.Label label1;
@@ -273,5 +287,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

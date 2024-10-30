@@ -44,7 +44,6 @@ namespace BVLD__DataAccessLayer
             }
             return UsersData;
         }
-
         public static int AddNewUser(int personID,string userName ,string password,bool isActive)
         {
             int AddedUserID = -1;
@@ -78,7 +77,6 @@ namespace BVLD__DataAccessLayer
 
             return AddedUserID;
         }
-
         public static bool UpdateUser(int UserID,int personID, string userName, string password, bool isActive)
         {
             int effectedRow = 0;
@@ -109,7 +107,6 @@ namespace BVLD__DataAccessLayer
 
             return effectedRow > 0;
         }
-
         public static bool isUser(int PersonID)
         {
             bool isFound = false;
@@ -210,7 +207,6 @@ namespace BVLD__DataAccessLayer
 
             return isFound;
         }
-
         public static bool DeleteUser(int UserID)
         {
             int Result = 0;
@@ -232,6 +228,38 @@ namespace BVLD__DataAccessLayer
             }
             return Result > 0;
         }
+        public static bool GetUserInfoByUserNameAndPassword(ref int userID, ref int personID, string userName,string password, ref bool isActive)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"Select * from Users where UserName = @UserName and Password = @Password;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@UserName", userName);
+            command.Parameters.AddWithValue("@Password", password);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    personID = Convert.ToInt32(reader["PersonID"]);
+                    userID = Convert.ToInt32(reader["UserID"]);
+                    password = reader["Password"].ToString();
+                    isActive = Convert.ToBoolean(reader["IsActive"]);
+                }
+                reader.Close();
+            }
+            catch
+            {
+                isFound = false;
+            }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
+
     }
     
 }

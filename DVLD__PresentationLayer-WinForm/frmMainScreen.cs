@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace DVLD__PresentationLayer_WinForm
 {
-    public partial class Form1 : Form
+    public partial class frmMainScreen : Form
     {
-        public Form1()
+        public frmMainScreen()
         {
             InitializeComponent();
         }
@@ -33,15 +33,30 @@ namespace DVLD__PresentationLayer_WinForm
             }
         }
 
-        private void accountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmShowAllUsers frm = new frmShowAllUsers();
             frm.ShowDialog();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowUserDetails frm = new frmShowUserDetails(clsCurrentUserInfo.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void changePassworddToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(clsCurrentUserInfo.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            clsCurrentUserInfo.CurrentUser = null;
+            Close();
         }
     }
 }

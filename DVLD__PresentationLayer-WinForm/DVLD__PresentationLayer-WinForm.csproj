@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmMainScreen.Designer.cs">
+      <DependentUpon>frmMainScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddEditUser.cs">
       <SubType>Form</SubType>
@@ -74,6 +74,12 @@
     </Compile>
     <Compile Include="frmEditAddPerson.Designer.cs">
       <DependentUpon>frmEditAddPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoggingScrren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoggingScrren.Designer.cs">
+      <DependentUpon>frmLoggingScrren.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPersonDetails.cs">
       <SubType>Form</SubType>
@@ -119,8 +125,8 @@
     <Compile Include="ucUserDetails.Designer.cs">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmMainScreen.resx">
+      <DependentUpon>frmMainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditAddPerson.resx">
       <DependentUpon>frmEditAddPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoggingScrren.resx">
+      <DependentUpon>frmLoggingScrren.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonDetails.resx">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
@@ -282,6 +291,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reset-password %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-in.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -109,11 +109,20 @@ namespace BVLD__BusinessLayer
             {
                 return null;
             }
-        }
-        
+        }     
         public static bool DeleteUser(int UserID)
         {
             return clsUsersData.DeleteUser(UserID);
+        }
+        public static clsUser LogIn(string UserName,string Password)
+        {
+            int userID = -1,personID = -1;
+            bool isActive = false;
+
+            if(clsUsersData.GetUserInfoByUserNameAndPassword(ref userID,ref personID,UserName,Password,ref isActive))
+                return new clsUser(userID,personID,UserName,Password,isActive);
+            else
+                return null;
         }
     }
 }

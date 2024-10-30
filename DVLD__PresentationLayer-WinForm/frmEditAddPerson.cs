@@ -362,7 +362,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void rbMale_Click(object sender, EventArgs e)
         {
-            if (pbPersonPicture.Image == DefaultImage)
+            if (IsDefaultImage())
                 pbPersonPicture.Image= _SetDefaultImage();
         }
         private bool _AreValidInputs()
@@ -406,36 +406,36 @@ namespace DVLD__PresentationLayer_WinForm
             }
         }
 
-        //private bool ImagesAreEqual(Image img1, Image img2)
-        //{
-        //    if (img1 == null || img2 == null)
-        //        return false;
+        private bool ImagesAreEqual(Image img1, Image img2)
+        {
+            if (img1 == null || img2 == null)
+                return false;
 
-        //    var bmp1 = new Bitmap(img1);
-        //    var bmp2 = new Bitmap(img2);
+            var bmp1 = new Bitmap(img1);
+            var bmp2 = new Bitmap(img2);
 
-        //    if (bmp1.Size != bmp2.Size)
-        //        return false;
+            if (bmp1.Size != bmp2.Size)
+                return false;
 
-        //    for (int x = 0; x < bmp1.Width; x++)
-        //    {
-        //        for (int y = 0; y < bmp1.Height; y++)
-        //        {
-        //            if (bmp1.GetPixel(x, y) != bmp2.GetPixel(x, y))
-        //            {
-        //                return false;
-        //            }
-        //        }
-        //    }
-        //    return true;
-        //}
+            for (int x = 0; x < bmp1.Width; x++)
+            {
+                for (int y = 0; y < bmp1.Height; y++)
+                {
+                    if (bmp1.GetPixel(x, y) != bmp2.GetPixel(x, y))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
-        // Check if the current image is not a default image
-        //private bool IsDefaultImage()
-        //{
-        //    return (ImagesAreEqual(pbPersonPicture.Image, Properties.Resources.Person) ||
-        //             ImagesAreEqual(pbPersonPicture.Image, Properties.Resources.person_girl));
-        //}
+        //Check if the current image is not a default image
+        private bool IsDefaultImage()
+        {
+            return (ImagesAreEqual(pbPersonPicture.Image, Properties.Resources.Person) ||
+                     ImagesAreEqual(pbPersonPicture.Image, Properties.Resources.person_girl));
+        }
 
     }
 }

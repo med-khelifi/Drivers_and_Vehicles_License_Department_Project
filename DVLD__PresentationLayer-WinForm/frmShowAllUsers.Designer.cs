@@ -198,6 +198,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(232, 28);
             this.toolStripMenuItem1.Text = "Change Password";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // sendEmailToolStripMenuItem
             // 
@@ -294,6 +295,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowAllUsers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Users";
             this.Load += new System.EventHandler(this.frmShowAllUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsersData)).EndInit();
