@@ -201,5 +201,10 @@ namespace DVLD__PresentationLayer_WinForm
                 MessageBox.Show("Please select a user from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

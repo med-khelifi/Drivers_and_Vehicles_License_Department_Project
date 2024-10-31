@@ -46,6 +46,7 @@
             this.cbActiveState = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsersData)).BeginInit();
             this.CmsPersonGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -278,12 +279,34 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // BtnClose
+            // 
+            this.BtnClose.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnClose.BorderRadius = 10;
+            this.BtnClose.BorderThickness = 2;
+            this.BtnClose.CheckedState.Parent = this.BtnClose;
+            this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.FillColor = System.Drawing.Color.White;
+            this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClose.ForeColor = System.Drawing.Color.Black;
+            this.BtnClose.HoverState.Parent = this.BtnClose;
+            this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
+            this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnClose.Location = new System.Drawing.Point(967, 717);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
+            this.BtnClose.Size = new System.Drawing.Size(153, 45);
+            this.BtnClose.TabIndex = 15;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
             // frmShowAllUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1143, 760);
+            this.ClientSize = new System.Drawing.Size(1143, 768);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.txtFilterText);
@@ -325,5 +348,6 @@
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem callToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private Guna.UI2.WinForms.Guna2Button BtnClose;
     }
 }

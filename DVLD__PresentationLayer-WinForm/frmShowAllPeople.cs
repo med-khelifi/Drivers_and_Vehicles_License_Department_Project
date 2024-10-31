@@ -163,5 +163,10 @@ namespace DVLD__PresentationLayer_WinForm
                 }
             }
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

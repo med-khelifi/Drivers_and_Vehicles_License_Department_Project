@@ -32,23 +32,24 @@ namespace DVLD__PresentationLayer_WinForm
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAllPeopleData = new System.Windows.Forms.DataGridView();
+            this.CmsPersonGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.callToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CmsPersonGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllPeopleData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CmsPersonGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAllPeopleData
@@ -71,6 +72,21 @@ namespace DVLD__PresentationLayer_WinForm
             this.dgvAllPeopleData.TabIndex = 1;
             this.dgvAllPeopleData.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAllPeopleData_CellMouseDown);
             // 
+            // CmsPersonGrid
+            // 
+            this.CmsPersonGrid.AutoSize = false;
+            this.CmsPersonGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmsPersonGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsPersonGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
+            this.addNewPersonToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.sendEmailToolStripMenuItem,
+            this.callToolStripMenuItem});
+            this.CmsPersonGrid.Name = "CmsPersonGrid";
+            this.CmsPersonGrid.Size = new System.Drawing.Size(226, 212);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -86,7 +102,7 @@ namespace DVLD__PresentationLayer_WinForm
             // 
             this.lblRecordsCount.AutoSize = true;
             this.lblRecordsCount.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 16.2F, System.Drawing.FontStyle.Bold);
-            this.lblRecordsCount.Location = new System.Drawing.Point(3, 719);
+            this.lblRecordsCount.Location = new System.Drawing.Point(3, 722);
             this.lblRecordsCount.Name = "lblRecordsCount";
             this.lblRecordsCount.Size = new System.Drawing.Size(195, 34);
             this.lblRecordsCount.TabIndex = 3;
@@ -158,16 +174,6 @@ namespace DVLD__PresentationLayer_WinForm
             this.label2.TabIndex = 2;
             this.label2.Text = "Filter by :";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.team;
-            this.pictureBox1.Location = new System.Drawing.Point(526, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 180);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // guna2Button2
             // 
             this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
@@ -187,6 +193,14 @@ namespace DVLD__PresentationLayer_WinForm
             this.guna2Button2.Size = new System.Drawing.Size(65, 57);
             this.guna2Button2.TabIndex = 9;
             this.guna2Button2.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy;
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(225, 28);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // addNewPersonToolStripMenuItem
             // 
@@ -227,35 +241,44 @@ namespace DVLD__PresentationLayer_WinForm
             this.callToolStripMenuItem.Size = new System.Drawing.Size(225, 28);
             this.callToolStripMenuItem.Text = "Call";
             // 
-            // CmsPersonGrid
+            // pictureBox1
             // 
-            this.CmsPersonGrid.AutoSize = false;
-            this.CmsPersonGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmsPersonGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.CmsPersonGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem,
-            this.addNewPersonToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.sendEmailToolStripMenuItem,
-            this.callToolStripMenuItem});
-            this.CmsPersonGrid.Name = "CmsPersonGrid";
-            this.CmsPersonGrid.Size = new System.Drawing.Size(226, 212);
+            this.pictureBox1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.team;
+            this.pictureBox1.Location = new System.Drawing.Point(526, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(180, 180);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // showDetailsToolStripMenuItem
+            // BtnClose
             // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy;
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(225, 28);
-            this.showDetailsToolStripMenuItem.Text = "Show Details";
-            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            this.BtnClose.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnClose.BorderRadius = 10;
+            this.BtnClose.BorderThickness = 2;
+            this.BtnClose.CheckedState.Parent = this.BtnClose;
+            this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.FillColor = System.Drawing.Color.White;
+            this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClose.ForeColor = System.Drawing.Color.Black;
+            this.BtnClose.HoverState.Parent = this.BtnClose;
+            this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
+            this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnClose.Location = new System.Drawing.Point(1367, 722);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
+            this.BtnClose.Size = new System.Drawing.Size(153, 45);
+            this.BtnClose.TabIndex = 10;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // frmShowAllPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1532, 762);
+            this.ClientSize = new System.Drawing.Size(1538, 774);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.txtFilterText);
             this.Controls.Add(this.CbFilter);
@@ -270,8 +293,8 @@ namespace DVLD__PresentationLayer_WinForm
             this.Text = "People";
             this.Load += new System.EventHandler(this.frmShowAllPeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllPeopleData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CmsPersonGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +317,6 @@ namespace DVLD__PresentationLayer_WinForm
         private ToolStripMenuItem sendEmailToolStripMenuItem;
         private ToolStripMenuItem callToolStripMenuItem;
         private ToolStripMenuItem showDetailsToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2Button BtnClose;
     }
 }

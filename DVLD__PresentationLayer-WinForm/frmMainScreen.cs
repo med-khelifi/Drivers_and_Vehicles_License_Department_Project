@@ -58,5 +58,11 @@ namespace DVLD__PresentationLayer_WinForm
             clsCurrentUserInfo.CurrentUser = null;
             Close();
         }
+
+        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
     }
 }
