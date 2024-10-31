@@ -101,8 +101,8 @@
             this.guna2GroupBox1.Controls.Add(this.lblPhone);
             this.guna2GroupBox1.Controls.Add(this.lblDateOfBirth);
             this.guna2GroupBox1.Controls.Add(this.label1);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.DimGray;
-            this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 5, 5);
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(2);
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;

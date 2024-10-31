@@ -40,13 +40,28 @@ namespace DVLD__PresentationLayer_WinForm
         {
             int SelectedIndex = CbFilter.SelectedIndex;
 
-            if (string.IsNullOrWhiteSpace(FilterValue) || SelectedIndex == 0)
+            if (SelectedIndex == 5)
+            {
+                // Handle IsActive filter based on cbActiveState selection
+                if (cbActiveState == null || cbActiveState.SelectedIndex == 0) // All
+                    return string.Empty;
+                else if (cbActiveState.SelectedIndex == 1) // Yes
+                    return "IsActive = True";
+                else if (cbActiveState.SelectedIndex == 2) // No
+                    return "IsActive = False";
+                else
+                    return string.Empty;
+            }
+
+            if (string.IsNullOrWhiteSpace(FilterValue))
             {
                 return string.Empty;
             }
 
             switch (SelectedIndex)
             {
+                case 0:
+                    return string.Empty;
                 case 1:
                     return $"UserID = {FilterValue}";
                 case 2:
@@ -55,21 +70,11 @@ namespace DVLD__PresentationLayer_WinForm
                     return $"PersonID = {FilterValue}";
                 case 4:
                     return $"FullName LIKE '{FilterValue}%'";
-                case 5:
-                    // Handle IsActive filter based on cbActiveState selection
-                    if (cbActiveState == null || cbActiveState.SelectedIndex == 0) // All
-                        return string.Empty;
-                    else if (cbActiveState.SelectedIndex == 1) // Yes
-                        return "IsActive = 1";
-                    else if (cbActiveState.SelectedIndex == 2) // No
-                        return "IsActive = 0";
-                    else
-                        return string.Empty;
                 default:
                     return string.Empty;
-
             }
         }
+
 
         private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -94,10 +99,10 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void cbActiveState_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            FiltredUsers.RowFilter = _GetFilterString(txtFilterText.Text);
+            FiltredUsers.RowFilter = _GetFilterString("tvrtgvfg");
             dgvAllUsersData.DataSource = FiltredUsers;
         }
+
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {

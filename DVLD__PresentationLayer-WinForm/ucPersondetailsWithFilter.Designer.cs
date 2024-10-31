@@ -35,8 +35,8 @@
             this.btnSearchPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddNewPerson = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Person1 = new DVLD__PresentationLayer_WinForm.PersonDetailsControl();
             this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.Person1 = new DVLD__PresentationLayer_WinForm.PersonDetailsControl();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbFilter.SuspendLayout();
             this.SuspendLayout();
@@ -54,14 +54,14 @@
             this.txtFilterText.FocusedState.Parent = this.txtFilterText;
             this.txtFilterText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFilterText.HoverState.Parent = this.txtFilterText;
-            this.txtFilterText.Location = new System.Drawing.Point(408, 22);
+            this.txtFilterText.Location = new System.Drawing.Point(429, 22);
             this.txtFilterText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFilterText.Name = "txtFilterText";
             this.txtFilterText.PasswordChar = '\0';
             this.txtFilterText.PlaceholderText = "";
             this.txtFilterText.SelectedText = "";
             this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
-            this.txtFilterText.Size = new System.Drawing.Size(170, 44);
+            this.txtFilterText.Size = new System.Drawing.Size(191, 44);
             this.txtFilterText.TabIndex = 9;
             this.txtFilterText.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterText_Validating);
             // 
@@ -81,7 +81,7 @@
             "Person ID",
             "Nationality No"});
             this.CbFilter.ItemsAppearance.Parent = this.CbFilter;
-            this.CbFilter.Location = new System.Drawing.Point(147, 22);
+            this.CbFilter.Location = new System.Drawing.Point(168, 22);
             this.CbFilter.Name = "CbFilter";
             this.CbFilter.ShadowDecoration.Parent = this.CbFilter;
             this.CbFilter.Size = new System.Drawing.Size(254, 36);
@@ -92,11 +92,12 @@
             // 
             this.label2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(34, 22);
+            this.label2.Location = new System.Drawing.Point(41, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 36);
             this.label2.TabIndex = 7;
             this.label2.Text = "Filter by :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSearchPerson
             // 
@@ -111,7 +112,7 @@
             this.btnSearchPerson.HoverState.Parent = this.btnSearchPerson;
             this.btnSearchPerson.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__5_;
             this.btnSearchPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnSearchPerson.Location = new System.Drawing.Point(606, 22);
+            this.btnSearchPerson.Location = new System.Drawing.Point(639, 22);
             this.btnSearchPerson.Name = "btnSearchPerson";
             this.btnSearchPerson.ShadowDecoration.Parent = this.btnSearchPerson;
             this.btnSearchPerson.Size = new System.Drawing.Size(65, 44);
@@ -142,16 +143,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Person1
-            // 
-            this.Person1.BackColor = System.Drawing.Color.White;
-            this.Person1.Gender = "_";
-            this.Person1.Location = new System.Drawing.Point(3, 84);
-            this.Person1.Name = "Person1";
-            this.Person1.PersonID = "_";
-            this.Person1.Size = new System.Drawing.Size(1038, 365);
-            this.Person1.TabIndex = 0;
-            // 
             // gbFilter
             // 
             this.gbFilter.Controls.Add(this.txtFilterText);
@@ -161,10 +152,20 @@
             this.gbFilter.Controls.Add(this.CbFilter);
             this.gbFilter.Location = new System.Drawing.Point(3, 4);
             this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Size = new System.Drawing.Size(790, 74);
+            this.gbFilter.Size = new System.Drawing.Size(812, 74);
             this.gbFilter.TabIndex = 12;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter :";
+            // 
+            // Person1
+            // 
+            this.Person1.BackColor = System.Drawing.Color.White;
+            this.Person1.Gender = "_";
+            this.Person1.Location = new System.Drawing.Point(3, 84);
+            this.Person1.Name = "Person1";
+            this.Person1.PersonID = "_";
+            this.Person1.Size = new System.Drawing.Size(1038, 365);
+            this.Person1.TabIndex = 0;
             // 
             // ucPersondetailsWithFilter
             // 
