@@ -78,6 +78,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFilterText.Text = string.Empty;
             if (CbFilter.SelectedIndex != 5)
             {
                 txtFilterText.Visible = true;
@@ -205,6 +206,24 @@ namespace DVLD__PresentationLayer_WinForm
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtFilterText_TextChanged_1(object sender, EventArgs e)
+        {
+            FiltredUsers.RowFilter = _GetFilterString(txtFilterText.Text);
+            dgvAllUsersData.DataSource = FiltredUsers;
+        }
+
+        private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(CbFilter.SelectedIndex == 1 || CbFilter.SelectedIndex == 3)
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    // If the character is not a digit (0-9) or control key, ignore it
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

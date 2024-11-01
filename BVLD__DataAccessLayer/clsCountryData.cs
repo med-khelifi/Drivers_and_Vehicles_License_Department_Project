@@ -199,11 +199,8 @@ namespace ContactsDataLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    allCountries.Load(reader);
-                }
+                allCountries.Load(reader);
+                
                 reader.Close();
             }
             catch (System.Exception ex)

@@ -74,7 +74,8 @@
             this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
             this.txtFilterText.Size = new System.Drawing.Size(170, 36);
             this.txtFilterText.TabIndex = 12;
-            this.txtFilterText.TextChanged += new System.EventHandler(this.txtFilterText_TextChanged);
+            this.txtFilterText.TextChanged += new System.EventHandler(this.txtFilterText_TextChanged_1);
+            this.txtFilterText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
             // 
             // CbFilter
             // 
@@ -146,7 +147,6 @@
             // 
             // CmsPersonGrid
             // 
-            this.CmsPersonGrid.AutoSize = false;
             this.CmsPersonGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmsPersonGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.CmsPersonGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -158,7 +158,7 @@
             this.sendEmailToolStripMenuItem,
             this.callToolStripMenuItem});
             this.CmsPersonGrid.Name = "CmsPersonGrid";
-            this.CmsPersonGrid.Size = new System.Drawing.Size(226, 212);
+            this.CmsPersonGrid.Size = new System.Drawing.Size(233, 228);
             // 
             // showDetailsToolStripMenuItem
             // 

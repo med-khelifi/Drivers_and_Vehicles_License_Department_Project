@@ -28,10 +28,7 @@ namespace BVLD__DataAccessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    UsersData.Load(reader);
-                }
+                UsersData.Load(reader);
                 reader.Close();
             }
             catch (Exception ex)
