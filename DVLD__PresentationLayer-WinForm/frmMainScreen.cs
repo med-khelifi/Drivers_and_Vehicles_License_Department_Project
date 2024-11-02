@@ -64,5 +64,11 @@ namespace DVLD__PresentationLayer_WinForm
             frmManageApplicationTypes frm = new frmManageApplicationTypes();
             frm.ShowDialog();
         }
+
+        private void manageTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
     }
 }
