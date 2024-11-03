@@ -46,6 +46,7 @@
     <Compile Include="clsApplicationTypeData.cs" />
     <Compile Include="clsCountryData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
+    <Compile Include="clsLDLApplicationData.cs" />
     <Compile Include="clsPeopleData.cs" />
     <Compile Include="clsTestTypeData.cs" />
     <Compile Include="clsUsersData.cs" />

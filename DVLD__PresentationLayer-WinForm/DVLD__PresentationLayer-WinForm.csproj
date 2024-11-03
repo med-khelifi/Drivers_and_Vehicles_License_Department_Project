@@ -99,6 +99,12 @@
     <Compile Include="frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmManageLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageLocalDrivingLicenseApplication.resx">
+      <DependentUpon>frmManageLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageTestTypes.resx">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
@@ -363,6 +372,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

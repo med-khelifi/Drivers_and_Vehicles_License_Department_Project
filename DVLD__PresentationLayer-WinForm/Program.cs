@@ -16,7 +16,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainScreen());
+            Application.Run(new frmManageLocalDrivingLicenseApplication());
             //Application.Run(new frmShowAllPeople());
            //Application.Run(new frmPersonDetails(1));
            //Application.Run(new frmEditAddPerson());
