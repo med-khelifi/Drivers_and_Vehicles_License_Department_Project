@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BVLD__DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,15 @@ namespace BVLD__BusinessLayer
         public int MinimumAllowedAge { get; set; }
         public int DefaultValiditylength { get; set; }
         public float LicenseFees { get; set; }
+
+
+        public static List<string> GetLicenseClassesList()
+        {
+            return clsLicenseClassData.GetAllLicenseClasses();
+        }
+        public static float GetLicenseFees(int ClassID) 
+        {
+            return clsLicenseClassData.GetLicenseClassFees(ClassID);
+        }
     }
 }

@@ -28,16 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.dgvLDLApplication = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
             this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.CmsManageLDLGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.canToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sechduleTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLDLApplication)).BeginInit();
+            this.CmsManageLDLGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +69,7 @@
             this.dgvLDLApplication.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvLDLApplication.BackgroundColor = System.Drawing.Color.White;
             this.dgvLDLApplication.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLDLApplication.ContextMenuStrip = this.CmsManageLDLGrid;
             this.dgvLDLApplication.Location = new System.Drawing.Point(10, 299);
             this.dgvLDLApplication.Name = "dgvLDLApplication";
             this.dgvLDLApplication.ReadOnly = true;
@@ -68,6 +77,7 @@
             this.dgvLDLApplication.RowTemplate.Height = 24;
             this.dgvLDLApplication.Size = new System.Drawing.Size(1398, 346);
             this.dgvLDLApplication.TabIndex = 12;
+            this.dgvLDLApplication.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLDLApplication_CellMouseDown);
             // 
             // label1
             // 
@@ -99,8 +109,10 @@
             this.txtFilterText.PlaceholderText = "";
             this.txtFilterText.SelectedText = "";
             this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
-            this.txtFilterText.Size = new System.Drawing.Size(170, 36);
+            this.txtFilterText.Size = new System.Drawing.Size(195, 36);
             this.txtFilterText.TabIndex = 17;
+            this.txtFilterText.TextChanged += new System.EventHandler(this.txtFilterText_TextChanged);
+            this.txtFilterText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
             // 
             // CbFilter
             // 
@@ -116,22 +128,17 @@
             this.CbFilter.ItemHeight = 30;
             this.CbFilter.Items.AddRange(new object[] {
             "None",
-            "Person ID",
-            "Nationality No",
-            "First Name",
-            "Second Name",
-            "Third Name",
-            "Last Name",
-            "Gender",
-            "Nationality",
-            "Email",
-            "phone"});
+            "LDL AppID",
+            "NationalNo",
+            "FullName",
+            "Status"});
             this.CbFilter.ItemsAppearance.Parent = this.CbFilter;
             this.CbFilter.Location = new System.Drawing.Point(107, 247);
             this.CbFilter.Name = "CbFilter";
             this.CbFilter.ShadowDecoration.Parent = this.CbFilter;
             this.CbFilter.Size = new System.Drawing.Size(254, 36);
             this.CbFilter.TabIndex = 16;
+            this.CbFilter.SelectedIndexChanged += new System.EventHandler(this.CbFilter_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -142,6 +149,19 @@
             this.label2.Size = new System.Drawing.Size(121, 36);
             this.label2.TabIndex = 15;
             this.label2.Text = "Filter by :";
+            // 
+            // CmsManageLDLGrid
+            // 
+            this.CmsManageLDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmsManageLDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsManageLDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.editTestToolStripMenuItem,
+            this.deleteApplicationToolStripMenuItem,
+            this.canToolStripMenuItem,
+            this.sechduleTestToolStripMenuItem});
+            this.CmsManageLDLGrid.Name = "CmsPersonGrid";
+            this.CmsManageLDLGrid.Size = new System.Drawing.Size(257, 194);
             // 
             // guna2Button2
             // 
@@ -161,6 +181,7 @@
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2Button2.Size = new System.Drawing.Size(70, 60);
             this.guna2Button2.TabIndex = 18;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // BtnClose
             // 
@@ -181,6 +202,7 @@
             this.BtnClose.Size = new System.Drawing.Size(153, 45);
             this.BtnClose.TabIndex = 14;
             this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // pictureBox1
             // 
@@ -191,6 +213,46 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.ApplicationDetails;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
+            this.editToolStripMenuItem.Text = "Application Details";
+            // 
+            // editTestToolStripMenuItem
+            // 
+            this.editTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.EditApplication;
+            this.editTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
+            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
+            this.editTestToolStripMenuItem.Text = "Edit Application";
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            this.deleteApplicationToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.deleteApplication;
+            this.deleteApplicationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
+            this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
+            // 
+            // canToolStripMenuItem
+            // 
+            this.canToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.cancelApplication;
+            this.canToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.canToolStripMenuItem.Name = "canToolStripMenuItem";
+            this.canToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
+            this.canToolStripMenuItem.Text = "Cancel Application";
+            this.canToolStripMenuItem.Click += new System.EventHandler(this.canToolStripMenuItem_Click);
+            // 
+            // sechduleTestToolStripMenuItem
+            // 
+            this.sechduleTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
+            this.sechduleTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.sechduleTestToolStripMenuItem.Name = "sechduleTestToolStripMenuItem";
+            this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
+            this.sechduleTestToolStripMenuItem.Text = "Sechdule Tests";
             // 
             // frmManageLocalDrivingLicenseApplication
             // 
@@ -213,6 +275,7 @@
             this.Text = "frmManageLocalDrivingLicenseApplication";
             this.Load += new System.EventHandler(this.frmManageLocalDrivingLicenseApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLDLApplication)).EndInit();
+            this.CmsManageLDLGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -230,5 +293,11 @@
         private Guna.UI2.WinForms.Guna2TextBox txtFilterText;
         private Guna.UI2.WinForms.Guna2ComboBox CbFilter;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ContextMenuStrip CmsManageLDLGrid;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem canToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sechduleTestToolStripMenuItem;
     }
 }

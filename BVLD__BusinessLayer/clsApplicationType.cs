@@ -39,7 +39,6 @@ namespace BVLD__BusinessLayer
         {
             return _Update();
         }
-
         public static clsApplicationType Find(int applicationTypeID) 
         { 
             float applicationFees = -1;
@@ -49,6 +48,11 @@ namespace BVLD__BusinessLayer
                 return new clsApplicationType(applicationTypeID, applicationTypeTitle, applicationFees);
             }
             else { return null; }
+        }
+
+        public static float GetApplicationTypeFees(int applicationTypeID) 
+        {
+            return clsApplicationTypeData.GetApplicationFees(applicationTypeID);
         }
     }
 }

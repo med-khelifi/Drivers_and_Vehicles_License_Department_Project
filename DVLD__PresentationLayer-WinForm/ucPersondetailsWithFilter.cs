@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace DVLD__PresentationLayer_WinForm
     public partial class ucPersondetailsWithFilter : UserControl
     {
 
-        clsPerson PersonInfo;
+        public clsPerson PersonInfo = null;// { get; set; }
+
         bool isValidInput = false;
         public string PersonID { set { Person1.PersonID = value.ToString(); } get { return Person1.PersonID; } }
         public string NationalNo { set { Person1.NationalNo = value; } }
@@ -29,7 +31,14 @@ namespace DVLD__PresentationLayer_WinForm
         public string Phone { set { Person1.Phone = value; } }
         public DateTime DateOfBirth { set { Person1.DateOfBirth = value; } }
         public string ImagePath { set { Person1.ImagePath = value; } }
-        public bool isEmpty { get { return string.IsNullOrEmpty(PersonID) ; } }
+        public bool isEmpty
+        {
+            get
+            {
+                return (PersonInfo == null || Person1.PersonID == "-");
+            }
+        }
+
         public bool FilterVisibility { set { gbFilter.Enabled = value; } }
         public ucPersondetailsWithFilter()
         {
@@ -63,33 +72,35 @@ namespace DVLD__PresentationLayer_WinForm
         {
             if (!isValidInput || string.IsNullOrEmpty(txtFilterText.Text.Trim())) return;
 
+            // Assign PersonInfo based on the selected filter
             if (CbFilter.SelectedIndex == 0)
             {
                 PersonInfo = clsPerson.Find(Convert.ToInt32(txtFilterText.Text.Trim()));
             }
-            if (CbFilter.SelectedIndex == 1)
+            else if (CbFilter.SelectedIndex == 1)
             {
                 PersonInfo = clsPerson.Find(txtFilterText.Text.Trim());
             }
-
+            // Check if data is loaded into PersonInfo
             if (PersonInfo != null)
             {
-                if (clsUser.isThisPersonUser(PersonInfo.PersonId))
+
+                if (this.ParentForm.Name == "frmAddEditUser" && clsUser.isThisPersonUser(PersonInfo.PersonId))
                 {
-                    MessageBox.Show("This Person is already User.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("This Person is already a User.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     PersonInfo = null;
                 }
                 else
                 {
-                    _Loaddata();
+                    _Loaddata(); // Populate the control with PersonInfo data
                 }
-                
             }
             else
             {
                 MessageBox.Show("Person Not Found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void CbFilter_SelectedValueChanged(object sender, EventArgs e)
         {
             txtFilterText.Text = "";
@@ -139,7 +150,7 @@ namespace DVLD__PresentationLayer_WinForm
 
             }
         }
-      
+
         private void OnEditPersonLinkLabelClicked(object sender, EventArgs e)
         {
             //EditPersonInfoInFrmEditUser?.Invoke();
@@ -158,7 +169,34 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void ucPersondetailsWithFilter_Load(object sender, EventArgs e)
         {
-          
+            //
         }
-    } 
+
+        //private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == '\r')
+        //    {
+        //        btnSearchPerson_Click(sender, e);
+        //    }
+
+        //}
+
+        private void txtFilterText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearchPerson_Click(sender, e);
+                //MessageBox.Show("");
+            }
+
+        }
+
+        private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (CbFilter.SelectedIndex == 0)
+            {
+                if (char.IsLetter(e.KeyChar)) { e.Handled = true; }
+            }
+        }
+    }
 }

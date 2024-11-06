@@ -63,6 +63,8 @@
             this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
             this.txtFilterText.Size = new System.Drawing.Size(191, 44);
             this.txtFilterText.TabIndex = 9;
+            this.txtFilterText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterText_KeyDown);
+            this.txtFilterText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
             this.txtFilterText.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterText_Validating);
             // 
             // CbFilter

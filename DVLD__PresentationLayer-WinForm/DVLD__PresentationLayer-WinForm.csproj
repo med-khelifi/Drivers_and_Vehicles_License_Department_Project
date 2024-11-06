@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddNewLDLApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddNewLDLApplication.Designer.cs">
+      <DependentUpon>frmAddNewLDLApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="ucUserDetails.Designer.cs">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAddNewLDLApplication.resx">
+      <DependentUpon>frmAddNewLDLApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,6 +387,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InternationalLisence %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RenewCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReplacementCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\releaseCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6eed3229-0c04-49b9-a475-b706e9e78f4f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationDetails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -67,7 +67,26 @@ namespace BVLD__DataAccessLayer
 
             return effectedRow > 0;
         }
+        public static float GetApplicationFees(int ApplicationID)
+        {
+            float fees = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "Select ApplicationFees from ApplicationTypes;";
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
 
+            try
+            {
+                connection.Open();
+                object ReaderResult = sqlCommand.ExecuteScalar();
+                if (float.TryParse(ReaderResult.ToString(), out float Result))
+                {
+                    fees = Result;
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return fees;
+        }
         public static bool GetApplicationtypeInfo(int ApplicationID, ref string ApplicationTitle, ref float Fees)
         {
             bool isFound = false;

@@ -63,6 +63,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _6eed3229_0c04_49b9_a475_b706e9e78f4f {
+            get {
+                object obj = ResourceManager.GetObject("6eed3229-0c04-49b9-a475-b706e9e78f4f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addApplication {
             get {
                 object obj = ResourceManager.GetObject("addApplication", resourceCulture);
@@ -76,6 +86,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         internal static System.Drawing.Bitmap application {
             get {
                 object obj = ResourceManager.GetObject("application", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ApplicationDetails {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationDetails", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +143,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelApplication {
+            get {
+                object obj = ResourceManager.GetObject("cancelApplication", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checklist {
             get {
                 object obj = ResourceManager.GetObject("checklist", resourceCulture);
@@ -146,6 +176,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deleteApplication {
+            get {
+                object obj = ResourceManager.GetObject("deleteApplication", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +273,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditApplication {
+            get {
+                object obj = ResourceManager.GetObject("EditApplication", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap email {
             get {
                 object obj = ResourceManager.GetObject("email", resourceCulture);
@@ -283,6 +333,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap InternationalLisence__1_ {
+            get {
+                object obj = ResourceManager.GetObject("InternationalLisence (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap location {
             get {
                 object obj = ResourceManager.GetObject("location", resourceCulture);
@@ -326,6 +386,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         internal static System.Drawing.Bitmap management {
             get {
                 object obj = ResourceManager.GetObject("management", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewCard {
+            get {
+                object obj = ResourceManager.GetObject("NewCard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,6 +483,36 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap releaseCard {
+            get {
+                object obj = ResourceManager.GetObject("releaseCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RenewCard {
+            get {
+                object obj = ResourceManager.GetObject("RenewCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReplacementCard {
+            get {
+                object obj = ResourceManager.GetObject("ReplacementCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reset_password {
             get {
                 object obj = ResourceManager.GetObject("reset-password", resourceCulture);
@@ -426,6 +526,16 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         internal static System.Drawing.Bitmap reset_password__1_ {
             get {
                 object obj = ResourceManager.GetObject("reset-password (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap retest {
+            get {
+                object obj = ResourceManager.GetObject("retest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

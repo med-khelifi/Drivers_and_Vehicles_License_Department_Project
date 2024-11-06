@@ -61,13 +61,35 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageApplicationTypes frm = new frmManageApplicationTypes();
-            frm.ShowDialog();
+            
         }
 
         private void manageTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageLocalDrivingLicenseApplication frm = new frmManageLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void drivingLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewLDLApplication frm = new frmAddNewLDLApplication();
             frm.ShowDialog();
         }
     }
