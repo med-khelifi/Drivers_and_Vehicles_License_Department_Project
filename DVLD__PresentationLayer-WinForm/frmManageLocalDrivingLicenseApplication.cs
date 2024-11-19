@@ -56,7 +56,7 @@ namespace DVLD__PresentationLayer_WinForm
             { 
                 if(!(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar)))
                 {
-                    e.Handled |= true;
+                    e.Handled = true;
                 }                    
             }
         }
@@ -116,6 +116,124 @@ namespace DVLD__PresentationLayer_WinForm
                     SelectedApplicationID = Convert.ToInt32(dgvLDLApplication.Rows[e.RowIndex].Cells[0].Value);
                 }
             }
+        }
+
+        private void CmsManageLDLGrid_Opening(object sender, CancelEventArgs e)
+        {
+
+            if (clsLDLApplication.isLDLCancelled(SelectedApplicationID))
+            {
+                CmsManageLDLGrid.Items[4].Enabled = false;
+                CmsManageLDLGrid.Items[5].Enabled = false;
+                CmsManageLDLGrid.Items[6].Enabled = false;
+                return;
+            }
+
+            int PassedTests = clsLDLApplication.GetPassedTetsNumber(SelectedApplicationID);
+            
+            if(PassedTests == 3)
+            {
+                CmsManageLDLGrid.Items[4].Enabled = false;
+                if (clsLicense.isLDLAlreadyHasLicense(SelectedApplicationID))
+                {
+                    CmsManageLDLGrid.Items[5].Enabled = false;
+                    CmsManageLDLGrid.Items[6].Enabled = true;
+                    
+                }
+                else
+                {
+                    CmsManageLDLGrid.Items[5].Enabled = true;
+                    CmsManageLDLGrid.Items[6].Enabled = false;
+                }
+                return;
+            }
+
+            ToolStripMenuItem ScheduleTestRow = CmsManageLDLGrid.Items[4] as ToolStripMenuItem;
+            
+            if (PassedTests == 0)
+            {
+                ScheduleTestRow.DropDownItems[0].Enabled = true;   // Enable sub-item 0
+                ScheduleTestRow.DropDownItems[1].Enabled = false;  // Disable sub-item 1
+                ScheduleTestRow.DropDownItems[2].Enabled = false;  // Disable sub-item 2
+                CmsManageLDLGrid.Items[5].Enabled = false;
+                CmsManageLDLGrid.Items[6].Enabled = false;
+            }
+            else if (PassedTests == 1)
+            {
+                ScheduleTestRow.DropDownItems[0].Enabled = false;  // Disable sub-item 0
+                ScheduleTestRow.DropDownItems[1].Enabled = true;   // Enable sub-item 1
+                ScheduleTestRow.DropDownItems[2].Enabled = false;  // Disable sub-item 2
+            }
+            else if (PassedTests == 2)
+            {
+                ScheduleTestRow.DropDownItems[0].Enabled = false;  // Disable sub-item 0
+                ScheduleTestRow.DropDownItems[1].Enabled = false;  // Disable sub-item 1
+                ScheduleTestRow.DropDownItems[2].Enabled = true;   // Enable sub-item 2
+            }
+        }
+
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           if( MessageBox.Show("Are You Sure You Want To Delete This Application ?", "Delete Application",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (clsLDLApplication.DeleteLDLApplication(SelectedApplicationID))
+                {
+                    MessageBox.Show("Application Deleted Successfully.", "Application Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Error Was Happend,Cannot Delete this Application !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void _ResetCSMItems()
+        {
+            ToolStripMenuItem ScheduleTestRow = CmsManageLDLGrid.Items[4] as ToolStripMenuItem;
+            CmsManageLDLGrid.Items[1].Enabled = true;
+            CmsManageLDLGrid.Items[2].Enabled = true;
+            CmsManageLDLGrid.Items[3].Enabled = true;
+            CmsManageLDLGrid.Items[4].Enabled = true;
+            CmsManageLDLGrid.Items[5].Enabled = true;
+            CmsManageLDLGrid.Items[6].Enabled = true;
+            CmsManageLDLGrid.Items[7].Enabled = true;
+            
+
+            ScheduleTestRow.DropDownItems[0].Enabled = true;  
+            ScheduleTestRow.DropDownItems[1].Enabled = true;  
+            ScheduleTestRow.DropDownItems[2].Enabled = true;   
+        }
+        private void CmsManageLDLGrid_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+            _ResetCSMItems();
+        }
+
+        private void vesionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAppointments frm = new frmTestAppointments(SelectedApplicationID,1);
+            frm.OnFormClosedDelegated += _LoadData;
+            frm.ShowDialog();
+        }
+
+        private void sechduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAppointments frm = new frmTestAppointments(SelectedApplicationID, 2);
+            frm.OnFormClosedDelegated += _LoadData;
+            frm.ShowDialog();
+        }
+
+        private void sechduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAppointments frm = new frmTestAppointments(SelectedApplicationID, 3);
+            frm.OnFormClosedDelegated += _LoadData;
+            frm.ShowDialog();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLDLAppDetails frm = new frmShowLDLAppDetails(SelectedApplicationID);
+            frm.ShowDialog();
         }
     }
 }

@@ -89,5 +89,27 @@ namespace BVLD__DataAccessLayer
             }
             return effected > 0;
         }
+
+        public static float GetTestFees(int TestID)
+        {
+            float fees = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "Select TestTypeFees from TestTypes where TestTypeID = @TestID;";
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
+            sqlCommand.Parameters.AddWithValue("@TestID", TestID);
+            try
+            {
+                connection.Open();
+                object ReaderResult = sqlCommand.ExecuteScalar();
+                if (float.TryParse(ReaderResult.ToString(), out float Result))
+                {
+                    fees = Result;
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return fees;
+        }
+
     }
 }

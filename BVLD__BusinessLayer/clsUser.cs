@@ -124,5 +124,12 @@ namespace BVLD__BusinessLayer
             else
                 return null;
         }
+        public static string GetUserName(int UserName)
+        {
+            string userName = "";
+            if(clsUsersData.GetUserUserName(UserName,ref userName))
+                return userName;
+            return null;
+        }
     }
 }

@@ -29,7 +29,6 @@ namespace BVLD__DataAccessLayer
             finally { connection.Close(); }
             return list;
         }
-
         public static float GetLicenseClassFees(int LiceseClassID)
         {
             float fees = -1;
@@ -50,6 +49,28 @@ namespace BVLD__DataAccessLayer
             finally { connection.Close(); }
             return fees;
 
+        }
+        public static bool GetClassName(int ClassID,ref string ClassName)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "Select ClassName from LicenseClasses where LicenseClassID = @ID;";
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
+            sqlCommand.Parameters.AddWithValue("@ID",ClassID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                if (reader.Read()) 
+                {
+                    isFound = true;
+                    ClassName = reader["ClassName"].ToString();
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return isFound;
         }
     } 
 }

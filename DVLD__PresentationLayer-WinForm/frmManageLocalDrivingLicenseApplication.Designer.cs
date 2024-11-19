@@ -31,19 +31,25 @@
             this.components = new System.ComponentModel.Container();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.dgvLDLApplication = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.CmsManageLDLGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sechduleTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vesionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sechduleWrittenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sechduleStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLDLApplication)).BeginInit();
             this.CmsManageLDLGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +84,136 @@
             this.dgvLDLApplication.Size = new System.Drawing.Size(1398, 346);
             this.dgvLDLApplication.TabIndex = 12;
             this.dgvLDLApplication.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLDLApplication_CellMouseDown);
+            // 
+            // CmsManageLDLGrid
+            // 
+            this.CmsManageLDLGrid.BackColor = System.Drawing.Color.White;
+            this.CmsManageLDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmsManageLDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsManageLDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.editTestToolStripMenuItem,
+            this.deleteApplicationToolStripMenuItem,
+            this.canToolStripMenuItem,
+            this.sechduleTestToolStripMenuItem,
+            this.issureToolStripMenuItem,
+            this.showLicenseToolStripMenuItem,
+            this.showPersonLicenseHistoryToolStripMenuItem});
+            this.CmsManageLDLGrid.Name = "CmsPersonGrid";
+            this.CmsManageLDLGrid.Size = new System.Drawing.Size(353, 336);
+            this.CmsManageLDLGrid.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.CmsManageLDLGrid_Closing);
+            this.CmsManageLDLGrid.Opening += new System.ComponentModel.CancelEventHandler(this.CmsManageLDLGrid_Opening);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.ApplicationDetails;
+            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.editToolStripMenuItem.Text = "Application Details";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // editTestToolStripMenuItem
+            // 
+            this.editTestToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editTestToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.editTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.EditApplication;
+            this.editTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
+            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.editTestToolStripMenuItem.Text = "Edit Application";
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            this.deleteApplicationToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.deleteApplicationToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.deleteApplication;
+            this.deleteApplicationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
+            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
+            // 
+            // canToolStripMenuItem
+            // 
+            this.canToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.canToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.canToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.cancelApplication;
+            this.canToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.canToolStripMenuItem.Name = "canToolStripMenuItem";
+            this.canToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.canToolStripMenuItem.Text = "Cancel Application";
+            this.canToolStripMenuItem.Click += new System.EventHandler(this.canToolStripMenuItem_Click);
+            // 
+            // sechduleTestToolStripMenuItem
+            // 
+            this.sechduleTestToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vesionTestToolStripMenuItem,
+            this.sechduleWrittenTestToolStripMenuItem,
+            this.sechduleStreetTestToolStripMenuItem});
+            this.sechduleTestToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sechduleTestToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.sechduleTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
+            this.sechduleTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.sechduleTestToolStripMenuItem.Name = "sechduleTestToolStripMenuItem";
+            this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.sechduleTestToolStripMenuItem.Text = "Sechdule Tests";
+            // 
+            // vesionTestToolStripMenuItem
+            // 
+            this.vesionTestToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vesionTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.vision;
+            this.vesionTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.vesionTestToolStripMenuItem.Name = "vesionTestToolStripMenuItem";
+            this.vesionTestToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.vesionTestToolStripMenuItem.Text = "Sechdule Vision Test";
+            this.vesionTestToolStripMenuItem.Click += new System.EventHandler(this.vesionTestToolStripMenuItem_Click);
+            // 
+            // sechduleWrittenTestToolStripMenuItem
+            // 
+            this.sechduleWrittenTestToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sechduleWrittenTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Drivingtesicont;
+            this.sechduleWrittenTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.sechduleWrittenTestToolStripMenuItem.Name = "sechduleWrittenTestToolStripMenuItem";
+            this.sechduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.sechduleWrittenTestToolStripMenuItem.Text = "Sechdule Written Test";
+            this.sechduleWrittenTestToolStripMenuItem.Click += new System.EventHandler(this.sechduleWrittenTestToolStripMenuItem_Click);
+            // 
+            // sechduleStreetTestToolStripMenuItem
+            // 
+            this.sechduleStreetTestToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sechduleStreetTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.drivingTestRoad;
+            this.sechduleStreetTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.sechduleStreetTestToolStripMenuItem.Name = "sechduleStreetTestToolStripMenuItem";
+            this.sechduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.sechduleStreetTestToolStripMenuItem.Text = "Sechdule Street Test";
+            this.sechduleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.sechduleStreetTestToolStripMenuItem_Click);
+            // 
+            // issureToolStripMenuItem
+            // 
+            this.issureToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.issureToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.issureToolStripMenuItem.Name = "issureToolStripMenuItem";
+            this.issureToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.issureToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            // 
+            // showLicenseToolStripMenuItem
+            // 
+            this.showLicenseToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showLicenseToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
+            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.showLicenseToolStripMenuItem.Text = "Show License ";
+            // 
+            // showPersonLicenseHistoryToolStripMenuItem
+            // 
+            this.showPersonLicenseHistoryToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPersonLicenseHistoryToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
+            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             // 
             // label1
             // 
@@ -150,19 +286,6 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Filter by :";
             // 
-            // CmsManageLDLGrid
-            // 
-            this.CmsManageLDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmsManageLDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.CmsManageLDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem,
-            this.editTestToolStripMenuItem,
-            this.deleteApplicationToolStripMenuItem,
-            this.canToolStripMenuItem,
-            this.sechduleTestToolStripMenuItem});
-            this.CmsManageLDLGrid.Name = "CmsPersonGrid";
-            this.CmsManageLDLGrid.Size = new System.Drawing.Size(257, 194);
-            // 
             // guna2Button2
             // 
             this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
@@ -214,46 +337,6 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.ApplicationDetails;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
-            this.editToolStripMenuItem.Text = "Application Details";
-            // 
-            // editTestToolStripMenuItem
-            // 
-            this.editTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.EditApplication;
-            this.editTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
-            this.editTestToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
-            this.editTestToolStripMenuItem.Text = "Edit Application";
-            // 
-            // deleteApplicationToolStripMenuItem
-            // 
-            this.deleteApplicationToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.deleteApplication;
-            this.deleteApplicationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
-            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
-            this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
-            // 
-            // canToolStripMenuItem
-            // 
-            this.canToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.cancelApplication;
-            this.canToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.canToolStripMenuItem.Name = "canToolStripMenuItem";
-            this.canToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
-            this.canToolStripMenuItem.Text = "Cancel Application";
-            this.canToolStripMenuItem.Click += new System.EventHandler(this.canToolStripMenuItem_Click);
-            // 
-            // sechduleTestToolStripMenuItem
-            // 
-            this.sechduleTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
-            this.sechduleTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.sechduleTestToolStripMenuItem.Name = "sechduleTestToolStripMenuItem";
-            this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(256, 38);
-            this.sechduleTestToolStripMenuItem.Text = "Sechdule Tests";
-            // 
             // frmManageLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -299,5 +382,11 @@
         private System.Windows.Forms.ToolStripMenuItem deleteApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem canToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sechduleTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vesionTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sechduleWrittenTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sechduleStreetTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem issureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
     }
 }

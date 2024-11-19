@@ -47,5 +47,9 @@ namespace BVLD__BusinessLayer
         {
             return clsTestTypeData.GetAllTestTypes();
         }
+        public static float GetTestFees(int TestID)
+        {
+            return clsTestTypeData.GetTestFees(TestID);
+        }
     }
 }

@@ -71,8 +71,9 @@ namespace BVLD__DataAccessLayer
         {
             float fees = -1;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "Select ApplicationFees from ApplicationTypes;";
+            string query = "Select ApplicationFees from ApplicationTypes where ApplicationTypeID = @AppID;";
             SqlCommand sqlCommand = new SqlCommand(query, connection);
+            sqlCommand.Parameters.AddWithValue("@AppID",ApplicationID);
 
             try
             {

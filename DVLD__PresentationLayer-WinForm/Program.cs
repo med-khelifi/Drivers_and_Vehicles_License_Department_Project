@@ -16,10 +16,12 @@ namespace DVLD__PresentationLayer_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLoggingScrren());
+            //Application.Run(new frmScheduleTests(1,7));
+             Application.Run(new frmLoggingScrren());
             //Application.Run(new frmAddNewLDLApplication());
-           //Application.Run(new frmManageLocalDrivingLicenseApplication());
-           //Application.Run(new frmEditAddPerson());
+            //Application.Run(new frmManageLocalDrivingLicenseApplication());
+            //Application.Run(new frmEditAddPerson());
+            //Application.Run(new ScheduleTest());
         }
     }
 }

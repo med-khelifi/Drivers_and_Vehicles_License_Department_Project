@@ -82,7 +82,7 @@ namespace DVLD__PresentationLayer_WinForm
             if(SelectedPersonID != -1)
             {
                 //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-                frmPersonDetails frm = new frmPersonDetails(SelectedPersonID);
+                frmShowPersonDetails frm = new frmShowPersonDetails(SelectedPersonID);
                  frm.FormClosedEvent += _LoadPersonsData;
                  frm.ShowDialog();
             }

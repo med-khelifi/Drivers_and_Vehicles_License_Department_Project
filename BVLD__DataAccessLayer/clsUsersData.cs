@@ -257,6 +257,35 @@ namespace BVLD__DataAccessLayer
             return isFound;
         }
 
+        public static bool GetUserUserName(int userID,ref string userName)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"Select UserName from Users where UserID = @UserID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@UserID", userID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                  
+                    userName = reader["UserName"].ToString();
+                    
+                }
+                reader.Close();
+            }
+            catch
+            {
+                isFound = false;
+            }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
     }
     
 }

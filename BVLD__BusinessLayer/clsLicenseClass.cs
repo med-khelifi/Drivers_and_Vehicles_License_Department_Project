@@ -25,5 +25,14 @@ namespace BVLD__BusinessLayer
         {
             return clsLicenseClassData.GetLicenseClassFees(ClassID);
         }
+        public static string GetClassName(int ClassID) 
+        {
+            string className = string.Empty;
+            if (clsLicenseClassData.GetClassName(ClassID, ref className)) 
+            { 
+                return className;
+            }
+            return null;
+        }
     }
 }

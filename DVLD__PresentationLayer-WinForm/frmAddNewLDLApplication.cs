@@ -9,8 +9,8 @@ namespace DVLD__PresentationLayer_WinForm
         public delegate void frmAddNewLDLApplicationClosedDelegate();
         public frmAddNewLDLApplicationClosedDelegate frmClosedDelegate;
 
-        clsLDLApplication LDLApplication;
-        clsApplication Application;
+        clsLDLApplication _LDLApplication;
+        clsApplication _Application;
         float ApplicationTypeFees = -1;
 
         public frmAddNewLDLApplication()
@@ -50,37 +50,47 @@ namespace DVLD__PresentationLayer_WinForm
             Close();
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
+       
             if (ucPersondetailsWithFilter1.isEmpty)
             {
                 MessageBox.Show("Please Select Person to Complete The Process !.", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int PersonID = Convert.ToInt32(ucPersondetailsWithFilter1.PersonID);
+
+
+            int PersonID = ucPersondetailsWithFilter1.PersonInfo.PersonId;
             int LicenseClassID = cbLicenseClass.SelectedIndex + 1;
+
+            if (clsLicense.isPersonAlreadyHasLicense(PersonID, LicenseClassID))
+            {
+                MessageBox.Show("This Person Already Has This License !.", "License Owned", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (clsLDLApplication.PersonHasInCompletedApplication(PersonID, LicenseClassID))
             {
                 MessageBox.Show("Person Already Have Uncompleted Applicaation !.", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Application = new clsApplication();
-            Application.ApplicantPersonID = PersonID;
-            Application.ApplicationDate = DateTime.Now;
-            Application.ApplicationTypeID = 1;
-            Application.ApplicationStatus = 1;
-            Application.LastStatusDate = DateTime.Now;
-            Application.PaidFees = clsLicenseClass.GetLicenseFees(LicenseClassID);
-            Application.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
 
-            if (Application.Save())
+            _Application = new clsApplication();
+            _Application.ApplicantPersonID = PersonID;
+            _Application.ApplicationDate = DateTime.Now;
+            _Application.ApplicationTypeID = 1;
+            _Application.ApplicationStatus = 1;
+            _Application.LastStatusDate = DateTime.Now;
+            _Application.PaidFees = clsLicenseClass.GetLicenseFees(LicenseClassID);
+            _Application.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+
+            if (_Application.Save())
             {
-                lblID.Text = Application.ApplicationID.ToString();
-                LDLApplication = new clsLDLApplication();
-                LDLApplication.ApplicationID = Application.ApplicationID;
-                LDLApplication.LicenseClassID = LicenseClassID;
-                if (LDLApplication.Save())
+                lblID.Text = _Application.ApplicationID.ToString();
+                _LDLApplication = new clsLDLApplication();
+                _LDLApplication.ApplicationID = _Application.ApplicationID;
+                _LDLApplication.LicenseClassID = LicenseClassID;
+                if (_LDLApplication.Save())
                 {
                     MessageBox.Show("Application Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

@@ -365,6 +365,12 @@ namespace DVLD__PresentationLayer_WinForm
             if (IsDefaultImage())
                 pbPersonPicture.Image= _SetDefaultImage();
         }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
         private bool _AreValidInputs()
         {
             return isValidName && isValidThirdname && isValidNationalNo && isValidAddress && isValidEmail && isValidPhone;

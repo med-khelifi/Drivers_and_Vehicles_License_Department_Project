@@ -92,5 +92,11 @@ namespace DVLD__PresentationLayer_WinForm
             frmAddNewLDLApplication frm = new frmAddNewLDLApplication();
             frm.ShowDialog();
         }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDrivers frm = new frmManageDrivers();
+            frm.ShowDialog();
+        }
     }
 }

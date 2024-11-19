@@ -143,5 +143,15 @@ namespace BVLD__BusinessLayer
         {
             return clsPeopleData.isPersonExist(NationalNo);
         }
+
+        public static string getPersonFullName(int PersonId)
+        {
+            string FullName = "2";
+            if (clsPeopleData.GetPersonFullName(PersonId,ref FullName))
+            {
+                return FullName;
+            }
+            return "null";
+        }
     }
 }

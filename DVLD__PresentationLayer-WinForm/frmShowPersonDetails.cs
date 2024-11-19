@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace DVLD__PresentationLayer_WinForm
 {
-    public partial class frmPersonDetails : Form
+    public partial class frmShowPersonDetails : Form
     {
         public delegate void EditPersonFormClosedEventhandler();
         public event EditPersonFormClosedEventhandler FormClosedEvent;
 
         bool isPersonEdited = false;
         int PersonID = -1;
-        public frmPersonDetails(int personID)
+        public frmShowPersonDetails(int personID)
         {
             InitializeComponent();
             PersonID = personID;

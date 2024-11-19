@@ -365,5 +365,35 @@ namespace BVLD__DataAccessLayer
             }
             return isFound;
         }
+
+        public static bool GetPersonFullName(int PersonID, ref string FullName)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT FirstName+' '+ SecondName+' '+ ThirdName+' '+ LastName as FullName FROM People where People.PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    FullName = reader["FullName"].ToString();
+                }
+                reader.Close();
+            }
+            catch { }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
     }
 }

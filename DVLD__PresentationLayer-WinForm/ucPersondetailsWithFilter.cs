@@ -18,7 +18,7 @@ namespace DVLD__PresentationLayer_WinForm
     public partial class ucPersondetailsWithFilter : UserControl
     {
 
-        public clsPerson PersonInfo = null;// { get; set; }
+        public clsPerson PersonInfo { get; set; } = null;
 
         bool isValidInput = false;
         public string PersonID { set { Person1.PersonID = value.ToString(); } get { return Person1.PersonID; } }
@@ -38,7 +38,6 @@ namespace DVLD__PresentationLayer_WinForm
                 return (PersonInfo == null || Person1.PersonID == "-");
             }
         }
-
         public bool FilterVisibility { set { gbFilter.Enabled = value; } }
         public ucPersondetailsWithFilter()
         {
@@ -100,7 +99,6 @@ namespace DVLD__PresentationLayer_WinForm
                 MessageBox.Show("Person Not Found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void CbFilter_SelectedValueChanged(object sender, EventArgs e)
         {
             txtFilterText.Text = "";
@@ -138,7 +136,6 @@ namespace DVLD__PresentationLayer_WinForm
                 }
             }
         }
-
         private void _LoadEditedPerson(int PersonID)
         {
             PersonInfo = clsPerson.Find(PersonID);
@@ -150,7 +147,6 @@ namespace DVLD__PresentationLayer_WinForm
 
             }
         }
-
         private void OnEditPersonLinkLabelClicked(object sender, EventArgs e)
         {
             //EditPersonInfoInFrmEditUser?.Invoke();
@@ -159,28 +155,16 @@ namespace DVLD__PresentationLayer_WinForm
             frm.OnDataback += _LoadEditedPerson;
             frm.ShowDialog();
         }
-
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmEditAddPerson frm = new frmEditAddPerson(-1);
             frm.OnDataback += _LoadEditedPerson;
             frm.ShowDialog();
         }
-
         private void ucPersondetailsWithFilter_Load(object sender, EventArgs e)
         {
             //
         }
-
-        //private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (e.KeyChar == '\r')
-        //    {
-        //        btnSearchPerson_Click(sender, e);
-        //    }
-
-        //}
-
         private void txtFilterText_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -190,7 +174,6 @@ namespace DVLD__PresentationLayer_WinForm
             }
 
         }
-
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (CbFilter.SelectedIndex == 0)

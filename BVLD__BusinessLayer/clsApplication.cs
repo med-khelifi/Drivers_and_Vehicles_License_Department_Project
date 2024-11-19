@@ -21,7 +21,6 @@ namespace BVLD__BusinessLayer
         public DateTime LastStatusDate { get; set; }
         public float PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
-
         private clsApplication(int applicationID, int applicantPersonID, DateTime applicationDate, int applicationTypeID, 
             int applicationStatus, DateTime lastStatusDate, float paidFees, int createdByUserID)
         {
@@ -34,6 +33,19 @@ namespace BVLD__BusinessLayer
             LastStatusDate = lastStatusDate;
             PaidFees = paidFees;
             CreatedByUserID = createdByUserID;
+        }    
+        public static clsApplication Find(int applicationID)
+        {
+            int applicantPersonID =-1,applicationTypeID =-1, applicationStatus=-1, createdByUserID =-1;
+            DateTime appLicationDate = DateTime.Now, lastStatusDate = DateTime.Now;
+            float paidFees = -1;
+
+            if(clsApplicationData.GetApplicationInfo(applicationID,ref applicantPersonID, ref appLicationDate,ref applicationTypeID,ref applicationStatus,ref lastStatusDate,ref paidFees,ref createdByUserID))
+
+            {
+                return new clsApplication(applicationID,applicantPersonID,appLicationDate,applicationTypeID,applicationStatus,lastStatusDate,paidFees,createdByUserID);
+            }
+            return null;
         }
         public clsApplication()
         {
@@ -49,10 +61,16 @@ namespace BVLD__BusinessLayer
         }
         private bool _AddNewApplication()
         {
-            //int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,string ApplicationStatus,
-            //DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
             ApplicationID = clsApplicationData.AddNewApplication
-                (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID);
+                (
+                            ApplicantPersonID,
+                            ApplicationDate,
+                            ApplicationTypeID,
+                            ApplicationStatus,
+                            LastStatusDate,
+                            PaidFees,
+                            CreatedByUserID
+                );
 
             return ApplicationID != -1;
         }
@@ -70,7 +88,8 @@ namespace BVLD__BusinessLayer
                         Mode = enMode.update;
                         return true;
                     }
-                    else return false;
+                    else 
+                        return false;
 
                 case enMode.update:
                         return _Update();
@@ -80,5 +99,6 @@ namespace BVLD__BusinessLayer
                         
             }
         }
+
     }
 }
