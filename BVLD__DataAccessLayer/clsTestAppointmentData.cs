@@ -227,7 +227,7 @@ namespace BVLD__DataAccessLayer
             {
                 connection.Open();
                 object result = command.ExecuteScalar();
-                if (DateTime.TryParse(result.ToString(), out DateTime value))
+                if (result != null && DateTime.TryParse(result.ToString(), out DateTime value))
                 {
                     Result = value;
                 }

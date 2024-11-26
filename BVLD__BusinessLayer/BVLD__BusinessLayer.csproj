@@ -49,6 +49,7 @@
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsCurrentUserInfo.cs" />
     <Compile Include="clsDriver.cs" />
+    <Compile Include="clsInternationalLicenses.cs" />
     <Compile Include="clsLicense.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsTest.cs" />

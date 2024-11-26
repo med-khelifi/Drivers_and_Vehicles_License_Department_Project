@@ -64,7 +64,7 @@ namespace DVLD__PresentationLayer_WinForm
             isPersonEdited = true;
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnClose_Clicked(object sender, EventArgs e)
         {
             if (isPersonEdited)
             {

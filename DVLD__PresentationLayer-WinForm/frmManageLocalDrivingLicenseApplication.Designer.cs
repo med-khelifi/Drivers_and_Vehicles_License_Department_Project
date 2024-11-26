@@ -195,25 +195,31 @@
             // 
             this.issureToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.issureToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.issureToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.NewCard;
             this.issureToolStripMenuItem.Name = "issureToolStripMenuItem";
             this.issureToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
             this.issureToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            this.issureToolStripMenuItem.Click += new System.EventHandler(this.issureToolStripMenuItem_Click);
             // 
             // showLicenseToolStripMenuItem
             // 
             this.showLicenseToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showLicenseToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showLicenseToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.driving_license;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
             this.showLicenseToolStripMenuItem.Text = "Show License ";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
             this.showPersonLicenseHistoryToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPersonLicenseHistoryToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.releaseCard;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // label1
             // 

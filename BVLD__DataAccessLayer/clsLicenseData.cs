@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +11,31 @@ namespace BVLD__DataAccessLayer
 {
     public class clsLicenseData
     {
+        public static DataTable GetLocalDrivingLicenses(int PersonID)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"SELECT Licenses.LicenseID, Licenses.ApplicationID, LicenseClasses.ClassName, Licenses.IssueDate, Licenses.ExpirationDate, Licenses.IsActive
+                    FROM     Applications INNER JOIN
+                  Licenses ON Applications.ApplicationID = Licenses.ApplicationID INNER JOIN
+                  LicenseClasses ON Licenses.LicenseClass = LicenseClasses.LicenseClassID
+				  where ApplicantPersonID = @PersonID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows) 
+                { 
+                    dt.Load(reader);    
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return dt;
+        }
         public static int AddNewLicense(int applicationID, int driverID, int licenseClass,
             DateTime issueDate, DateTime expirationDate, string notes, float paidFees, bool isActive,
             int issueReason, int createdByUserID)
@@ -54,12 +81,40 @@ namespace BVLD__DataAccessLayer
         }
 
 
-        //public static bool GetLicenseInfo(int license ,ref int applicationID,ref int driverID,ref int licenseClass,
-        //    DateTime issueDate, DateTime expirationDate, string notes, float paidFees, bool isActive,
-        //    int issueReason, int createdByUserID)
-        //{
-
-        //}
+        public static bool GetLicenseInfo(int licenseID, ref int applicationID, ref int driverID, ref int licenseClass,
+            ref DateTime issueDate,ref DateTime expirationDate,ref string notes, ref float paidFees,ref bool isActive,
+            ref int issueReason,ref int createdByUserID)
+        {
+            bool isfound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"SELECT * from Licenses where LicenseID = @ID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@ID", licenseID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isfound = true;
+                    applicationID = Convert.ToInt32(reader["ApplicationID"]);
+                    driverID = Convert.ToInt32(reader["DriverID"]);
+                    licenseClass = Convert.ToInt32(reader["LicenseClass"]);
+                    issueDate = Convert.ToDateTime(reader["IssueDate"]);
+                    expirationDate = Convert.ToDateTime(reader["ExpirationDate"]);
+                    notes = (reader["Notes"] == DBNull.Value ? "" : reader["Notes"].ToString());
+                    paidFees = Convert.ToInt32(reader["PaidFees"]);
+                    isActive = Convert.ToBoolean(reader["IsActive"]);
+                    issueReason = Convert.ToInt32(reader["IssueReason"]);
+                    createdByUserID = Convert.ToInt32(reader["CreatedByUserID"]);
+                }
+                
+            }
+            catch { }
+            finally { connection.Close(); }
+            return isfound;
+            
+        }
 
         public static bool isPersonAlreadyHasLicense(int PersonID, int LicenseClassID)
         {
@@ -83,7 +138,6 @@ namespace BVLD__DataAccessLayer
             finally { connection.Close(); }
             return Result;
         }
-
         public static bool isLDLAlreadyHasLicense(int LocalDrivingLicenseAppID)
         {
             bool Result = false;
@@ -106,6 +160,31 @@ namespace BVLD__DataAccessLayer
             catch { }
             finally { connection.Close(); }
             return Result;
+        }
+
+        public static int GetLicenseID(int LocalDrivingLicenseID)
+        {
+            int AddID = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"select LicenseID
+                from LocalDrivingLicenseApplications inner join Applications on LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+                join Licenses on Licenses.ApplicationID = Applications.ApplicationID
+                where LocalDrivingLicenseApplicationID = @ID;;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@ID", LocalDrivingLicenseID);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+                if (int.TryParse(Result.ToString(), out int value))
+                {
+                    AddID = value;
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return AddID;
         }
     }
 }

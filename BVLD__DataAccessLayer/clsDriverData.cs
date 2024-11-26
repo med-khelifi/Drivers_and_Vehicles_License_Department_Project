@@ -52,5 +52,66 @@ namespace BVLD__DataAccessLayer
             finally { connection.Close(); }
             return AddID;
         }
+        public static bool isPersonADriver(int PersonID)
+        {
+            bool Result = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"select f=1 from Drivers where PersonID = @PersonID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Result = reader.HasRows;
+                reader.Close();
+            }
+            catch { }
+            finally { connection.Close(); }
+            return Result;
+        }
+        public static int GetDriverIDOfPerson(int PersonID)
+        {
+            int Result = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"select DriverID from Drivers where PersonID = @PersonID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                object reader = command.ExecuteScalar();
+                if(int.TryParse(reader.ToString(), out int value))
+                {
+                    Result = value;
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return Result;
+        }
+        public static int GetPersonIDOfDriver(int driverID)
+        {
+            int Result = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"select PersonID from Drivers where DriverID = @DriverID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@DriverID", driverID);
+
+            try
+            {
+                connection.Open();
+                object reader = command.ExecuteScalar();
+                if (reader != null && int.TryParse(reader.ToString(), out int value))
+                {
+                    Result = value;
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return Result;
+        }
     }
 }

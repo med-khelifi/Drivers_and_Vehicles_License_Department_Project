@@ -98,5 +98,10 @@ namespace DVLD__PresentationLayer_WinForm
             frmManageDrivers frm = new frmManageDrivers();
             frm.ShowDialog();
         }
+
+        private void frmMainScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

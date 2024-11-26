@@ -30,6 +30,18 @@ namespace BVLD__BusinessLayer
         {
             return _AddNewDriver();
         }
+        public static bool isPersonADriver(int PersonID)
+        {
+            return clsDriverData.isPersonADriver(PersonID);
+        }
+        public static int GetDriverIDOfPerson(int PersonID)
+        {
+            return clsDriverData.GetDriverIDOfPerson(PersonID);
+        }
+        public static int GetPersonIDOfDriver(int driverID)
+        {
+            return clsDriverData.GetPersonIDOfDriver(driverID);
+        }
     }
 
 

@@ -93,5 +93,13 @@ namespace BVLD__BusinessLayer
         {
             return clsLDLApplicationData.isLDLCancelled(LDL_ID);
         }
+        public static bool CompleteLDLApplication(int LDLApplicationID, DateTime CurrentTime)
+        {
+            return clsLDLApplicationData.CompleteLDLApplication(LDLApplicationID, CurrentTime);
+        }
+        public static int GetApplicantPersonID(int LDLApplication)
+        {
+            return clsLDLApplicationData.GetApplicantPersonID(LDLApplication);
+        }
     }
 }

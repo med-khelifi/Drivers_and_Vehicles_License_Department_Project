@@ -172,7 +172,6 @@ namespace DVLD__PresentationLayer_WinForm
             }
         }
 
-
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
            if( MessageBox.Show("Are You Sure You Want To Delete This Application ?", "Delete Application",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
@@ -233,6 +232,25 @@ namespace DVLD__PresentationLayer_WinForm
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmShowLDLAppDetails frm = new frmShowLDLAppDetails(SelectedApplicationID);
+            frm.ShowDialog();
+        }
+
+        private void issureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIssueDrivingLicenseFirstTime frm = new frmIssueDrivingLicenseFirstTime(SelectedApplicationID);
+            frm.OnfrmIssueDrivingLicenseFirstTimeClosedEventHandler += _LoadData;
+            frm.ShowDialog();   
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseInfo frm = new frmLicenseInfo(SelectedApplicationID); 
+            frm.ShowDialog();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicensesHistory frm = new frmLicensesHistory(SelectedApplicationID);
             frm.ShowDialog();
         }
     }

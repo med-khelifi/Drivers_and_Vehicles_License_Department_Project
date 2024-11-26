@@ -34,5 +34,9 @@ namespace BVLD__BusinessLayer
             }
             return null;
         }
+        public static int GetLicenseClassDefaultValidityLength(int LiceseClassID)
+        {
+            return clsLicenseClassData.GetLicenseClassDefaultValidityLength(LiceseClassID);
+        }
     }
 }

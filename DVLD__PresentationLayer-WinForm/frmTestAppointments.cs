@@ -92,7 +92,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void ShowPersonDetails()
         {
             frmShowPersonDetails frm = new frmShowPersonDetails(_Application.ApplicantPersonID);
-            frm.FormClosedEvent += _LoadLDLApplicationData;
+            frm.FormClosedEvent += _LoadDGVAppointments;
             frm.ShowDialog();
         }
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
@@ -110,13 +110,13 @@ namespace DVLD__PresentationLayer_WinForm
             }
 
             frmScheduleTest frm = new frmScheduleTest(_LDLApplicationID, _TestType, -1);
-            frm.OnFormClosedDelegated += _LoadLDLApplicationData;
+            frm.OnFormClosedAfterScheduleDelegated += _LoadDGVAppointments;
             frm.ShowDialog();
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmScheduleTest frm = new frmScheduleTest(_LDLApplicationID, _TestType, SelectedAppointmentID);
-            frm.OnFormClosedDelegated += _LoadDGVAppointments;
+            frm.OnFormClosedAfterScheduleDelegated += _LoadDGVAppointments;
             frm.ShowDialog();
         }
         private void dgvAppointments_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)

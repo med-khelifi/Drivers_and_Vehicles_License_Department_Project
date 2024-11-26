@@ -14,7 +14,7 @@ namespace DVLD__PresentationLayer_WinForm
     public partial class frmScheduleTest : Form
     {
         public delegate void OnFormClosedEventHandler();
-        public OnFormClosedEventHandler OnFormClosedDelegated;
+        public OnFormClosedEventHandler OnFormClosedAfterScheduleDelegated;
         enum enMode { addNew ,update}
         enMode Mode;
 
@@ -166,7 +166,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void frmScheduleTest_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OnFormClosedDelegated?.Invoke();
+            OnFormClosedAfterScheduleDelegated?.Invoke();
         }
         private void _CheckIfTestIsPassed()
         {

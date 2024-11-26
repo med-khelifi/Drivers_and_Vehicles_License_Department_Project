@@ -229,5 +229,68 @@ namespace BVLD__DataAccessLayer
             return isFound;
 
         }
+        public static bool CompleteLDLApplication(int LDLApplicationID, DateTime CurrentTime)
+        {
+            int effectedRow = 0;
+            string connectionString = clsDataAccessSettings.ConnectionString;
+            string query = @"
+        UPDATE Applications
+        SET Applications.ApplicationStatus = 3,
+            Applications.LastStatusDate = @CurrentTime
+        FROM Applications
+        JOIN LocalDrivingLicenseApplications 
+            ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+        WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LDLApplicationID;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.Add("@CurrentTime", SqlDbType.DateTime).Value = CurrentTime;
+                    cmd.Parameters.Add("@LDLApplicationID", SqlDbType.Int).Value = LDLApplicationID;
+
+                    connection.Open();
+                    effectedRow = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Log the exception for debugging
+                Console.Error.WriteLine($"SQL Error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                Console.Error.WriteLine($"Error: {ex.Message}");
+            }
+
+            return effectedRow > 0;
+        }
+        public static int GetApplicantPersonID(int LDLApplication)
+        {
+            int PersonID = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Qurey = @"SELECT Applications.ApplicantPersonID
+                FROM     LocalDrivingLicenseApplications INNER JOIN
+                  Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+				  where LocalDrivingLicenseApplicationID = @LDLAppID;";
+
+            SqlCommand cmd = new SqlCommand(Qurey, connection);
+            cmd.Parameters.AddWithValue("@LDLAppID", LDLApplication);
+            try
+            {
+                connection.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int Result))
+                {
+                    PersonID = Result;
+                }
+
+            }
+            catch { }
+            finally { connection.Close(); }
+            return PersonID;
+        }
     }
 }

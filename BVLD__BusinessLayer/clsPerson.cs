@@ -67,7 +67,7 @@ namespace BVLD__BusinessLayer
         }
         public static DataTable GetAllPeople()
         {
-            return clsPeopleData.GetAllPeople();
+            return clsPersonData.GetAllPeople();
         }
         public static clsPerson Find(int ID)
         {
@@ -75,7 +75,7 @@ namespace BVLD__BusinessLayer
             string Address = "", ImagePath = "";
             int Gender = -1, CountryID = -1;
             DateTime DateOfBirth = DateTime.Now;
-            if (clsPeopleData.GetPersonInfo(ID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
+            if (clsPersonData.GetPersonInfo(ID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
             {
                 return new clsPerson(ID, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, CountryID, Phone, Email, Address, ImagePath);
             }
@@ -90,7 +90,7 @@ namespace BVLD__BusinessLayer
             string Address = "", ImagePath = "";
             int Gender = -1, CountryID = -1, PersonID = -1;
             DateTime DateOfBirth = DateTime.Now;
-            if (clsPeopleData.GetPersonInfo(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
+            if (clsPersonData.GetPersonInfo(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
             {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, CountryID, Phone, Email, Address, ImagePath);
             }
@@ -101,12 +101,12 @@ namespace BVLD__BusinessLayer
         }
         private bool _AddNew()
         {
-            this.PersonId = clsPeopleData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
+            this.PersonId = clsPersonData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
             return (this.PersonId != 0);
         }
         private bool _Update()
         {
-            return clsPeopleData.updatePersonInfo(PersonId, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
+            return clsPersonData.updatePersonInfo(PersonId, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
         }
         public bool Save()
         {
@@ -128,30 +128,62 @@ namespace BVLD__BusinessLayer
                     return false;
             }
         }
-
         public static bool Delete(int PersonId)
         {
-            return clsPeopleData.DeletePerson(PersonId);
+            return clsPersonData.DeletePerson(PersonId);
         }
-
         public static bool isPersonExist(int PersonId) 
         { 
-            return clsPeopleData.isPersonExist(PersonId);
+            return clsPersonData.isPersonExist(PersonId);
         }
-
         public static bool isPersonExist(string NationalNo)
         {
-            return clsPeopleData.isPersonExist(NationalNo);
+            return clsPersonData.isPersonExist(NationalNo);
         }
-
         public static string getPersonFullName(int PersonId)
         {
             string FullName = "2";
-            if (clsPeopleData.GetPersonFullName(PersonId,ref FullName))
+            if (clsPersonData.GetPersonFullName(PersonId,ref FullName))
             {
                 return FullName;
             }
             return "null";
+        }
+        public static string getPersonNationalNo(int PersonId)
+        {
+            string NationalNo = "....";
+            if (clsPersonData.GetPersonNationalNo(PersonId, ref NationalNo))
+            {
+                return NationalNo;
+            }
+            return "null";
+        }
+        public static short getPersonGendor(int PersonId)
+        {
+            short Gendor = -1;
+            if (clsPersonData.GetPersonGender(PersonId, ref Gendor))
+            {
+                return Gendor;
+            }
+            return -1;
+        }
+        public static DateTime getPersonBirthDate(int PersonId)
+        {
+            DateTime birthDate = DateTime.MinValue;
+            if (clsPersonData.GetPersonDateOfBirth(PersonId, ref birthDate))
+            {
+                return birthDate;
+            }
+            return DateTime.MinValue;
+        }
+        public static string getPersonImagePath(int PersonId)
+        {
+            string ImaagePath = "....";
+            if (clsPersonData.GetPersonImagePath(PersonId, ref ImaagePath))
+            {
+                return ImaagePath;
+            }
+            return "";
         }
     }
 }

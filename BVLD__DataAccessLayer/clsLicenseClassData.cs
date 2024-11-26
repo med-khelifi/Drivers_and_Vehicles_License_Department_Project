@@ -33,9 +33,9 @@ namespace BVLD__DataAccessLayer
         {
             float fees = -1;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "Select ClassFees from LicenseClasses;";
+            string query = "Select ClassFees from LicenseClasses Where LicenseClassID = @ID;";
             SqlCommand sqlCommand = new SqlCommand(query, connection);
-
+            sqlCommand.Parameters.AddWithValue("@ID",LiceseClassID);
             try
             {
                 connection.Open();
@@ -71,6 +71,28 @@ namespace BVLD__DataAccessLayer
             catch { }
             finally { connection.Close(); }
             return isFound;
+        }
+
+        public static int GetLicenseClassDefaultValidityLength(int LiceseClassID)
+        {
+            int validity = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT DefaultValidityLength FROM LicenseClasses WHERE LicenseClassID = @ID;";
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
+            sqlCommand.Parameters.AddWithValue("@ID", LiceseClassID);
+            try
+            {
+                connection.Open();
+                object ReaderResult = sqlCommand.ExecuteScalar();
+                if (int.TryParse(ReaderResult.ToString(), out int Result))
+                {
+                    validity = Result;
+                }
+            }
+            catch { }
+            finally { connection.Close(); }
+            return validity;
+
         }
     } 
 }
