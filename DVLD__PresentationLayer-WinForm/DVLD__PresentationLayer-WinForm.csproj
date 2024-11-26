@@ -197,6 +197,12 @@
     <Compile Include="ucDriverLicenseInfo.Designer.cs">
       <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucDriverLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDriverLicenses.Designer.cs">
+      <DependentUpon>ucDriverLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucLDLApplicationDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </Compile>
     <EmbeddedResource Include="ucDriverLicenseInfo.resx">
       <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDriverLicenses.resx">
+      <DependentUpon>ucDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucLDLApplicationDetails.resx">
       <DependentUpon>ucLDLApplicationDetails.cs</DependentUpon>

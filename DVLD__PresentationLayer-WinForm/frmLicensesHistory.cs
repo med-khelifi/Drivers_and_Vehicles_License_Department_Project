@@ -55,13 +55,11 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void _LoadLocalDrivingLicensesHistory()
         {
-            dgvLocalLicenses.DataSource = clsLicense.GetLocalDrivingLicenses(_PersonID);
-            lblAllLocalDrivingRecords.Text = "All Records = " + dgvLocalLicenses.Rows.Count;
+            ucDriverLicenses1.LocalLicenseDate = clsLicense.GetLocalDrivingLicenses(_PersonID);
         }
         private void _InternationalDrivingLicensesHistory()
         {
-            dgvInternationalLicenses.DataSource = clsInternationalLicenses.GetInternationalDrivingLicenses(_PersonID);
-            lblAllInternationalLSRecords.Text = "All Records = " + dgvInternationalLicenses.Rows.Count;
+            ucDriverLicenses1.InternationalLicenseDate = clsInternationalLicenses.GetInternationalDrivingLicenses(_PersonID);
         }
         private void frmLicensesHistory_Load(object sender, EventArgs e)
         {
