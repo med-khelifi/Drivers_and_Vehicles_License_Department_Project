@@ -33,11 +33,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblAllLocalDrivingRecords = new System.Windows.Forms.Label();
             this.dgvLocalLicenses = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblAllInternationalLSRecords = new System.Windows.Forms.Label();
             this.dgvInternationalLicenses = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.tabControlUser.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -76,7 +74,6 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.lblAllLocalDrivingRecords);
             this.tabPage1.Controls.Add(this.dgvLocalLicenses);
-            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Font = new System.Drawing.Font("Bahnschrift SemiLight Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
@@ -106,30 +103,18 @@
             this.dgvLocalLicenses.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvLocalLicenses.BackgroundColor = System.Drawing.Color.White;
             this.dgvLocalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLocalLicenses.Location = new System.Drawing.Point(11, 40);
+            this.dgvLocalLicenses.Location = new System.Drawing.Point(11, 6);
             this.dgvLocalLicenses.Name = "dgvLocalLicenses";
             this.dgvLocalLicenses.ReadOnly = true;
             this.dgvLocalLicenses.RowHeadersWidth = 51;
             this.dgvLocalLicenses.RowTemplate.Height = 24;
-            this.dgvLocalLicenses.Size = new System.Drawing.Size(1007, 130);
+            this.dgvLocalLicenses.Size = new System.Drawing.Size(1007, 164);
             this.dgvLocalLicenses.TabIndex = 31;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(6, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 28);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Appointments :";
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.lblAllInternationalLSRecords);
             this.tabPage2.Controls.Add(this.dgvInternationalLicenses);
-            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Font = new System.Drawing.Font("Bahnschrift SemiLight Condensed", 12F);
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
@@ -160,24 +145,13 @@
             this.dgvInternationalLicenses.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvInternationalLicenses.BackgroundColor = System.Drawing.Color.White;
             this.dgvInternationalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInternationalLicenses.Location = new System.Drawing.Point(11, 40);
+            this.dgvInternationalLicenses.Location = new System.Drawing.Point(11, 6);
             this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
             this.dgvInternationalLicenses.ReadOnly = true;
             this.dgvInternationalLicenses.RowHeadersWidth = 51;
             this.dgvInternationalLicenses.RowTemplate.Height = 24;
-            this.dgvInternationalLicenses.Size = new System.Drawing.Size(1007, 130);
+            this.dgvInternationalLicenses.Size = new System.Drawing.Size(1007, 164);
             this.dgvInternationalLicenses.TabIndex = 28;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(6, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 28);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Appointments :";
             // 
             // ucDriverLicenses
             // 
@@ -205,10 +179,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label lblAllLocalDrivingRecords;
         private System.Windows.Forms.DataGridView dgvLocalLicenses;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lblAllInternationalLSRecords;
         private System.Windows.Forms.DataGridView dgvInternationalLicenses;
-        private System.Windows.Forms.Label label3;
     }
 }

@@ -69,11 +69,23 @@
     <Compile Include="frmEditTestType.Designer.cs">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInternationalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIssueDrivingLicenseFirstTime.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmIssueDrivingLicenseFirstTime.Designer.cs">
       <DependentUpon>frmIssueDrivingLicenseFirstTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIssueIDLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIssueIDLicense.Designer.cs">
+      <DependentUpon>frmIssueIDLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLicensesHistory.cs">
       <SubType>Form</SubType>
@@ -129,6 +141,12 @@
     <Compile Include="frmManageDrivers.Designer.cs">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageIDLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageIDLicenseApplications.Designer.cs">
+      <DependentUpon>frmManageIDLicenseApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageLocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +158,12 @@
     </Compile>
     <Compile Include="frmManageTestTypes.Designer.cs">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRenewLocalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRenewLocalLicense.Designer.cs">
+      <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="frmShowPersonDetails.cs">
       <SubType>Form</SubType>
@@ -203,11 +227,23 @@
     <Compile Include="ucDriverLicenses.Designer.cs">
       <DependentUpon>ucDriverLicenses.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucInternationalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucLDLApplicationDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucLDLApplicationDetails.Designer.cs">
       <DependentUpon>ucLDLApplicationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLicenseWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLicenseWithFilter.Designer.cs">
+      <DependentUpon>ucLicenseWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="ucPersonDetails.cs">
       <SubType>UserControl</SubType>
@@ -236,8 +272,14 @@
     <EmbeddedResource Include="frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInternationalLicenseInfo.resx">
+      <DependentUpon>frmInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIssueDrivingLicenseFirstTime.resx">
       <DependentUpon>frmIssueDrivingLicenseFirstTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIssueIDLicense.resx">
+      <DependentUpon>frmIssueIDLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLicenseInfo.resx">
       <DependentUpon>frmLicenseInfo.cs</DependentUpon>
@@ -266,11 +308,17 @@
     <EmbeddedResource Include="frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmManageIDLicenseApplications.resx">
+      <DependentUpon>frmManageIDLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageLocalDrivingLicenseApplication.resx">
       <DependentUpon>frmManageLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageTestTypes.resx">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRenewLocalLicense.resx">
+      <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowPersonDetails.resx">
       <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
@@ -312,8 +360,14 @@
     <EmbeddedResource Include="ucDriverLicenses.resx">
       <DependentUpon>ucDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucInternationalLicenseInfo.resx">
+      <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucLDLApplicationDetails.resx">
       <DependentUpon>ucLDLApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLicenseWithFilter.resx">
+      <DependentUpon>ucLicenseWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPersonDetails.resx">
       <DependentUpon>ucPersonDetails.cs</DependentUpon>
@@ -540,6 +594,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

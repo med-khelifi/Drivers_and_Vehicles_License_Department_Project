@@ -1,6 +1,6 @@
 ﻿namespace DVLD__PresentationLayer_WinForm
 {
-    partial class ucDriverLicenseInfo
+    partial class ucInternationalLicenseInfo
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,10 +32,8 @@
             this.pbPersonPicture = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,37 +44,31 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblDriverID = new System.Windows.Forms.Label();
-            this.lblisDetained = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.lblGendor = new System.Windows.Forms.Label();
-            this.lblLicenseID = new System.Windows.Forms.Label();
+            this.lblDateOfBirth = new System.Windows.Forms.Label();
             this.lblExpirationDate = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
+            this.lblLicenseID = new System.Windows.Forms.Label();
+            this.lblDriverID = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
-            this.lblIssueReason = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblIssueDate = new System.Windows.Forms.Label();
-            this.lblFullName = new System.Windows.Forms.Label();
+            this.lblIntLicenseID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblClassName = new System.Windows.Forms.Label();
+            this.lblFullName = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.lblDateOfbirth = new System.Windows.Forms.Label();
             this.lblisActive = new System.Windows.Forms.Label();
+            this.lblAppID = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -91,10 +83,8 @@
             this.guna2GroupBox2.Controls.Add(this.pbPersonPicture);
             this.guna2GroupBox2.Controls.Add(this.pictureBox10);
             this.guna2GroupBox2.Controls.Add(this.pictureBox17);
-            this.guna2GroupBox2.Controls.Add(this.pictureBox13);
             this.guna2GroupBox2.Controls.Add(this.pictureBox1);
             this.guna2GroupBox2.Controls.Add(this.pictureBox16);
-            this.guna2GroupBox2.Controls.Add(this.pictureBox12);
             this.guna2GroupBox2.Controls.Add(this.pictureBox5);
             this.guna2GroupBox2.Controls.Add(this.pictureBox6);
             this.guna2GroupBox2.Controls.Add(this.pictureBox2);
@@ -105,54 +95,51 @@
             this.guna2GroupBox2.Controls.Add(this.label6);
             this.guna2GroupBox2.Controls.Add(this.label24);
             this.guna2GroupBox2.Controls.Add(this.label1);
-            this.guna2GroupBox2.Controls.Add(this.label14);
             this.guna2GroupBox2.Controls.Add(this.label5);
             this.guna2GroupBox2.Controls.Add(this.label23);
             this.guna2GroupBox2.Controls.Add(this.label7);
-            this.guna2GroupBox2.Controls.Add(this.label12);
-            this.guna2GroupBox2.Controls.Add(this.lblDriverID);
-            this.guna2GroupBox2.Controls.Add(this.lblisDetained);
-            this.guna2GroupBox2.Controls.Add(this.label8);
-            this.guna2GroupBox2.Controls.Add(this.lblNotes);
-            this.guna2GroupBox2.Controls.Add(this.lblGendor);
-            this.guna2GroupBox2.Controls.Add(this.lblLicenseID);
+            this.guna2GroupBox2.Controls.Add(this.lblDateOfBirth);
             this.guna2GroupBox2.Controls.Add(this.lblExpirationDate);
+            this.guna2GroupBox2.Controls.Add(this.label8);
+            this.guna2GroupBox2.Controls.Add(this.lblGender);
+            this.guna2GroupBox2.Controls.Add(this.lblLicenseID);
+            this.guna2GroupBox2.Controls.Add(this.lblDriverID);
             this.guna2GroupBox2.Controls.Add(this.lblNationalNo);
-            this.guna2GroupBox2.Controls.Add(this.lblIssueReason);
             this.guna2GroupBox2.Controls.Add(this.label13);
             this.guna2GroupBox2.Controls.Add(this.lblIssueDate);
-            this.guna2GroupBox2.Controls.Add(this.lblFullName);
+            this.guna2GroupBox2.Controls.Add(this.lblIntLicenseID);
             this.guna2GroupBox2.Controls.Add(this.label2);
-            this.guna2GroupBox2.Controls.Add(this.lblClassName);
+            this.guna2GroupBox2.Controls.Add(this.lblFullName);
             this.guna2GroupBox2.Controls.Add(this.label16);
-            this.guna2GroupBox2.Controls.Add(this.lblDateOfbirth);
             this.guna2GroupBox2.Controls.Add(this.lblisActive);
+            this.guna2GroupBox2.Controls.Add(this.lblAppID);
             this.guna2GroupBox2.Controls.Add(this.label20);
             this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.Black;
             this.guna2GroupBox2.CustomBorderThickness = new System.Windows.Forms.Padding(2);
+            this.guna2GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F);
             this.guna2GroupBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox2.Location = new System.Drawing.Point(3, 3);
+            this.guna2GroupBox2.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
-            this.guna2GroupBox2.Size = new System.Drawing.Size(1081, 369);
-            this.guna2GroupBox2.TabIndex = 2;
-            this.guna2GroupBox2.Text = "Driver License Info";
+            this.guna2GroupBox2.Size = new System.Drawing.Size(1092, 285);
+            this.guna2GroupBox2.TabIndex = 3;
+            this.guna2GroupBox2.Text = "Driver International License";
             // 
             // pbPersonPicture
             // 
             this.pbPersonPicture.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
-            this.pbPersonPicture.Location = new System.Drawing.Point(845, 86);
+            this.pbPersonPicture.Location = new System.Drawing.Point(848, 42);
             this.pbPersonPicture.Name = "pbPersonPicture";
-            this.pbPersonPicture.Size = new System.Drawing.Size(223, 218);
+            this.pbPersonPicture.Size = new System.Drawing.Size(223, 224);
             this.pbPersonPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPersonPicture.TabIndex = 20;
             this.pbPersonPicture.TabStop = false;
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.user;
-            this.pictureBox10.Location = new System.Drawing.Point(551, 195);
+            this.pictureBox10.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.calendar;
+            this.pictureBox10.Location = new System.Drawing.Point(557, 156);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(32, 32);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -162,22 +149,12 @@
             // pictureBox17
             // 
             this.pictureBox17.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.info;
-            this.pictureBox17.Location = new System.Drawing.Point(551, 272);
+            this.pictureBox17.Location = new System.Drawing.Point(557, 233);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(32, 32);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox17.TabIndex = 19;
             this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
-            this.pictureBox13.Location = new System.Drawing.Point(168, 310);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox13.TabIndex = 19;
-            this.pictureBox13.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -191,30 +168,20 @@
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.calendar;
-            this.pictureBox16.Location = new System.Drawing.Point(551, 234);
+            this.pictureBox16.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.id_card;
+            this.pictureBox16.Location = new System.Drawing.Point(557, 195);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(32, 32);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox16.TabIndex = 16;
             this.pictureBox16.TabStop = false;
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.info;
-            this.pictureBox12.Location = new System.Drawing.Point(168, 272);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox12.TabIndex = 16;
-            this.pictureBox12.TabStop = false;
-            // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.u;
-            this.pictureBox5.Location = new System.Drawing.Point(168, 81);
+            this.pictureBox5.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.InternationalLisence__1_;
+            this.pictureBox5.Location = new System.Drawing.Point(168, 89);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox5.TabIndex = 16;
             this.pictureBox5.TabStop = false;
@@ -231,7 +198,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.tasks;
+            this.pictureBox2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.u;
             this.pictureBox2.Location = new System.Drawing.Point(168, 42);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
@@ -261,8 +228,8 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.calendar;
-            this.pictureBox8.Location = new System.Drawing.Point(551, 157);
+            this.pictureBox8.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.info;
+            this.pictureBox8.Location = new System.Drawing.Point(557, 118);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(32, 32);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -271,8 +238,8 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.info;
-            this.pictureBox9.Location = new System.Drawing.Point(551, 120);
+            this.pictureBox9.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Drivingtesicont;
+            this.pictureBox9.Location = new System.Drawing.Point(557, 81);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(32, 32);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -288,18 +255,18 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 24);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Gendor :";
+            this.label6.Text = "Gender :";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(416, 280);
+            this.label24.Location = new System.Drawing.Point(392, 241);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(129, 24);
+            this.label24.Size = new System.Drawing.Size(159, 24);
             this.label24.TabIndex = 12;
-            this.label24.Text = "isDetained ? :";
+            this.label24.Text = "Expiration Date :";
             // 
             // label1
             // 
@@ -312,38 +279,27 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "National No :";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(89, 323);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 24);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Notes :";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(444, 203);
+            this.label5.Location = new System.Drawing.Point(415, 165);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 24);
+            this.label5.Size = new System.Drawing.Size(136, 24);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Driver ID :";
+            this.label5.Text = "Date Of Birth :";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(386, 242);
+            this.label23.Location = new System.Drawing.Point(450, 203);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(159, 24);
+            this.label23.Size = new System.Drawing.Size(101, 24);
             this.label23.TabIndex = 11;
-            this.label23.Text = "Expiration Date :";
+            this.label23.Text = "Driver ID :";
             // 
             // label7
             // 
@@ -356,71 +312,49 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "License ID :";
             // 
-            // label12
+            // lblDateOfBirth
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(22, 284);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 24);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Issue Reason :";
+            this.lblDateOfBirth.AutoSize = true;
+            this.lblDateOfBirth.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOfBirth.ForeColor = System.Drawing.Color.Black;
+            this.lblDateOfBirth.Location = new System.Drawing.Point(610, 169);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Size = new System.Drawing.Size(16, 22);
+            this.lblDateOfBirth.TabIndex = 2;
+            this.lblDateOfBirth.Text = "_";
             // 
-            // lblDriverID
+            // lblExpirationDate
             // 
-            this.lblDriverID.AutoSize = true;
-            this.lblDriverID.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDriverID.ForeColor = System.Drawing.Color.Black;
-            this.lblDriverID.Location = new System.Drawing.Point(604, 208);
-            this.lblDriverID.Name = "lblDriverID";
-            this.lblDriverID.Size = new System.Drawing.Size(16, 22);
-            this.lblDriverID.TabIndex = 2;
-            this.lblDriverID.Text = "_";
-            // 
-            // lblisDetained
-            // 
-            this.lblisDetained.AutoSize = true;
-            this.lblisDetained.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblisDetained.ForeColor = System.Drawing.Color.Black;
-            this.lblisDetained.Location = new System.Drawing.Point(604, 286);
-            this.lblisDetained.Name = "lblisDetained";
-            this.lblisDetained.Size = new System.Drawing.Size(16, 22);
-            this.lblisDetained.TabIndex = 2;
-            this.lblisDetained.Text = "_";
+            this.lblExpirationDate.AutoSize = true;
+            this.lblExpirationDate.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
+            this.lblExpirationDate.Location = new System.Drawing.Point(610, 244);
+            this.lblExpirationDate.Name = "lblExpirationDate";
+            this.lblExpirationDate.Size = new System.Drawing.Size(16, 22);
+            this.lblExpirationDate.TabIndex = 2;
+            this.lblExpirationDate.Text = "_";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(89, 89);
+            this.label8.Location = new System.Drawing.Point(20, 91);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 24);
+            this.label8.Size = new System.Drawing.Size(142, 24);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Name :";
+            this.label8.Text = "Int.License ID :";
             // 
-            // lblNotes
+            // lblGender
             // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.ForeColor = System.Drawing.Color.Black;
-            this.lblNotes.Location = new System.Drawing.Point(231, 320);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(16, 22);
-            this.lblNotes.TabIndex = 2;
-            this.lblNotes.Text = "_";
-            // 
-            // lblGendor
-            // 
-            this.lblGendor.AutoSize = true;
-            this.lblGendor.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGendor.ForeColor = System.Drawing.Color.Black;
-            this.lblGendor.Location = new System.Drawing.Point(231, 205);
-            this.lblGendor.Name = "lblGendor";
-            this.lblGendor.Size = new System.Drawing.Size(16, 22);
-            this.lblGendor.TabIndex = 9;
-            this.lblGendor.Text = "_";
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.ForeColor = System.Drawing.Color.Black;
+            this.lblGender.Location = new System.Drawing.Point(231, 205);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(16, 22);
+            this.lblGender.TabIndex = 9;
+            this.lblGender.Text = "_";
             // 
             // lblLicenseID
             // 
@@ -433,16 +367,16 @@
             this.lblLicenseID.TabIndex = 2;
             this.lblLicenseID.Text = "_";
             // 
-            // lblExpirationDate
+            // lblDriverID
             // 
-            this.lblExpirationDate.AutoSize = true;
-            this.lblExpirationDate.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblExpirationDate.Location = new System.Drawing.Point(604, 244);
-            this.lblExpirationDate.Name = "lblExpirationDate";
-            this.lblExpirationDate.Size = new System.Drawing.Size(16, 22);
-            this.lblExpirationDate.TabIndex = 6;
-            this.lblExpirationDate.Text = "_";
+            this.lblDriverID.AutoSize = true;
+            this.lblDriverID.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDriverID.ForeColor = System.Drawing.Color.Black;
+            this.lblDriverID.Location = new System.Drawing.Point(610, 205);
+            this.lblDriverID.Name = "lblDriverID";
+            this.lblDriverID.Size = new System.Drawing.Size(16, 22);
+            this.lblDriverID.TabIndex = 6;
+            this.lblDriverID.Text = "_";
             // 
             // lblNationalNo
             // 
@@ -455,27 +389,16 @@
             this.lblNationalNo.TabIndex = 9;
             this.lblNationalNo.Text = "_";
             // 
-            // lblIssueReason
-            // 
-            this.lblIssueReason.AutoSize = true;
-            this.lblIssueReason.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueReason.ForeColor = System.Drawing.Color.Black;
-            this.lblIssueReason.Location = new System.Drawing.Point(231, 282);
-            this.lblIssueReason.Name = "lblIssueReason";
-            this.lblIssueReason.Size = new System.Drawing.Size(16, 22);
-            this.lblIssueReason.TabIndex = 6;
-            this.lblIssueReason.Text = "_";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(440, 128);
+            this.label13.Location = new System.Drawing.Point(406, 86);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(105, 24);
+            this.label13.Size = new System.Drawing.Size(145, 24);
             this.label13.TabIndex = 8;
-            this.label13.Text = "isActive ? :";
+            this.label13.Text = "Application ID :";
             // 
             // lblIssueDate
             // 
@@ -488,16 +411,16 @@
             this.lblIssueDate.TabIndex = 6;
             this.lblIssueDate.Text = "_";
             // 
-            // lblFullName
+            // lblIntLicenseID
             // 
-            this.lblFullName.AutoSize = true;
-            this.lblFullName.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.ForeColor = System.Drawing.Color.Red;
-            this.lblFullName.Location = new System.Drawing.Point(231, 91);
-            this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(16, 22);
-            this.lblFullName.TabIndex = 6;
-            this.lblFullName.Text = "_";
+            this.lblIntLicenseID.AutoSize = true;
+            this.lblIntLicenseID.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntLicenseID.ForeColor = System.Drawing.Color.Black;
+            this.lblIntLicenseID.Location = new System.Drawing.Point(231, 91);
+            this.lblIntLicenseID.Name = "lblIntLicenseID";
+            this.lblIntLicenseID.Size = new System.Drawing.Size(16, 22);
+            this.lblIntLicenseID.TabIndex = 6;
+            this.lblIntLicenseID.Text = "_";
             // 
             // label2
             // 
@@ -510,78 +433,76 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Issue Date :";
             // 
-            // lblClassName
+            // lblFullName
             // 
-            this.lblClassName.AutoSize = true;
-            this.lblClassName.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassName.ForeColor = System.Drawing.Color.Black;
-            this.lblClassName.Location = new System.Drawing.Point(231, 52);
-            this.lblClassName.Name = "lblClassName";
-            this.lblClassName.Size = new System.Drawing.Size(16, 22);
-            this.lblClassName.TabIndex = 6;
-            this.lblClassName.Text = "_";
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.ForeColor = System.Drawing.Color.Red;
+            this.lblFullName.Location = new System.Drawing.Point(231, 52);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(16, 22);
+            this.lblFullName.TabIndex = 6;
+            this.lblFullName.Text = "_";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(93, 50);
+            this.label16.Location = new System.Drawing.Point(89, 50);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 24);
+            this.label16.Size = new System.Drawing.Size(73, 24);
             this.label16.TabIndex = 5;
-            this.label16.Text = "Class :";
-            // 
-            // lblDateOfbirth
-            // 
-            this.lblDateOfbirth.AutoSize = true;
-            this.lblDateOfbirth.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOfbirth.ForeColor = System.Drawing.Color.Black;
-            this.lblDateOfbirth.Location = new System.Drawing.Point(604, 167);
-            this.lblDateOfbirth.Name = "lblDateOfbirth";
-            this.lblDateOfbirth.Size = new System.Drawing.Size(16, 22);
-            this.lblDateOfbirth.TabIndex = 4;
-            this.lblDateOfbirth.Text = "_";
+            this.label16.Text = "Name :";
             // 
             // lblisActive
             // 
             this.lblisActive.AutoSize = true;
             this.lblisActive.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblisActive.ForeColor = System.Drawing.Color.Black;
-            this.lblisActive.Location = new System.Drawing.Point(604, 130);
+            this.lblisActive.Location = new System.Drawing.Point(610, 128);
             this.lblisActive.Name = "lblisActive";
             this.lblisActive.Size = new System.Drawing.Size(16, 22);
             this.lblisActive.TabIndex = 4;
             this.lblisActive.Text = "_";
+            // 
+            // lblAppID
+            // 
+            this.lblAppID.AutoSize = true;
+            this.lblAppID.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppID.ForeColor = System.Drawing.Color.Black;
+            this.lblAppID.Location = new System.Drawing.Point(610, 91);
+            this.lblAppID.Name = "lblAppID";
+            this.lblAppID.Size = new System.Drawing.Size(16, 22);
+            this.lblAppID.TabIndex = 4;
+            this.lblAppID.Text = "_";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(409, 167);
+            this.label20.Location = new System.Drawing.Point(460, 127);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(136, 24);
+            this.label20.Size = new System.Drawing.Size(91, 24);
             this.label20.TabIndex = 10;
-            this.label20.Text = "Date Of Birth :";
+            this.label20.Text = "isActive :";
             // 
-            // ucDriverLicenseInfo
+            // ucInternationalLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.guna2GroupBox2);
-            this.Name = "ucDriverLicenseInfo";
-            this.Size = new System.Drawing.Size(1087, 374);
+            this.Name = "ucInternationalLicenseInfo";
+            this.Size = new System.Drawing.Size(1092, 285);
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -596,45 +517,39 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
+        private System.Windows.Forms.PictureBox pbPersonPicture;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblDriverID;
+        private System.Windows.Forms.Label lblDateOfBirth;
+        private System.Windows.Forms.Label lblExpirationDate;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblGendor;
+        private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblLicenseID;
+        private System.Windows.Forms.Label lblDriverID;
         private System.Windows.Forms.Label lblNationalNo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lblFullName;
-        private System.Windows.Forms.Label lblClassName;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label lblDateOfbirth;
-        private System.Windows.Forms.Label lblisActive;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblNotes;
-        private System.Windows.Forms.Label lblIssueReason;
         private System.Windows.Forms.Label lblIssueDate;
+        private System.Windows.Forms.Label lblIntLicenseID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label lblisDetained;
-        private System.Windows.Forms.Label lblExpirationDate;
-        private System.Windows.Forms.PictureBox pbPersonPicture;
+        private System.Windows.Forms.Label lblFullName;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblisActive;
+        private System.Windows.Forms.Label lblAppID;
+        private System.Windows.Forms.Label label20;
     }
 }

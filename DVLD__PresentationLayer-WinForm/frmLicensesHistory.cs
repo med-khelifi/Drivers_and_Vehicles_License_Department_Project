@@ -18,15 +18,16 @@ namespace DVLD__PresentationLayer_WinForm
         int _LDLAppID = -1;
         int _PersonID = -1;
         clsPerson _Person;
-        public frmLicensesHistory(int LDLAppID)
+        bool WithPerson;
+        public frmLicensesHistory(int LDLAppID,bool withPersonID = false)
         {
             InitializeComponent();
             _LDLAppID = LDLAppID;
+            WithPerson = withPersonID;
         }
 
         private void _LoadPersonData(int x = 0)
         {
-
 
             _Person = clsPerson.Find(_PersonID);
             if (_Person != null)
@@ -59,11 +60,11 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _InternationalDrivingLicensesHistory()
         {
-            ucDriverLicenses1.InternationalLicenseDate = clsInternationalLicenses.GetInternationalDrivingLicenses(_PersonID);
+            ucDriverLicenses1.InternationalLicenseDate = clsInternationalLicense.GetInternationalDrivingLicenses(_PersonID);
         }
         private void frmLicensesHistory_Load(object sender, EventArgs e)
         {
-            _PersonID = clsLDLApplication.GetApplicantPersonID(_LDLAppID);
+            _PersonID = WithPerson ? _LDLAppID: (clsLDLApplication.GetApplicantPersonID(_LDLAppID));
             if (_PersonID == -1)
             {
                 MessageBox.Show("Invalid PersonID (-1) ,Form Will Closed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

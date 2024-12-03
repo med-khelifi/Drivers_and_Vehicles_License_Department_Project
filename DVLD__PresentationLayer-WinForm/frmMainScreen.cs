@@ -103,5 +103,23 @@ namespace DVLD__PresentationLayer_WinForm
         {
             Application.Exit();
         }
+
+        private void licenseInternaticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIssueIDLicense frm = new frmIssueIDLicense();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageIDLicenseApplications frm = new frmManageIDLicenseApplications();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalLicense frm = new frmRenewLocalLicense();
+            frm.ShowDialog();
+        }
     }
 }

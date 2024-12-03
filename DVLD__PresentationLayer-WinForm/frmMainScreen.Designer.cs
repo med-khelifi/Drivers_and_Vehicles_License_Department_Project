@@ -135,6 +135,7 @@
             this.licenseInternaticToolStripMenuItem.Name = "licenseInternaticToolStripMenuItem";
             this.licenseInternaticToolStripMenuItem.Size = new System.Drawing.Size(268, 38);
             this.licenseInternaticToolStripMenuItem.Text = "International License";
+            this.licenseInternaticToolStripMenuItem.Click += new System.EventHandler(this.licenseInternaticToolStripMenuItem_Click);
             // 
             // renewDrivingLicenseToolStripMenuItem
             // 
@@ -143,6 +144,7 @@
             this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
             this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(431, 38);
             this.renewDrivingLicenseToolStripMenuItem.Text = "Renew Driving License";
+            this.renewDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.renewDrivingLicenseToolStripMenuItem_Click);
             // 
             // replacementForLostOrDamagedLicenseToolStripMenuItem
             // 
@@ -197,6 +199,7 @@
             this.internationalLicenseApplicationToolStripMenuItem.Name = "internationalLicenseApplicationToolStripMenuItem";
             this.internationalLicenseApplicationToolStripMenuItem.Size = new System.Drawing.Size(359, 38);
             this.internationalLicenseApplicationToolStripMenuItem.Text = "International License Application";
+            this.internationalLicenseApplicationToolStripMenuItem.Click += new System.EventHandler(this.internationalLicenseApplicationToolStripMenuItem_Click);
             // 
             // detainToolStripMenuItem
             // 
