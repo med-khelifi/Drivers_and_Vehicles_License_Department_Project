@@ -11,11 +11,10 @@ using System.Windows.Forms;
 
 namespace DVLD__PresentationLayer_WinForm
 {
-    public partial class frmLicenseInfo : Form
+    public partial class frmLocalLicenseInfo : Form
     {
         clsLicense _License;
-        int LDLApplication = -1;
-        int LicenseID =-1;
+        int _LicenseID =-1;
 
         string IssueReasonString(int Reason)
         {
@@ -30,15 +29,14 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadData()
         {
-            LicenseID = clsLicense.GetLicenseID(LDLApplication);
-            if(LicenseID == 1)
+            if(_LicenseID == -1)
             {
                 MessageBox.Show("Lisense ID Was Not Valid ,Form Will Closed ?","Invalid License ID",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Close();
                 return;
             }
 
-            _License = clsLicense.Find(LicenseID);
+            _License = clsLicense.Find(_LicenseID);
             if (_License == null)
             {
                 MessageBox.Show("Lisense obj Was NULL ,Form Will Closed ?", "Invalid License ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -49,7 +47,7 @@ namespace DVLD__PresentationLayer_WinForm
             short Gender = clsPerson.getPersonGendor(PersonID);
             
             ucDriverLicenseInfo1.LicenseID = _License.LicenseID;
-            ucDriverLicenseInfo1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClass);
+            ucDriverLicenseInfo1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
             ucDriverLicenseInfo1.FullName = clsPerson.getPersonFullName(PersonID);
             ucDriverLicenseInfo1.NationalNo = clsPerson.getPersonNationalNo(PersonID);
             ucDriverLicenseInfo1.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
@@ -63,10 +61,10 @@ namespace DVLD__PresentationLayer_WinForm
             ucDriverLicenseInfo1.isDetained = "....";
             ucDriverLicenseInfo1.ImagePath = clsPerson.getPersonImagePath(PersonID);
         } 
-        public frmLicenseInfo(int LDLAppID)
+        public frmLocalLicenseInfo(int LicenseID)
         {
             InitializeComponent();
-            LDLApplication = LDLAppID;
+            _LicenseID = LicenseID;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

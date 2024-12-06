@@ -93,11 +93,11 @@
     <Compile Include="frmLicensesHistory.Designer.cs">
       <DependentUpon>frmLicensesHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLicenseInfo.cs">
+    <Compile Include="frmLocalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLicenseInfo.Designer.cs">
-      <DependentUpon>frmLicenseInfo.cs</DependentUpon>
+    <Compile Include="frmLocalLicenseInfo.Designer.cs">
+      <DependentUpon>frmLocalLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMainScreen.cs">
       <SubType>Form</SubType>
@@ -281,8 +281,8 @@
     <EmbeddedResource Include="frmIssueIDLicense.resx">
       <DependentUpon>frmIssueIDLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLicenseInfo.resx">
-      <DependentUpon>frmLicenseInfo.cs</DependentUpon>
+    <EmbeddedResource Include="frmLocalLicenseInfo.resx">
+      <DependentUpon>frmLocalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLicensesHistory.resx">
       <DependentUpon>frmLicensesHistory.cs</DependentUpon>

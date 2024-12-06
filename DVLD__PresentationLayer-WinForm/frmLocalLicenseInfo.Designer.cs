@@ -1,6 +1,6 @@
 ﻿namespace DVLD__PresentationLayer_WinForm
 {
-    partial class frmLicenseInfo
+    partial class frmLocalLicenseInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucDriverLicenseInfo1 = new DVLD__PresentationLayer_WinForm.ucDriverLicenseInfo();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.ucDriverLicenseInfo1 = new DVLD__PresentationLayer_WinForm.ucDriverLicenseInfo();
             this.SuspendLayout();
-            // 
-            // ucDriverLicenseInfo1
-            // 
-            this.ucDriverLicenseInfo1.BackColor = System.Drawing.Color.White;
-            this.ucDriverLicenseInfo1.Location = new System.Drawing.Point(5, 83);
-            this.ucDriverLicenseInfo1.Name = "ucDriverLicenseInfo1";
-            this.ucDriverLicenseInfo1.Size = new System.Drawing.Size(1087, 374);
-            this.ucDriverLicenseInfo1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(437, 37);
+            this.label1.Location = new System.Drawing.Point(406, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 34);
+            this.label1.Size = new System.Drawing.Size(284, 34);
             this.label1.TabIndex = 49;
-            this.label1.Text = "Driver License Info";
+            this.label1.Text = "Local Driver License Info";
             // 
             // BtnClose
             // 
@@ -73,7 +65,15 @@
             this.BtnClose.Text = "Close";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // frmLicenseInfo
+            // ucDriverLicenseInfo1
+            // 
+            this.ucDriverLicenseInfo1.BackColor = System.Drawing.Color.White;
+            this.ucDriverLicenseInfo1.Location = new System.Drawing.Point(5, 83);
+            this.ucDriverLicenseInfo1.Name = "ucDriverLicenseInfo1";
+            this.ucDriverLicenseInfo1.Size = new System.Drawing.Size(1087, 374);
+            this.ucDriverLicenseInfo1.TabIndex = 0;
+            // 
+            // frmLocalLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +83,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucDriverLicenseInfo1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmLicenseInfo";
+            this.Name = "frmLocalLicenseInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLicenseInfo";
             this.Load += new System.EventHandler(this.frmLicenseInfo_Load);

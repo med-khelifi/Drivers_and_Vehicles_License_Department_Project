@@ -43,5 +43,13 @@ namespace DVLD__PresentationLayer_WinForm
         {           
             onSearchLicenseBtnClicked?.Invoke(txtFilterText.Text);           
         }
+
+        private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) 
+            { 
+                e.Handled = true; 
+            }
+        }
     }
 }

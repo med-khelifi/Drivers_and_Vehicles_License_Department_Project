@@ -70,6 +70,7 @@
             this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
             this.txtFilterText.Size = new System.Drawing.Size(451, 44);
             this.txtFilterText.TabIndex = 9;
+            this.txtFilterText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
             // 
             // label2
             // 

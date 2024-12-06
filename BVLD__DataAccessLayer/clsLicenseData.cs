@@ -161,8 +161,7 @@ namespace BVLD__DataAccessLayer
             finally { connection.Close(); }
             return Result;
         }
-
-        public static int GetLicenseID(int LocalDrivingLicenseID)
+        public static int GetLicenseIDFromLDLApp(int LocalDrivingLicenseID)
         {
             int AddID = -1;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -177,7 +176,7 @@ namespace BVLD__DataAccessLayer
             {
                 connection.Open();
                 object Result = command.ExecuteScalar();
-                if (int.TryParse(Result.ToString(), out int value))
+                if (Result != null &&int.TryParse(Result.ToString(), out int value))
                 {
                     AddID = value;
                 }
@@ -185,6 +184,32 @@ namespace BVLD__DataAccessLayer
             catch { }
             finally { connection.Close(); }
             return AddID;
+        }
+
+        public static bool DeactivateLisense(int LicenseID)
+        {
+            int effectedRow = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"UPDATE Licenses SET IsActive = 0 where LicenseID = @ID;";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@ID", LicenseID);
+            
+            try
+            {
+                connection.Open();
+                effectedRow = command.ExecuteNonQuery();
+            }
+            catch (System.Exception ex)
+            {
+                //Console.WriteLine(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (effectedRow > 0);
         }
     }
 }

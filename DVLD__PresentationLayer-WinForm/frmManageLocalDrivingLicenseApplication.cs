@@ -244,7 +244,14 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLicenseInfo frm = new frmLicenseInfo(SelectedApplicationID); 
+            int id = clsLicense.GetLicenseIDFromLDLApp(SelectedApplicationID);
+            if (id == -1)
+            {
+                MessageBox.Show("License ID Not valid");
+                return;
+            }
+                
+            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(id); 
             frm.ShowDialog();
         }
 

@@ -107,7 +107,7 @@ namespace DVLD__PresentationLayer_WinForm
             _NewLicense = new clsLicense();
             _NewLicense.ApplicationID = _Application.ApplicationID;
             _NewLicense.DriverID = driverID;
-            _NewLicense.LicenseClass = _LDLApp.LicenseClassID;
+            _NewLicense.LicenseClassID = _LDLApp.LicenseClassID;
             _NewLicense.IssueDate = DateTime.Now;
             _NewLicense.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseClassDefaultValidityLength(_LDLApp.LicenseClassID));
             _NewLicense.Notes = txtNotes.Text.Trim();

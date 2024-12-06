@@ -35,7 +35,6 @@ namespace DVLD__PresentationLayer_WinForm
         {
             InitializeComponent();
         }
-
         private void frmIssueIDLicense_Load(object sender, EventArgs e)
         {
             _Date = DateTime.Now;
@@ -47,7 +46,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             Close();
         }
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnIssue_Click(object sender, EventArgs e)
         {
 
             if (MessageBox.Show("Are You Sure  You Want To Issue The License ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
@@ -123,7 +122,7 @@ namespace DVLD__PresentationLayer_WinForm
             short Gender = clsPerson.getPersonGendor(PersonID);
 
             ucLicenseWithFilter1.LicenseID = _License.LicenseID;
-            ucLicenseWithFilter1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClass);
+            ucLicenseWithFilter1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
             ucLicenseWithFilter1.FullName = clsPerson.getPersonFullName(PersonID);
             ucLicenseWithFilter1.NationalNo = clsPerson.getPersonNationalNo(PersonID);
             ucLicenseWithFilter1.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
@@ -148,7 +147,7 @@ namespace DVLD__PresentationLayer_WinForm
                 lblLocalLicenseID.Text = _License.LicenseID.ToString();
                 linkLShowLicenseHistory.Enabled = true;
 
-                if (_License.LicenseClass != 3)
+                if (_License.LicenseClassID != 3)
                 {
                     MessageBox.Show($"License Should Be Class (3),License with ID <{_License.LicenseID}> Is Invalid.", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

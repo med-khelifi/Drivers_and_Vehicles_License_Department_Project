@@ -394,6 +394,7 @@
             this.btnSave.BorderThickness = 2;
             this.btnSave.CheckedState.Parent = this.btnSave;
             this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.Enabled = false;
             this.btnSave.FillColor = System.Drawing.Color.White;
             this.btnSave.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
@@ -406,7 +407,7 @@
             this.btnSave.Size = new System.Drawing.Size(153, 45);
             this.btnSave.TabIndex = 47;
             this.btnSave.Text = "Issue";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // BtnClose
             // 

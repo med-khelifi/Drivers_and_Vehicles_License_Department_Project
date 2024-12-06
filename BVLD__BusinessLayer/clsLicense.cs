@@ -19,7 +19,7 @@ namespace BVLD__BusinessLayer
         public int LicenseID { get; set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
-        public int LicenseClass { get; set; }
+        public int LicenseClassID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string Notes { get; set; }
@@ -33,7 +33,7 @@ namespace BVLD__BusinessLayer
             LicenseID = -1;
             ApplicationID = -1;
             DriverID = -1;
-            LicenseClass = -1;
+            LicenseClassID = -1;
             IssueDate = DateTime.Now;
             ExpirationDate = DateTime.Now;
             Notes = "";
@@ -51,7 +51,7 @@ namespace BVLD__BusinessLayer
             LicenseID = licenseID;
             ApplicationID = applicationID;
             DriverID = driverID;
-            LicenseClass = licenseClass;
+            LicenseClassID = licenseClass;
             IssueDate = issueDate;
             ExpirationDate = expirationDate;
             Notes = notes;
@@ -72,7 +72,7 @@ namespace BVLD__BusinessLayer
         }
         private bool _AddNew()
         {
-            LicenseID = clsLicenseData.AddNewLicense(ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, isActive, IssueReason, CreatedByUserID);
+            LicenseID = clsLicenseData.AddNewLicense(ApplicationID, DriverID, LicenseClassID, IssueDate, ExpirationDate, Notes, PaidFees, isActive, IssueReason, CreatedByUserID);
             return LicenseID != -1;
         }
         public bool Save()
@@ -95,9 +95,9 @@ namespace BVLD__BusinessLayer
                     return false;
             }
         }
-        public static int GetLicenseID(int LocalDrivingLicenseID)
+        public static int GetLicenseIDFromLDLApp(int LocalDrivingLicenseID)
         {
-            return clsLicenseData.GetLicenseID(LocalDrivingLicenseID);
+            return clsLicenseData.GetLicenseIDFromLDLApp(LocalDrivingLicenseID);
         }
         public static clsLicense Find(int LicenseID)
         {
@@ -115,6 +115,11 @@ namespace BVLD__BusinessLayer
         public static DataTable GetLocalDrivingLicenses(int PersonID)
         {
             return clsLicenseData.GetLocalDrivingLicenses(PersonID);
+        }
+
+        public static bool DeactivateLicense(int LicenseID) 
+        {
+            return clsLicenseData.DeactivateLisense(LicenseID);
         }
     }
 }

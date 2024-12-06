@@ -32,21 +32,30 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.linkLShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.linkLShowLicenseHistory = new System.Windows.Forms.LinkLabel();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRenew = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblTotalFees = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblLicenseFees = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAppFees = new System.Windows.Forms.Label();
             this.lblNewLicenseID = new System.Windows.Forms.Label();
-            this.lblRLApplivationID = new System.Windows.Forms.Label();
+            this.lblRLApplicationID = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblOldLicenseID = new System.Windows.Forms.Label();
@@ -60,28 +69,19 @@
             this.lblCreatedBy = new System.Windows.Forms.Label();
             this.lblExpirationDate = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lblLicenseFees = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.lblTotalFees = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.ucLicenseWithFilter1 = new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(345, 9);
+            this.label1.Location = new System.Drawing.Point(345, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(358, 40);
             this.label1.TabIndex = 51;
@@ -117,6 +117,7 @@
             this.linkLShowLicenseInfo.TabStop = true;
             this.linkLShowLicenseInfo.Text = "Show License Info";
             this.linkLShowLicenseInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLShowLicenseInfo_LinkClicked);
             // 
             // linkLShowLicenseHistory
             // 
@@ -130,26 +131,29 @@
             this.linkLShowLicenseHistory.TabStop = true;
             this.linkLShowLicenseHistory.Text = "Show License History";
             this.linkLShowLicenseHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLShowLicenseHistory_LinkClicked);
             // 
-            // btnSave
+            // btnRenew
             // 
-            this.btnSave.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSave.BorderRadius = 10;
-            this.btnSave.BorderThickness = 2;
-            this.btnSave.CheckedState.Parent = this.btnSave;
-            this.btnSave.CustomImages.Parent = this.btnSave;
-            this.btnSave.FillColor = System.Drawing.Color.White;
-            this.btnSave.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.HoverState.Parent = this.btnSave;
-            this.btnSave.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.releaseCard;
-            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSave.Location = new System.Drawing.Point(939, 867);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.ShadowDecoration.Parent = this.btnSave;
-            this.btnSave.Size = new System.Drawing.Size(153, 45);
-            this.btnSave.TabIndex = 53;
-            this.btnSave.Text = "Issue";
+            this.btnRenew.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRenew.BorderRadius = 10;
+            this.btnRenew.BorderThickness = 2;
+            this.btnRenew.CheckedState.Parent = this.btnRenew;
+            this.btnRenew.CustomImages.Parent = this.btnRenew;
+            this.btnRenew.Enabled = false;
+            this.btnRenew.FillColor = System.Drawing.Color.White;
+            this.btnRenew.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRenew.ForeColor = System.Drawing.Color.Black;
+            this.btnRenew.HoverState.Parent = this.btnRenew;
+            this.btnRenew.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.releaseCard;
+            this.btnRenew.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRenew.Location = new System.Drawing.Point(939, 871);
+            this.btnRenew.Name = "btnRenew";
+            this.btnRenew.ShadowDecoration.Parent = this.btnRenew;
+            this.btnRenew.Size = new System.Drawing.Size(153, 45);
+            this.btnRenew.TabIndex = 53;
+            this.btnRenew.Text = "Renew";
+            this.btnRenew.Click += new System.EventHandler(this.btnRenew_Click);
             // 
             // BtnClose
             // 
@@ -164,12 +168,13 @@
             this.BtnClose.HoverState.Parent = this.BtnClose;
             this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
             this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnClose.Location = new System.Drawing.Point(780, 867);
+            this.BtnClose.Location = new System.Drawing.Point(780, 871);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
             this.BtnClose.Size = new System.Drawing.Size(153, 45);
             this.BtnClose.TabIndex = 54;
             this.BtnClose.Text = "Close";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // guna2GroupBox1
             // 
@@ -194,7 +199,7 @@
             this.guna2GroupBox1.Controls.Add(this.label3);
             this.guna2GroupBox1.Controls.Add(this.lblAppFees);
             this.guna2GroupBox1.Controls.Add(this.lblNewLicenseID);
-            this.guna2GroupBox1.Controls.Add(this.lblRLApplivationID);
+            this.guna2GroupBox1.Controls.Add(this.lblRLApplicationID);
             this.guna2GroupBox1.Controls.Add(this.label12);
             this.guna2GroupBox1.Controls.Add(this.label9);
             this.guna2GroupBox1.Controls.Add(this.lblOldLicenseID);
@@ -212,12 +217,58 @@
             this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(2);
             this.guna2GroupBox1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(23, 513);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(12, 513);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(1078, 348);
             this.guna2GroupBox1.TabIndex = 52;
             this.guna2GroupBox1.Text = "Application Info ";
+            // 
+            // txtNotes
+            // 
+            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotes.DefaultText = "";
+            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotes.DisabledState.Parent = this.txtNotes;
+            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNotes.FocusedState.Parent = this.txtNotes;
+            this.txtNotes.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNotes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNotes.HoverState.Parent = this.txtNotes;
+            this.txtNotes.Location = new System.Drawing.Point(242, 285);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(647, 1229, 647, 1229);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.PasswordChar = '\0';
+            this.txtNotes.PlaceholderText = "";
+            this.txtNotes.SelectedText = "";
+            this.txtNotes.ShadowDecoration.Parent = this.txtNotes;
+            this.txtNotes.Size = new System.Drawing.Size(617, 50);
+            this.txtNotes.TabIndex = 45;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(108, 282);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(73, 24);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Notes :";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
+            this.pictureBox11.Location = new System.Drawing.Point(187, 282);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 44;
+            this.pictureBox11.TabStop = false;
             // 
             // pictureBox9
             // 
@@ -269,6 +320,37 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.dollar;
+            this.pictureBox10.Location = new System.Drawing.Point(624, 236);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox10.TabIndex = 1;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.dollar;
+            this.pictureBox7.Location = new System.Drawing.Point(186, 236);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 1;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(500, 240);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 28);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Total Fees :";
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.dollar;
@@ -278,6 +360,17 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(35, 236);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(139, 28);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "License Fees :";
             // 
             // pictureBox2
             // 
@@ -289,6 +382,17 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // lblTotalFees
+            // 
+            this.lblTotalFees.AutoSize = true;
+            this.lblTotalFees.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFees.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalFees.Location = new System.Drawing.Point(680, 240);
+            this.lblTotalFees.Name = "lblTotalFees";
+            this.lblTotalFees.Size = new System.Drawing.Size(19, 28);
+            this.lblTotalFees.TabIndex = 0;
+            this.lblTotalFees.Text = "_";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -299,6 +403,17 @@
             this.label4.Size = new System.Drawing.Size(171, 28);
             this.label4.TabIndex = 0;
             this.label4.Text = "Application Fees :";
+            // 
+            // lblLicenseFees
+            // 
+            this.lblLicenseFees.AutoSize = true;
+            this.lblLicenseFees.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseFees.ForeColor = System.Drawing.Color.Black;
+            this.lblLicenseFees.Location = new System.Drawing.Point(237, 240);
+            this.lblLicenseFees.Name = "lblLicenseFees";
+            this.lblLicenseFees.Size = new System.Drawing.Size(19, 28);
+            this.lblLicenseFees.TabIndex = 0;
+            this.lblLicenseFees.Text = "_";
             // 
             // label3
             // 
@@ -333,16 +448,16 @@
             this.lblNewLicenseID.TabIndex = 0;
             this.lblNewLicenseID.Text = "_";
             // 
-            // lblRLApplivationID
+            // lblRLApplicationID
             // 
-            this.lblRLApplivationID.AutoSize = true;
-            this.lblRLApplivationID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRLApplivationID.ForeColor = System.Drawing.Color.Black;
-            this.lblRLApplivationID.Location = new System.Drawing.Point(237, 47);
-            this.lblRLApplivationID.Name = "lblRLApplivationID";
-            this.lblRLApplivationID.Size = new System.Drawing.Size(19, 28);
-            this.lblRLApplivationID.TabIndex = 0;
-            this.lblRLApplivationID.Text = "_";
+            this.lblRLApplicationID.AutoSize = true;
+            this.lblRLApplicationID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRLApplicationID.ForeColor = System.Drawing.Color.Black;
+            this.lblRLApplicationID.Location = new System.Drawing.Point(237, 47);
+            this.lblRLApplicationID.Name = "lblRLApplicationID";
+            this.lblRLApplicationID.Size = new System.Drawing.Size(19, 28);
+            this.lblRLApplicationID.TabIndex = 0;
+            this.lblRLApplicationID.Text = "_";
             // 
             // label12
             // 
@@ -487,122 +602,13 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Expiration Date :";
             // 
-            // lblLicenseFees
-            // 
-            this.lblLicenseFees.AutoSize = true;
-            this.lblLicenseFees.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLicenseFees.ForeColor = System.Drawing.Color.Black;
-            this.lblLicenseFees.Location = new System.Drawing.Point(237, 240);
-            this.lblLicenseFees.Name = "lblLicenseFees";
-            this.lblLicenseFees.Size = new System.Drawing.Size(19, 28);
-            this.lblLicenseFees.TabIndex = 0;
-            this.lblLicenseFees.Text = "_";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(35, 236);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 28);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "License Fees :";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.dollar;
-            this.pictureBox7.Location = new System.Drawing.Point(186, 236);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
-            // 
-            // lblTotalFees
-            // 
-            this.lblTotalFees.AutoSize = true;
-            this.lblTotalFees.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalFees.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalFees.Location = new System.Drawing.Point(680, 240);
-            this.lblTotalFees.Name = "lblTotalFees";
-            this.lblTotalFees.Size = new System.Drawing.Size(19, 28);
-            this.lblTotalFees.TabIndex = 0;
-            this.lblTotalFees.Text = "_";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(500, 240);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 28);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Total Fees :";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.dollar;
-            this.pictureBox10.Location = new System.Drawing.Point(624, 236);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox10.TabIndex = 1;
-            this.pictureBox10.TabStop = false;
-            // 
-            // txtNotes
-            // 
-            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNotes.DefaultText = "";
-            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNotes.DisabledState.Parent = this.txtNotes;
-            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNotes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNotes.FocusedState.Parent = this.txtNotes;
-            this.txtNotes.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNotes.HoverState.Parent = this.txtNotes;
-            this.txtNotes.Location = new System.Drawing.Point(242, 285);
-            this.txtNotes.Margin = new System.Windows.Forms.Padding(647, 1229, 647, 1229);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.PasswordChar = '\0';
-            this.txtNotes.PlaceholderText = "";
-            this.txtNotes.SelectedText = "";
-            this.txtNotes.ShadowDecoration.Parent = this.txtNotes;
-            this.txtNotes.Size = new System.Drawing.Size(617, 50);
-            this.txtNotes.TabIndex = 45;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(108, 282);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 24);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Notes :";
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
-            this.pictureBox11.Location = new System.Drawing.Point(187, 282);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox11.TabIndex = 44;
-            this.pictureBox11.TabStop = false;
-            // 
             // ucLicenseWithFilter1
             // 
-            this.ucLicenseWithFilter1.Location = new System.Drawing.Point(16, 52);
+            this.ucLicenseWithFilter1.Location = new System.Drawing.Point(6, 52);
             this.ucLicenseWithFilter1.Name = "ucLicenseWithFilter1";
             this.ucLicenseWithFilter1.Size = new System.Drawing.Size(1091, 461);
             this.ucLicenseWithFilter1.TabIndex = 50;
+            this.ucLicenseWithFilter1.onSearchLicenseBtnClicked += new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter.SearchLicenseBtnClickedEventHandler(this.ucLicenseWithFilter1_onSearchLicenseBtnClicked);
             // 
             // frmRenewLocalLicense
             // 
@@ -610,31 +616,32 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1107, 926);
+            this.ClientSize = new System.Drawing.Size(1107, 934);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucLicenseWithFilter1);
             this.Controls.Add(this.linkLShowLicenseInfo);
             this.Controls.Add(this.linkLShowLicenseHistory);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnRenew);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRenewLocalLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Renew Local License";
+            this.Load += new System.EventHandler(this.frmRenewLocalLicense_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -647,7 +654,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.LinkLabel linkLShowLicenseInfo;
         private System.Windows.Forms.LinkLabel linkLShowLicenseHistory;
-        private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2Button btnRenew;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -661,7 +668,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblAppFees;
         private System.Windows.Forms.Label lblNewLicenseID;
-        private System.Windows.Forms.Label lblRLApplivationID;
+        private System.Windows.Forms.Label lblRLApplicationID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblOldLicenseID;
