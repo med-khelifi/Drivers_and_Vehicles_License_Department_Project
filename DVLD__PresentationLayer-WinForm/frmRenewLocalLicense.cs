@@ -31,7 +31,7 @@ namespace DVLD__PresentationLayer_WinForm
             lblAppDate.Text = _Date.ToString("dd/MMM/yyyy");
             lblIssueDate.Text = _Date.ToString("dd/MMM/yyyy");
             lblExpirationDate.Text = _Date.ToString("dd/MMM/yyyy");
-            lblCreatedBy.Text = clsCurrentUserInfo.CurrentUser.UserName;
+            lblCreatedBy.Text = clsGlobal.CurrentUser.UserName;
             lblAppFees.Text = _AppFees.ToString();
             lblTotalFees.Text = (_LicenseFees + _AppFees).ToString();
 
@@ -136,7 +136,7 @@ namespace DVLD__PresentationLayer_WinForm
             _Application.ApplicationStatus = 3;
             _Application.LastStatusDate = _Date;
             _Application.PaidFees = _LicenseFees + _AppFees;
-            _Application.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+            _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if (_Application.Save())
             {
@@ -149,7 +149,7 @@ namespace DVLD__PresentationLayer_WinForm
                 _NewLicense.isActive = true;
                 _NewLicense.IssueReason = 2;
                 _NewLicense.Notes = txtNotes.Text.Trim();
-                _NewLicense.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+                _NewLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
                 _License.isActive = false;
                 if (!clsLicense.DeactivateLicense(_License.LicenseID))

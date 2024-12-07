@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BVLD__BusinessLayer
 {
-    public static class clsCurrentUserInfo
+    public static class clsGlobal
     {
         public static clsUser CurrentUser { get; set; }
     }

@@ -89,7 +89,7 @@ namespace DVLD__PresentationLayer_WinForm
             _TestInfo.TestResult =rbPass.Checked;
             _TestInfo.Notes = txtNotes.Text;
             _TestInfo.TestAppointmentID = _AppointmentID;
-            _TestInfo.CreatedByUser = clsCurrentUserInfo.CurrentUser.UserID;
+            _TestInfo.CreatedByUser = clsGlobal.CurrentUser.UserID;
             if (MessageBox.Show("Are You Sure ? When You Save You Can't Change It Later", "Save Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK) 
             {
                 if (_TestInfo.Save())

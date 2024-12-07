@@ -47,7 +47,7 @@
     <Compile Include="clsApplicationType.cs" />
     <Compile Include="clsBusinessAccessSettings.cs" />
     <Compile Include="clsCountry.cs" />
-    <Compile Include="clsCurrentUserInfo.cs" />
+    <Compile Include="clsGlobal.cs" />
     <Compile Include="clsDriver.cs" />
     <Compile Include="clsLicense.cs" />
     <Compile Include="clsInternationalLicense.cs" />

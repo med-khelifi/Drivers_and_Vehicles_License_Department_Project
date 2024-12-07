@@ -21,7 +21,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void _LoadData()
         {
             lblApplicationDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            lblCurrentUser.Text = clsCurrentUserInfo.CurrentUser.UserName;
+            lblCurrentUser.Text = clsGlobal.CurrentUser.UserName;
             ApplicationTypeFees = clsApplicationType.GetApplicationTypeFees(1);
             if (ApplicationTypeFees != -1) 
             {
@@ -82,7 +82,7 @@ namespace DVLD__PresentationLayer_WinForm
             _Application.ApplicationStatus = 1;
             _Application.LastStatusDate = DateTime.Now;
             _Application.PaidFees = clsLicenseClass.GetLicenseFees(LicenseClassID);
-            _Application.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+            _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if (_Application.Save())
             {

@@ -28,13 +28,13 @@ namespace DVLD__PresentationLayer_WinForm
             }
             else
             {
-                if((clsCurrentUserInfo.CurrentUser = clsUser.LogIn(txtUserName.Text.Trim(),txtPassword.Text.Trim())) == null)
+                if((clsGlobal.CurrentUser = clsUser.LogIn(txtUserName.Text.Trim(),txtPassword.Text.Trim())) == null)
                 {
                     MessageBox.Show("Invalid UserName/Password.","Ivalid Informations",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (!clsCurrentUserInfo.CurrentUser.isActive)
+                    if (!clsGlobal.CurrentUser.isActive)
                     {
                         MessageBox.Show("Your Account Is Deactivated,Please Contact Your Admins.", "Account Deactivated", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;

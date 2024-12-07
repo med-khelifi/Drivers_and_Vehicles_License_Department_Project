@@ -91,7 +91,7 @@ namespace DVLD__PresentationLayer_WinForm
             {
                 _NewDriver = new clsDriver();
                 _NewDriver.PersonID = _Application.ApplicantPersonID; 
-                _NewDriver.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+                _NewDriver.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                 _NewDriver.CreatedDate = DateTime.Now;
                 if (!_NewDriver.Save())
                 {
@@ -114,7 +114,7 @@ namespace DVLD__PresentationLayer_WinForm
             _NewLicense.PaidFees = clsLicenseClass.GetLicenseFees(_LDLApp.LicenseClassID);
             _NewLicense.isActive = true;
             _NewLicense.IssueReason = 1;
-            _NewLicense.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID ;
+            _NewLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID ;
 
             if (_NewLicense.Save())
             {

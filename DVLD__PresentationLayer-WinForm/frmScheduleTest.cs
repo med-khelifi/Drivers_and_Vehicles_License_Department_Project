@@ -103,7 +103,7 @@ namespace DVLD__PresentationLayer_WinForm
                     _RetakeTestApp.ApplicationTypeID = 8;
                     _RetakeTestApp.LastStatusDate = DateTime.Now;
                     _RetakeTestApp.PaidFees = _retakeTestFees;
-                    _RetakeTestApp.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+                    _RetakeTestApp.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                 }
                 if (Mode == enMode.update)
                 {
@@ -132,7 +132,7 @@ namespace DVLD__PresentationLayer_WinForm
             _testAppointment.LocalDrivingLicenseApplicationID = _LDLAppID;
             _testAppointment.AppointmentDate = dtpDate.Value;
             _testAppointment.PaidFees = _retakeTestFees + _testFees;
-            _testAppointment.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+            _testAppointment.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             _testAppointment.isLocked = false;
             
             

@@ -27,7 +27,7 @@ namespace DVLD__PresentationLayer_WinForm
             lblAppDate.Text = _Date.ToString("dd/MMM/yyyy");
             lblIssueDate.Text = _Date.ToString("dd/MMM/yyyy");
             lblExpirationDate.Text = _Date.AddYears(1).ToString("dd/MMM/yyyy");
-            lblCreatedBy.Text = clsCurrentUserInfo.CurrentUser.UserName;
+            lblCreatedBy.Text = clsGlobal.CurrentUser.UserName;
             lblFees.Text = PaidFees.ToString();
             btnSave.Enabled = false;
         }
@@ -61,7 +61,7 @@ namespace DVLD__PresentationLayer_WinForm
             _Application.ApplicationStatus = 3;
             _Application.LastStatusDate = _Date;    
             _Application.PaidFees = PaidFees;
-            _Application.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+            _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if (_Application.Save()) 
             {
@@ -72,7 +72,7 @@ namespace DVLD__PresentationLayer_WinForm
                 _InternationalLicense.IssueDate = _Date;
                 _InternationalLicense.ExpirationDate = _Date.AddYears(1);
                 _InternationalLicense.isActive = true;
-                _InternationalLicense.CreatedByUserID = clsCurrentUserInfo.CurrentUser.UserID;
+                _InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                 if (_InternationalLicense.Save()) 
                 { 
                     lblILAppID.Text = _Application.ApplicationID.ToString();

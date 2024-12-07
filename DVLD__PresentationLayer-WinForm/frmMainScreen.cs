@@ -43,19 +43,19 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmShowUserDetails frm = new frmShowUserDetails(clsCurrentUserInfo.CurrentUser.UserID);
+            frmShowUserDetails frm = new frmShowUserDetails(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
         }
 
         private void changePassworddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(clsCurrentUserInfo.CurrentUser.UserID);
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            clsCurrentUserInfo.CurrentUser = null;
+            clsGlobal.CurrentUser = null;
             Close();
         }
 
@@ -119,6 +119,12 @@ namespace DVLD__PresentationLayer_WinForm
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRenewLocalLicense frm = new frmRenewLocalLicense();
+            frm.ShowDialog();
+        }
+
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseReplacement frm = new frmLicenseReplacement();    
             frm.ShowDialog();
         }
     }
