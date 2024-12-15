@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.gbFilter = new System.Windows.Forms.GroupBox();
-            this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearchText = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearchLicense = new Guna.UI2.WinForms.Guna2Button();
             this.ucDriverLicenseInfo1 = new DVLD__PresentationLayer_WinForm.ucDriverLicenseInfo();
@@ -38,7 +38,7 @@
             // 
             // gbFilter
             // 
-            this.gbFilter.Controls.Add(this.txtFilterText);
+            this.gbFilter.Controls.Add(this.txtSearchText);
             this.gbFilter.Controls.Add(this.label2);
             this.gbFilter.Controls.Add(this.btnSearchLicense);
             this.gbFilter.Location = new System.Drawing.Point(3, 3);
@@ -50,27 +50,27 @@
             // 
             // txtFilterText
             // 
-            this.txtFilterText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFilterText.DefaultText = "";
-            this.txtFilterText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtFilterText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtFilterText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFilterText.DisabledState.Parent = this.txtFilterText;
-            this.txtFilterText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFilterText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFilterText.FocusedState.Parent = this.txtFilterText;
-            this.txtFilterText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFilterText.HoverState.Parent = this.txtFilterText;
-            this.txtFilterText.Location = new System.Drawing.Point(169, 22);
-            this.txtFilterText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtFilterText.Name = "txtFilterText";
-            this.txtFilterText.PasswordChar = '\0';
-            this.txtFilterText.PlaceholderText = "";
-            this.txtFilterText.SelectedText = "";
-            this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
-            this.txtFilterText.Size = new System.Drawing.Size(451, 44);
-            this.txtFilterText.TabIndex = 9;
-            this.txtFilterText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
+            this.txtSearchText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchText.DefaultText = "";
+            this.txtSearchText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchText.DisabledState.Parent = this.txtSearchText;
+            this.txtSearchText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchText.FocusedState.Parent = this.txtSearchText;
+            this.txtSearchText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchText.HoverState.Parent = this.txtSearchText;
+            this.txtSearchText.Location = new System.Drawing.Point(169, 22);
+            this.txtSearchText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearchText.Name = "txtFilterText";
+            this.txtSearchText.PasswordChar = '\0';
+            this.txtSearchText.PlaceholderText = "";
+            this.txtSearchText.SelectedText = "";
+            this.txtSearchText.ShadowDecoration.Parent = this.txtSearchText;
+            this.txtSearchText.Size = new System.Drawing.Size(451, 44);
+            this.txtSearchText.TabIndex = 9;
+            this.txtSearchText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
             // 
             // label2
             // 
@@ -127,7 +127,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbFilter;
-        private Guna.UI2.WinForms.Guna2TextBox txtFilterText;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchText;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnSearchLicense;
         private ucDriverLicenseInfo ucDriverLicenseInfo1;

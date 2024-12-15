@@ -58,7 +58,7 @@ namespace DVLD__PresentationLayer_WinForm
             ucLicenseWithFilter2.DateOfBirth = clsPerson.getPersonBirthDate(_PersonID);
             ucLicenseWithFilter2.DriverID = _License.DriverID;
             ucLicenseWithFilter2.ExpirationDate = _License.ExpirationDate;
-            ucLicenseWithFilter2.isDetained = "....";
+            ucLicenseWithFilter2.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
             ucLicenseWithFilter2.ImagePath = clsPerson.getPersonImagePath(_PersonID);
         }
         private void frmLicenseReplacement_Load(object sender, EventArgs e)

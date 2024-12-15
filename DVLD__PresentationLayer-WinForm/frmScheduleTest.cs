@@ -100,7 +100,7 @@ namespace DVLD__PresentationLayer_WinForm
                     _RetakeTestApp.ApplicantPersonID = _app.ApplicantPersonID;
                     _RetakeTestApp.ApplicationDate = DateTime.Now;
                     _RetakeTestApp.ApplicationStatus = _app.ApplicationStatus;
-                    _RetakeTestApp.ApplicationTypeID = 8;
+                    _RetakeTestApp.ApplicationTypeID = 7;
                     _RetakeTestApp.LastStatusDate = DateTime.Now;
                     _RetakeTestApp.PaidFees = _retakeTestFees;
                     _RetakeTestApp.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -110,7 +110,7 @@ namespace DVLD__PresentationLayer_WinForm
                     lblRetakeTestAppID.Text = _testAppointment.RetakeTestApplicationID.ToString();
                     _RetakeTestApp = clsApplication.Find(_testAppointment.RetakeTestApplicationID);
                 }
-                _retakeTestFees = clsApplicationType.GetApplicationTypeFees(8);
+                _retakeTestFees = clsApplicationType.GetApplicationTypeFees(7);
                 lblCaption.Text = "Schedule Retake Test";
                 retakeTestGroupBox.Enabled = true;
             }

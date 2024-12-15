@@ -16,7 +16,8 @@ namespace DVLD__PresentationLayer_WinForm
         public delegate void SearchLicenseBtnClickedEventHandler(string id);
         public event SearchLicenseBtnClickedEventHandler onSearchLicenseBtnClicked;
 
-        
+        public string SearchText { set { txtSearchText.Text = value; } }
+        public bool EnableSearchText { set { txtSearchText.Enabled = value; } }  
         public string LicenseClass { set { ucDriverLicenseInfo1.LicenseClass = value; } }
         public string FullName { set { ucDriverLicenseInfo1.FullName = value; } }
         public int LicenseID { set { ucDriverLicenseInfo1.LicenseID = value; } }
@@ -41,7 +42,7 @@ namespace DVLD__PresentationLayer_WinForm
         
         private void btnSearchLicense_Click(object sender, EventArgs e)
         {           
-            onSearchLicenseBtnClicked?.Invoke(txtFilterText.Text);           
+            onSearchLicenseBtnClicked?.Invoke(txtSearchText.Text);           
         }
 
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)

@@ -185,7 +185,6 @@ namespace BVLD__DataAccessLayer
             finally { connection.Close(); }
             return AddID;
         }
-
         public static bool DeactivateLisense(int LicenseID)
         {
             int effectedRow = 0;
@@ -210,6 +209,27 @@ namespace BVLD__DataAccessLayer
                 connection.Close();
             }
             return (effectedRow > 0);
+        }
+        public static bool isLicenseDetained(int LicenseID)
+        {
+            bool Result = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string Query = @"SELECT 1
+                  FROM     DetainedLicenses INNER JOIN
+                  Licenses ON DetainedLicenses.LicenseID = Licenses.LicenseID where IsReleased = 0 and Licenses.LicenseID= @ID;";
+            SqlCommand command = new SqlCommand(Query, connection);
+            command.Parameters.AddWithValue("@ID", LicenseID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                Result = reader.HasRows;
+                reader.Close();
+            }
+            catch { }
+            finally { connection.Close(); }
+            return Result;
         }
     }
 }

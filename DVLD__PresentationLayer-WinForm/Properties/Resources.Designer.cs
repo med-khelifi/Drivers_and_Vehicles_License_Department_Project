@@ -203,9 +203,29 @@ namespace DVLD__PresentationLayer_WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap credit__1_ {
+            get {
+                object obj = ResourceManager.GetObject("credit (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deleteApplication {
             get {
                 object obj = ResourceManager.GetObject("deleteApplication", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DetainCard {
+            get {
+                object obj = ResourceManager.GetObject("DetainCard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

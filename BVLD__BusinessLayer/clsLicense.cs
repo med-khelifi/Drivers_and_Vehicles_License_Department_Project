@@ -121,5 +121,10 @@ namespace BVLD__BusinessLayer
         {
             return clsLicenseData.DeactivateLisense(LicenseID);
         }
+
+        public static bool isLicenseDetained(int LicenseID)
+        {
+            return clsLicenseData.isLicenseDetained(LicenseID);
+        }
     }
 }

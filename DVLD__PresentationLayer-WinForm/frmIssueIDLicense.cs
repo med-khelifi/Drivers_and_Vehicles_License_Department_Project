@@ -133,7 +133,7 @@ namespace DVLD__PresentationLayer_WinForm
             ucLicenseWithFilter1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
             ucLicenseWithFilter1.DriverID = _License.DriverID;
             ucLicenseWithFilter1.ExpirationDate = _License.ExpirationDate;
-            ucLicenseWithFilter1.isDetained = "....";
+            ucLicenseWithFilter1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
             ucLicenseWithFilter1.ImagePath = clsPerson.getPersonImagePath(PersonID);
         }
         private void ucLicenseWithFilter1_onSearchLicenseBtnClicked(string id)

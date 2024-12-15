@@ -57,6 +57,12 @@
     <Compile Include="frmAddNewLDLApplication.Designer.cs">
       <DependentUpon>frmAddNewLDLApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,12 @@
     <Compile Include="frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageDetainedLicenses.Designer.cs">
+      <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     </Compile>
     <Compile Include="frmManageTestTypes.Designer.cs">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReleaseLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReleaseLicense.Designer.cs">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRenewLocalLicense.cs">
       <SubType>Form</SubType>
@@ -272,6 +290,9 @@
     <EmbeddedResource Include="frmAddNewLDLApplication.resx">
       <DependentUpon>frmAddNewLDLApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +335,9 @@
     <EmbeddedResource Include="frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmManageDetainedLicenses.resx">
+      <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageTestTypes.resx">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReleaseLicense.resx">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRenewLocalLicense.resx">
       <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
@@ -606,6 +633,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\passport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DetainCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

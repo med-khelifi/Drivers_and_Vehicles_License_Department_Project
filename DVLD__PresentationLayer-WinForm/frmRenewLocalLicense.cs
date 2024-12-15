@@ -53,10 +53,9 @@ namespace DVLD__PresentationLayer_WinForm
             ucLicenseWithFilter1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
             ucLicenseWithFilter1.DriverID = _License.DriverID;
             ucLicenseWithFilter1.ExpirationDate = _License.ExpirationDate;
-            ucLicenseWithFilter1.isDetained = "....";
+            ucLicenseWithFilter1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
             ucLicenseWithFilter1.ImagePath = clsPerson.getPersonImagePath(PersonID);
         }
-
         string IssueReasonString(int Reason)
         {
             switch (Reason)
@@ -68,7 +67,6 @@ namespace DVLD__PresentationLayer_WinForm
                 default: return "";
             }
         }
-
         private void ucLicenseWithFilter1_onSearchLicenseBtnClicked(string id)
         {
             if (id == "") return;
@@ -104,24 +102,20 @@ namespace DVLD__PresentationLayer_WinForm
                 MessageBox.Show("License Not Found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmLicensesHistory frm = new frmLicensesHistory(PersonID, true);
             frm.ShowDialog();
         }
-
         private void linkLShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_NewLicense.LicenseID);
             frm.ShowDialog();   
         }
-
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnRenew_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are You Sure You Want To Issue The License ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
@@ -175,7 +169,6 @@ namespace DVLD__PresentationLayer_WinForm
                 MessageBox.Show("Saving New License Application Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void frmRenewLocalLicense_Load(object sender, EventArgs e)
         {
             _Date = DateTime.Now;

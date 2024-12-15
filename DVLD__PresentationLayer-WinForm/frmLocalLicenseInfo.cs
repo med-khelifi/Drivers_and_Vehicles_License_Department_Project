@@ -58,7 +58,7 @@ namespace DVLD__PresentationLayer_WinForm
             ucDriverLicenseInfo1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
             ucDriverLicenseInfo1.DriverID = _License.DriverID;
             ucDriverLicenseInfo1.ExpirationDate = _License.ExpirationDate;
-            ucDriverLicenseInfo1.isDetained = "....";
+            ucDriverLicenseInfo1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
             ucDriverLicenseInfo1.ImagePath = clsPerson.getPersonImagePath(PersonID);
         } 
         public frmLocalLicenseInfo(int LicenseID)

@@ -59,11 +59,6 @@ namespace DVLD__PresentationLayer_WinForm
             Close();
         }
 
-        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void manageTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageTestTypes frm = new frmManageTestTypes();
@@ -82,10 +77,6 @@ namespace DVLD__PresentationLayer_WinForm
             frm.ShowDialog();
         }
 
-        private void drivingLicensesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -97,11 +88,6 @@ namespace DVLD__PresentationLayer_WinForm
         {
             frmManageDrivers frm = new frmManageDrivers();
             frm.ShowDialog();
-        }
-
-        private void frmMainScreen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void licenseInternaticToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,6 +112,24 @@ namespace DVLD__PresentationLayer_WinForm
         {
             frmLicenseReplacement frm = new frmLicenseReplacement();    
             frm.ShowDialog();
+        }
+
+        private void manageDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDetainedLicenses frm = new frmManageDetainedLicenses();
+            frm.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense frm = new frmDetainLicense();
+            frm.ShowDialog();
+        }
+
+        private void releaseDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense frm = new frmReleaseLicense(-1);
+            frm.ShowDialog();   
         }
     }
 }
