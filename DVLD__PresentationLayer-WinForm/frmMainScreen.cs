@@ -131,5 +131,11 @@ namespace DVLD__PresentationLayer_WinForm
             frmReleaseLicense frm = new frmReleaseLicense(-1);
             frm.ShowDialog();   
         }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageLocalDrivingLicenseApplication frm = new frmManageLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+        }
     }
 }
