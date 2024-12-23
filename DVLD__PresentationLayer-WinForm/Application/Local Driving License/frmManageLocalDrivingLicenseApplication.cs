@@ -260,5 +260,12 @@ namespace DVLD__PresentationLayer_WinForm
             frmLicensesHistory frm = new frmLicensesHistory(SelectedApplicationID);
             frm.ShowDialog();
         }
+
+        private void editTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewLDLApplication frm = new frmAddNewLDLApplication((int)dgvLDLApplication.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _LoadData();
+        }
     }
 }

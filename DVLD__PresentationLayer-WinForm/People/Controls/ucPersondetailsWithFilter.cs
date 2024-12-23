@@ -39,6 +39,13 @@ namespace DVLD__PresentationLayer_WinForm
             }
         }
         public bool FilterVisibility { set { gbFilter.Enabled = value; } }
+        public void LoadPersonInfo(int PersonID)
+        {
+            PersonInfo = clsPerson.Find(PersonID);
+            _Loaddata();
+            gbFilter.Enabled = false;
+            txtFilterText.Text = PersonID.ToString();
+        }
         public ucPersondetailsWithFilter()
         {
             InitializeComponent();
@@ -173,6 +180,11 @@ namespace DVLD__PresentationLayer_WinForm
                 //MessageBox.Show("");
             }
 
+        }
+
+        public void SetFocus()
+        {
+            txtFilterText.Focus();
         }
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
         {

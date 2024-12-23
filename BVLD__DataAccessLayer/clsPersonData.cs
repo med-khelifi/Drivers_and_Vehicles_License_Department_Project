@@ -58,7 +58,7 @@ namespace BVLD__DataAccessLayer
             }
             return PeopleData;
         }
-        public static bool GetPersonInfo(int PersonID,ref string NationalNo,ref string FirstName,ref string SecondName,ref string ThirdName,ref string LastName,
+        public static bool GetPersonInfoByPersonID(int PersonID,ref string NationalNo,ref string FirstName,ref string SecondName,ref string ThirdName,ref string LastName,
                                         ref int Gender,ref DateTime DateOfBirth,ref int CountryID,ref string Phone,ref string Email,ref string Address,ref string ImagePath)
         {
             bool isFound = false;
@@ -118,7 +118,7 @@ namespace BVLD__DataAccessLayer
             return isFound;
         }
 
-        public static bool GetPersonInfo(ref int PersonID, string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+        public static bool GetPersonInfoByNationbalNumber(ref int PersonID, string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
                                                 ref int Gender, ref DateTime DateOfBirth, ref int CountryID, ref string Phone, ref string Email, ref string Address, ref string ImagePath)
         {
             bool isFound = false;
@@ -362,151 +362,6 @@ namespace BVLD__DataAccessLayer
             finally
             {
                 Connection.Close();
-            }
-            return isFound;
-        }
-        public static bool GetPersonFullName(int PersonID, ref string FullName)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT FirstName+' '+ SecondName+' '+ ThirdName+' '+ LastName as FullName FROM People where People.PersonID = @PersonID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    isFound = true;
-                    FullName = reader["FullName"].ToString();
-                }
-                reader.Close();
-            }
-            catch { }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-        public static bool GetPersonNationalNo(int PersonID, ref string NationalNo)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT NationalNo FROM People where People.PersonID = @PersonID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    isFound = true;
-                    NationalNo = reader["NationalNo"].ToString();
-                }
-                reader.Close();
-            }
-            catch { }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-        public static bool GetPersonGender(int PersonID, ref short Gendor)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT Gender FROM People where People.PersonID = @PersonID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    isFound = true;
-                    Gendor = Convert.ToInt16((reader["Gender"]));
-                }
-                reader.Close();
-            }
-            catch { }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-        public static bool GetPersonDateOfBirth(int PersonID, ref DateTime DateOfBirth)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT DateOfBirth FROM People where People.PersonID = @PersonID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    isFound = true;
-                    DateOfBirth = Convert.ToDateTime((reader["DateOfBirth"]));
-                }
-                reader.Close();
-            }
-            catch { }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
-        public static bool GetPersonImagePath(int PersonID, ref string ImagePath) 
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT ImagePath FROM People where People.PersonID = @PersonID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    isFound = true;
-                    ImagePath = (reader["ImagePath"] == DBNull.Value ? "" : reader["ImagePath"].ToString());
-                }
-                reader.Close();
-            }
-            catch { }
-            finally
-            {
-                connection.Close();
             }
             return isFound;
         }

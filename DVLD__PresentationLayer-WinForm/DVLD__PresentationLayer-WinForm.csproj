@@ -57,7 +57,10 @@
     <Compile Include="Application\Local Driving License\frmAddNewLDLApplication.Designer.cs">
       <DependentUpon>frmAddNewLDLApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsFormat.cs" />
     <Compile Include="Global Classes\clsGlobal.cs" />
+    <Compile Include="Global Classes\clsUtil.cs" />
+    <Compile Include="Global Classes\clsValidation.cs" />
     <Compile Include="Licenses\Detain License\frmDetainLicense.cs">
       <SubType>Form</SubType>
     </Compile>

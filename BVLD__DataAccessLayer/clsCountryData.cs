@@ -42,7 +42,7 @@ namespace ContactsDataLayer
 
             return isCountryFound;
         }
-        public static bool GetCountryInfoByCountryName(ref int CountryID, string CountryName)
+        public static bool GetCountryInfoByCountryName(ref int , string CountryName)
         {
             bool isCountryFound = false;
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -73,121 +73,6 @@ namespace ContactsDataLayer
 
             return isCountryFound;
         }
-
-        //public static int AddNewCountry(string CountryName, string Code, string PhoneCode)
-        //{
-        //    int countryID = -1;
-        //    SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-        //    string Query = @"insert into Countries (CountryName,Code,PhoneCode) values (@CountryName,@Code,@PhoneCode);
-        //                    Select Scope_Identity();";
-        //    SqlCommand command = new SqlCommand(Query, connection);
-        //    command.Parameters.AddWithValue("@CountryName", CountryName);
-        //    if (Code != "")
-        //    {
-        //        command.Parameters.AddWithValue("@Code", Code);
-        //    }
-        //    else
-        //    {
-        //        command.Parameters.AddWithValue("@Code", DBNull.Value);
-        //    }
-        //    if (PhoneCode != "")
-        //    {
-        //        command.Parameters.AddWithValue("@PhoneCode", PhoneCode);
-        //    }
-        //    else
-        //    {
-        //        command.Parameters.AddWithValue("@PhoneCode", DBNull.Value);
-        //    };
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        object Result = command.ExecuteScalar();
-        //        if (int.TryParse(Result.ToString(), out int insertedCountryID))
-        //        {
-        //            countryID = insertedCountryID;
-        //        }
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        //Console.WriteLine(ex);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return countryID;
-        //}
-        //public static bool UpdateCountry(int CountryID, string CountryName, string Code, string PhoneCode)
-        //{
-        //    int effectedRow = 0;
-
-        //    SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-        //    string Query = @"update Countries 
-        //                    set CountryName = @CountryName,
-        //                        Code = @Code,
-        //                        PhoneCode = @PhoneCode
-        //                    where CountryID = @CountryID;";
-
-        //    SqlCommand command = new SqlCommand(Query, connection);
-        //    command.Parameters.AddWithValue("@CountryName", CountryName);
-        //    command.Parameters.AddWithValue("@CountryID", CountryID);
-        //    if (Code != "")
-        //    {
-        //        command.Parameters.AddWithValue("@Code", Code);
-        //    }
-        //    else
-        //    {
-        //        command.Parameters.AddWithValue("@Code", DBNull.Value);
-        //    }
-        //    if (PhoneCode != "")
-        //    {
-        //        command.Parameters.AddWithValue("@PhoneCode", PhoneCode);
-        //    }
-        //    else
-        //    {
-        //        command.Parameters.AddWithValue("@PhoneCode", DBNull.Value);
-        //    };
-        //    try
-        //    {
-        //        connection.Open();
-        //        effectedRow = command.ExecuteNonQuery();
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        //Console.WriteLine(ex);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return (effectedRow > 0);
-        //}
-        //public static bool DeleteCountry(int CountryID)
-        //{
-        //    int effectedRow = 0;
-
-        //    SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-        //    string Query = "delete Countries where CountryID = @CountryID;";
-
-        //    SqlCommand command = new SqlCommand(Query, connection);
-        //    command.Parameters.AddWithValue("@CountryID", CountryID);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        effectedRow = command.ExecuteNonQuery();
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        //Console.WriteLine(ex);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return (effectedRow > 0);
-        //}
         public static DataTable getAllCountries()
         {
             DataTable allCountries = new DataTable();
@@ -213,7 +98,6 @@ namespace ContactsDataLayer
             }
             return allCountries;
         }
-
         public static List<string> getAllCountriesNameList()
         {
             List<string> allCountriesName = new List<string>();
@@ -241,59 +125,6 @@ namespace ContactsDataLayer
                 connection.Close();
             }
             return allCountriesName;
-        }
-
-        //public static bool isCountryExist(int ID)
-        //{
-        //    bool isExist = false;
-        //    SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-        //    string query = "Select found = 1 from Countries where CountryID = @CountryID;";
-        //    SqlCommand cmd = new SqlCommand(query, connection);
-        //    cmd.Parameters.AddWithValue("@CountryID", ID);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        isExist = reader.HasRows;
-        //        reader.Close();
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return isExist;
-
-        //}
-        //public static bool isCountryExist(string CountryName)
-        //{
-        //    bool isExist = false;
-        //    SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-        //    string query = "Select found = 1 from Countries where CountryName = @CountryName;";
-        //    SqlCommand cmd = new SqlCommand(query, connection);
-        //    cmd.Parameters.AddWithValue("@CountryName", CountryName);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        isExist = reader.HasRows;
-        //        reader.Close();
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return isExist;
-
-        //}
+        }  
     }
 }

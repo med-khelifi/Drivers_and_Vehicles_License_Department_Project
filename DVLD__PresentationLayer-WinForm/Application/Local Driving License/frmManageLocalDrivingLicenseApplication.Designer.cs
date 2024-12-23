@@ -124,6 +124,7 @@
             this.editTestToolStripMenuItem.Name = "editTestToolStripMenuItem";
             this.editTestToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
             this.editTestToolStripMenuItem.Text = "Edit Application";
+            this.editTestToolStripMenuItem.Click += new System.EventHandler(this.editTestToolStripMenuItem_Click);
             // 
             // deleteApplicationToolStripMenuItem
             // 

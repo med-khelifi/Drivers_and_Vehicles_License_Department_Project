@@ -7,12 +7,13 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using BVLD__DataAccessLayer;
+using ContactBusinessLayer;
 namespace BVLD__BusinessLayer
 {
     public class clsPerson
     {
-        public enum enMode { AddNew = 1, Update = 2 }
-        public enMode Mode { get; set; }
+        public enum enMode { AddNew = 1, Update = 2  }
+        public enMode Mode { get; set; } = enMode.AddNew;
 
         public int PersonId { get; set; }
         public string NationalNo { get; set; }
@@ -20,12 +21,19 @@ namespace BVLD__BusinessLayer
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+
+        public string FullName
+        {
+            get { return FirstName + ' ' + SecondName + ' ' + ThirdName + ' ' + LastName; }
+        }
         public DateTime DateOfBirth { get; set; }
         public int Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
+
+        clsCountry CountryInfo;
         public string ImagePath { get; set; }
 
         private clsPerson(int personID, string nationalNo, string firstName, string secondName, string thirdName, string lastName,
@@ -44,6 +52,7 @@ namespace BVLD__BusinessLayer
             Phone = phone;
             Email = email;
             ImagePath = imagePath;
+            CountryInfo = clsCountry.Find(NationalityCountryID);
 
             Mode = enMode.Update;
         }
@@ -75,7 +84,7 @@ namespace BVLD__BusinessLayer
             string Address = "", ImagePath = "";
             int Gender = -1, CountryID = -1;
             DateTime DateOfBirth = DateTime.Now;
-            if (clsPersonData.GetPersonInfo(ID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
+            if (clsPersonData.GetPersonInfoByPersonID(ID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
             {
                 return new clsPerson(ID, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, CountryID, Phone, Email, Address, ImagePath);
             }
@@ -90,7 +99,7 @@ namespace BVLD__BusinessLayer
             string Address = "", ImagePath = "";
             int Gender = -1, CountryID = -1, PersonID = -1;
             DateTime DateOfBirth = DateTime.Now;
-            if (clsPersonData.GetPersonInfo(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
+            if (clsPersonData.GetPersonInfoByNationbalNumber(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref Gender, ref DateOfBirth, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath))
             {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, CountryID, Phone, Email, Address, ImagePath);
             }
@@ -139,51 +148,6 @@ namespace BVLD__BusinessLayer
         public static bool isPersonExist(string NationalNo)
         {
             return clsPersonData.isPersonExist(NationalNo);
-        }
-        public static string getPersonFullName(int PersonId)
-        {
-            string FullName = "2";
-            if (clsPersonData.GetPersonFullName(PersonId,ref FullName))
-            {
-                return FullName;
-            }
-            return "null";
-        }
-        public static string getPersonNationalNo(int PersonId)
-        {
-            string NationalNo = "....";
-            if (clsPersonData.GetPersonNationalNo(PersonId, ref NationalNo))
-            {
-                return NationalNo;
-            }
-            return "null";
-        }
-        public static short getPersonGendor(int PersonId)
-        {
-            short Gendor = -1;
-            if (clsPersonData.GetPersonGender(PersonId, ref Gendor))
-            {
-                return Gendor;
-            }
-            return -1;
-        }
-        public static DateTime getPersonBirthDate(int PersonId)
-        {
-            DateTime birthDate = DateTime.MinValue;
-            if (clsPersonData.GetPersonDateOfBirth(PersonId, ref birthDate))
-            {
-                return birthDate;
-            }
-            return DateTime.MinValue;
-        }
-        public static string getPersonImagePath(int PersonId)
-        {
-            string ImaagePath = "....";
-            if (clsPersonData.GetPersonImagePath(PersonId, ref ImaagePath))
-            {
-                return ImaagePath;
-            }
-            return "";
         }
     }
 }

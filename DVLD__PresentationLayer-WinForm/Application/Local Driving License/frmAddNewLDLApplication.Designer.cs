@@ -33,7 +33,6 @@
             this.tabControlUser = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.ucPersondetailsWithFilter1 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cbLicenseClass = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblCaption = new System.Windows.Forms.Label();
+            this.ucPersondetailsWithFilter1 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
             this.tabControlUser.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -145,16 +145,6 @@
             this.guna2Button1.Text = "Next";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // ucPersondetailsWithFilter1
-            // 
-            this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucPersondetailsWithFilter1.Gender = "_";
-            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
-            this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
-            this.ucPersondetailsWithFilter1.PersonID = "_";
-            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
-            this.ucPersondetailsWithFilter1.TabIndex = 10;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.cbLicenseClass);
@@ -249,9 +239,9 @@
             this.lblFees.ForeColor = System.Drawing.Color.Black;
             this.lblFees.Location = new System.Drawing.Point(364, 283);
             this.lblFees.Name = "lblFees";
-            this.lblFees.Size = new System.Drawing.Size(96, 28);
+            this.lblFees.Size = new System.Drawing.Size(22, 28);
             this.lblFees.TabIndex = 40;
-            this.lblFees.Text = "09/20/2001";
+            this.lblFees.Text = "0";
             // 
             // lblApplicationDate
             // 
@@ -348,6 +338,17 @@
             this.lblCaption.TabIndex = 11;
             this.lblCaption.Text = " New Local Driving License Application\r\n";
             // 
+            // ucPersondetailsWithFilter1
+            // 
+            this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucPersondetailsWithFilter1.Gender = "_";
+            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
+            this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
+            this.ucPersondetailsWithFilter1.PersonID = "_";
+            this.ucPersondetailsWithFilter1.PersonInfo = null;
+            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
+            this.ucPersondetailsWithFilter1.TabIndex = 10;
+            // 
             // frmAddNewLDLApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,6 +363,7 @@
             this.Name = "frmAddNewLDLApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddNewLDLApplication";
+            this.Activated += new System.EventHandler(this.frmAddNewLDLApplication_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddNewLDLApplication_FormClosing);
             this.Load += new System.EventHandler(this.frmAddNewLDLApplication_Load);
             this.tabControlUser.ResumeLayout(false);

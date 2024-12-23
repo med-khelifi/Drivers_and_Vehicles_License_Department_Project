@@ -8,16 +8,24 @@ namespace DVLD__PresentationLayer_WinForm
     {
         public delegate void frmAddNewLDLApplicationClosedDelegate();
         public frmAddNewLDLApplicationClosedDelegate frmClosedDelegate;
-
+        enum enMode { addNew,update}
+        enMode Mode;
         clsLDLApplication _LDLApplication;
         clsApplication _Application;
         float ApplicationTypeFees = -1;
-
+        int _LDLappID = -1;
         public frmAddNewLDLApplication()
         {
             InitializeComponent();
+            Mode = enMode.addNew;  
         }
 
+        public frmAddNewLDLApplication(int LDLAppID)
+        {
+            InitializeComponent();
+            Mode = enMode.update;
+            _LDLappID = LDLAppID;
+        }
         private void _LoadData()
         {
             lblApplicationDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -41,8 +49,25 @@ namespace DVLD__PresentationLayer_WinForm
         private void frmAddNewLDLApplication_Load(object sender, EventArgs e)
         {
             cbLicenseClass.DataSource = clsLicenseClass.GetLicenseClassesList();
-            _LoadData();
-
+            
+            if(Mode == enMode.addNew)
+            {
+                _LDLApplication = new clsLDLApplication();
+                _Application = new clsApplication();
+                _LoadData();
+            }
+            else
+            {
+                _LDLApplication = clsLDLApplication.Find(_LDLappID);
+                _Application = clsApplication.Find(_LDLApplication.ApplicationID);
+                ucPersondetailsWithFilter1.LoadPersonInfo(_Application.ApplicantPersonID);
+                lblID.Text  = _LDLappID.ToString();
+                lblApplicationDate.Text=_Application.ApplicationDate.ToShortDateString();
+                lblCurrentUser.Text = clsUser.GetUserName(_Application.CreatedByUserID);
+                cbLicenseClass.SelectedIndex = _LDLApplication.LicenseClassID -1;
+                lblFees.Text = _Application.PaidFees.ToString();    
+                lblCaption.Text = "Update Local Driving Application";
+            }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -61,7 +86,7 @@ namespace DVLD__PresentationLayer_WinForm
 
 
             int PersonID = ucPersondetailsWithFilter1.PersonInfo.PersonId;
-            int LicenseClassID = cbLicenseClass.SelectedIndex + 1;
+            int LicenseClassID = cbLicenseClass.SelectedIndex + 1; // better to retrive id from data base
 
             if (clsLicense.isPersonAlreadyHasLicense(PersonID, LicenseClassID))
             {
@@ -75,24 +100,34 @@ namespace DVLD__PresentationLayer_WinForm
                 return;
             }
 
-            _Application = new clsApplication();
-            _Application.ApplicantPersonID = PersonID;
-            _Application.ApplicationDate = DateTime.Now;
-            _Application.ApplicationTypeID = 1;
-            _Application.ApplicationStatus = 1;
-            _Application.LastStatusDate = DateTime.Now;
-            _Application.PaidFees = clsLicenseClass.GetLicenseFees(LicenseClassID);
-            _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            
+            if(Mode == enMode.addNew)
+            {
+                _Application.ApplicantPersonID = PersonID;
+                _Application.ApplicationDate = DateTime.Now;
+                _Application.ApplicationTypeID = 1;
+                _Application.ApplicationStatus = 1;
+                _Application.LastStatusDate = DateTime.Now;
+                _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+                _Application.PaidFees = clsLicenseClass.GetLicenseFees(LicenseClassID);
+            }
+
+            
 
             if (_Application.Save())
             {
-                lblID.Text = _Application.ApplicationID.ToString();
-                _LDLApplication = new clsLDLApplication();
-                _LDLApplication.ApplicationID = _Application.ApplicationID;
+                if(Mode == enMode.addNew)
+                {
+                    lblID.Text = _Application.ApplicationID.ToString();
+                    _LDLApplication = new clsLDLApplication();
+                    _LDLApplication.ApplicationID = _Application.ApplicationID;
+                }
                 _LDLApplication.LicenseClassID = LicenseClassID;
                 if (_LDLApplication.Save())
                 {
                     MessageBox.Show("Application Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Mode = enMode.update;
+                    lblCaption.Text = "Update Local Driving Application";
                 }
                 else
                 {
@@ -111,13 +146,10 @@ namespace DVLD__PresentationLayer_WinForm
         {
             frmClosedDelegate?.Invoke();
         }
+
+        private void frmAddNewLDLApplication_Activated(object sender, EventArgs e)
+        {
+            ucPersondetailsWithFilter1.SetFocus();
+        }
     }
 }
-
-//ApplicantPersonID = applicantPersonID;
-//ApplicationDate = applicationDate;
-//ApplicationTypeID = applicationTypeID;
-//ApplicationStatus = applicationStatus;
-//LastStatusDate = lastStatusDate;
-//PaidFees = paidFees;
-//CreatedByUserID = createdByUserID;
