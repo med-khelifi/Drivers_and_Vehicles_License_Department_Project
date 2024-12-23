@@ -42,7 +42,7 @@ namespace ContactsDataLayer
 
             return isCountryFound;
         }
-        public static bool GetCountryInfoByCountryName(ref int , string CountryName)
+        public static bool GetCountryInfoByCountryName(ref int CountryID, string CountryName)
         {
             bool isCountryFound = false;
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);

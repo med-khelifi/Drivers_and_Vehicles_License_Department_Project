@@ -54,7 +54,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _Loaddata()
         {
-            Person1.PersonID = PersonInfo.PersonId.ToString();
+            Person1.PersonID = PersonInfo.PersonID.ToString();
             Person1.FullName = $"{PersonInfo.FirstName} {PersonInfo.SecondName} {PersonInfo.ThirdName} {PersonInfo.LastName}";
             Person1.NationalNo = PersonInfo.NationalNo;
             Person1.Gender = PersonInfo.Gender == 0 ? "Male" : "Female";
@@ -91,7 +91,7 @@ namespace DVLD__PresentationLayer_WinForm
             if (PersonInfo != null)
             {
 
-                if (this.ParentForm.Name == "frmAddEditUser" && clsUser.isThisPersonUser(PersonInfo.PersonId))
+                if (this.ParentForm.Name == "frmAddEditUser" && clsUser.isThisPersonUser(PersonInfo.PersonID))
                 {
                     MessageBox.Show("This Person is already a User.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     PersonInfo = null;

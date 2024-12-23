@@ -78,7 +78,7 @@ namespace DVLD__PresentationLayer_WinForm
             
             
             lblCaption.Text = "Edit User Info";
-            ucPersondetailsWithFilter1.PersonID = UserPerson.PersonId.ToString();
+            ucPersondetailsWithFilter1.PersonID = UserPerson.PersonID.ToString();
             ucPersondetailsWithFilter1.FullName = $"{UserPerson.FirstName} {UserPerson.SecondName} {UserPerson.ThirdName} {UserPerson.LastName}";
             ucPersondetailsWithFilter1.NationalNo = UserPerson.NationalNo;
             ucPersondetailsWithFilter1.DateOfBirth = UserPerson.DateOfBirth;

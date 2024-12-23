@@ -15,7 +15,7 @@ namespace BVLD__BusinessLayer
         public enum enMode { AddNew = 1, Update = 2  }
         public enMode Mode { get; set; } = enMode.AddNew;
 
-        public int PersonId { get; set; }
+        public int PersonID { get; set; }
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -32,14 +32,13 @@ namespace BVLD__BusinessLayer
         public string Phone { get; set; }
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
-
-        clsCountry CountryInfo;
+        public clsCountry CountryInfo { set; get; }
         public string ImagePath { get; set; }
 
         private clsPerson(int personID, string nationalNo, string firstName, string secondName, string thirdName, string lastName,
          int gender, DateTime dateOfBirth, int countryID, string phone, string email, string address, string imagePath)
         {
-            PersonId = personID;
+            PersonID = personID;
             NationalNo = nationalNo;
             FirstName = firstName;
             SecondName = secondName;
@@ -58,7 +57,7 @@ namespace BVLD__BusinessLayer
         }
         public clsPerson()
         {
-            PersonId = -1;
+            PersonID = -1;
             NationalNo = "";
             FirstName = "";
             SecondName = "";
@@ -110,12 +109,12 @@ namespace BVLD__BusinessLayer
         }
         private bool _AddNew()
         {
-            this.PersonId = clsPersonData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
-            return (this.PersonId != 0);
+            this.PersonID = clsPersonData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
+            return (this.PersonID != 0);
         }
         private bool _Update()
         {
-            return clsPersonData.updatePersonInfo(PersonId, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
+            return clsPersonData.updatePersonInfo(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
         }
         public bool Save()
         {

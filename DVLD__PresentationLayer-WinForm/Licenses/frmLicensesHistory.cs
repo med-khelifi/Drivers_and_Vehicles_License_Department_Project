@@ -32,7 +32,7 @@ namespace DVLD__PresentationLayer_WinForm
             _Person = clsPerson.Find(_PersonID);
             if (_Person != null)
             {
-                p1.PersonID = $"#{_Person.PersonId}";
+                p1.PersonID = $"#{_Person.PersonID}";
                 p1.FullName = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
                 p1.NationalNo = _Person.NationalNo;
                 p1.Gender = (_Person.Gender == 0 ? "Male" : "Female");

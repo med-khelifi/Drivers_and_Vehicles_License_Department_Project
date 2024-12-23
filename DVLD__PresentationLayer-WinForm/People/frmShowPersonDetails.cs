@@ -32,7 +32,7 @@ namespace DVLD__PresentationLayer_WinForm
 
             if (Person != null)
             {
-                p1.PersonID = $"#{Person.PersonId}";
+                p1.PersonID = $"#{Person.PersonID}";
                 p1.FullName = $"{Person.FirstName} {Person.SecondName} {Person.ThirdName} {Person.LastName}";
                 p1.NationalNo = Person.NationalNo;
                 p1.Gender = (Person.Gender == 0 ? "Male" : "Female");

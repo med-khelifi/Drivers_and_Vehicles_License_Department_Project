@@ -52,7 +52,7 @@ namespace DVLD__PresentationLayer_WinForm
                     UserDetails.UserID = User.UserID.ToString();
                     UserDetails.UserName = User.UserName;
                     UserDetails.isActive = (User.isActive) ? "Yes" : "No";
-                    UserDetails.PersonID = $"#{UserPerson.PersonId}";
+                    UserDetails.PersonID = $"#{UserPerson.PersonID}";
                     UserDetails.FullName = $"{UserPerson.FirstName} {UserPerson.SecondName} {UserPerson.ThirdName} {UserPerson.LastName}";
                     UserDetails.NationalNo = UserPerson.NationalNo;
                     UserDetails.Gender = (UserPerson.Gender == 0 ? "Male" : "Female");

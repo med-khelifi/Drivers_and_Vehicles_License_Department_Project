@@ -85,7 +85,7 @@ namespace DVLD__PresentationLayer_WinForm
             }
 
 
-            int PersonID = ucPersondetailsWithFilter1.PersonInfo.PersonId;
+            int PersonID = ucPersondetailsWithFilter1.PersonInfo.PersonID;
             int LicenseClassID = cbLicenseClass.SelectedIndex + 1; // better to retrive id from data base
 
             if (clsLicense.isPersonAlreadyHasLicense(PersonID, LicenseClassID))

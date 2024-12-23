@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblCaption = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblPersonID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.cbCountries = new System.Windows.Forms.ComboBox();
-            this.llblremovePic = new System.Windows.Forms.LinkLabel();
+            this.llRemoveImage = new System.Windows.Forms.LinkLabel();
             this.llblSetPic = new System.Windows.Forms.LinkLabel();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.rbFemale = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -56,7 +56,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pbPersonPicture = new System.Windows.Forms.PictureBox();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,31 +79,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblCaption
+            // lblTitle
             // 
-            this.lblCaption.AutoSize = true;
-            this.lblCaption.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.Red;
-            this.lblCaption.Location = new System.Drawing.Point(421, 48);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(202, 40);
-            this.lblCaption.TabIndex = 4;
-            this.lblCaption.Text = "Person Details";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblTitle.Location = new System.Drawing.Point(421, 48);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(202, 40);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Person Details";
             // 
-            // lblID
+            // lblPersonID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(211, 148);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(34, 28);
-            this.lblID.TabIndex = 6;
-            this.lblID.Text = "##";
+            this.lblPersonID.AutoSize = true;
+            this.lblPersonID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonID.ForeColor = System.Drawing.Color.Black;
+            this.lblPersonID.Location = new System.Drawing.Point(211, 148);
+            this.lblPersonID.Name = "lblPersonID";
+            this.lblPersonID.Size = new System.Drawing.Size(34, 28);
+            this.lblPersonID.TabIndex = 6;
+            this.lblPersonID.Text = "##";
             // 
             // label9
             // 
@@ -116,26 +116,26 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Person ID :";
             // 
-            // guna2Button2
+            // btnSave
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(1006, 587);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(153, 45);
-            this.guna2Button2.TabIndex = 8;
-            this.guna2Button2.Text = "Save";
-            this.guna2Button2.Click += new System.EventHandler(this.btnSAVE_Click);
+            this.btnSave.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderThickness = 2;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.FillColor = System.Drawing.Color.White;
+            this.btnSave.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSave.Location = new System.Drawing.Point(1006, 587);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(153, 45);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSAVE_Click);
             // 
             // BtnClose
             // 
@@ -144,6 +144,7 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -168,17 +169,17 @@
             this.cbCountries.Size = new System.Drawing.Size(193, 24);
             this.cbCountries.TabIndex = 43;
             // 
-            // llblremovePic
+            // llRemoveImage
             // 
-            this.llblremovePic.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
-            this.llblremovePic.Location = new System.Drawing.Point(944, 525);
-            this.llblremovePic.Name = "llblremovePic";
-            this.llblremovePic.Size = new System.Drawing.Size(193, 28);
-            this.llblremovePic.TabIndex = 42;
-            this.llblremovePic.TabStop = true;
-            this.llblremovePic.Text = "Remove Picture";
-            this.llblremovePic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.llblremovePic.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblRemovePic_LinkClicked);
+            this.llRemoveImage.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.llRemoveImage.Location = new System.Drawing.Point(944, 525);
+            this.llRemoveImage.Name = "llRemoveImage";
+            this.llRemoveImage.Size = new System.Drawing.Size(193, 28);
+            this.llRemoveImage.TabIndex = 42;
+            this.llRemoveImage.TabStop = true;
+            this.llRemoveImage.Text = "Remove Picture";
+            this.llRemoveImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.llRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblRemovePic_LinkClicked);
             // 
             // llblSetPic
             // 
@@ -223,7 +224,7 @@
             this.rbFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbFemale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbFemale.UseVisualStyleBackColor = true;
-            this.rbFemale.Click += new System.EventHandler(this.rbMale_Click);
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbMale
             // 
@@ -247,7 +248,7 @@
             this.rbMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbMale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbMale.UseVisualStyleBackColor = true;
-            this.rbMale.Click += new System.EventHandler(this.rbMale_Click);
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // txtEmail
             // 
@@ -323,7 +324,7 @@
             this.txtPhone.ShadowDecoration.Parent = this.txtPhone;
             this.txtPhone.Size = new System.Drawing.Size(193, 33);
             this.txtPhone.TabIndex = 31;
-            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // txtLastName
             // 
@@ -348,7 +349,7 @@
             this.txtLastName.ShadowDecoration.Parent = this.txtLastName;
             this.txtLastName.Size = new System.Drawing.Size(193, 33);
             this.txtLastName.TabIndex = 32;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.CheckNameValidateName);
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // txtThirdName
             // 
@@ -373,7 +374,6 @@
             this.txtThirdName.ShadowDecoration.Parent = this.txtThirdName;
             this.txtThirdName.Size = new System.Drawing.Size(193, 33);
             this.txtThirdName.TabIndex = 37;
-            this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.txtThirdName_Validating);
             // 
             // txtSecondName
             // 
@@ -398,7 +398,7 @@
             this.txtSecondName.ShadowDecoration.Parent = this.txtSecondName;
             this.txtSecondName.Size = new System.Drawing.Size(193, 33);
             this.txtSecondName.TabIndex = 34;
-            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.CheckNameValidateName);
+            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // txtNationalNo
             // 
@@ -448,7 +448,7 @@
             this.txtFirstName.ShadowDecoration.Parent = this.txtFirstName;
             this.txtFirstName.Size = new System.Drawing.Size(193, 33);
             this.txtFirstName.TabIndex = 36;
-            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.CheckNameValidateName);
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // pictureBox9
             // 
@@ -530,15 +530,15 @@
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
             // 
-            // pbPersonPicture
+            // pbPersonImage
             // 
-            this.pbPersonPicture.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
-            this.pbPersonPicture.Location = new System.Drawing.Point(944, 241);
-            this.pbPersonPicture.Name = "pbPersonPicture";
-            this.pbPersonPicture.Size = new System.Drawing.Size(193, 225);
-            this.pbPersonPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonPicture.TabIndex = 22;
-            this.pbPersonPicture.TabStop = false;
+            this.pbPersonImage.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
+            this.pbPersonImage.Location = new System.Drawing.Point(944, 241);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(193, 225);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 22;
+            this.pbPersonImage.TabStop = false;
             // 
             // label6
             // 
@@ -682,12 +682,15 @@
             // 
             // frmEditAddPerson
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(1176, 663);
             this.Controls.Add(this.cbCountries);
-            this.Controls.Add(this.llblremovePic);
+            this.Controls.Add(this.llRemoveImage);
             this.Controls.Add(this.llblSetPic);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.rbFemale);
@@ -708,7 +711,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pbPersonPicture);
+            this.Controls.Add(this.pbPersonImage);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -721,17 +724,16 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.lblPersonID);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblCaption);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(421, 48);
             this.Name = "frmEditAddPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditAddPerson";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditAddPerson_FormClosing);
             this.Load += new System.EventHandler(this.frmEditAddPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -741,7 +743,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -750,13 +752,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCaption;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
         private System.Windows.Forms.ComboBox cbCountries;
-        private System.Windows.Forms.LinkLabel llblremovePic;
+        private System.Windows.Forms.LinkLabel llRemoveImage;
         private System.Windows.Forms.LinkLabel llblSetPic;
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private Guna.UI2.WinForms.Guna2RadioButton rbFemale;
@@ -777,7 +779,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pbPersonPicture;
+        private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
