@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BVLD__BusinessLayer;
+using ContactBusinessLayer;
+using DVLD__PresentationLayer_WinForm.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,48 +17,93 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class PersonDetailsControl : UserControl
     {
+       
+        private clsPerson _Person;
+        private int _PersonID = -1;
 
-        public delegate void EditPersonDetailsEventHandler(object sender, EventArgs e);
-        public event EditPersonDetailsEventHandler EditPersonDetailsEventFired;
-        public string PersonID { set { lblID.Text = value.ToString(); } get { return lblID.Text; } }
-        public string NationalNo { set { lblNationalNo.Text = value; } }
-        public string FullName { set { lblFullName.Text = value; } }
-        public string Gender { set { lblGender.Text = value; } get{ return lblGender.Text; } }
-        public string Address { set { lblAddress.Text = value; } }
-        public string Email { set { lblEmail.Text = value; } }
-        public string Country { set { lblCountry.Text = value; } }
-        public string Phone { set { lblPhone.Text = value; } }
-        public DateTime DateOfBirth { set { lblDateOfBirth.Text = value.ToString("yyy-MM-dd"); } }
-
-        public string ImagePath { set
-            {
-                if (string.IsNullOrEmpty(value) || !File.Exists(value))
-                {
-                    pbPersonPicture.Image = (lblGender.Text == "Male" ? Properties.Resources.Person : Properties.Resources.person_girl);
-                }
-                else
-                {
-                    pbPersonPicture.Image = _LoadImageWithoutLocking(value);
-                }
-            } 
+        public int PersonID
+        {
+            get { return _PersonID; }
         }
-        
+
+        public clsPerson Person
+        {
+            get { return Person; }
+        }
+
         public PersonDetailsControl()
         {
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void _LoadPersonImage()
         {
-            EditPersonDetailsEventFired?.Invoke(sender,e);
-               
-        }
-        private static Image _LoadImageWithoutLocking(string path)
-        {
-            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+            string ImagePath = _Person.ImagePath;   
+            if(ImagePath == "")
             {
-                return Image.FromStream(stream); // Return a copy of the image
+                pbPersonImage.Image = (_Person.Gender == 0 ? Resources.person_boy :  Resources.person_girl);
+                return;
+            }
+            if (File.Exists(ImagePath))
+                pbPersonImage.ImageLocation = ImagePath;
+            else
+                MessageBox.Show("Could not find this image: = " + ImagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void _FillPersonInfo()
+        {
+            llEditPersonInfo.Enabled = true;
+            _PersonID = _Person.PersonID;
+            lblPersonID.Text = _Person.PersonID.ToString();
+            lblNationalNo.Text = _Person.NationalNo;
+            lblFullName.Text = _Person.FullName;
+            lblGender.Text = _Person.Gender == 0 ? "Male" : "Female";
+            lblEmail.Text = _Person.Email;
+            lblPhone.Text = _Person.Phone;
+            lblDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
+            lblCountry.Text = clsCountry.Find(_Person.NationalityCountryID).CountryName;
+            lblAddress.Text = _Person.Address;
+            _LoadPersonImage();
+        }
+        public void LoadPersonInfo(int PersonID)
+        {
+            _Person = clsPerson.Find(PersonID);
+
+            if (Person == null) 
+            {
+                if (_Person == null)
+                {
+                    MessageBox.Show("No Person with Person ID. = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _FillPersonInfo();
+                return;
             }
         }
+        public void LoadPersonInfo(string NationalNo)
+        {
+            _Person = clsPerson.Find(PersonID);
+
+            if (Person == null)
+            {
+                if (_Person == null)
+                {
+                    MessageBox.Show("No Person with National No. = " + NationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _FillPersonInfo();
+                return;
+            }
+        }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmEditAddPerson frm = new frmEditAddPerson(_PersonID);
+            frm.ShowDialog();
+            // refresh person information after editing
+            LoadPersonInfo(_PersonID);
+               
+        }
+        
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.llEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -38,7 +38,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pbPersonPicture = new System.Windows.Forms.PictureBox();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblPersonID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
@@ -67,12 +67,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
             // 
-            this.guna2GroupBox1.Controls.Add(this.linkLabel1);
+            this.guna2GroupBox1.Controls.Add(this.llEditPersonInfo);
             this.guna2GroupBox1.Controls.Add(this.pictureBox9);
             this.guna2GroupBox1.Controls.Add(this.pictureBox8);
             this.guna2GroupBox1.Controls.Add(this.pictureBox7);
@@ -81,7 +81,7 @@
             this.guna2GroupBox1.Controls.Add(this.pictureBox4);
             this.guna2GroupBox1.Controls.Add(this.pictureBox3);
             this.guna2GroupBox1.Controls.Add(this.pictureBox2);
-            this.guna2GroupBox1.Controls.Add(this.pbPersonPicture);
+            this.guna2GroupBox1.Controls.Add(this.pbPersonImage);
             this.guna2GroupBox1.Controls.Add(this.label6);
             this.guna2GroupBox1.Controls.Add(this.label5);
             this.guna2GroupBox1.Controls.Add(this.label4);
@@ -89,7 +89,7 @@
             this.guna2GroupBox1.Controls.Add(this.lblEmail);
             this.guna2GroupBox1.Controls.Add(this.label3);
             this.guna2GroupBox1.Controls.Add(this.lblGender);
-            this.guna2GroupBox1.Controls.Add(this.lblID);
+            this.guna2GroupBox1.Controls.Add(this.lblPersonID);
             this.guna2GroupBox1.Controls.Add(this.label9);
             this.guna2GroupBox1.Controls.Add(this.lblNationalNo);
             this.guna2GroupBox1.Controls.Add(this.lblFullName);
@@ -115,15 +115,15 @@
             // 
             // linkLabel1
             // 
-            this.linkLabel1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
-            this.linkLabel1.Location = new System.Drawing.Point(788, 73);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(223, 28);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Edit Info";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.llEditPersonInfo.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
+            this.llEditPersonInfo.Location = new System.Drawing.Point(788, 73);
+            this.llEditPersonInfo.Name = "linkLabel1";
+            this.llEditPersonInfo.Size = new System.Drawing.Size(223, 28);
+            this.llEditPersonInfo.TabIndex = 0;
+            this.llEditPersonInfo.TabStop = true;
+            this.llEditPersonInfo.Text = "Edit Info";
+            this.llEditPersonInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pictureBox9
             // 
@@ -207,13 +207,13 @@
             // 
             // pbPersonPicture
             // 
-            this.pbPersonPicture.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
-            this.pbPersonPicture.Location = new System.Drawing.Point(788, 117);
-            this.pbPersonPicture.Name = "pbPersonPicture";
-            this.pbPersonPicture.Size = new System.Drawing.Size(223, 218);
-            this.pbPersonPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonPicture.TabIndex = 1;
-            this.pbPersonPicture.TabStop = false;
+            this.pbPersonImage.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
+            this.pbPersonImage.Location = new System.Drawing.Point(788, 117);
+            this.pbPersonImage.Name = "pbPersonPicture";
+            this.pbPersonImage.Size = new System.Drawing.Size(223, 218);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 1;
+            this.pbPersonImage.TabStop = false;
             // 
             // label6
             // 
@@ -294,14 +294,14 @@
             // 
             // lblID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(215, 66);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(19, 28);
-            this.lblID.TabIndex = 0;
-            this.lblID.Text = "_";
+            this.lblPersonID.AutoSize = true;
+            this.lblPersonID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonID.ForeColor = System.Drawing.Color.Black;
+            this.lblPersonID.Location = new System.Drawing.Point(215, 66);
+            this.lblPersonID.Name = "lblID";
+            this.lblPersonID.Size = new System.Drawing.Size(19, 28);
+            this.lblPersonID.TabIndex = 0;
+            this.lblPersonID.Text = "_";
             // 
             // label9
             // 
@@ -442,7 +442,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,15 +456,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.PictureBox pbPersonPicture;
+        private System.Windows.Forms.LinkLabel llEditPersonInfo;
+        private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label lblNationalNo;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Label label11;
