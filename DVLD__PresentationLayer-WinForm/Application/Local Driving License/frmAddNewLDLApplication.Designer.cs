@@ -341,11 +341,8 @@
             // ucPersondetailsWithFilter1
             // 
             this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucPersondetailsWithFilter1.Gender = "_";
             this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
             this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
-            this.ucPersondetailsWithFilter1.PersonID = "_";
-            this.ucPersondetailsWithFilter1.PersonInfo = null;
             this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
             this.ucPersondetailsWithFilter1.TabIndex = 10;
             // 

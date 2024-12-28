@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblCaption = new System.Windows.Forms.Label();
-            this.tabControlUser = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.tcUserInfo = new System.Windows.Forms.TabControl();
+            this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.ucPersondetailsWithFilter1 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.chkIsActive = new Guna.UI2.WinForms.Guna2CheckBox();
             this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,109 +42,110 @@
             this.txtUserName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblUserID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tabControlUser.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tcUserInfo.SuspendLayout();
+            this.tpPersonalInfo.SuspendLayout();
+            this.tpLoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblCaption
+            // lblTitle
             // 
-            this.lblCaption.AutoSize = true;
-            this.lblCaption.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.Red;
-            this.lblCaption.Location = new System.Drawing.Point(431, 27);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(197, 40);
-            this.lblCaption.TabIndex = 5;
-            this.lblCaption.Text = "Add New User";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblTitle.Location = new System.Drawing.Point(431, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(197, 40);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "Add New User";
             // 
-            // tabControlUser
+            // tcUserInfo
             // 
-            this.tabControlUser.Controls.Add(this.tabPage1);
-            this.tabControlUser.Controls.Add(this.tabPage2);
-            this.tabControlUser.Location = new System.Drawing.Point(2, 80);
-            this.tabControlUser.Name = "tabControlUser";
-            this.tabControlUser.SelectedIndex = 0;
-            this.tabControlUser.Size = new System.Drawing.Size(1091, 557);
-            this.tabControlUser.TabIndex = 6;
+            this.tcUserInfo.Controls.Add(this.tpPersonalInfo);
+            this.tcUserInfo.Controls.Add(this.tpLoginInfo);
+            this.tcUserInfo.Location = new System.Drawing.Point(2, 63);
+            this.tcUserInfo.Name = "tcUserInfo";
+            this.tcUserInfo.SelectedIndex = 0;
+            this.tcUserInfo.Size = new System.Drawing.Size(1066, 557);
+            this.tcUserInfo.TabIndex = 6;
             // 
-            // tabPage1
+            // tpPersonalInfo
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.guna2Button1);
-            this.tabPage1.Controls.Add(this.ucPersondetailsWithFilter1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1083, 528);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Personal Info";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.BorderThickness = 2;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.right;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2Button1.Location = new System.Drawing.Point(851, 466);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(153, 45);
-            this.guna2Button1.TabIndex = 9;
-            this.guna2Button1.Text = "Next";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.tpPersonalInfo.BackColor = System.Drawing.Color.White;
+            this.tpPersonalInfo.Controls.Add(this.ucPersondetailsWithFilter1);
+            this.tpPersonalInfo.Controls.Add(this.btnNext);
+            this.tpPersonalInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpPersonalInfo.Name = "tpPersonalInfo";
+            this.tpPersonalInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPersonalInfo.Size = new System.Drawing.Size(1058, 528);
+            this.tpPersonalInfo.TabIndex = 0;
+            this.tpPersonalInfo.Text = "Personal Info";
             // 
             // ucPersondetailsWithFilter1
             // 
             this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucPersondetailsWithFilter1.Gender = "_";
-            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
+            this.ucPersondetailsWithFilter1.FilterEnabled = true;
+            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(6, 6);
             this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
-            this.ucPersondetailsWithFilter1.PersonID = "_";
-            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
+            this.ucPersondetailsWithFilter1.ShowAddPerson = true;
+            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1050, 452);
             this.ucPersondetailsWithFilter1.TabIndex = 10;
+            this.ucPersondetailsWithFilter1.OnPersonSelected += new System.Action<int>(this.ucPersondetailsWithFilter1_OnPersonSelected);
             // 
-            // tabPage2
+            // btnNext
             // 
-            this.tabPage2.Controls.Add(this.chkIsActive);
-            this.tabPage2.Controls.Add(this.txtConfirmPassword);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.txtPassword);
-            this.tabPage2.Controls.Add(this.txtUserName);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.lblID);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.pictureBox4);
-            this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1083, 528);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Login Info";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btnNext.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNext.BorderRadius = 10;
+            this.btnNext.BorderThickness = 2;
+            this.btnNext.CheckedState.Parent = this.btnNext;
+            this.btnNext.CustomImages.Parent = this.btnNext;
+            this.btnNext.FillColor = System.Drawing.Color.White;
+            this.btnNext.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.Black;
+            this.btnNext.HoverState.Parent = this.btnNext;
+            this.btnNext.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.right;
+            this.btnNext.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnNext.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnNext.Location = new System.Drawing.Point(889, 464);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.ShadowDecoration.Parent = this.btnNext;
+            this.btnNext.Size = new System.Drawing.Size(153, 45);
+            this.btnNext.TabIndex = 9;
+            this.btnNext.Text = "Next";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // tpLoginInfo
+            // 
+            this.tpLoginInfo.Controls.Add(this.chkIsActive);
+            this.tpLoginInfo.Controls.Add(this.txtConfirmPassword);
+            this.tpLoginInfo.Controls.Add(this.label1);
+            this.tpLoginInfo.Controls.Add(this.txtPassword);
+            this.tpLoginInfo.Controls.Add(this.txtUserName);
+            this.tpLoginInfo.Controls.Add(this.label3);
+            this.tpLoginInfo.Controls.Add(this.label2);
+            this.tpLoginInfo.Controls.Add(this.lblUserID);
+            this.tpLoginInfo.Controls.Add(this.label9);
+            this.tpLoginInfo.Controls.Add(this.pictureBox1);
+            this.tpLoginInfo.Controls.Add(this.pictureBox4);
+            this.tpLoginInfo.Controls.Add(this.pictureBox3);
+            this.tpLoginInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpLoginInfo.Name = "tpLoginInfo";
+            this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpLoginInfo.Size = new System.Drawing.Size(1058, 528);
+            this.tpLoginInfo.TabIndex = 1;
+            this.tpLoginInfo.Text = "Login Info";
+            this.tpLoginInfo.UseVisualStyleBackColor = true;
             // 
             // chkIsActive
             // 
@@ -274,16 +275,16 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "User Name :";
             // 
-            // lblID
+            // lblUserID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(312, 135);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(34, 28);
-            this.lblID.TabIndex = 37;
-            this.lblID.Text = "##";
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserID.ForeColor = System.Drawing.Color.Black;
+            this.lblUserID.Location = new System.Drawing.Point(312, 135);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(34, 28);
+            this.lblUserID.TabIndex = 37;
+            this.lblUserID.Text = "##";
             // 
             // label9
             // 
@@ -326,26 +327,26 @@
             this.pictureBox3.TabIndex = 41;
             this.pictureBox3.TabStop = false;
             // 
-            // guna2Button2
+            // btnSave
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(886, 643);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(153, 45);
-            this.guna2Button2.TabIndex = 9;
-            this.guna2Button2.Text = "Save";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnSave.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderThickness = 2;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.FillColor = System.Drawing.Color.White;
+            this.btnSave.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSave.Location = new System.Drawing.Point(895, 626);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(153, 45);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // BtnClose
             // 
@@ -360,7 +361,7 @@
             this.BtnClose.HoverState.Parent = this.BtnClose;
             this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
             this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnClose.Location = new System.Drawing.Point(715, 643);
+            this.BtnClose.Location = new System.Drawing.Point(736, 626);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
             this.BtnClose.Size = new System.Drawing.Size(153, 45);
@@ -377,21 +378,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1094, 703);
-            this.Controls.Add(this.guna2Button2);
+            this.ClientSize = new System.Drawing.Size(1070, 685);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.tabControlUser);
-            this.Controls.Add(this.lblCaption);
+            this.Controls.Add(this.tcUserInfo);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditUser";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddEditUser_FormClosing);
             this.Load += new System.EventHandler(this.frmAddEditUser_Load);
-            this.tabControlUser.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tcUserInfo.ResumeLayout(false);
+            this.tpPersonalInfo.ResumeLayout(false);
+            this.tpLoginInfo.ResumeLayout(false);
+            this.tpLoginInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -403,26 +403,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCaption;
-        private System.Windows.Forms.TabControl tabControlUser;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TabControl tcUserInfo;
+        private System.Windows.Forms.TabPage tpPersonalInfo;
+        private System.Windows.Forms.TabPage tpLoginInfo;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnNext;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtUserName;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CheckBox chkIsActive;
-        private ucPersondetailsWithFilter ucPersondetailsWithFilter1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private ucPersondetailsWithFilter ucPersondetailsWithFilter1;
     }
 }

@@ -44,7 +44,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddNewPerson = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllPeopleData)).BeginInit();
@@ -70,7 +70,6 @@ namespace DVLD__PresentationLayer_WinForm
             this.dgvAllPeopleData.RowTemplate.Height = 24;
             this.dgvAllPeopleData.Size = new System.Drawing.Size(1511, 394);
             this.dgvAllPeopleData.TabIndex = 1;
-            this.dgvAllPeopleData.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAllPeopleData_CellMouseDown);
             // 
             // CmsPersonGrid
             // 
@@ -84,14 +83,14 @@ namespace DVLD__PresentationLayer_WinForm
             this.sendEmailToolStripMenuItem,
             this.callToolStripMenuItem});
             this.CmsPersonGrid.Name = "CmsPersonGrid";
-            this.CmsPersonGrid.Size = new System.Drawing.Size(215, 188);
+            this.CmsPersonGrid.Size = new System.Drawing.Size(211, 160);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.showDetailsToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
@@ -100,7 +99,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.addNewPersonToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.addNewPersonToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__1_;
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
             // 
@@ -109,7 +108,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.editToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__3_;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -118,7 +117,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.deleteToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.deleteToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__2_1;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -127,7 +126,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.sendEmailToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.sendEmailToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.email;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // callToolStripMenuItem
@@ -135,7 +134,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.callToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.callToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.call;
             this.callToolStripMenuItem.Name = "callToolStripMenuItem";
-            this.callToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.callToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.callToolStripMenuItem.Text = "Call";
             // 
             // label1
@@ -189,6 +188,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.CbFilter.ShadowDecoration.Parent = this.CbFilter;
             this.CbFilter.Size = new System.Drawing.Size(254, 36);
             this.CbFilter.TabIndex = 5;
+            this.CbFilter.SelectedIndexChanged += new System.EventHandler(this.CbFilter_SelectedIndexChanged);
             // 
             // txtFilterText
             // 
@@ -225,25 +225,25 @@ namespace DVLD__PresentationLayer_WinForm
             this.label2.TabIndex = 2;
             this.label2.Text = "Filter by :";
             // 
-            // guna2Button2
+            // btnAddNewPerson
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__1_;
-            this.guna2Button2.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button2.Location = new System.Drawing.Point(1455, 259);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(65, 57);
-            this.guna2Button2.TabIndex = 9;
-            this.guna2Button2.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            this.btnAddNewPerson.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddNewPerson.BorderRadius = 10;
+            this.btnAddNewPerson.BorderThickness = 2;
+            this.btnAddNewPerson.CheckedState.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.CustomImages.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.FillColor = System.Drawing.Color.White;
+            this.btnAddNewPerson.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnAddNewPerson.HoverState.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__1_;
+            this.btnAddNewPerson.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1455, 259);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.ShadowDecoration.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.Size = new System.Drawing.Size(65, 57);
+            this.btnAddNewPerson.TabIndex = 9;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // pictureBox1
             // 
@@ -283,7 +283,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1538, 774);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.txtFilterText);
             this.Controls.Add(this.CbFilter);
             this.Controls.Add(this.lblRecordsCount);
@@ -313,7 +313,7 @@ namespace DVLD__PresentationLayer_WinForm
         private Guna.UI2.WinForms.Guna2ComboBox CbFilter;
         private Guna.UI2.WinForms.Guna2TextBox txtFilterText;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnAddNewPerson;
         private ContextMenuStrip CmsPersonGrid;
         private ToolStripMenuItem addNewPersonToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;

@@ -18,7 +18,7 @@ using System.Xml.Linq;
 
 namespace DVLD__PresentationLayer_WinForm
 {
-    public partial class frmEditAddPerson : Form
+    public partial class frmAddUpdatePerson : Form
     {
         // Declare a delegate
         public delegate void DataBackEventHandler(object sender, int PersonID);
@@ -32,12 +32,12 @@ namespace DVLD__PresentationLayer_WinForm
         int _PersonID;
         clsPerson _Person;
 
-        public frmEditAddPerson()
+        public frmAddUpdatePerson()
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
         }
-        public frmEditAddPerson(int PersonID)
+        public frmAddUpdatePerson(int PersonID)
         {
             InitializeComponent();
             this._PersonID = PersonID;
@@ -275,7 +275,7 @@ namespace DVLD__PresentationLayer_WinForm
 
 
             if (rbMale.Checked)
-                pbPersonImage.Image = Resources.person_boy;
+                pbPersonImage.Image = Resources.Person;
             else
                 pbPersonImage.Image = Resources.person_girl;
 
@@ -285,18 +285,18 @@ namespace DVLD__PresentationLayer_WinForm
         {
             //change the defualt image to male incase there is no image set.
             if (pbPersonImage.ImageLocation == null)
-                pbPersonImage.Image = Resources.person_boy;
+                pbPersonImage.Image = Resources.Person;
         }
         private void rbFemale_CheckedChanged(object sender, EventArgs e)
         {
             //change the defualt image to female incase there is no image set.
             if (pbPersonImage.ImageLocation == null)
-                pbPersonImage.Image = Resources.person_boy;
+                pbPersonImage.Image = Resources.person_girl;
         }
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
             // First: set AutoValidate property of your Form to EnableAllowFocusChange in designer 
-            TextBox Temp = ((TextBox)sender);
+            Guna2TextBox Temp = ((Guna2TextBox)sender);
             if (string.IsNullOrEmpty(Temp.Text.Trim()))
             {
                 e.Cancel = true;

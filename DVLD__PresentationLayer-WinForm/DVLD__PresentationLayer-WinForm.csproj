@@ -73,6 +73,12 @@
     <Compile Include="Application\ApplicationTypes\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\frmShowPersonCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmShowPersonCard.Designer.cs">
+      <DependentUpon>frmShowPersonCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tests\TestTypes\frmEditTestType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,12 +199,6 @@
     <Compile Include="Application\Renew Local License\frmRenewLocalLicense.Designer.cs">
       <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmShowPersonDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="People\frmShowPersonDetails.Designer.cs">
-      <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Tests\frmScheduleTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +300,9 @@
     <EmbeddedResource Include="Application\ApplicationTypes\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="People\frmShowPersonCard.resx">
+      <DependentUpon>frmShowPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tests\TestTypes\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,9 +362,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Application\Renew Local License\frmRenewLocalLicense.resx">
       <DependentUpon>frmRenewLocalLicense.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="People\frmShowPersonDetails.resx">
-      <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests\frmScheduleTest.resx">
       <DependentUpon>frmScheduleTest.cs</DependentUpon>

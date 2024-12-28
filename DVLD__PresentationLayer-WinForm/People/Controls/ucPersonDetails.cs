@@ -25,23 +25,20 @@ namespace DVLD__PresentationLayer_WinForm
         {
             get { return _PersonID; }
         }
-
         public clsPerson Person
         {
-            get { return Person; }
+            get { return _Person; }
         }
-
         public PersonDetailsControl()
         {
             InitializeComponent();
         }
-
         private void _LoadPersonImage()
         {
             string ImagePath = _Person.ImagePath;   
             if(ImagePath == "")
             {
-                pbPersonImage.Image = (_Person.Gender == 0 ? Resources.person_boy :  Resources.person_girl);
+                pbPersonImage.Image = (_Person.Gender == 0 ? Resources.Person :  Resources.person_girl);
                 return;
             }
             if (File.Exists(ImagePath))
@@ -70,35 +67,46 @@ namespace DVLD__PresentationLayer_WinForm
 
             if (Person == null) 
             {
-                if (_Person == null)
-                {
-                    MessageBox.Show("No Person with Person ID. = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                _FillPersonInfo();
-                return;
+                llEditPersonInfo.Enabled = false;
+                ResetPersonInfo();
+                MessageBox.Show("No Person with Person ID. = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;            
             }
+            _FillPersonInfo();
         }
+
+        public void ResetPersonInfo()
+        {
+            _PersonID = -1;
+            lblPersonID.Text = "-";
+            lblNationalNo.Text = "-";
+            lblFullName.Text = "-";
+            lblGender.Text = "-";
+            lblEmail.Text = "-";
+            lblPhone.Text = "-";
+            lblDateOfBirth.Text = "-";
+            lblCountry.Text = "-";
+            lblAddress.Text = "-";
+            pbPersonImage.Image = Resources.Person;
+
+        }
+
         public void LoadPersonInfo(string NationalNo)
         {
             _Person = clsPerson.Find(PersonID);
 
             if (Person == null)
             {
-                if (_Person == null)
-                {
-                    MessageBox.Show("No Person with National No. = " + NationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                _FillPersonInfo();
-                return;
+                llEditPersonInfo.Enabled = false;
+                ResetPersonInfo();
+                MessageBox.Show("No Person with National No. = " + NationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;               
             }
+            _FillPersonInfo();
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmEditAddPerson frm = new frmEditAddPerson(_PersonID);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.ShowDialog();
             // refresh person information after editing
             LoadPersonInfo(_PersonID);

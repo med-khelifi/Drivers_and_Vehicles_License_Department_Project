@@ -55,7 +55,7 @@ namespace DVLD__PresentationLayer_WinForm
                 this.Close();
                 return;
             }
-            lblName.Text = clsPerson.getPersonFullName(_app.ApplicantPersonID);
+            //lblName.Text = clsPerson.getPersonFullName(_app.ApplicantPersonID);
             lblTrial.Text = clsTestAppointment.GetTestTrial(_LDLAppID, _TestType).ToString();
             _testFees = clsTestType.GetTestFees(_TestType);
             lblTestFees.Text = _testFees.ToString();

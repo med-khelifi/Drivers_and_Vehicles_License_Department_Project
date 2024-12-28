@@ -17,6 +17,7 @@ namespace BVLD__BusinessLayer
         enMode Mode;
         public int UserID { get; set; }
         public int PersonID { get; set; }
+        public clsPerson PersonInfo { get; set; }
         public string UserName { get; set; }    
         public string Password { get; set; }
         public bool isActive { get; set; }
@@ -26,7 +27,7 @@ namespace BVLD__BusinessLayer
             PersonID = -1;
             UserName = "";
             Password = "";
-            this.isActive = false;
+            this.isActive = true;
 
             Mode = enMode.AddNew;
         }
@@ -34,6 +35,7 @@ namespace BVLD__BusinessLayer
         { 
             UserID = userID;
             PersonID = personInfo;
+            PersonInfo = clsPerson.Find(PersonID);
             UserName = userName;
             Password = password;
             this.isActive = isActive; 
@@ -45,7 +47,6 @@ namespace BVLD__BusinessLayer
             UserID = clsUsersData.AddNewUser(PersonID, UserName,Password,isActive);
             return UserID != -1;
         }
-
         public static DataTable GetAllUsers()
         {
             return clsUsersData.GetAllUsers();
@@ -78,11 +79,11 @@ namespace BVLD__BusinessLayer
         { 
             return clsUsersData.isUser(personID);
         }
-        public static bool isUserNameExist(string UserName)
+        public static bool isUserExist(string UserName)
         {
-            return clsUsersData.isUserNameExist(UserName);
+            return clsUsersData.isUserExist(UserName);
         }
-        public static clsUser Find(int userID)
+        public static clsUser FindByUserID(int userID)
         {
             int personID = -1;
             string userName = "",password = "";
@@ -90,6 +91,20 @@ namespace BVLD__BusinessLayer
             if (clsUsersData.GetUserInfo(userID,ref personID,ref userName,ref password,ref isActive))
             {
                 return new clsUser(userID,personID,userName,password,isActive);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static clsUser FindBuyPersonID(int PersonID)
+        {
+            int userID = -1;
+            string userName = "", password = "";
+            bool isActive = false;
+            if (clsUsersData.GetUserInfoByPersonID(PersonID,ref userID, ref userName, ref password, ref isActive))
+            {
+                return new clsUser(userID, PersonID, userName, password, isActive);
             }
             else
             {
@@ -124,12 +139,9 @@ namespace BVLD__BusinessLayer
             else
                 return null;
         }
-        public static string GetUserName(int UserName)
+        public static bool IsUserExistForPersonID(int PersonID)
         {
-            string userName = "";
-            if(clsUsersData.GetUserUserName(UserName,ref userName))
-                return userName;
-            return null;
+            return clsUsersData.IsUserExistForPersonID(PersonID);
         }
     }
 }

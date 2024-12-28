@@ -1,6 +1,6 @@
 ﻿namespace DVLD__PresentationLayer_WinForm
 {
-    partial class frmEditAddPerson
+    partial class frmAddUpdatePerson
     {
         /// <summary>
         /// Required designer variable.

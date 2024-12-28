@@ -63,7 +63,7 @@ namespace DVLD__PresentationLayer_WinForm
                 ucPersondetailsWithFilter1.LoadPersonInfo(_Application.ApplicantPersonID);
                 lblID.Text  = _LDLappID.ToString();
                 lblApplicationDate.Text=_Application.ApplicationDate.ToShortDateString();
-                lblCurrentUser.Text = clsUser.GetUserName(_Application.CreatedByUserID);
+                //lblCurrentUser.Text = clsUser.GetUserName(_Application.CreatedByUserID);
                 cbLicenseClass.SelectedIndex = _LDLApplication.LicenseClassID -1;
                 lblFees.Text = _Application.PaidFees.ToString();    
                 lblCaption.Text = "Update Local Driving Application";
@@ -78,32 +78,32 @@ namespace DVLD__PresentationLayer_WinForm
         private void btnSave_Click(object sender, EventArgs e)
         {
        
-            if (ucPersondetailsWithFilter1.isEmpty)
-            {
-                MessageBox.Show("Please Select Person to Complete The Process !.", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (ucPersondetailsWithFilter1.isEmpty)
+            //{
+            //    MessageBox.Show("Please Select Person to Complete The Process !.", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
 
-            int PersonID = ucPersondetailsWithFilter1.PersonInfo.PersonID;
+            //int PersonID = ucPersondetailsWithFilter1.PersonInfo.PersonID;
             int LicenseClassID = cbLicenseClass.SelectedIndex + 1; // better to retrive id from data base
 
-            if (clsLicense.isPersonAlreadyHasLicense(PersonID, LicenseClassID))
-            {
-                MessageBox.Show("This Person Already Has This License !.", "License Owned", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //if (clsLicense.isPersonAlreadyHasLicense(PersonID, LicenseClassID))
+            //{
+            //    MessageBox.Show("This Person Already Has This License !.", "License Owned", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
-            if (clsLDLApplication.PersonHasInCompletedApplication(PersonID, LicenseClassID))
-            {
-                MessageBox.Show("Person Already Have Uncompleted Applicaation !.", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (clsLDLApplication.PersonHasInCompletedApplication(PersonID, LicenseClassID))
+            //{
+            //    MessageBox.Show("Person Already Have Uncompleted Applicaation !.", "Select Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             
             if(Mode == enMode.addNew)
             {
-                _Application.ApplicantPersonID = PersonID;
+                //_Application.ApplicantPersonID = PersonID;
                 _Application.ApplicationDate = DateTime.Now;
                 _Application.ApplicationTypeID = 1;
                 _Application.ApplicationStatus = 1;

@@ -143,7 +143,6 @@
             this.dgvAllUsersData.RowTemplate.Height = 24;
             this.dgvAllUsersData.Size = new System.Drawing.Size(1104, 394);
             this.dgvAllUsersData.TabIndex = 8;
-            this.dgvAllUsersData.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAllUsersData_CellMouseDown);
             // 
             // CmsPersonGrid
             // 

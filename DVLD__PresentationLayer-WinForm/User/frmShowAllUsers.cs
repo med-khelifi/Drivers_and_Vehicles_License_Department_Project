@@ -19,7 +19,6 @@ namespace DVLD__PresentationLayer_WinForm
         {
             InitializeComponent();
         }
-        int SelectedUserID = -1;
 
         private void _LoadData()
         {
@@ -36,12 +35,9 @@ namespace DVLD__PresentationLayer_WinForm
             CbFilter.SelectedIndex = 0;
         }
 
-        private string _GetFilterString(string FilterValue)
+        private string _GetFilterString()
         {
-            int SelectedIndex = CbFilter.SelectedIndex;
-
-            if (SelectedIndex == 5)
-            {
+            
                 // Handle IsActive filter based on cbActiveState selection
                 if (cbActiveState == null || cbActiveState.SelectedIndex == 0) // All
                     return string.Empty;
@@ -50,8 +46,13 @@ namespace DVLD__PresentationLayer_WinForm
                 else if (cbActiveState.SelectedIndex == 2) // No
                     return "IsActive = False";
                 else
-                    return string.Empty;
-            }
+                   return string.Empty;
+            
+        }
+
+        private string _GetFilterString(string FilterValue)
+        {
+            int SelectedIndex = CbFilter.SelectedIndex;
 
             if (string.IsNullOrWhiteSpace(FilterValue))
             {
@@ -73,12 +74,24 @@ namespace DVLD__PresentationLayer_WinForm
                 default:
                     return string.Empty;
             }
-        }
-
-
+        }  
         private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterText.Text = string.Empty;
+            txtFilterText.Text = "";
+            if (CbFilter.SelectedItem.ToString() == "None")
+            {
+                txtFilterText.Visible = false;
+                cbActiveState.Visible = false;
+
+
+                FiltredUsers.RowFilter = "";
+                dgvAllUsersData.DataSource = FiltredUsers;
+                lblRecordsCount.Text = "All Records = " + dgvAllUsersData.Rows.Count;
+                return;
+            }
+            
+
+            
             if (CbFilter.SelectedIndex != 5)
             {
                 txtFilterText.Visible = true;
@@ -96,111 +109,71 @@ namespace DVLD__PresentationLayer_WinForm
         {
             FiltredUsers.RowFilter = _GetFilterString(txtFilterText.Text);
             dgvAllUsersData.DataSource = FiltredUsers;
+            lblRecordsCount.Text = "All Records = " + dgvAllUsersData.Rows.Count;
         }
 
         private void cbActiveState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FiltredUsers.RowFilter = _GetFilterString("tvrtgvfg");
+            FiltredUsers.RowFilter = _GetFilterString();
             dgvAllUsersData.DataSource = FiltredUsers;
+            lblRecordsCount.Text = "All Records = " + dgvAllUsersData.Rows.Count;
         }
 
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditUser frm = new frmAddEditUser(-1);
-            frm.onFormClose += _LoadData;
-            frm.ShowDialog();
-            lblRecordsCount.Text = "All Records = " + dgvAllUsersData.Rows.Count;
+            btnAddNewUser_Click(sender, e);
         }
 
         private void btnAddNewUser_Click(object sender, EventArgs e)
         {
-
-            //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-            frmAddEditUser frm = new frmAddEditUser(-1);
-            frm.onFormClose += _LoadData;
+            frmAddEditUser frm = new frmAddEditUser();
             frm.ShowDialog();
-        }
-
-        private void dgvAllUsersData_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // Check if the right mouse button was clicked
-            if (e.Button == MouseButtons.Right)
-            {
-                // Ensure the click is on a valid row
-                if (e.RowIndex >= 0)
-                {
-                    // Select the row that was right-clicked
-                    SelectedUserID = Convert.ToInt32(dgvAllUsersData.Rows[e.RowIndex].Cells[0].Value);
-                    //MessageBox.Show(SelectedUserID.ToString());
-                }
-            }
+            // refresh user list
+            frmShowAllUsers_Load(null,null);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (SelectedUserID != -1)
-            {
-                //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-                frmAddEditUser frm = new frmAddEditUser(SelectedUserID);
-                frm.onFormClose += _LoadData;
-                frm.ShowDialog();
+            frmAddEditUser frm = new frmAddEditUser((int)dgvAllUsersData.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
 
-            }
-            else
-            {
-                MessageBox.Show("Please select a user from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            // refresh user list
+            frmShowAllUsers_Load(null, null);
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (SelectedUserID != -1)
-            {
-                //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-                frmShowUserDetails frm = new frmShowUserDetails(SelectedUserID);
-                frm.frmClose += _LoadData;
-                frm.ShowDialog();
+            frmShowUserDetails frm = new frmShowUserDetails((int)dgvAllUsersData.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
 
-            }
-            else
-            {
-                MessageBox.Show("Please select a user from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            // refresh user list
+            frmShowAllUsers_Load(null, null);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (SelectedUserID != -1)
+            if (MessageBox.Show("Are You Sure You Want To Delete This User .", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                return;
+
+            if (clsUser.DeleteUser((int)dgvAllUsersData.CurrentRow.Cells[0].Value))
             {
-                if (clsUser.DeleteUser(SelectedUserID))
-                {
-                    MessageBox.Show("User Deleted.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("User Deleted.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    _LoadData();
-                    lblRecordsCount.Text = "All Records = " + dgvAllUsersData.Rows.Count;
-                }
-                else
-                {
-                    MessageBox.Show("User Can't Be Deleted Due Data Related to it", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (SelectedUserID != -1)
-            {
-                //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-                frmChangePassword frm = new frmChangePassword(SelectedUserID);
-                frm.frmClose += _LoadData;
-                frm.ShowDialog();
-
+                // refresh user list
+                frmShowAllUsers_Load(null, null);
             }
             else
             {
-                MessageBox.Show("Please select a user from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("User Can't Be Deleted Due Data Related to it", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {          
+            frmChangePassword frm = new frmChangePassword((int)dgvAllUsersData.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -212,6 +185,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             FiltredUsers.RowFilter = _GetFilterString(txtFilterText.Text);
             dgvAllUsersData.DataSource = FiltredUsers;
+            lblRecordsCount.Text = "All Records = " + dgvAllUsersData.Rows.Count;
         }
 
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)

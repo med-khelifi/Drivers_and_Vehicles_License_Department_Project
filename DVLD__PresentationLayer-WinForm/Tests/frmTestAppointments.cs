@@ -73,8 +73,8 @@ namespace DVLD__PresentationLayer_WinForm
             ucLDLApplicationDetails1.AppStatus = _Application.ApplicationStatus == 1 ? "New" : _Application.ApplicationStatus == 2 ? "Cancelled" : "Commpleted";
             ucLDLApplicationDetails1.AppFees = _Application.PaidFees;
             ucLDLApplicationDetails1.AppType = clsApplicationType.Find(1)?.ApplicationTypeTitle;
-            ucLDLApplicationDetails1.CreatedByUser = clsUser.GetUserName(_Application.CreatedByUserID);
-            ucLDLApplicationDetails1.Applicant = clsPerson.getPersonFullName(_Application.ApplicantPersonID);
+            //ucLDLApplicationDetails1.CreatedByUser = clsUser.GetUserName(_Application.CreatedByUserID);
+            //ucLDLApplicationDetails1.Applicant = clsPerson.getPersonFullName(_Application.ApplicantPersonID);
         }
         private void _FrmTakeTestDelegate()
         {
@@ -91,9 +91,9 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void ShowPersonDetails()
         {
-            frmShowPersonDetails frm = new frmShowPersonDetails(_Application.ApplicantPersonID);
-            frm.FormClosedEvent += _LoadDGVAppointments;
-            frm.ShowDialog();
+            //frmShowPersonDetails frm = new frmShowPersonDetails(_Application.ApplicantPersonID);
+            //frm.FormClosedEvent += _LoadDGVAppointments;
+            //frm.ShowDialog();
         }
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {

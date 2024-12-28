@@ -35,17 +35,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblUserID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PersonDetails
             // 
             this.PersonDetails.BackColor = System.Drawing.Color.White;
-            this.PersonDetails.Gender = "_";
             this.PersonDetails.Location = new System.Drawing.Point(16, 16);
             this.PersonDetails.Name = "PersonDetails";
-            this.PersonDetails.PersonID = "_";
             this.PersonDetails.Size = new System.Drawing.Size(1038, 358);
             this.PersonDetails.TabIndex = 0;
             // 
@@ -56,7 +54,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblUserName);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.lblID);
+            this.groupBox1.Controls.Add(this.lblUserID);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(16, 380);
             this.groupBox1.Name = "groupBox1";
@@ -122,14 +120,14 @@
             // 
             // lblID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(155, 59);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(19, 28);
-            this.lblID.TabIndex = 2;
-            this.lblID.Text = "_";
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserID.ForeColor = System.Drawing.Color.Black;
+            this.lblUserID.Location = new System.Drawing.Point(155, 59);
+            this.lblUserID.Name = "lblID";
+            this.lblUserID.Size = new System.Drawing.Size(19, 28);
+            this.lblUserID.TabIndex = 2;
+            this.lblUserID.Text = "_";
             // 
             // ucUserDetails
             // 
@@ -150,7 +148,7 @@
 
         private PersonDetailsControl PersonDetails;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblisActive;
         private System.Windows.Forms.Label label2;

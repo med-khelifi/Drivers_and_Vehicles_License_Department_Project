@@ -44,22 +44,22 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadLicenseData()
         {
-            short Gender = clsPerson.getPersonGendor(_PersonID);
+            //short Gender = clsPerson.getPersonGendor(_PersonID);
 
-            ucLicenseWithFilter2.LicenseID = _License.LicenseID;
-            ucLicenseWithFilter2.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
-            ucLicenseWithFilter2.FullName = clsPerson.getPersonFullName(_PersonID);
-            ucLicenseWithFilter2.NationalNo = clsPerson.getPersonNationalNo(_PersonID);
-            ucLicenseWithFilter2.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
-            ucLicenseWithFilter2.IssueDate = _License.IssueDate;
-            ucLicenseWithFilter2.IssueReason = IssueReasonString(_License.IssueReason);
-            ucLicenseWithFilter2.Notes = _License.Notes;
-            ucLicenseWithFilter2.isActive = (_License.isActive ? "Yes" : "No");
-            ucLicenseWithFilter2.DateOfBirth = clsPerson.getPersonBirthDate(_PersonID);
-            ucLicenseWithFilter2.DriverID = _License.DriverID;
-            ucLicenseWithFilter2.ExpirationDate = _License.ExpirationDate;
-            ucLicenseWithFilter2.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
-            ucLicenseWithFilter2.ImagePath = clsPerson.getPersonImagePath(_PersonID);
+            //ucLicenseWithFilter2.LicenseID = _License.LicenseID;
+            //ucLicenseWithFilter2.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
+            //ucLicenseWithFilter2.FullName = clsPerson.getPersonFullName(_PersonID);
+            //ucLicenseWithFilter2.NationalNo = clsPerson.getPersonNationalNo(_PersonID);
+            //ucLicenseWithFilter2.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
+            //ucLicenseWithFilter2.IssueDate = _License.IssueDate;
+            //ucLicenseWithFilter2.IssueReason = IssueReasonString(_License.IssueReason);
+            //ucLicenseWithFilter2.Notes = _License.Notes;
+            //ucLicenseWithFilter2.isActive = (_License.isActive ? "Yes" : "No");
+            //ucLicenseWithFilter2.DateOfBirth = clsPerson.getPersonBirthDate(_PersonID);
+            //ucLicenseWithFilter2.DriverID = _License.DriverID;
+            //ucLicenseWithFilter2.ExpirationDate = _License.ExpirationDate;
+            //ucLicenseWithFilter2.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
+            //ucLicenseWithFilter2.ImagePath = clsPerson.getPersonImagePath(_PersonID);
         }
         private void frmLicenseReplacement_Load(object sender, EventArgs e)
         {

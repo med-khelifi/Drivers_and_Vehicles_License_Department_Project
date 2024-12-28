@@ -15,146 +15,134 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmChangePassword : Form
     {
-        public delegate void frmEditShowUserDetailsDelegate();
-        public frmEditShowUserDetailsDelegate frmClose;
-        clsUser User;
-        clsPerson UserPerson;
-        int UserID;
-        bool isMatchPassword = false,isTruePassword = false;
+
+        clsUser _User;
+        int _UserID;
+
         public frmChangePassword(int userID)
         {
             InitializeComponent();
-            this.UserID = userID;
-        }
-        private void _LoadData()
-        {
-            User = clsUser.Find(UserID);
-            if (User == null)
-            {
-                MessageBox.Show("User is NULL, Form Will close.", "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
-            else
-            {
-                UserPerson = clsPerson.Find(User.PersonID);
-                if (UserPerson == null)
-                {
-                    MessageBox.Show("UserPerson is NULL, Form Will close.", "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Close();
-                }
-                else
-                {
-                    UserDetails.UserID = User.UserID.ToString();
-                    UserDetails.UserName = User.UserName;
-                    UserDetails.isActive = (User.isActive) ? "Yes" : "No";
-                    UserDetails.PersonID = $"#{UserPerson.PersonID}";
-                    UserDetails.FullName = $"{UserPerson.FirstName} {UserPerson.SecondName} {UserPerson.ThirdName} {UserPerson.LastName}";
-                    UserDetails.NationalNo = UserPerson.NationalNo;
-                    UserDetails.Gender = (UserPerson.Gender == 0 ? "Male" : "Female");
-                    UserDetails.Address = UserPerson.Address;
-                    UserDetails.Email = UserPerson.Email;
-                    UserDetails.DateOfBirth = UserPerson.DateOfBirth;
-                    UserDetails.Phone = UserPerson.Phone;
-                    UserDetails.ImagePath = UserPerson.ImagePath;
-
-                    clsCountry Country = clsCountry.Find(UserPerson.NationalityCountryID);
-                    if (Country != null)
-                    {
-                        UserDetails.Country = Country.CountryName;
-                    }
-                    else
-                    {
-                        UserDetails.Country = "_____";
-                    }
-                }
-            }
+            this._UserID = userID;
         }
 
-        private void _OnEditClicked()
+        private void _ResetDefualtValues()
         {
-            frmAddEditUser frm = new frmAddEditUser(User.UserID);
-            frm.onFormClose += _LoadData;
-            frm.ShowDialog();
-        }
-        private void ucUserDetails1_Load(object sender, EventArgs e)
-        {
-            _LoadData();
-            UserDetails.EditPersonInfoInFrmEditUser += _OnEditClicked;
-            txtCurrentPass.Focus();
+            txtCurrentPassword.Text = "";
+            txtNewPassword.Text = "";
+            txtConfirmPassword.Text = "";
+            txtCurrentPassword.Focus();
         }
 
         private void txtCurrentPass_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (User.Password != txtCurrentPass.Text.Trim())
+            if (string.IsNullOrEmpty(txtCurrentPassword.Text.Trim()))
             {
-                errorProvider1.SetError(txtCurrentPass, "Please Enter Current Password correctly.");
                 e.Cancel = true;
+                errorProvider1.SetError(txtCurrentPassword, "Username cannot be blank");
+                return;
             }
+            else
+            {
+                errorProvider1.SetError(txtCurrentPassword, null);
+            };
+
+            if (_User.Password != txtCurrentPassword.Text.Trim())
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtCurrentPassword, "Current password is wrong!");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtCurrentPassword, null);
+            };
         }
 
         private void txtNewPassword_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (string.IsNullOrEmpty(txtNewPassword.Text) && txtNewPassword.Text.Length < 3)
+            if (string.IsNullOrEmpty(txtNewPassword.Text.Trim()))
             {
-                e.Cancel = true; // Cancels the event if validation fails
-                errorProvider1.SetError(txtNewPassword, "This field is required and must contain at least 3 characters.");
-                isTruePassword = false;
+                e.Cancel = true;
+                errorProvider1.SetError(txtNewPassword, "New Password cannot be blank");
             }
             else
             {
-                isTruePassword = true;
+                errorProvider1.SetError(txtNewPassword, null);
+            }
+
+            if (txtNewPassword.Text.Trim() == _User.Password)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtNewPassword, "New Password cannot be old password");
+            }
+            else
+            {
+                errorProvider1.SetError(txtNewPassword, null);
             }
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (!txtNewPassword.Text.Trim().Equals(txtConfirmPassword.Text.Trim()))
+            if (txtConfirmPassword.Text.Trim() != txtNewPassword.Text.Trim())
             {
-                e.Cancel = true; // Cancels the event if validation fails
-                errorProvider1.SetError(txtConfirmPassword, "Passswords Dont Matche.");
-                isMatchPassword = false;
+                e.Cancel = true;
+                errorProvider1.SetError(txtConfirmPassword, "Password Confirmation does not match New Password!");
             }
             else
             {
-                isMatchPassword = true;
-            }
+                errorProvider1.SetError(txtConfirmPassword, null);
+            };
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
-        {
-            frmClose?.Invoke();
+        { 
             Close();
         }
 
-        private void frmChangePassword_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            frmClose?.Invoke();
-        }
-        private bool _AreValidInputs()
-        {
-            return isMatchPassword && isTruePassword;
-        }
+        
+        
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (_AreValidInputs())
+            if (!this.ValidateChildren())
             {
-                User.Password = txtNewPassword.Text;
-                if (User.Save())
-                {
-                    MessageBox.Show("User Saved SuccessFully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Error Saving...");
-                }
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _User.Password = txtNewPassword.Text;
+
+            if (_User.Save())
+            {
+                MessageBox.Show("Password Changed Successfully.",
+                   "Saved.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _ResetDefualtValues();
             }
             else
             {
-                MessageBox.Show("please,Fill All Field.");
+                MessageBox.Show("An Erro Occured, Password did not change.",
+                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmChangePassword_Load(object sender, EventArgs e)
+        {
+            _ResetDefualtValues();
+
+            _User = clsUser.FindByUserID(_UserID);
+
+            if (_User == null)
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Could not Find User with id = " + _UserID,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+
+                return;
+
+            }
+            UserDetails.LoadUserInfo(_UserID);
         }
     }
 }

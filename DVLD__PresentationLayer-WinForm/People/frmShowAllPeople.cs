@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BVLD__BusinessLayer;
+using DVLD__PresentationLayer_WinForm.People;
 namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmShowAllPeople : Form
@@ -18,30 +20,24 @@ namespace DVLD__PresentationLayer_WinForm
         {
             InitializeComponent();
         }
-        int SelectedPersonID = -1;
 
-        private void _LoadPersonsData(int x = -1)
+        private void _RefreshPeopleList()
         {
             PeopleData = clsPerson.GetAllPeople();
             FiltredPeople = PeopleData.DefaultView;
             dgvAllPeopleData.DataSource = FiltredPeople;
-        }
-        private void _LoadPersonsData()
-        {
-            PeopleData = clsPerson.GetAllPeople();
-            FiltredPeople = PeopleData.DefaultView;
-            dgvAllPeopleData.DataSource = FiltredPeople;
+            lblRecordsCount.Text = "All Records = " + dgvAllPeopleData.Rows.Count;
         }
         private void frmShowAllPeople_Load(object sender, EventArgs e)
         {
-            _LoadPersonsData();
-            lblRecordsCount.Text = "All Records = " + dgvAllPeopleData.Rows.Count;
+            _RefreshPeopleList();
             CbFilter.SelectedIndex = 0;
         }
         private void txtFilterText_TextChanged(object sender, EventArgs e)
         {
             FiltredPeople.RowFilter = _GetFilterString(txtFilterText.Text);
             dgvAllPeopleData.DataSource = FiltredPeople;
+            lblRecordsCount.Text = "All Records = " + dgvAllPeopleData.Rows.Count;
         }
       private string _GetFilterString(string FilterValue)
       {
@@ -64,70 +60,55 @@ namespace DVLD__PresentationLayer_WinForm
             }
             return string.Empty;
       }
-        private void dgvAllPeopleData_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // Check if the right mouse button was clicked
-            if (e.Button == MouseButtons.Right)
-            {
-                // Ensure the click is on a valid row
-                if (e.RowIndex >= 0)
-                {
-                    // Select the row that was right-clicked
-                    SelectedPersonID = Convert.ToInt32(dgvAllPeopleData.Rows[e.RowIndex].Cells[0].Value);
-                }
-            }
-        }
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(SelectedPersonID != -1)
-            {
-                //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-                frmShowPersonDetails frm = new frmShowPersonDetails(SelectedPersonID);
-                 frm.FormClosedEvent += _LoadPersonsData;
-                 frm.ShowDialog();
-            }
-            else 
-            {
-                 MessageBox.Show("Please select a person from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             
+            //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
+           frmShowPersonCard frm = new frmShowPersonCard((int)dgvAllPeopleData.CurrentRow.Cells[0].Value);
+           frm.ShowDialog();
+
+            _RefreshPeopleList();
         }
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-            frmEditAddPerson frm = new frmEditAddPerson(-1);
-            frm.OnDataback += _LoadPersonsData;
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
             frm.ShowDialog();
-            lblRecordsCount.Text = "All Records = " + dgvAllPeopleData.Rows.Count;
+            _RefreshPeopleList();
         }
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnAddNewPerson_Click(sender, e);
+            btnAddNewPerson.PerformClick();
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (SelectedPersonID != -1)
-            {
-                //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-                frmEditAddPerson frm = new frmEditAddPerson(SelectedPersonID);
-                frm.ShowDialog();
-                
-            }
-            else
-            {
-                MessageBox.Show("Please select a person from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
+            frmAddUpdatePerson frm = new frmAddUpdatePerson((int)dgvAllPeopleData.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _RefreshPeopleList();
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clsPerson.Delete(SelectedPersonID)) 
+            int PersonID = (int)dgvAllPeopleData.CurrentRow.Cells[0].Value;
+            string PersonImage = clsPerson.Find(PersonID).ImagePath;
+            if (MessageBox.Show("Are You Sure You Want To Delete Person [" + PersonID + "]",
+                "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Person Deleted Successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _LoadPersonsData();
-                lblRecordsCount.Text = "All Records = " + dgvAllPeopleData.Rows.Count;
-            }
-            else
-            {
-                MessageBox.Show("Person Can't Be Deleted Due Data Related to it", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (clsPerson.DeletePerson(PersonID))
+                {
+                    //We have to delete person image as well if it's exist
+                    if (PersonImage != null)
+                    {
+                        File.Delete(PersonImage);
+                    }
+                    MessageBox.Show("Person Deleted Successfully", "Successful", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    _RefreshPeopleList();
+                }
+                else
+                {
+                    MessageBox.Show("Person Was Not Deleted Because It Has Data Linked To It",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
@@ -167,6 +148,12 @@ namespace DVLD__PresentationLayer_WinForm
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilterText.Focus();
+            txtFilterText.Visible = !(CbFilter.SelectedItem.ToString() == "None"); 
         }
     }
 }

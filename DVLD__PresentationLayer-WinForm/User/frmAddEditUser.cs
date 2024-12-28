@@ -17,192 +17,215 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmAddEditUser : Form
     {
-        public delegate void OnFormClose();
-        public OnFormClose onFormClose;
-        //public event OnFormClose OnFormCloseDelegate;
-
+        
         enum enMode { AddNew,Update}
-        enMode Mode;
-        bool isValidUserName = false;
-        bool isMatchPassword = false;
-        clsUser User;
-        clsPerson UserPerson;
-        int UserID;
+        enMode _Mode;
+        clsUser _User;
+        int _UserID;
         public frmAddEditUser(int userID)
         {
             InitializeComponent();
-            UserID = userID;
-            if (userID == -1) 
-            { 
-                Mode = enMode.AddNew;
+            _UserID = userID;
+            _Mode = enMode.Update;
+        }
+        public frmAddEditUser() 
+        {
+            InitializeComponent();
+            _Mode = enMode.AddNew;
+        }
+
+        private void _ResetDefaultValues()
+        {
+            if (_Mode == enMode.AddNew)
+            {
+                this.Name = "Add New User";
+                lblTitle.Text = "Add New User";
+                btnSave.Enabled = false;
+                tpLoginInfo.Enabled = false;    
+                _User = new clsUser();
             }
             else
             {
-                Mode = enMode.Update;
+                this.Name = "Update User";
+                lblTitle.Text = "Update User";
+                btnSave.Enabled = true;
+                tpLoginInfo.Enabled = true;
             }
         }
 
+        private void _LoadUserData()
+        {
+            _User = clsUser.FindByUserID(_UserID);
+            ucPersondetailsWithFilter1.FilterEnabled = false;
+
+            if (_User == null)
+            {
+                MessageBox.Show("No User with ID = " + _UserID, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+
+                return;
+            }
+
+            //the following code will not be executed if the person was not found
+            lblUserID.Text = _User.UserID.ToString();
+            txtUserName.Text = _User.UserName;
+            txtPassword.Text = _User.Password;
+            txtConfirmPassword.Text = _User.Password;
+            chkIsActive.Checked = _User.isActive;
+            ucPersondetailsWithFilter1.LoadPersonInfo(_User.PersonID);
+        }
         private void frmAddEditUser_Load(object sender, EventArgs e)
         {
-            _LoadData();
+            _ResetDefaultValues();
+            if(_Mode == enMode.Update)
+            {
+                _LoadUserData();
+            }
         }
-        private void _LoadData()
-        {
-            
-            if (Mode == enMode.AddNew)
-            {
-                lblCaption.Text = "Add New User";
-                User = new clsUser();
-                return;
-            }
-
-            User = clsUser.Find(UserID);
-            if (User == null)
-            {
-                MessageBox.Show("User Not Found. App Will Close.");
-                Close();
-                return;
-            }
-            UserPerson = clsPerson.Find(User.PersonID);
-            if (UserPerson == null)
-            {
-                MessageBox.Show("UserPerson Not Found. App Will Close.");
-                Close();
-                return;
-            }
-            clsCountry Country = clsCountry.Find(UserPerson.NationalityCountryID);
-            
-            isMatchPassword = true;
-            isValidUserName = true;
-            ucPersondetailsWithFilter1.FilterVisibility = false;
-            
-            
-            lblCaption.Text = "Edit User Info";
-            ucPersondetailsWithFilter1.PersonID = UserPerson.PersonID.ToString();
-            ucPersondetailsWithFilter1.FullName = $"{UserPerson.FirstName} {UserPerson.SecondName} {UserPerson.ThirdName} {UserPerson.LastName}";
-            ucPersondetailsWithFilter1.NationalNo = UserPerson.NationalNo;
-            ucPersondetailsWithFilter1.DateOfBirth = UserPerson.DateOfBirth;
-            ucPersondetailsWithFilter1.Phone = UserPerson.Phone;
-            ucPersondetailsWithFilter1.Gender = UserPerson.Gender == 0 ? "Male" : "Female";
-            if (Country != null)
-            {
-                ucPersondetailsWithFilter1.Country = Country.CountryName;
-            }
-            else
-            {
-                ucPersondetailsWithFilter1.Country = "_____";
-            }
-            ucPersondetailsWithFilter1.Email = UserPerson.Email;
-            ucPersondetailsWithFilter1.Address = UserPerson.Address;
-            ucPersondetailsWithFilter1.ImagePath = UserPerson.ImagePath;
-
-            lblID.Text = User.UserID.ToString();
-            txtUserName.Text = User.UserName;
-            txtPassword.Text = User.Password;
-            txtConfirmPassword.Text = User.Password;
-            chkIsActive.Checked = User.isActive;
-        }
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            tabControlUser.SelectedIndex = 1; // Sets focus to Tab 2
-        }
+        
         private void txtUserName_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear(); 
-            // Regular expression pattern for letters, numbers, dashes, and underscores
-            string pattern = @"^[a-zA-Z0-9-_]+$";
-            if (!Regex.IsMatch(txtUserName.Text, pattern))
+            if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
             {
-                e.Cancel = true; // Cancels the event if validation fails
-                errorProvider1.SetError(txtUserName, "Only letters, numbers, dashes, and underscores are allowed.");
-                isValidUserName = false;
-
+                e.Cancel = true;
+                errorProvider1.SetError(txtUserName, "Username cannot be blank");
+                return;
             }
             else
             {
-                if (clsUser.isUserNameExist(txtUserName.Text.Trim()) && txtUserName.Text != User.UserName)
+                errorProvider1.SetError(txtUserName, null);
+            };
+
+
+            if (_Mode == enMode.AddNew)
+            {
+
+                if (clsUser.isUserExist(txtUserName.Text.Trim()))
                 {
-                    e.Cancel = true; // Cancels the event if validation fails
-                    errorProvider1.SetError(txtUserName, "This Username already used,try another one.");
-                    isValidUserName = false;
+                    e.Cancel = true;
+                    errorProvider1.SetError(txtUserName, "username is used by another user");
                 }
                 else
                 {
-                    isValidUserName = true;
+                    errorProvider1.SetError(txtUserName, null);
+                };
+            }
+            else
+            {
+                //incase update make sure not to use anothers user name
+                if (_User.UserName != txtUserName.Text.Trim())
+                {
+                    if (clsUser.isUserExist(txtUserName.Text.Trim()))
+                    {
+                        e.Cancel = true;
+                        errorProvider1.SetError(txtUserName, "username is used by another user");
+                        return;
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(txtUserName, null);
+                    };
                 }
             }
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (string.IsNullOrEmpty(txtPassword.Text) && txtPassword.Text.Length < 3)
+            if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
             {
-                e.Cancel = true; // Cancels the event if validation fails
-                errorProvider1.SetError(txtPassword, "This field is required and must contain at least 3 characters.");
+                e.Cancel = true;
+                errorProvider1.SetError(txtPassword, "Password cannot be blank");
             }
-         
+            else
+            {
+                errorProvider1.SetError(txtPassword, null);
+            };
+
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (!txtPassword.Text.Trim().Equals(txtConfirmPassword.Text.Trim()))
+            if (txtConfirmPassword.Text.Trim() != txtPassword.Text.Trim())
             {
-                e.Cancel = true; // Cancels the event if validation fails
-                errorProvider1.SetError(txtConfirmPassword, "Passswords Dont Matche.");
-                isMatchPassword = false;
+                e.Cancel = true;
+                errorProvider1.SetError(txtConfirmPassword, "Password Confirmation does not match Password!");
             }
             else
             {
-                isMatchPassword = true;
-            }
+                errorProvider1.SetError(txtConfirmPassword, null);
+            };
         }
-        private bool _AreValidInputs()
+       
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            return isMatchPassword && isValidUserName;
-        }
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            if (ucPersondetailsWithFilter1.isEmpty)
+            if (!this.ValidateChildren())
             {
-                MessageBox.Show("please,Select Person first");
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-            if (_AreValidInputs())
-            {
-                User.Password = txtPassword.Text;
-                User.UserName = txtUserName.Text;
-                User.isActive = chkIsActive.Checked;
-                User.PersonID = Convert.ToInt32(ucPersondetailsWithFilter1.PersonID);
 
-                if (User.Save())
-                {
-                    MessageBox.Show("User Saved SuccessFully","Saved",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    lblID.Text = User.UserID.ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Error Saving...");
-                }
+            }
+
+            _User.PersonID = ucPersondetailsWithFilter1.PersonID;
+            _User.UserName = txtUserName.Text.Trim();
+            _User.Password = txtPassword.Text.Trim();
+            _User.isActive = chkIsActive.Checked;
+
+
+            if (_User.Save())
+            {
+                lblUserID.Text = _User.UserID.ToString();
+                //change form mode to update.
+                _Mode = enMode.Update;
+                lblTitle.Text = "Update User";
+                this.Text = "Update User";
+
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            {
-                MessageBox.Show("please,Fill All User Info");
-            }
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            onFormClose?.Invoke();
             Close();
         }
 
-        private void frmAddEditUser_FormClosing(object sender, FormClosingEventArgs e)
-        { 
-            onFormClose?.Invoke();
+        private void ucPersondetailsWithFilter1_OnPersonSelected(int obj)
+        {
+            if (obj == -1)
+            {
+                btnSave.Enabled = false;
+                tpLoginInfo.Enabled = false;
+                return;
+            }
+            if (clsUser.isThisPersonUser(obj))
+            {
+                MessageBox.Show("Selected Person already has a user, choose another one.", "Select another Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ucPersondetailsWithFilter1.FilterFocus();
+            }
+            else
+            {
+                btnSave.Enabled = true;
+                tpLoginInfo.Enabled = true;
+                //tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLoginInfo"];
+            }
         }
 
-       
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (ucPersondetailsWithFilter1.PersonID == -1)
+            {
+                MessageBox.Show("Please Select a Person", "Select a Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ucPersondetailsWithFilter1.FilterFocus();
+
+            }
+            else
+            {
+                tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLoginInfo"];
+            }  
+        }
     }
 }

@@ -43,23 +43,23 @@ namespace DVLD__PresentationLayer_WinForm
                 Close();
                 return;
             }
-            int PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
-            short Gender = clsPerson.getPersonGendor(PersonID);
+            //int PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+            //short Gender = clsPerson.getPersonGendor(PersonID);
             
-            ucDriverLicenseInfo1.LicenseID = _License.LicenseID;
-            ucDriverLicenseInfo1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
-            ucDriverLicenseInfo1.FullName = clsPerson.getPersonFullName(PersonID);
-            ucDriverLicenseInfo1.NationalNo = clsPerson.getPersonNationalNo(PersonID);
-            ucDriverLicenseInfo1.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
-            ucDriverLicenseInfo1.IssueDate = _License.IssueDate;    
-            ucDriverLicenseInfo1.IssueReason = IssueReasonString(_License.IssueReason); 
-            ucDriverLicenseInfo1.Notes = _License.Notes;    
-            ucDriverLicenseInfo1.isActive = (_License.isActive ? "Yes" :"No");
-            ucDriverLicenseInfo1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
-            ucDriverLicenseInfo1.DriverID = _License.DriverID;
-            ucDriverLicenseInfo1.ExpirationDate = _License.ExpirationDate;
-            ucDriverLicenseInfo1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
-            ucDriverLicenseInfo1.ImagePath = clsPerson.getPersonImagePath(PersonID);
+            //ucDriverLicenseInfo1.LicenseID = _License.LicenseID;
+            //ucDriverLicenseInfo1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
+            //ucDriverLicenseInfo1.FullName = clsPerson.getPersonFullName(PersonID);
+            //ucDriverLicenseInfo1.NationalNo = clsPerson.getPersonNationalNo(PersonID);
+            //ucDriverLicenseInfo1.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
+            //ucDriverLicenseInfo1.IssueDate = _License.IssueDate;    
+            //ucDriverLicenseInfo1.IssueReason = IssueReasonString(_License.IssueReason); 
+            //ucDriverLicenseInfo1.Notes = _License.Notes;    
+            //ucDriverLicenseInfo1.isActive = (_License.isActive ? "Yes" :"No");
+            //ucDriverLicenseInfo1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
+            //ucDriverLicenseInfo1.DriverID = _License.DriverID;
+            //ucDriverLicenseInfo1.ExpirationDate = _License.ExpirationDate;
+            //ucDriverLicenseInfo1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
+            //ucDriverLicenseInfo1.ImagePath = clsPerson.getPersonImagePath(PersonID);
         } 
         public frmLocalLicenseInfo(int LicenseID)
         {

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtFilterValue = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbFilterBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearchPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddNewPerson = new Guna.UI2.WinForms.Guna2Button();
@@ -41,54 +41,56 @@
             this.gbFilter.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtFilterText
+            // txtFilterValue
             // 
-            this.txtFilterText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFilterText.DefaultText = "";
-            this.txtFilterText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtFilterText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtFilterText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFilterText.DisabledState.Parent = this.txtFilterText;
-            this.txtFilterText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFilterText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFilterText.FocusedState.Parent = this.txtFilterText;
-            this.txtFilterText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFilterText.HoverState.Parent = this.txtFilterText;
-            this.txtFilterText.Location = new System.Drawing.Point(429, 22);
-            this.txtFilterText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtFilterText.Name = "txtFilterText";
-            this.txtFilterText.PasswordChar = '\0';
-            this.txtFilterText.PlaceholderText = "";
-            this.txtFilterText.SelectedText = "";
-            this.txtFilterText.ShadowDecoration.Parent = this.txtFilterText;
-            this.txtFilterText.Size = new System.Drawing.Size(191, 44);
-            this.txtFilterText.TabIndex = 9;
-            this.txtFilterText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterText_KeyDown);
-            this.txtFilterText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
-            this.txtFilterText.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterText_Validating);
+            this.txtFilterValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFilterValue.DefaultText = "";
+            this.txtFilterValue.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFilterValue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFilterValue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFilterValue.DisabledState.Parent = this.txtFilterValue;
+            this.txtFilterValue.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFilterValue.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFilterValue.FocusedState.Parent = this.txtFilterValue;
+            this.txtFilterValue.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFilterValue.HoverState.Parent = this.txtFilterValue;
+            this.txtFilterValue.Location = new System.Drawing.Point(443, 22);
+            this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFilterValue.Name = "txtFilterValue";
+            this.txtFilterValue.PasswordChar = '\0';
+            this.txtFilterValue.PlaceholderText = "";
+            this.txtFilterValue.SelectedText = "";
+            this.txtFilterValue.ShadowDecoration.Parent = this.txtFilterValue;
+            this.txtFilterValue.Size = new System.Drawing.Size(334, 34);
+            this.txtFilterValue.TabIndex = 9;
+            this.txtFilterValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterText_KeyDown);
+            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
             // 
-            // CbFilter
+            // cbFilterBy
             // 
-            this.CbFilter.BackColor = System.Drawing.Color.Transparent;
-            this.CbFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbFilter.FocusedColor = System.Drawing.Color.Empty;
-            this.CbFilter.FocusedState.Parent = this.CbFilter;
-            this.CbFilter.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.CbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.CbFilter.FormattingEnabled = true;
-            this.CbFilter.HoverState.Parent = this.CbFilter;
-            this.CbFilter.ItemHeight = 30;
-            this.CbFilter.Items.AddRange(new object[] {
+            this.cbFilterBy.BackColor = System.Drawing.Color.Transparent;
+            this.cbFilterBy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.FocusedColor = System.Drawing.Color.Empty;
+            this.cbFilterBy.FocusedState.Parent = this.cbFilterBy;
+            this.cbFilterBy.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbFilterBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbFilterBy.FormattingEnabled = true;
+            this.cbFilterBy.HoverState.Parent = this.cbFilterBy;
+            this.cbFilterBy.ItemHeight = 30;
+            this.cbFilterBy.Items.AddRange(new object[] {
             "Person ID",
-            "Nationality No"});
-            this.CbFilter.ItemsAppearance.Parent = this.CbFilter;
-            this.CbFilter.Location = new System.Drawing.Point(168, 22);
-            this.CbFilter.Name = "CbFilter";
-            this.CbFilter.ShadowDecoration.Parent = this.CbFilter;
-            this.CbFilter.Size = new System.Drawing.Size(254, 36);
-            this.CbFilter.TabIndex = 8;
-            this.CbFilter.SelectedValueChanged += new System.EventHandler(this.CbFilter_SelectedValueChanged);
+            "National No"});
+            this.cbFilterBy.ItemsAppearance.Parent = this.cbFilterBy;
+            this.cbFilterBy.Location = new System.Drawing.Point(168, 22);
+            this.cbFilterBy.Name = "cbFilterBy";
+            this.cbFilterBy.ShadowDecoration.Parent = this.cbFilterBy;
+            this.cbFilterBy.Size = new System.Drawing.Size(254, 36);
+            this.cbFilterBy.TabIndex = 8;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.CbFilter_SelectedIndexChanged);
+            this.cbFilterBy.SelectedValueChanged += new System.EventHandler(this.CbFilter_SelectedValueChanged);
+            this.cbFilterBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbFilterBy_KeyPress);
+            this.cbFilterBy.Validating += new System.ComponentModel.CancelEventHandler(this.CbFilterBy_Validating);
             // 
             // label2
             // 
@@ -114,7 +116,7 @@
             this.btnSearchPerson.HoverState.Parent = this.btnSearchPerson;
             this.btnSearchPerson.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__5_;
             this.btnSearchPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnSearchPerson.Location = new System.Drawing.Point(639, 22);
+            this.btnSearchPerson.Location = new System.Drawing.Point(824, 14);
             this.btnSearchPerson.Name = "btnSearchPerson";
             this.btnSearchPerson.ShadowDecoration.Parent = this.btnSearchPerson;
             this.btnSearchPerson.Size = new System.Drawing.Size(65, 44);
@@ -134,7 +136,7 @@
             this.btnAddNewPerson.HoverState.Parent = this.btnAddNewPerson;
             this.btnAddNewPerson.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__1_;
             this.btnAddNewPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnAddNewPerson.Location = new System.Drawing.Point(710, 22);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(895, 14);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.ShadowDecoration.Parent = this.btnAddNewPerson;
             this.btnAddNewPerson.Size = new System.Drawing.Size(65, 44);
@@ -147,14 +149,14 @@
             // 
             // gbFilter
             // 
-            this.gbFilter.Controls.Add(this.txtFilterText);
+            this.gbFilter.Controls.Add(this.txtFilterValue);
             this.gbFilter.Controls.Add(this.btnAddNewPerson);
             this.gbFilter.Controls.Add(this.label2);
             this.gbFilter.Controls.Add(this.btnSearchPerson);
-            this.gbFilter.Controls.Add(this.CbFilter);
+            this.gbFilter.Controls.Add(this.cbFilterBy);
             this.gbFilter.Location = new System.Drawing.Point(3, 4);
             this.gbFilter.Name = "gbFilter";
-            this.gbFilter.Size = new System.Drawing.Size(812, 74);
+            this.gbFilter.Size = new System.Drawing.Size(1038, 74);
             this.gbFilter.TabIndex = 12;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter :";
@@ -162,10 +164,8 @@
             // Person1
             // 
             this.Person1.BackColor = System.Drawing.Color.White;
-            this.Person1.Gender = "_";
             this.Person1.Location = new System.Drawing.Point(3, 84);
             this.Person1.Name = "Person1";
-            this.Person1.PersonID = "_";
             this.Person1.Size = new System.Drawing.Size(1038, 365);
             this.Person1.TabIndex = 0;
             // 
@@ -188,8 +188,8 @@
         #endregion
 
         private PersonDetailsControl Person1;
-        private Guna.UI2.WinForms.Guna2TextBox txtFilterText;
-        private Guna.UI2.WinForms.Guna2ComboBox CbFilter;
+        private Guna.UI2.WinForms.Guna2TextBox txtFilterValue;
+        private Guna.UI2.WinForms.Guna2ComboBox cbFilterBy;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnSearchPerson;
         private Guna.UI2.WinForms.Guna2Button btnAddNewPerson;

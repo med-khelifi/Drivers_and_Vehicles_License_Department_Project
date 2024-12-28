@@ -136,7 +136,7 @@ namespace BVLD__BusinessLayer
                     return false;
             }
         }
-        public static bool Delete(int PersonId)
+        public static bool DeletePerson(int PersonId)
         {
             return clsPersonData.DeletePerson(PersonId);
         }
