@@ -172,7 +172,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void frmRenewLocalLicense_Load(object sender, EventArgs e)
         {
             _Date = DateTime.Now;
-            _AppFees = clsApplicationType.GetApplicationTypeFees(2);
+            //_AppFees = clsApplicationType.GetApplicationTypeFees(2);
             _DisplayInitialppInfo();
         }
     }

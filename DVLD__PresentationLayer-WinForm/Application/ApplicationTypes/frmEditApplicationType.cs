@@ -13,8 +13,6 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmEditApplicationType : Form
     {
-        public delegate void FormClosedDelegate();
-        public FormClosedDelegate FormClosedDelegation;
 
         int ApplicationID = -1;
         public frmEditApplicationType(int applicationID)
@@ -22,20 +20,13 @@ namespace DVLD__PresentationLayer_WinForm
             InitializeComponent();
             ApplicationID = applicationID;
         }
-        float fees = 0;
-        bool isValidFees = true;
-        bool isValidTitle = true;
-        clsApplicationType _Application = null;
+        
+        clsApplicationType _ApplicationType = null;
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            //FormClosedDelegation?.Invoke();
             Close();
         }
 
-        private bool _AreValidInputs()
-        {
-            return isValidFees && isValidTitle;
-        }
         private void txtFees_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar)) 
@@ -46,66 +37,71 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void txtFees_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (!float.TryParse(txtFees.Text,out fees))
+            if (string.IsNullOrEmpty(txtFees.Text.Trim()))
             {
-                errorProvider1.SetError(txtFees, "Invalid Value.");
                 e.Cancel = true;
-                isValidFees = false;
+                errorProvider1.SetError(txtFees, "Fees cannot be empty!");
+                return;
             }
             else
             {
-                isValidFees = true;
+                errorProvider1.SetError(txtFees, null);
+
+            };
+
+
+            if (!clsValidatoin.IsNumber(txtFees.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFees, "Invalid Number.");
             }
+            else
+            {
+                errorProvider1.SetError(txtFees, null);
+            };
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (string.IsNullOrEmpty(txtTitle.Text))
+            if (string.IsNullOrEmpty(txtTitle.Text.Trim()))
             {
-                errorProvider1.SetError(txtTitle, "Invalid Value.");
                 e.Cancel = true;
-                isValidTitle = false;
-            }
-            else
-            {
-                isValidTitle = true;
+                errorProvider1.SetError(txtTitle, "Title cannot be empty!");
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (_AreValidInputs()) 
-            { 
-                _Application.ApplicationFees = Convert.ToSingle(txtFees.Text);
-                _Application.ApplicationTypeTitle = txtTitle.Text;
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
-                if (_Application.Save())
-                {
-                    MessageBox.Show("َApplication Type Edited.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("َError .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
+
+            _ApplicationType.ApplicationTypeTitle = txtTitle.Text.Trim();
+            _ApplicationType.ApplicationFees = Convert.ToSingle(txtFees.Text.Trim());
+
+
+            if (_ApplicationType.Save())
+            {
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void _LoadData()
         {
-            _Application = clsApplicationType.Find(ApplicationID);
+            _ApplicationType = clsApplicationType.Find(ApplicationID);
             
-            lblID.Text = _Application.ApplicationTypeID.ToString();
-            txtTitle.Text = _Application.ApplicationTypeTitle;
-            txtFees.Text = _Application.ApplicationFees.ToString();
+            lblID.Text = _ApplicationType.ApplicationTypeID.ToString();
+            txtTitle.Text = _ApplicationType.ApplicationTypeTitle;
+            txtFees.Text = _ApplicationType.ApplicationFees.ToString();
         }
         private void frmEditApplicationType_Load(object sender, EventArgs e)
         {
             _LoadData();
-        }
-        private void frmEditApplicationType_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            FormClosedDelegation?.Invoke();
         }
     }
 }

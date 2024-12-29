@@ -65,9 +65,9 @@ namespace DVLD__PresentationLayer_WinForm
         {
             btnIssueReplacement.Enabled = false;
             rbForDamage.Checked = true;
-            _Date = DateTime.Now;
-            _AppLicenseLostFees = clsApplicationType.GetApplicationTypeFees(3);
-            _AppLicenseDamagedFees = clsApplicationType.GetApplicationTypeFees(4);
+            //_Date = DateTime.Now;
+            //_AppLicenseLostFees = clsApplicationType.GetApplicationTypeFees(3);
+            //_AppLicenseDamagedFees = clsApplicationType.GetApplicationTypeFees(4);
             _DisplayInitialppInfo();
         }
         private void rbForDamage_CheckedChanged(object sender, EventArgs e)

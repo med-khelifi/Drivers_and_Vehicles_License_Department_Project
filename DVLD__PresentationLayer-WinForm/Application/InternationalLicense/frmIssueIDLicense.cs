@@ -38,7 +38,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void frmIssueIDLicense_Load(object sender, EventArgs e)
         {
             _Date = DateTime.Now;
-            PaidFees = clsApplicationType.GetApplicationTypeFees(6);
+            //PaidFees = clsApplicationType.GetApplicationTypeFees(6);
             _DisplayInitialppInfo();
             
         }

@@ -262,6 +262,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -281,6 +282,7 @@ namespace DVLD__PresentationLayer_WinForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(1538, 774);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.btnAddNewPerson);

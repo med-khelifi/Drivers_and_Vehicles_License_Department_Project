@@ -23,7 +23,7 @@ namespace DVLD__PresentationLayer_WinForm
         // Declare a delegate
         public delegate void DataBackEventHandler(object sender, int PersonID);
 
-        // Declare an event using the delegate
+        //// Declare an event using the delegate
         public event DataBackEventHandler DataBack;
         enum enMode { AddNew, Update }
         enum enGender { Male = 0,Female = 1 }
@@ -43,7 +43,6 @@ namespace DVLD__PresentationLayer_WinForm
             this._PersonID = PersonID;
            _Mode = enMode.Update;   
         }
-
         private void _FillCountriesInComoboBox()
         {
             DataTable dtCountries = clsCountry.GetAllCountries();
@@ -61,16 +60,18 @@ namespace DVLD__PresentationLayer_WinForm
             if (_Mode == enMode.AddNew)
             {
                 lblTitle.Text = "Add New Person";
+                this.Text = "Add New Person";
                 _Person = new clsPerson();
             }
             else
             {
                 lblTitle.Text = "Update Person";
+                Text = "Update Person";
             }
 
             //set default image for the person.
             if (rbMale.Checked)
-                pbPersonImage.Image = Resources.person_boy;
+                pbPersonImage.Image = Resources.Person;
             else
                 pbPersonImage.Image = Resources.person_girl;
 

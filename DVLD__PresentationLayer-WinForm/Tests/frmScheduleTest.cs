@@ -68,7 +68,7 @@ namespace DVLD__PresentationLayer_WinForm
             }
             //lblName.Text = clsPerson.getPersonFullName(_app.ApplicantPersonID);
             lblTrial.Text = clsTestAppointment.GetTestTrial(_LDLAppID, _TestType).ToString();
-            _testFees = clsTestType.GetTestFees(_TestType);
+            //_testFees = clsTestType.GetTestFees(_TestType);
             lblTestFees.Text = _testFees.ToString();
 
             if(Mode== enMode.addNew) 
@@ -110,7 +110,7 @@ namespace DVLD__PresentationLayer_WinForm
                     lblRetakeTestAppID.Text = _testAppointment.RetakeTestApplicationID.ToString();
                     _RetakeTestApp = clsApplication.Find(_testAppointment.RetakeTestApplicationID);
                 }
-                _retakeTestFees = clsApplicationType.GetApplicationTypeFees(7);
+                //_retakeTestFees = clsApplicationType.GetApplicationTypeFees(7);
                 lblCaption.Text = "Schedule Retake Test";
                 retakeTestGroupBox.Enabled = true;
             }

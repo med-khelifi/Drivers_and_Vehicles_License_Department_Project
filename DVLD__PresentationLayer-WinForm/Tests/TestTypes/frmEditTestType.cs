@@ -8,44 +8,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BVLD__BusinessLayer.clsTestType;
 
 namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmEditTestType : Form
     {
-        int TesttypeID = 0;
-        clsTestType _testType = null;
-        bool isValidTitle = true;
-        bool isValidDescription = true; 
-        bool isValidFees = true;
-  
-        public delegate void OnFormClosedDelegate();
-        public OnFormClosedDelegate OnFormCloseDelegate;
-        public frmEditTestType(int testTypeID)
+        clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
+        clsTestType _TestType = null;     
+        public frmEditTestType(clsTestType.enTestType testTypeID)
         {
             InitializeComponent();
-            this.TesttypeID = testTypeID;
+            this._TestTypeID = testTypeID;
         }
 
         private void _LoadData()
         {
-            _testType = clsTestType.Find(TesttypeID);
-            if (_testType != null) 
-            { 
-                lblID.Text = _testType.TestTypeID.ToString();
-                txtDescription.Text = _testType.TestTypeDescription;
-                txtTitle.Text = _testType.TestTypeTitle;
-                txtFees.Text = _testType.TestTypeFees.ToString();
-            }
-            else
+            _TestType = clsTestType.Find(_TestTypeID);
+
+            if (_TestType != null)
             {
-                MessageBox.Show("Error,Object is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                lblTestTypeID.Text = ((int)_TestTypeID).ToString();
+                txtTitle.Text = _TestType.TestTypeTitle;
+                txtDescription.Text = _TestType.TestTypeDescription;
+                txtFees.Text = _TestType.TestTypeFees.ToString();
+            }
+
+            else
+
+            {
+                MessageBox.Show("Could not find Test Type with id = " + _TestTypeID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+
             }
         }
-        private bool _AreValideInputs()
-        {
-            return isValidDescription && isValidTitle && isValidFees;
-        }
+        
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -54,28 +53,28 @@ namespace DVLD__PresentationLayer_WinForm
         {
             _LoadData();
         }
-        private void frmEditTestType_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            OnFormCloseDelegate?.Invoke();
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (_AreValideInputs()) 
-            { 
-                _testType.TestTypeFees = Convert.ToSingle(txtFees.Text);    
-                _testType.TestTypeTitle = txtTitle.Text.Trim();
-                _testType.TestTypeDescription = txtDescription.Text.Trim();
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
-                if (_testType.Save())
-                {
-                    MessageBox.Show("Test Type Edited Successfully.","Saved",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Error Was Happend please Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
+
+            _TestType.TestTypeTitle = txtTitle.Text.Trim();
+            _TestType.TestTypeDescription = txtDescription.Text.Trim();
+            _TestType.TestTypeFees = Convert.ToSingle(txtFees.Text.Trim());
+
+
+            if (_TestType.Save())
+            {
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void txtFees_KeyPress(object sender, KeyPressEventArgs e)
@@ -88,62 +87,47 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void txtFees_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (!float.TryParse(txtFees.Text, out float fees))
+            if (string.IsNullOrEmpty(txtFees.Text.Trim()))
             {
-                errorProvider1.SetError(txtFees, "Invalid Value.");
                 e.Cancel = true;
-                isValidFees = false;
+                errorProvider1.SetError(txtFees, "Fees cannot be empty!");
+                return;
             }
             else
             {
-                isValidFees = true;
+                errorProvider1.SetError(txtFees, null);
+
+            };
+
+
+            if (!clsValidatoin.IsNumber(txtFees.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFees, "Invalid Number.");
             }
+            else
+            {
+                errorProvider1.SetError(txtFees, null);
+            };
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (string.IsNullOrEmpty(txtTitle.Text))
+            if (string.IsNullOrEmpty(txtTitle.Text.Trim()))
             {
-                errorProvider1.SetError(txtTitle, "Invalid Value.");
                 e.Cancel = true;
-                isValidTitle = false;
-            }
-            else
-            {
-                isValidTitle = true;
+                errorProvider1.SetError(txtTitle, "Title cannot be empty!");
             }
         }
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            errorProvider1.Clear();
-            if (string.IsNullOrEmpty(txtDescription.Text))
+            if (string.IsNullOrEmpty(txtDescription.Text.Trim()))
             {
-                errorProvider1.SetError(txtDescription, "Invalid Value.");
                 e.Cancel = true;
-                isValidDescription = false;
-            }
-            else
-            {
-                isValidDescription = true;
+                errorProvider1.SetError(txtDescription, "Description cannot be empty!");
             }
         }
 
-        //private void txtTitle_Validating(object sender, CancelEventArgs e)
-        //{
-        //    errorProvider1.Clear();
-        //    if (string.IsNullOrEmpty(txtTitle.Text))
-        //    {
-        //        errorProvider1.SetError(txtTitle, "Invalid Value.");
-        //        e.Cancel = true;
-        //        isValidTitle = false;
-        //    }
-        //    else
-        //    {
-        //        isValidTitle = true;
-        //    }
-        //}
     }
 }

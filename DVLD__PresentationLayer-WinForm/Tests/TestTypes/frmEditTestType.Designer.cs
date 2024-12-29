@@ -33,12 +33,12 @@
             this.txtTitle = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblTestTypeID = new System.Windows.Forms.Label();
             this.ApplicationTypeID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -123,16 +123,16 @@
             this.label2.TabIndex = 52;
             this.label2.Text = "Title :";
             // 
-            // lblID
+            // lblTestTypeID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(191, 93);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(34, 28);
-            this.lblID.TabIndex = 49;
-            this.lblID.Text = "##";
+            this.lblTestTypeID.AutoSize = true;
+            this.lblTestTypeID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestTypeID.ForeColor = System.Drawing.Color.Black;
+            this.lblTestTypeID.Location = new System.Drawing.Point(191, 93);
+            this.lblTestTypeID.Name = "lblTestTypeID";
+            this.lblTestTypeID.Size = new System.Drawing.Size(34, 28);
+            this.lblTestTypeID.TabIndex = 49;
+            this.lblTestTypeID.Text = "##";
             // 
             // ApplicationTypeID
             // 
@@ -193,26 +193,26 @@
             this.txtDescription.TabIndex = 55;
             this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
-            // guna2Button2
+            // btnSave
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.Location = new System.Drawing.Point(556, 373);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(153, 45);
-            this.guna2Button2.TabIndex = 57;
-            this.guna2Button2.Text = "Save";
-            this.guna2Button2.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderThickness = 2;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.FillColor = System.Drawing.Color.White;
+            this.btnSave.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.diskette;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSave.Location = new System.Drawing.Point(556, 373);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(153, 45);
+            this.btnSave.TabIndex = 57;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // BtnClose
             // 
@@ -221,6 +221,7 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -271,11 +272,13 @@
             // 
             // frmEditTestType
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(737, 431);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtFees);
@@ -286,14 +289,13 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.lblTestTypeID);
             this.Controls.Add(this.ApplicationTypeID);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmEditTestType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmEditTestType";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditTestType_FormClosing);
+            this.Text = "Edit Test Type";
             this.Load += new System.EventHandler(this.frmEditTestType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -306,7 +308,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2TextBox txtFees;
         private Guna.UI2.WinForms.Guna2TextBox txtTitle;
@@ -314,7 +316,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblTestTypeID;
         private System.Windows.Forms.Label ApplicationTypeID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;

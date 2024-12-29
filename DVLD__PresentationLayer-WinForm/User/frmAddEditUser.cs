@@ -38,7 +38,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             if (_Mode == enMode.AddNew)
             {
-                this.Name = "Add New User";
+                this.Text = "Add New User";
                 lblTitle.Text = "Add New User";
                 btnSave.Enabled = false;
                 tpLoginInfo.Enabled = false;    
@@ -46,7 +46,7 @@ namespace DVLD__PresentationLayer_WinForm
             }
             else
             {
-                this.Name = "Update User";
+                this.Text = "Update User";
                 lblTitle.Text = "Update User";
                 btnSave.Enabled = true;
                 tpLoginInfo.Enabled = true;

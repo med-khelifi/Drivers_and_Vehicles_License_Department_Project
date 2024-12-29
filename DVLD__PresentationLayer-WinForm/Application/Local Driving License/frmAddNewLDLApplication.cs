@@ -30,7 +30,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             lblApplicationDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblCurrentUser.Text = clsGlobal.CurrentUser.UserName;
-            ApplicationTypeFees = clsApplicationType.GetApplicationTypeFees(1);
+            //ApplicationTypeFees = clsApplicationType.GetApplicationTypeFees(1);
             if (ApplicationTypeFees != -1) 
             {
                 lblFees.Text = ApplicationTypeFees.ToString() + '$';

@@ -67,27 +67,6 @@ namespace BVLD__DataAccessLayer
 
             return effectedRow > 0;
         }
-        public static float GetApplicationFees(int ApplicationID)
-        {
-            float fees = -1;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "Select ApplicationFees from ApplicationTypes where ApplicationTypeID = @AppID;";
-            SqlCommand sqlCommand = new SqlCommand(query, connection);
-            sqlCommand.Parameters.AddWithValue("@AppID",ApplicationID);
-
-            try
-            {
-                connection.Open();
-                object ReaderResult = sqlCommand.ExecuteScalar();
-                if (float.TryParse(ReaderResult.ToString(), out float Result))
-                {
-                    fees = Result;
-                }
-            }
-            catch { }
-            finally { connection.Close(); }
-            return fees;
-        }
         public static bool GetApplicationtypeInfo(int ApplicationID, ref string ApplicationTitle, ref float Fees)
         {
             bool isFound = false;
@@ -119,7 +98,49 @@ namespace BVLD__DataAccessLayer
 
             return isFound;
         }
+        public static int AddNewApplicationType(string Title, float Fees)
+        {
+            int ApplicationTypeID = -1;
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Insert Into ApplicationTypes (ApplicationTypeTitle,ApplicationFees)
+                            Values (@Title,@Fees)
+                            
+                            SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationTypeTitle", Title);
+            command.Parameters.AddWithValue("@ApplicationFees", Fees);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    ApplicationTypeID = insertedID;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+
+            return ApplicationTypeID;
+
+        }
     }
 
 }

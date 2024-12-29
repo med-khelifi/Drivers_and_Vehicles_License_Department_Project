@@ -57,7 +57,7 @@ namespace DVLD__PresentationLayer_WinForm
             }
             //lblName.Text = clsPerson.getPersonFullName(_app.ApplicantPersonID);
             lblTrial.Text = clsTestAppointment.GetTestTrial(_LDLAppID, _TestType).ToString();
-            _testFees = clsTestType.GetTestFees(_TestType);
+            //_testFees = clsTestType.GetTestFees(_TestType);
             lblTestFees.Text = _testFees.ToString();
             lblAppointmentDate.Text = clsTestAppointment.GetAppointmentDate(_AppointmentID).ToString();
 

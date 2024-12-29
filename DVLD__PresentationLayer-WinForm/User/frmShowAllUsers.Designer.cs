@@ -44,7 +44,7 @@
             this.callToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.cbActiveState = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddNewPerson = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsersData)).BeginInit();
@@ -157,7 +157,7 @@
             this.sendEmailToolStripMenuItem,
             this.callToolStripMenuItem});
             this.CmsPersonGrid.Name = "CmsPersonGrid";
-            this.CmsPersonGrid.Size = new System.Drawing.Size(222, 214);
+            this.CmsPersonGrid.Size = new System.Drawing.Size(222, 186);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -254,25 +254,25 @@
             this.cbActiveState.TabIndex = 11;
             this.cbActiveState.SelectedIndexChanged += new System.EventHandler(this.cbActiveState_SelectedIndexChanged);
             // 
-            // guna2Button2
+            // btnAddNewPerson
             // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.White;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__1_;
-            this.guna2Button2.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button2.Location = new System.Drawing.Point(1055, 248);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(65, 57);
-            this.guna2Button2.TabIndex = 14;
-            this.guna2Button2.Click += new System.EventHandler(this.btnAddNewUser_Click);
+            this.btnAddNewPerson.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddNewPerson.BorderRadius = 10;
+            this.btnAddNewPerson.BorderThickness = 2;
+            this.btnAddNewPerson.CheckedState.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.CustomImages.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.FillColor = System.Drawing.Color.White;
+            this.btnAddNewPerson.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnAddNewPerson.HoverState.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.person_boy__1_;
+            this.btnAddNewPerson.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1055, 248);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.ShadowDecoration.Parent = this.btnAddNewPerson;
+            this.btnAddNewPerson.Size = new System.Drawing.Size(65, 57);
+            this.btnAddNewPerson.TabIndex = 14;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // pictureBox1
             // 
@@ -291,6 +291,7 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -310,9 +311,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(1143, 768);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.txtFilterText);
             this.Controls.Add(this.cbActiveState);
@@ -343,7 +345,7 @@
         private System.Windows.Forms.DataGridView dgvAllUsersData;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblRecordsCount;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnAddNewPerson;
         private Guna.UI2.WinForms.Guna2ComboBox cbActiveState;
         private System.Windows.Forms.ContextMenuStrip CmsPersonGrid;
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;

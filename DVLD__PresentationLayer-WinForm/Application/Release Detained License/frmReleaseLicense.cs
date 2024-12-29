@@ -171,7 +171,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void frmReleaseLicense_Load(object sender, EventArgs e)
         {
             _Date = DateTime.Now;
-            _AppFees = clsApplicationType.GetApplicationTypeFees(5);
+            //_AppFees = clsApplicationType.GetApplicationTypeFees(5);
 
             if (_DetainID != -1)
             {

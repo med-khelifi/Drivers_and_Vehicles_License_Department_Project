@@ -680,7 +680,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // frmEditAddPerson
+            // frmAddUpdatePerson
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -731,9 +731,9 @@
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(421, 48);
-            this.Name = "frmEditAddPerson";
+            this.Name = "frmAddUpdatePerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmEditAddPerson";
+            this.Text = "Edit Add Person";
             this.Load += new System.EventHandler(this.frmEditAddPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();

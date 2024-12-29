@@ -10,22 +10,40 @@ namespace BVLD__BusinessLayer
 {
     public class clsTestType
     {
-        public int TestTypeID {  get; set; }
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
+        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
+
+        public enTestType TestTypeID {  get; set; }
         public string TestTypeTitle { get; set; }
         public string TestTypeDescription { get; set; }
         public float TestTypeFees { get; set; }
-        private clsTestType(int testTypeID, string testTypeTitle,string testTypeDescription,float testTypeFees) 
+        private clsTestType(enTestType testTypeID, string testTypeTitle,string testTypeDescription,float testTypeFees) 
         {
             TestTypeDescription = testTypeDescription;
             TestTypeFees = testTypeFees;
             TestTypeID = testTypeID;
             TestTypeTitle = testTypeTitle;
+
+            Mode = enMode.Update;
         }
-        public static clsTestType Find(int testTypeID)
+
+        public clsTestType()
+
+        {
+            this.TestTypeID = clsTestType.enTestType.VisionTest;
+            this.TestTypeTitle = "";
+            this.TestTypeDescription = "";
+            this.TestTypeFees = 0;
+            Mode = enMode.AddNew;
+
+        }
+
+        public static clsTestType Find(enTestType testTypeID)
         {
             float fees = 0;
             string testTypeTitle = "", testTypeDescription = "";
-            if(clsTestTypeData.GetTestTypeWithID(testTypeID,ref testTypeTitle,ref testTypeDescription,ref fees))
+            if(clsTestTypeData.GetTestTypeWithID((int)testTypeID,ref testTypeTitle,ref testTypeDescription,ref fees))
             {
                 return new clsTestType(testTypeID,testTypeTitle,testTypeDescription,fees);
             }
@@ -34,22 +52,49 @@ namespace BVLD__BusinessLayer
                 return null;
             }
         }
-        private bool _Update()
+        private bool _UpdateTestType()
         {
-            return clsTestTypeData.UpdateTestType(TestTypeID,TestTypeTitle,TestTypeDescription,TestTypeFees);   
+            return clsTestTypeData.UpdateTestType((int)TestTypeID,TestTypeTitle,TestTypeDescription,TestTypeFees);   
         }
+
+        private bool _AddNewTestType()
+        {
+            //call DataAccess Layer 
+
+            this.TestTypeID = (clsTestType.enTestType)clsTestTypeData.AddNewTestType(this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
+
+            return (this.TestTypeTitle != "" && (int)TestTypeID != -1);
+        }
+
         public bool Save()
         {
-            return _Update();
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewTestType())
+                    {
+
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return _UpdateTestType();
+
+            }
+
+            return false;
         }
 
         public static DataTable GetAllTestTable()
         {
             return clsTestTypeData.GetAllTestTypes();
         }
-        public static float GetTestFees(int TestID)
-        {
-            return clsTestTypeData.GetTestFees(TestID);
-        }
+      
     }
 }

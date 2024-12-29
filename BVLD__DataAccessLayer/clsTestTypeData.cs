@@ -89,27 +89,48 @@ namespace BVLD__DataAccessLayer
             }
             return effected > 0;
         }
-
-        public static float GetTestFees(int TestID)
+        public static int AddNewTestType(string Title, string Description, float Fees)
         {
-            float fees = -1;
+            int TestTypeID = -1;
+
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "Select TestTypeFees from TestTypes where TestTypeID = @TestID;";
-            SqlCommand sqlCommand = new SqlCommand(query, connection);
-            sqlCommand.Parameters.AddWithValue("@TestID", TestID);
+
+            string query = @"Insert Into TestTypes (TestTypeTitle,TestTypeTitle,TestTypeFees)
+                            Values (@TestTypeTitle,@TestTypeDescription,@ApplicationFees);
+                            SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@TestTypeTitle", Title);
+            command.Parameters.AddWithValue("@TestTypeDescription", Description);
+            command.Parameters.AddWithValue("@ApplicationFees", Fees);
+
             try
             {
                 connection.Open();
-                object ReaderResult = sqlCommand.ExecuteScalar();
-                if (float.TryParse(ReaderResult.ToString(), out float Result))
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
                 {
-                    fees = Result;
+                    TestTypeID = insertedID;
                 }
             }
-            catch { }
-            finally { connection.Close(); }
-            return fees;
-        }
 
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+
+            return TestTypeID;
+
+        }
     }
 }
