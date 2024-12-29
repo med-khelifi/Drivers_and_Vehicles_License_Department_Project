@@ -14,11 +14,12 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmMainScreen : Form
     {
-        public frmMainScreen()
+        public frmMainScreen(frmLoggingScrren frm)
         {
             InitializeComponent();
+            _loginForm = frm;
         }
-
+        frmLoggingScrren _loginForm;
         private void smPeople_Click(object sender, EventArgs e)
         {
             frmShowAllPeople frm = new frmShowAllPeople();
@@ -27,10 +28,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!Directory.Exists(clsBusinessAccessSettings.directoryPath))
-            {
-                Directory.CreateDirectory(clsBusinessAccessSettings.directoryPath); // Create directory if it doesn't exist
-            }
+            
         }
 
        
@@ -56,7 +54,8 @@ namespace DVLD__PresentationLayer_WinForm
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             clsGlobal.CurrentUser = null;
-            Close();
+            _loginForm.Show();
+            Close();           
         }
 
         private void manageTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,6 +135,14 @@ namespace DVLD__PresentationLayer_WinForm
         {
             frmManageLocalDrivingLicenseApplication frm = new frmManageLocalDrivingLicenseApplication();
             frm.ShowDialog();
+        }
+
+        private void frmMainScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(clsGlobal.CurrentUser != null)
+            {
+                Application.Exit();
+            }
         }
     }
 }

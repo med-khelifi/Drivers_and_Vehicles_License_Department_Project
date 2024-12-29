@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoggingScrren));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
-            this.chkRememberme = new System.Windows.Forms.CheckBox();
+            this.chkRememberMe = new System.Windows.Forms.CheckBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUserName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,8 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
@@ -52,9 +51,9 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnLogin);
-            this.panel2.Controls.Add(this.chkRememberme);
+            this.panel2.Controls.Add(this.chkRememberMe);
             this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.txtUserName);
             this.panel2.Controls.Add(this.label3);
@@ -64,21 +63,10 @@
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(592, 0);
+            this.panel2.Location = new System.Drawing.Point(567, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(408, 600);
+            this.panel2.Size = new System.Drawing.Size(433, 600);
             this.panel2.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
-            this.pictureBox1.Location = new System.Drawing.Point(365, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 79;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnLogin
             // 
@@ -104,14 +92,14 @@
             // 
             // chkRememberme
             // 
-            this.chkRememberme.AutoSize = true;
-            this.chkRememberme.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRememberme.Location = new System.Drawing.Point(182, 404);
-            this.chkRememberme.Name = "chkRememberme";
-            this.chkRememberme.Size = new System.Drawing.Size(130, 25);
-            this.chkRememberme.TabIndex = 77;
-            this.chkRememberme.Text = "Remember me";
-            this.chkRememberme.UseVisualStyleBackColor = true;
+            this.chkRememberMe.AutoSize = true;
+            this.chkRememberMe.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRememberMe.Location = new System.Drawing.Point(182, 404);
+            this.chkRememberMe.Name = "chkRememberme";
+            this.chkRememberMe.Size = new System.Drawing.Size(130, 25);
+            this.chkRememberMe.TabIndex = 77;
+            this.chkRememberMe.Text = "Remember me";
+            this.chkRememberMe.UseVisualStyleBackColor = true;
             // 
             // txtPassword
             // 
@@ -233,7 +221,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 600);
+            this.panel1.Size = new System.Drawing.Size(567, 600);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -248,11 +236,33 @@
             this.label2.TabIndex = 0;
             this.label2.Text = " v1.0 ";
             // 
+            // btnClose
+            // 
+            this.btnClose.BorderRadius = 10;
+            this.btnClose.BorderThickness = 3;
+            this.btnClose.CheckedState.Parent = this.btnClose;
+            this.btnClose.CustomImages.Parent = this.btnClose;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.btnClose.HoverState.Parent = this.btnClose;
+            this.btnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.cancelApplication;
+            this.btnClose.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnClose.Location = new System.Drawing.Point(390, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.ShadowDecoration.Parent = this.btnClose;
+            this.btnClose.Size = new System.Drawing.Size(40, 40);
+            this.btnClose.TabIndex = 80;
+            this.btnClose.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // frmLoggingScrren
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1000, 600);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -264,7 +274,6 @@
             this.Load += new System.EventHandler(this.frmLoggingScrren_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -279,7 +288,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox chkRememberme;
+        private System.Windows.Forms.CheckBox chkRememberMe;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtUserName;
         private System.Windows.Forms.Label label3;
@@ -288,6 +297,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
     }
 }

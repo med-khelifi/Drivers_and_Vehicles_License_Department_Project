@@ -23,7 +23,7 @@ namespace DVLD__PresentationLayer_WinForm
 
 
                 // Define the path to the text file where you want to save the data
-                string filePath = currentDirectory + "\\data.txt";
+                string filePath = currentDirectory + "\\RememberMe.txt";
 
                 //incase the username is empty, delete the file
                 if (Username == "" && File.Exists(filePath))
@@ -42,8 +42,9 @@ namespace DVLD__PresentationLayer_WinForm
                     // Write the data to the file
                     writer.WriteLine(dataToSave);
 
-                    return true;
+                    
                 }
+                return true;
             }
             catch (Exception ex)
             {
@@ -62,7 +63,7 @@ namespace DVLD__PresentationLayer_WinForm
                 string currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
                 // Path for the file that contains the credential.
-                string filePath = currentDirectory + "\\data.txt";
+                string filePath = currentDirectory + "\\RememberMe.txt";
 
                 // Check if the file exists before attempting to read it
                 if (File.Exists(filePath))

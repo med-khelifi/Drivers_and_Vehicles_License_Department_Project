@@ -22,64 +22,64 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtPassword.Text)) 
+            clsUser user = clsUser.LogIn(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+
+            if (user != null)
             {
-                MessageBox.Show("Fill All Login Information.");
-            }
-            else
-            {
-                if((clsGlobal.CurrentUser = clsUser.LogIn(txtUserName.Text.Trim(),txtPassword.Text.Trim())) == null)
+
+                if (chkRememberMe.Checked)
                 {
-                    MessageBox.Show("Invalid UserName/Password.","Ivalid Informations",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    //store username and password
+                    clsGlobal.RememberUsernameAndPassword(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+
                 }
                 else
                 {
-                    if (!clsGlobal.CurrentUser.isActive)
-                    {
-                        MessageBox.Show("Your Account Is Deactivated,Please Contact Your Admins.", "Account Deactivated", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    frmMainScreen frm = new frmMainScreen();
-                    frm.ShowDialog();
-                    if (chkRememberme.Checked)
-                    {
-                        File.WriteAllLines(clsBusinessAccessSettings.rememberMeFile, new[] { txtUserName.Text, txtPassword.Text });
-                    }
-                    else
-                    {
-                        txtPassword.Text = "";
-                        txtUserName.Text = "";
-                        File.WriteAllLines(clsBusinessAccessSettings.rememberMeFile, new[] { "","" });
-                    }
+                    //store empty username and password
+                    clsGlobal.RememberUsernameAndPassword("", "");
+
                 }
+
+                //incase the user is not active
+                if (!user.isActive)
+                {
+
+                    txtUserName.Focus();
+                    MessageBox.Show("Your accound is not Active, Contact Admin.", "In Active Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                clsGlobal.CurrentUser = user;
+                this.Hide();
+                frmMainScreen frm = new frmMainScreen(this);
+                frm.ShowDialog();
+            }
+            else
+            {
+                txtUserName.Focus();
+                MessageBox.Show("Invalid Username/Password.", "Wrong Credintials", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void frmLoggingScrren_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(clsBusinessAccessSettings.rememberMeFile))
-            {
-                File.Create(clsBusinessAccessSettings.rememberMeFile).Close(); // Close to release the file handle
-                return;
-            }
+            string UserName = "", Password = "";
 
-            string[] lines = File.ReadAllLines(clsBusinessAccessSettings.rememberMeFile);
-            if (lines.Length >= 2)
+            if (clsGlobal.GetStoredCredential(ref UserName, ref Password))
             {
-                txtUserName.Text = lines[0];
-                txtPassword.Text = lines[1];
-                chkRememberme.Checked = true;
+                txtUserName.Text = UserName;
+                txtPassword.Text = Password;
+                chkRememberMe.Checked = true;
             }
             else
-            {
-                chkRememberme.Checked = false;
-            }
+                chkRememberMe.Checked = false;
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
     }
 }
