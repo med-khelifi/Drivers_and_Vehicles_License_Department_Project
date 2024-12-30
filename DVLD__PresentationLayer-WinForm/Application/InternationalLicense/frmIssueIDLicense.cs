@@ -57,8 +57,8 @@ namespace DVLD__PresentationLayer_WinForm
             _Application = new clsApplication();
             _Application.ApplicantPersonID = PersonID;
             _Application.ApplicationDate = _Date;
-            _Application.ApplicationTypeID = 6;
-            _Application.ApplicationStatus = 3;
+            //_Application.ApplicationTypeID = 6;
+            //_Application.ApplicationStatus = 3;
             _Application.LastStatusDate = _Date;    
             _Application.PaidFees = PaidFees;
             _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -142,7 +142,7 @@ namespace DVLD__PresentationLayer_WinForm
             _License = clsLicense.Find(Convert.ToInt32(id));
             if (_License != null)
             {
-                PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
                 _LoadData();
                 lblLocalLicenseID.Text = _License.LicenseID.ToString();
                 linkLShowLicenseHistory.Enabled = true;

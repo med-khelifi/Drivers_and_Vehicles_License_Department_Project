@@ -30,29 +30,29 @@
         {
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.tabControlUser = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tcApplicationInfo = new System.Windows.Forms.TabControl();
+            this.tpPersonalInfo = new System.Windows.Forms.TabPage();
+            this.ucPersondetailsWithFilter2 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cbLicenseClass = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tpApplicationInfo = new System.Windows.Forms.TabPage();
+            this.cbLicenseClasses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblCurrentUser = new System.Windows.Forms.Label();
+            this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblFees = new System.Windows.Forms.Label();
             this.lblApplicationDate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblLocalDrivingLicebseApplicationID = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblCaption = new System.Windows.Forms.Label();
-            this.ucPersondetailsWithFilter1 = new DVLD__PresentationLayer_WinForm.ucPersondetailsWithFilter();
-            this.tabControlUser.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.tcApplicationInfo.SuspendLayout();
+            this.tpPersonalInfo.SuspendLayout();
+            this.tpApplicationInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -87,6 +87,7 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -103,25 +104,35 @@
             // 
             // tabControlUser
             // 
-            this.tabControlUser.Controls.Add(this.tabPage1);
-            this.tabControlUser.Controls.Add(this.tabPage2);
-            this.tabControlUser.Location = new System.Drawing.Point(10, 73);
-            this.tabControlUser.Name = "tabControlUser";
-            this.tabControlUser.SelectedIndex = 0;
-            this.tabControlUser.Size = new System.Drawing.Size(1091, 557);
-            this.tabControlUser.TabIndex = 12;
+            this.tcApplicationInfo.Controls.Add(this.tpPersonalInfo);
+            this.tcApplicationInfo.Controls.Add(this.tpApplicationInfo);
+            this.tcApplicationInfo.Location = new System.Drawing.Point(10, 73);
+            this.tcApplicationInfo.Name = "tabControlUser";
+            this.tcApplicationInfo.SelectedIndex = 0;
+            this.tcApplicationInfo.Size = new System.Drawing.Size(1091, 557);
+            this.tcApplicationInfo.TabIndex = 12;
             // 
-            // tabPage1
+            // tpPersonalInfo
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.guna2Button1);
-            this.tabPage1.Controls.Add(this.ucPersondetailsWithFilter1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1083, 528);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Personal Info";
+            this.tpPersonalInfo.BackColor = System.Drawing.Color.White;
+            this.tpPersonalInfo.Controls.Add(this.ucPersondetailsWithFilter2);
+            this.tpPersonalInfo.Controls.Add(this.guna2Button1);
+            this.tpPersonalInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpPersonalInfo.Name = "tpPersonalInfo";
+            this.tpPersonalInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPersonalInfo.Size = new System.Drawing.Size(1083, 528);
+            this.tpPersonalInfo.TabIndex = 0;
+            this.tpPersonalInfo.Text = "Personal Info";
+            // 
+            // ucPersondetailsWithFilter2
+            // 
+            this.ucPersondetailsWithFilter2.BackColor = System.Drawing.Color.White;
+            this.ucPersondetailsWithFilter2.FilterEnabled = true;
+            this.ucPersondetailsWithFilter2.Location = new System.Drawing.Point(6, 8);
+            this.ucPersondetailsWithFilter2.Name = "ucPersondetailsWithFilter2";
+            this.ucPersondetailsWithFilter2.ShowAddPerson = true;
+            this.ucPersondetailsWithFilter2.Size = new System.Drawing.Size(1050, 452);
+            this.ucPersondetailsWithFilter2.TabIndex = 10;
             // 
             // guna2Button1
             // 
@@ -137,7 +148,7 @@
             this.guna2Button1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.right;
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.guna2Button1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2Button1.Location = new System.Drawing.Point(851, 466);
+            this.guna2Button1.Location = new System.Drawing.Point(894, 466);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
             this.guna2Button1.Size = new System.Drawing.Size(153, 45);
@@ -145,48 +156,48 @@
             this.guna2Button1.Text = "Next";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // tabPage2
+            // tpApplicationInfo
             // 
-            this.tabPage2.Controls.Add(this.cbLicenseClass);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.lblCurrentUser);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.lblFees);
-            this.tabPage2.Controls.Add(this.lblApplicationDate);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.lblID);
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.pictureBox4);
-            this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1083, 528);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Application Info";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpApplicationInfo.Controls.Add(this.cbLicenseClasses);
+            this.tpApplicationInfo.Controls.Add(this.label6);
+            this.tpApplicationInfo.Controls.Add(this.label1);
+            this.tpApplicationInfo.Controls.Add(this.lblCreatedByUser);
+            this.tpApplicationInfo.Controls.Add(this.label3);
+            this.tpApplicationInfo.Controls.Add(this.lblFees);
+            this.tpApplicationInfo.Controls.Add(this.lblApplicationDate);
+            this.tpApplicationInfo.Controls.Add(this.label2);
+            this.tpApplicationInfo.Controls.Add(this.lblLocalDrivingLicebseApplicationID);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox2);
+            this.tpApplicationInfo.Controls.Add(this.label9);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox1);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox4);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox3);
+            this.tpApplicationInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpApplicationInfo.Name = "tpApplicationInfo";
+            this.tpApplicationInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpApplicationInfo.Size = new System.Drawing.Size(1083, 528);
+            this.tpApplicationInfo.TabIndex = 1;
+            this.tpApplicationInfo.Text = "Application Info";
+            this.tpApplicationInfo.UseVisualStyleBackColor = true;
             // 
             // cbLicenseClass
             // 
-            this.cbLicenseClass.BackColor = System.Drawing.Color.Transparent;
-            this.cbLicenseClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbLicenseClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLicenseClass.FocusedColor = System.Drawing.Color.Empty;
-            this.cbLicenseClass.FocusedState.Parent = this.cbLicenseClass;
-            this.cbLicenseClass.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
-            this.cbLicenseClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbLicenseClass.FormattingEnabled = true;
-            this.cbLicenseClass.HoverState.Parent = this.cbLicenseClass;
-            this.cbLicenseClass.ItemHeight = 30;
-            this.cbLicenseClass.ItemsAppearance.Parent = this.cbLicenseClass;
-            this.cbLicenseClass.Location = new System.Drawing.Point(369, 229);
-            this.cbLicenseClass.Name = "cbLicenseClass";
-            this.cbLicenseClass.ShadowDecoration.Parent = this.cbLicenseClass;
-            this.cbLicenseClass.Size = new System.Drawing.Size(374, 36);
-            this.cbLicenseClass.TabIndex = 49;
+            this.cbLicenseClasses.BackColor = System.Drawing.Color.Transparent;
+            this.cbLicenseClasses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbLicenseClasses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLicenseClasses.FocusedColor = System.Drawing.Color.Empty;
+            this.cbLicenseClasses.FocusedState.Parent = this.cbLicenseClasses;
+            this.cbLicenseClasses.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
+            this.cbLicenseClasses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbLicenseClasses.FormattingEnabled = true;
+            this.cbLicenseClasses.HoverState.Parent = this.cbLicenseClasses;
+            this.cbLicenseClasses.ItemHeight = 30;
+            this.cbLicenseClasses.ItemsAppearance.Parent = this.cbLicenseClasses;
+            this.cbLicenseClasses.Location = new System.Drawing.Point(369, 229);
+            this.cbLicenseClasses.Name = "cbLicenseClass";
+            this.cbLicenseClasses.ShadowDecoration.Parent = this.cbLicenseClasses;
+            this.cbLicenseClasses.Size = new System.Drawing.Size(374, 36);
+            this.cbLicenseClasses.TabIndex = 49;
             // 
             // label6
             // 
@@ -210,16 +221,16 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Application Fees :";
             // 
-            // lblCurrentUser
+            // lblCreatedByUser
             // 
-            this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
-            this.lblCurrentUser.ForeColor = System.Drawing.Color.Black;
-            this.lblCurrentUser.Location = new System.Drawing.Point(364, 331);
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(85, 28);
-            this.lblCurrentUser.TabIndex = 40;
-            this.lblCurrentUser.Text = "Msaqer77";
+            this.lblCreatedByUser.AutoSize = true;
+            this.lblCreatedByUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
+            this.lblCreatedByUser.ForeColor = System.Drawing.Color.Black;
+            this.lblCreatedByUser.Location = new System.Drawing.Point(364, 331);
+            this.lblCreatedByUser.Name = "lblCreatedByUser";
+            this.lblCreatedByUser.Size = new System.Drawing.Size(85, 28);
+            this.lblCreatedByUser.TabIndex = 40;
+            this.lblCreatedByUser.Text = "Msaqer77";
             // 
             // label3
             // 
@@ -265,16 +276,16 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Application Date :";
             // 
-            // lblID
+            // lblLocalDrivingLicebseApplicationID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
-            this.lblID.ForeColor = System.Drawing.Color.Black;
-            this.lblID.Location = new System.Drawing.Point(312, 135);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(34, 28);
-            this.lblID.TabIndex = 37;
-            this.lblID.Text = "##";
+            this.lblLocalDrivingLicebseApplicationID.AutoSize = true;
+            this.lblLocalDrivingLicebseApplicationID.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
+            this.lblLocalDrivingLicebseApplicationID.ForeColor = System.Drawing.Color.Black;
+            this.lblLocalDrivingLicebseApplicationID.Location = new System.Drawing.Point(312, 135);
+            this.lblLocalDrivingLicebseApplicationID.Name = "lblLocalDrivingLicebseApplicationID";
+            this.lblLocalDrivingLicebseApplicationID.Size = new System.Drawing.Size(34, 28);
+            this.lblLocalDrivingLicebseApplicationID.TabIndex = 37;
+            this.lblLocalDrivingLicebseApplicationID.Text = "##";
             // 
             // pictureBox2
             // 
@@ -327,46 +338,39 @@
             this.pictureBox3.TabIndex = 41;
             this.pictureBox3.TabStop = false;
             // 
-            // lblCaption
+            // lblTitle
             // 
-            this.lblCaption.AutoSize = true;
-            this.lblCaption.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.Red;
-            this.lblCaption.Location = new System.Drawing.Point(243, 20);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(514, 40);
-            this.lblCaption.TabIndex = 11;
-            this.lblCaption.Text = " New Local Driving License Application\r\n";
-            // 
-            // ucPersondetailsWithFilter1
-            // 
-            this.ucPersondetailsWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ucPersondetailsWithFilter1.Location = new System.Drawing.Point(12, 6);
-            this.ucPersondetailsWithFilter1.Name = "ucPersondetailsWithFilter1";
-            this.ucPersondetailsWithFilter1.Size = new System.Drawing.Size(1063, 471);
-            this.ucPersondetailsWithFilter1.TabIndex = 10;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblTitle.Location = new System.Drawing.Point(243, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(514, 40);
+            this.lblTitle.TabIndex = 11;
+            this.lblTitle.Text = " New Local Driving License Application\r\n";
             // 
             // frmAddNewLDLApplication
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(1111, 693);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.tabControlUser);
-            this.Controls.Add(this.lblCaption);
+            this.Controls.Add(this.tcApplicationInfo);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddNewLDLApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddNewLDLApplication";
             this.Activated += new System.EventHandler(this.frmAddNewLDLApplication_Activated);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddNewLDLApplication_FormClosing);
             this.Load += new System.EventHandler(this.frmAddNewLDLApplication_Load);
-            this.tabControlUser.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tcApplicationInfo.ResumeLayout(false);
+            this.tpPersonalInfo.ResumeLayout(false);
+            this.tpApplicationInfo.ResumeLayout(false);
+            this.tpApplicationInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -380,25 +384,26 @@
 
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
-        private System.Windows.Forms.TabControl tabControlUser;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tcApplicationInfo;
+        private System.Windows.Forms.TabPage tpPersonalInfo;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private ucPersondetailsWithFilter ucPersondetailsWithFilter1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpApplicationInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblLocalDrivingLicebseApplicationID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label lblCaption;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblApplicationDate;
-        private Guna.UI2.WinForms.Guna2ComboBox cbLicenseClass;
+        private Guna.UI2.WinForms.Guna2ComboBox cbLicenseClasses;
         private System.Windows.Forms.Label lblFees;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblCurrentUser;
+        private System.Windows.Forms.Label lblCreatedByUser;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private ucPersondetailsWithFilter ucPersondetailsWithFilter2;
     }
 }

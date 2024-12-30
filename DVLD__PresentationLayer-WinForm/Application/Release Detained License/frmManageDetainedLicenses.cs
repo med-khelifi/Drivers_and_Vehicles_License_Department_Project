@@ -21,7 +21,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         void _LoadGridDate()
         {
-            dv = clsDetainedLicense.GetDetainedLicenses().DefaultView;
+            //dv = clsDetainedLicense.GetDetainedLicenses().DefaultView;
             dgvDetainLicenses.DataSource = dv;
             lblRecordsCount.Text = "All Records = " + dv.Count.ToString();
         }
@@ -122,14 +122,14 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void CmsManageDLGrid_Opening(object sender, CancelEventArgs e)
         {
-            if (clsDetainedLicense.isDetained(SelectedDetainID))
-            {
-                CmsManageDLGrid.Items[0].Enabled = true;
-            }
-            else
-            {
-                CmsManageDLGrid.Items[0].Enabled = false;
-            }
+            //if (clsDetainedLicense.isDetained(SelectedDetainID))
+            //{
+            //    CmsManageDLGrid.Items[0].Enabled = true;
+            //}
+            //else
+            //{
+            //    CmsManageDLGrid.Items[0].Enabled = false;
+            //}
         }
 
         private void dgvDetainLicenses_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)

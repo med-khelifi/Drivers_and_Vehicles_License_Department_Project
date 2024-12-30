@@ -84,8 +84,8 @@ namespace DVLD__PresentationLayer_WinForm
             _Application = new clsApplication();
             _Application.ApplicantPersonID = _PersonID;
             _Application.ApplicationDate = _Date;
-            _Application.ApplicationTypeID = (rbForDamage.Checked ? 4 : 3); // lblAppFees.Text = (rbForDamage.Checked ? _AppLicenseDamagedFees:_AppLicenseLostFees ).ToString();
-            _Application.ApplicationStatus = 3;
+            //_Application.ApplicationTypeID = (rbForDamage.Checked ? 4 : 3); // lblAppFees.Text = (rbForDamage.Checked ? _AppLicenseDamagedFees:_AppLicenseLostFees ).ToString();
+            //_Application.ApplicationStatus = 3;
             _Application.LastStatusDate = _Date;
             _Application.PaidFees = (rbForDamage.Checked ? _AppLicenseDamagedFees : _AppLicenseLostFees);
             _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -99,16 +99,16 @@ namespace DVLD__PresentationLayer_WinForm
                 _NewLicense.IssueDate = _License.IssueDate;
                 _NewLicense.ExpirationDate = _License.ExpirationDate;
                 _NewLicense.isActive = true;
-                _NewLicense.IssueReason = (rbForDamage.Checked ? 3 : 4);
+                //_NewLicense.IssueReason = (rbForDamage.Checked ? 3 : 4);
                 _NewLicense.Notes = _License.Notes;
                 _NewLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
                 _License.isActive = false;
-                if (!clsLicense.DeactivateLicense(_License.LicenseID))
-                {
-                    MessageBox.Show("Saving old License Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (!clsLicense.DeactivateLicense(_License.LicenseID))
+                //{
+                //    MessageBox.Show("Saving old License Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
                 if (_NewLicense.Save())
                 {
                     lblLRAppID.Text = _Application.ApplicationID.ToString();
@@ -147,7 +147,7 @@ namespace DVLD__PresentationLayer_WinForm
             _License = clsLicense.Find(Convert.ToInt32(id));
             if (_License != null)
             {
-                _PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+                //_PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
                 _LoadLicenseData();
                 lblOldLicenseID.Text = _License.LicenseID.ToString();
                 linkLShowLicenseHistory.Enabled = true;

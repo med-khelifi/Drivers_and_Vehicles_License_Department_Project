@@ -18,7 +18,7 @@ namespace DVLD__PresentationLayer_WinForm
         public OnFormClosedEventHandler OnFormClosedDelegated;
 
 
-        clsLDLApplication _LDLAppApplication;
+        //clsLocalDrivingLicenseApplicationData _LDLAppApplication;
         clsTest _TestInfo;
         clsApplication _app;
         int _LDLAppID = 0;
@@ -38,17 +38,17 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadData()
         {
-            _LDLAppApplication = clsLDLApplication.Find(_LDLAppID);
-            if (_LDLAppApplication == null)
-            {
-                MessageBox.Show("LDLApp is NULL ,Form Will Close.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-                return;
-            }
-            lblLDLAppID.Text = _LDLAppID.ToString();
-            lblDLClass.Text = clsLicenseClass.GetClassName(_LDLAppApplication.LicenseClassID);
+            //_LDLAppApplication = clsLocalDrivingLicenseApplicationData.Find(_LDLAppID);
+            //if (_LDLAppApplication == null)
+            //{
+            //    MessageBox.Show("LDLApp is NULL ,Form Will Close.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    this.Close();
+            //    return;
+            //}
+            //lblLDLAppID.Text = _LDLAppID.ToString();
+            //lblDLClass.Text = clsLicenseClass.GetClassName(_LDLAppApplication.LicenseClassID);
 
-            _app = clsApplication.Find(_LDLAppApplication.ApplicationID);
+            //_app = clsApplication.Find(_LDLAppApplication.ApplicationID);
             if (_app == null)
             {
                 MessageBox.Show("Application is NULL ,Form Will Close.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -89,7 +89,7 @@ namespace DVLD__PresentationLayer_WinForm
             _TestInfo.TestResult =rbPass.Checked;
             _TestInfo.Notes = txtNotes.Text;
             _TestInfo.TestAppointmentID = _AppointmentID;
-            _TestInfo.CreatedByUser = clsGlobal.CurrentUser.UserID;
+            //_TestInfo.CreatedByUser = clsGlobal.CurrentUser.UserID;
             if (MessageBox.Show("Are You Sure ? When You Save You Can't Change It Later", "Save Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK) 
             {
                 if (_TestInfo.Save())

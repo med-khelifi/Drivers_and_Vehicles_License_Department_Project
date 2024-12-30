@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Controls\ctrlAppBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Application\Controls\ctrlAppBasicInfo.Designer.cs">
+      <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Application\Local Driving License\frmAddNewLDLApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,10 +267,10 @@
     <Compile Include="Licenses\International Licenses\Controls\ucInternationalLicenseInfo.Designer.cs">
       <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Local Driving License\Controls\ucLDLApplicationDetails.cs">
+    <Compile Include="Application\Local Driving License\Controls\ucLDLApplicationDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses\Local Driving License\Controls\ucLDLApplicationDetails.Designer.cs">
+    <Compile Include="Application\Local Driving License\Controls\ucLDLApplicationDetails.Designer.cs">
       <DependentUpon>ucLDLApplicationDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\Local Driving License\Controls\ucLicenseWithFilter.cs">
@@ -291,6 +297,9 @@
     <Compile Include="User\Controls\ucUserDetails.Designer.cs">
       <DependentUpon>ucUserDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Application\Controls\ctrlAppBasicInfo.resx">
+      <DependentUpon>ctrlAppBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Application\Local Driving License\frmAddNewLDLApplication.resx">
       <DependentUpon>frmAddNewLDLApplication.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,7 +412,7 @@
     <EmbeddedResource Include="Licenses\International Licenses\Controls\ucInternationalLicenseInfo.resx">
       <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Local Driving License\Controls\ucLDLApplicationDetails.resx">
+    <EmbeddedResource Include="Application\Local Driving License\Controls\ucLDLApplicationDetails.resx">
       <DependentUpon>ucLDLApplicationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\Local Driving License\Controls\ucLicenseWithFilter.resx">

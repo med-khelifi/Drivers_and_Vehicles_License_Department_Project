@@ -97,7 +97,7 @@ namespace BVLD__BusinessLayer
                 return null;
             }
         }
-        public static clsUser FindBuyPersonID(int PersonID)
+        public static clsUser FindByPersonID(int PersonID)
         {
             int userID = -1;
             string userName = "", password = "";

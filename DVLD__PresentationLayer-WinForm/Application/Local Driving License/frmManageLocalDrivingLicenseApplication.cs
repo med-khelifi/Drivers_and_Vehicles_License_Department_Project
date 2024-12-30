@@ -35,7 +35,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadData()
         {
-            DataTable = clsLDLApplication.GetLDLApplications();
+            //DataTable = clsLocalDrivingLicenseApplicationData.GetLDLApplications();
             dv = DataTable.DefaultView;
             lblRecordsCount.Text = "All Records = " + dgvLDLApplication.Rows.Count;
             dgvLDLApplication.DataSource = dv; 
@@ -87,21 +87,20 @@ namespace DVLD__PresentationLayer_WinForm
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             frmAddNewLDLApplication frm = new frmAddNewLDLApplication();
-            frm.frmClosedDelegate = _LoadData;
             frm.ShowDialog();
         }
 
         private void canToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clsLDLApplication.CancelApplication(SelectedApplicationID,DateTime.Now))
-            {
-                MessageBox.Show("Application Canceled Successfully.", "Application Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _LoadData();
-            }
-            else
-            {
-                MessageBox.Show("Error Was Happend.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //if (clsLocalDrivingLicenseApplicationData.CancelApplication(SelectedApplicationID,DateTime.Now))
+            //{
+            //    MessageBox.Show("Application Canceled Successfully.", "Application Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    _LoadData();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error Was Happend.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void dgvLDLApplication_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -121,70 +120,70 @@ namespace DVLD__PresentationLayer_WinForm
         private void CmsManageLDLGrid_Opening(object sender, CancelEventArgs e)
         {
 
-            if (clsLDLApplication.isLDLCancelled(SelectedApplicationID))
-            {
-                CmsManageLDLGrid.Items[4].Enabled = false;
-                CmsManageLDLGrid.Items[5].Enabled = false;
-                CmsManageLDLGrid.Items[6].Enabled = false;
-                return;
-            }
+            //if (clsLocalDrivingLicenseApplicationData.isLDLCancelled(SelectedApplicationID))
+            //{
+            //    CmsManageLDLGrid.Items[4].Enabled = false;
+            //    CmsManageLDLGrid.Items[5].Enabled = false;
+            //    CmsManageLDLGrid.Items[6].Enabled = false;
+            //    return;
+            //}
 
-            int PassedTests = clsLDLApplication.GetPassedTetsNumber(SelectedApplicationID);
+            //int PassedTests = clsLocalDrivingLicenseApplicationData.GetPassedTetsNumber(SelectedApplicationID);
             
-            if(PassedTests == 3)
-            {
-                CmsManageLDLGrid.Items[4].Enabled = false;
-                if (clsLicense.isLDLAlreadyHasLicense(SelectedApplicationID))
-                {
-                    CmsManageLDLGrid.Items[5].Enabled = false;
-                    CmsManageLDLGrid.Items[6].Enabled = true;
+            //if(PassedTests == 3)
+            //{
+            //    CmsManageLDLGrid.Items[4].Enabled = false;
+            //    if (clsLicense.isLDLAlreadyHasLicense(SelectedApplicationID))
+            //    {
+            //        CmsManageLDLGrid.Items[5].Enabled = false;
+            //        CmsManageLDLGrid.Items[6].Enabled = true;
                     
-                }
-                else
-                {
-                    CmsManageLDLGrid.Items[5].Enabled = true;
-                    CmsManageLDLGrid.Items[6].Enabled = false;
-                }
-                return;
-            }
+            //    }
+            //    else
+            //    {
+            //        CmsManageLDLGrid.Items[5].Enabled = true;
+            //        CmsManageLDLGrid.Items[6].Enabled = false;
+            //    }
+            //    return;
+            //}
 
             ToolStripMenuItem ScheduleTestRow = CmsManageLDLGrid.Items[4] as ToolStripMenuItem;
             
-            if (PassedTests == 0)
-            {
-                ScheduleTestRow.DropDownItems[0].Enabled = true;   // Enable sub-item 0
-                ScheduleTestRow.DropDownItems[1].Enabled = false;  // Disable sub-item 1
-                ScheduleTestRow.DropDownItems[2].Enabled = false;  // Disable sub-item 2
-                CmsManageLDLGrid.Items[5].Enabled = false;
-                CmsManageLDLGrid.Items[6].Enabled = false;
-            }
-            else if (PassedTests == 1)
-            {
-                ScheduleTestRow.DropDownItems[0].Enabled = false;  // Disable sub-item 0
-                ScheduleTestRow.DropDownItems[1].Enabled = true;   // Enable sub-item 1
-                ScheduleTestRow.DropDownItems[2].Enabled = false;  // Disable sub-item 2
-            }
-            else if (PassedTests == 2)
-            {
-                ScheduleTestRow.DropDownItems[0].Enabled = false;  // Disable sub-item 0
-                ScheduleTestRow.DropDownItems[1].Enabled = false;  // Disable sub-item 1
-                ScheduleTestRow.DropDownItems[2].Enabled = true;   // Enable sub-item 2
-            }
+            //if (PassedTests == 0)
+            //{
+            //    ScheduleTestRow.DropDownItems[0].Enabled = true;   // Enable sub-item 0
+            //    ScheduleTestRow.DropDownItems[1].Enabled = false;  // Disable sub-item 1
+            //    ScheduleTestRow.DropDownItems[2].Enabled = false;  // Disable sub-item 2
+            //    CmsManageLDLGrid.Items[5].Enabled = false;
+            //    CmsManageLDLGrid.Items[6].Enabled = false;
+            //}
+            //else if (PassedTests == 1)
+            //{
+            //    ScheduleTestRow.DropDownItems[0].Enabled = false;  // Disable sub-item 0
+            //    ScheduleTestRow.DropDownItems[1].Enabled = true;   // Enable sub-item 1
+            //    ScheduleTestRow.DropDownItems[2].Enabled = false;  // Disable sub-item 2
+            //}
+            //else if (PassedTests == 2)
+            //{
+            //    ScheduleTestRow.DropDownItems[0].Enabled = false;  // Disable sub-item 0
+            //    ScheduleTestRow.DropDownItems[1].Enabled = false;  // Disable sub-item 1
+            //    ScheduleTestRow.DropDownItems[2].Enabled = true;   // Enable sub-item 2
+            //}
         }
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
            if( MessageBox.Show("Are You Sure You Want To Delete This Application ?", "Delete Application",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
             {
-                if (clsLDLApplication.DeleteLDLApplication(SelectedApplicationID))
-                {
-                    MessageBox.Show("Application Deleted Successfully.", "Application Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _LoadData();
-                }
-                else
-                {
-                    MessageBox.Show("Error Was Happend,Cannot Delete this Application !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                //if (clsLocalDrivingLicenseApplicationData.DeleteLDLApplication(SelectedApplicationID))
+                //{
+                //    MessageBox.Show("Application Deleted Successfully.", "Application Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    _LoadData();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Error Was Happend,Cannot Delete this Application !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
             }
         }
         private void _ResetCSMItems()
@@ -244,15 +243,15 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = clsLicense.GetLicenseIDFromLDLApp(SelectedApplicationID);
-            if (id == -1)
-            {
-                MessageBox.Show("License ID Not valid");
-                return;
-            }
+            //int id = clsLicense.GetLicenseIDFromLDLApp(SelectedApplicationID);
+            //if (id == -1)
+            //{
+            //    MessageBox.Show("License ID Not valid");
+            //    return;
+            //}
                 
-            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(id); 
-            frm.ShowDialog();
+            //frmLocalLicenseInfo frm = new frmLocalLicenseInfo(id); 
+            //frm.ShowDialog();
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)

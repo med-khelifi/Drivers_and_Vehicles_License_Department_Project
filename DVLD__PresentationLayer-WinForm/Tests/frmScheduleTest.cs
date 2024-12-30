@@ -19,7 +19,7 @@ namespace DVLD__PresentationLayer_WinForm
         enMode Mode;
 
         
-        clsLDLApplication _LDLAppApplication;
+        //clsLocalDrivingLicenseApplicationData _LDLAppApplication;
         clsTestAppointment _testAppointment;
         clsApplication _app;
         clsApplication _RetakeTestApp;
@@ -49,17 +49,17 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadData()
         {
-            _LDLAppApplication = clsLDLApplication.Find(_LDLAppID);
-            if (_LDLAppApplication == null)
-            {
-                MessageBox.Show("LDLApp is NULL ,Form Will Close.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
-                this.Close();
-                return;
-            }
+            //_LDLAppApplication = clsLocalDrivingLicenseApplicationData.Find(_LDLAppID);
+            //if (_LDLAppApplication == null)
+            //{
+            //    MessageBox.Show("LDLApp is NULL ,Form Will Close.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);  
+            //    this.Close();
+            //    return;
+            //}
             lblLDLAppID.Text = _LDLAppID.ToString();
-            lblDLClass.Text = clsLicenseClass.GetClassName(_LDLAppApplication.LicenseClassID);
+            //lblDLClass.Text = clsLicenseClass.GetClassName(_LDLAppApplication.LicenseClassID);
 
-            _app = clsApplication.Find(_LDLAppApplication.ApplicationID);
+            //_app = clsApplication.Find(_LDLAppApplication.ApplicationID);
             if (_app == null)
             {
                 MessageBox.Show("Application is NULL ,Form Will Close.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,7 +91,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadRetakeTestInfo()
         {
-            _RetakeTestAppUsed = clsTest.isTestAlreadyFaild(_LDLAppID, _TestType);
+            //_RetakeTestAppUsed = clsTest.isTestAlreadyFaild(_LDLAppID, _TestType);
             if (_RetakeTestAppUsed)
             {
                 if(Mode == enMode.addNew)
@@ -100,7 +100,7 @@ namespace DVLD__PresentationLayer_WinForm
                     _RetakeTestApp.ApplicantPersonID = _app.ApplicantPersonID;
                     _RetakeTestApp.ApplicationDate = DateTime.Now;
                     _RetakeTestApp.ApplicationStatus = _app.ApplicationStatus;
-                    _RetakeTestApp.ApplicationTypeID = 7;
+                    //_RetakeTestApp.ApplicationTypeID = 7;
                     _RetakeTestApp.LastStatusDate = DateTime.Now;
                     _RetakeTestApp.PaidFees = _retakeTestFees;
                     _RetakeTestApp.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -108,7 +108,7 @@ namespace DVLD__PresentationLayer_WinForm
                 if (Mode == enMode.update)
                 {
                     lblRetakeTestAppID.Text = _testAppointment.RetakeTestApplicationID.ToString();
-                    _RetakeTestApp = clsApplication.Find(_testAppointment.RetakeTestApplicationID);
+                    //_RetakeTestApp = clsApplication.Find(_testAppointment.RetakeTestApplicationID);
                 }
                 //_retakeTestFees = clsApplicationType.GetApplicationTypeFees(7);
                 lblCaption.Text = "Schedule Retake Test";

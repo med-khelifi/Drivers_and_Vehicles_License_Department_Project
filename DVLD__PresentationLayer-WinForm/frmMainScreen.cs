@@ -141,7 +141,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             if(clsGlobal.CurrentUser != null)
             {
-                Application.Exit();
+                //Application.Exit();
             }
         }
     }

@@ -22,7 +22,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void _LoadData()
         {
 
-            DataViewDrivers = clsDriver.GetAllDriversTable().DefaultView;
+            //DataViewDrivers = clsDriver.GetAllDriversTable().DefaultView;
             dgvDrivers.DataSource = DataViewDrivers;
             lblRecordsCount.Text = "All Records = " + dgvDrivers.Rows.Count;
         }

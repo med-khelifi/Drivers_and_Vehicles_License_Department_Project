@@ -19,14 +19,14 @@ namespace DVLD__PresentationLayer_WinForm
         public string LicenseClass { set { lblLicenseClass.Text = value; } }
         public int PassedTests { set { lblPassedTests.Text = value.ToString() + "/3"; } }
 
-        public int AppID { set { lblAppID.Text = value.ToString(); } }
-        public string AppStatus { set { lblStatus.Text = value; } }
-        public float AppFees { set { lblFees.Text = value.ToString(); } }
-        public string AppType { set { lblAppType.Text = value; } }
-        public string Applicant { set {  lblApplicant.Text = value; } }
-        public DateTime AppStatusDate { set { lblSatusDate.Text = value.ToString(); } }
-        public DateTime AppDate { set{ lblDate.Text = value.ToString(); } }
-        public string CreatedByUser { set{ lblCreatedByUser.Text = value; } }
+        //public int AppID { set { lblAppID.Text = value.ToString(); } }
+        //public string AppStatus { set { lblStatus.Text = value; } }
+        //public float AppFees { set { lblFees.Text = value.ToString(); } }
+        //public string AppType { set { lblAppType.Text = value; } }
+        //public string Applicant { set {  lblApplicant.Text = value; } }
+        //public DateTime AppStatusDate { set { lblSatusDate.Text = value.ToString(); } }
+        //public DateTime AppDate { set{ lblDate.Text = value.ToString(); } }
+        //public string CreatedByUser { set{ lblCreatedByUser.Text = value; } }
 
         public ucLDLApplicationDetails()
         {

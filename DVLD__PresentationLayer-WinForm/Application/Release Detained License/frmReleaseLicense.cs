@@ -67,15 +67,15 @@ namespace DVLD__PresentationLayer_WinForm
             _License = clsLicense.Find(Convert.ToInt32(id));
             if (_License != null)
             {
-                if (!clsLicense.isLicenseDetained(_License.LicenseID))
-                {
-                    MessageBox.Show("License is Not Detained !", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (!clsLicense.isLicenseDetained(_License.LicenseID))
+                //{
+                //    MessageBox.Show("License is Not Detained !", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
-                PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
-                _DetainID = clsDetainedLicense.GetDetainID(_License.LicenseID);
-                _DetainedLicenseInfo = clsDetainedLicense.Find(_DetainID);
+                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+                //_DetainID = clsDetainedLicense.GetDetainID(_License.LicenseID);
+                //_DetainedLicenseInfo = clsDetainedLicense.Find(_DetainID);
 
                 if (_DetainedLicenseInfo == null)
                 {
@@ -136,8 +136,8 @@ namespace DVLD__PresentationLayer_WinForm
             _Application = new clsApplication();
             _Application.ApplicantPersonID = PersonID;
             _Application.ApplicationDate = _Date;
-            _Application.ApplicationTypeID = 5;
-            _Application.ApplicationStatus = 3;
+            //_Application.ApplicationTypeID = 5;
+            //_Application.ApplicationStatus = 3;
             _Application.LastStatusDate = _Date;
             _Application.PaidFees = _DetainFineFees + _AppFees;
             _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -203,7 +203,7 @@ namespace DVLD__PresentationLayer_WinForm
             _License = clsLicense.Find(_DetainedLicenseInfo.LicenseID);
             if (_License != null)
             {
-                PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
 
                 _DetainFineFees = _DetainedLicenseInfo.FineFees;
                 lblAppFees.Text = _DetainFineFees.ToString();

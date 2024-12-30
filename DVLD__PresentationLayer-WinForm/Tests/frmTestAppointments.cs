@@ -21,7 +21,7 @@ namespace DVLD__PresentationLayer_WinForm
         int _LDLApplicationID = 0;
         int _TestType = 0;
 
-        clsLDLApplication _LDLApp;
+        //clsLocalDrivingLicenseApplicationData _LDLApp;
         clsApplication _Application;
         public frmTestAppointments(int LDLAppID, int ScheduleTestType)
         {
@@ -43,22 +43,22 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void _LoadLDLApplicationData()
         {
-            _LDLApp = clsLDLApplication.Find(_LDLApplicationID);
+            //_LDLApp = clsLocalDrivingLicenseApplicationData.Find(_LDLApplicationID);
 
-            if (_LDLApp == null)
-            {
-                MessageBox.Show("Error Was Happen ,Object Is Empty (clsLDLApplication) ==> Form Will Close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-                return;
-            }
+            //if (_LDLApp == null)
+            //{
+            //    MessageBox.Show("Error Was Happen ,Object Is Empty (clsLDLApplication) ==> Form Will Close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    Close();
+            //    return;
+            //}
 
-            ucLDLApplicationDetails1.LDLAppID = _LDLApp.LDLApplicationID;
-            string ClassName = clsLicenseClass.GetClassName(_LDLApp.LicenseClassID);
-            if (ClassName == null) { ucLDLApplicationDetails1.LicenseClass = "Error getting Class Name"; }
-            else { ucLDLApplicationDetails1.LicenseClass = ClassName; }
-            ucLDLApplicationDetails1.PassedTests = clsLDLApplication.GetPassedTetsNumber(_LDLApplicationID);
+            //ucLDLApplicationDetails1.LDLAppID = _LDLApp.LDLApplicationID;
+            //string ClassName = clsLicenseClass.GetClassName(_LDLApp.LicenseClassID);
+            //if (ClassName == null) { ucLDLApplicationDetails1.LicenseClass = "Error getting Class Name"; }
+            //else { ucLDLApplicationDetails1.LicenseClass = ClassName; }
+            //ucLDLApplicationDetails1.PassedTests = clsLocalDrivingLicenseApplicationData.GetPassedTetsNumber(_LDLApplicationID);
 
-            _Application = clsApplication.Find(_LDLApp.ApplicationID);
+            //_Application = clsApplication.Find(_LDLApp.ApplicationID);
 
             if (_Application == null)
             {
@@ -67,18 +67,18 @@ namespace DVLD__PresentationLayer_WinForm
                 return;
             }
 
-            ucLDLApplicationDetails1.AppID = _Application.ApplicationID;
-            ucLDLApplicationDetails1.AppDate = _Application.ApplicationDate;
-            ucLDLApplicationDetails1.AppStatusDate = _Application.LastStatusDate;
-            ucLDLApplicationDetails1.AppStatus = _Application.ApplicationStatus == 1 ? "New" : _Application.ApplicationStatus == 2 ? "Cancelled" : "Commpleted";
-            ucLDLApplicationDetails1.AppFees = _Application.PaidFees;
-            ucLDLApplicationDetails1.AppType = clsApplicationType.Find(1)?.ApplicationTypeTitle;
+            //ucLDLApplicationDetails1.AppID = _Application.ApplicationID;
+            //ucLDLApplicationDetails1.AppDate = _Application.ApplicationDate;
+            //ucLDLApplicationDetails1.AppStatusDate = _Application.LastStatusDate;
+            ////ucLDLApplicationDetails1.AppStatus = _Application.ApplicationStatus == 1 ? "New" : _Application.ApplicationStatus == 2 ? "Cancelled" : "Commpleted";
+            //ucLDLApplicationDetails1.AppFees = _Application.PaidFees;
+            //ucLDLApplicationDetails1.AppType = clsApplicationType.Find(1)?.ApplicationTypeTitle;
             //ucLDLApplicationDetails1.CreatedByUser = clsUser.GetUserName(_Application.CreatedByUserID);
             //ucLDLApplicationDetails1.Applicant = clsPerson.getPersonFullName(_Application.ApplicantPersonID);
         }
         private void _FrmTakeTestDelegate()
         {
-            ucLDLApplicationDetails1.PassedTests = clsLDLApplication.GetPassedTetsNumber(_LDLApplicationID);
+            //ucLDLApplicationDetails1.PassedTests = clsLocalDrivingLicenseApplicationData.GetPassedTetsNumber(_LDLApplicationID);
             _LoadDGVAppointments();
         }
         private void frmScheduleTests_Load(object sender, EventArgs e)
@@ -97,11 +97,11 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            if (clsTest.isTestAlreadyPassed(_LDLApplicationID, _TestType))
-            {
-                MessageBox.Show("This Applicant Already Passed This Test !", "Test Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (clsTest.isTestAlreadyPassed(_LDLApplicationID, _TestType))
+            //{
+            //    MessageBox.Show("This Applicant Already Passed This Test !", "Test Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             if (clsTestAppointment.hasUncompleAppointment(_LDLApplicationID, _TestType))
             {

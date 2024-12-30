@@ -73,11 +73,11 @@ namespace DVLD__PresentationLayer_WinForm
             _License = clsLicense.Find(Convert.ToInt32(id));
             if (_License != null)
             {
-                PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
-                validityLength = clsLicenseClass.GetLicenseClassDefaultValidityLength(_License.LicenseClassID);
+                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+                //validityLength = clsLicenseClass.GetLicenseClassDefaultValidityLength(_License.LicenseClassID);
                 _LoadLicenseData();
                 lblOldLicenseID.Text = _License.LicenseID.ToString();
-                _LicenseFees = clsLicenseClass.GetLicenseFees(_License.LicenseClassID);
+                //_LicenseFees = clsLicenseClass.GetLicenseFees(_License.LicenseClassID);
                 lblLicenseFees.Text = _LicenseFees.ToString();  
                 lblTotalFees.Text = (_LicenseFees + _AppFees).ToString();
                 lblExpirationDate.Text = _Date.AddYears(validityLength).ToString("dd/MMM/yyyy");
@@ -126,8 +126,8 @@ namespace DVLD__PresentationLayer_WinForm
             _Application = new clsApplication();
             _Application.ApplicantPersonID = PersonID;
             _Application.ApplicationDate = _Date;
-            _Application.ApplicationTypeID = 2;
-            _Application.ApplicationStatus = 3;
+            //_Application.ApplicationTypeID = 2;
+            //_Application.ApplicationStatus = 3;
             _Application.LastStatusDate = _Date;
             _Application.PaidFees = _LicenseFees + _AppFees;
             _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -141,12 +141,12 @@ namespace DVLD__PresentationLayer_WinForm
                 _NewLicense.IssueDate = _Date;
                 _NewLicense.ExpirationDate = _Date.AddYears(validityLength);
                 _NewLicense.isActive = true;
-                _NewLicense.IssueReason = 2;
+                //_NewLicense.IssueReason = 2;
                 _NewLicense.Notes = txtNotes.Text.Trim();
                 _NewLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
                 _License.isActive = false;
-                if (!clsLicense.DeactivateLicense(_License.LicenseID))
+                //if (!clsLicense.DeactivateLicense(_License.LicenseID))
                 {
                     MessageBox.Show("Saving old License Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

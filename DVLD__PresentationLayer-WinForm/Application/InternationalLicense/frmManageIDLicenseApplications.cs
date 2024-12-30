@@ -34,14 +34,14 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void issureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PersonID = clsDriver.GetPersonIDOfDriver(SelectedDriverID);
+            //PersonID = clsDriver.GetPersonIDOfDriver(SelectedDriverID);
             //frmShowPersonDetails frm =new frmShowPersonDetails(PersonID);
             //frm.ShowDialog();
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PersonID = clsDriver.GetPersonIDOfDriver(SelectedDriverID);
+            //PersonID = clsDriver.GetPersonIDOfDriver(SelectedDriverID);
             frmLicensesHistory frm = new frmLicensesHistory(PersonID,true);
             frm.ShowDialog();
         }

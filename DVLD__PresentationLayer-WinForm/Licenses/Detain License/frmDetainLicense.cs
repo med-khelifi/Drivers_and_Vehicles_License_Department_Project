@@ -71,17 +71,17 @@ namespace DVLD__PresentationLayer_WinForm
             _License = clsLicense.Find(Convert.ToInt32(id));
             if (_License != null)
             {
-                PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
+                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
                 _LoadData();
                 lblLicenseID.Text = _License.LicenseID.ToString();
                 linkLShowLicenseHistory.Enabled = true;
                 linkLShowLicenseInfo.Enabled = true;
 
-                if (clsLicense.isLicenseDetained(_License.LicenseID)) 
-                {
-                    MessageBox.Show("License is Already Detained !.", "License is Detained", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (clsLicense.isLicenseDetained(_License.LicenseID)) 
+                //{
+                //    MessageBox.Show("License is Already Detained !.", "License is Detained", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
                 btnDetain.Enabled = true;
                 //

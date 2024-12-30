@@ -56,7 +56,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void _LoadLocalDrivingLicensesHistory()
         {
-            ucDriverLicenses1.LocalLicenseDate = clsLicense.GetLocalDrivingLicenses(_PersonID);
+            //ucDriverLicenses1.LocalLicenseDate = clsLicense.GetLocalDrivingLicenses(_PersonID);
         }
         private void _InternationalDrivingLicensesHistory()
         {
@@ -64,7 +64,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void frmLicensesHistory_Load(object sender, EventArgs e)
         {
-            _PersonID = WithPerson ? _LDLAppID: (clsLDLApplication.GetApplicantPersonID(_LDLAppID));
+            //_PersonID = WithPerson ? _LDLAppID: (clsLocalDrivingLicenseApplicationData.GetApplicantPersonID(_LDLAppID));
             if (_PersonID == -1)
             {
                 MessageBox.Show("Invalid PersonID (-1) ,Form Will Closed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
