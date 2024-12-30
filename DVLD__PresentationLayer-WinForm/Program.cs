@@ -1,16 +1,29 @@
-﻿using System;
+﻿
+using DVLD__PresentationLayer_WinForm;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD__PresentationLayer_WinForm
+namespace DVLD
 {
-    static class Program
+    internal static class Program
     {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLoggingScrren()); // Replace 'MainForm' with your startup form
+            // Application.Run(new frmMain());
+            // Application.Run(new frmTest2());
+            Application.Run(new frmLoggingScrren());
+
+
+
         }
     }
 }
