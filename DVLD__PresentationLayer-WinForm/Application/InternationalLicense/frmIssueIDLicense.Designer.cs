@@ -501,7 +501,6 @@
             this.ucLicenseWithFilter1.Name = "ucLicenseWithFilter1";
             this.ucLicenseWithFilter1.Size = new System.Drawing.Size(1095, 461);
             this.ucLicenseWithFilter1.TabIndex = 50;
-            this.ucLicenseWithFilter1.onSearchLicenseBtnClicked += new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter.SearchLicenseBtnClickedEventHandler(this.ucLicenseWithFilter1_onSearchLicenseBtnClicked);
             // 
             // label8
             // 
@@ -520,7 +519,6 @@
             this.ucLicenseWithFilter2.Name = "ucLicenseWithFilter2";
             this.ucLicenseWithFilter2.Size = new System.Drawing.Size(1095, 461);
             this.ucLicenseWithFilter2.TabIndex = 50;
-            this.ucLicenseWithFilter2.onSearchLicenseBtnClicked += new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter.SearchLicenseBtnClickedEventHandler(this.ucLicenseWithFilter1_onSearchLicenseBtnClicked);
             // 
             // guna2GroupBox2
             // 

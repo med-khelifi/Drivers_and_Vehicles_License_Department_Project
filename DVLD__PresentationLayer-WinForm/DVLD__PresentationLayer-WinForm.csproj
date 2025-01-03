@@ -85,6 +85,18 @@
     <Compile Include="People\frmShowPersonCard.Designer.cs">
       <DependentUpon>frmShowPersonCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Controls\ctrlScheduleTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tests\Controls\ctrlScheduleTest.Designer.cs">
+      <DependentUpon>ctrlScheduleTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Controls\ctrlSecheduledTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tests\Controls\ctrlSecheduledTest.Designer.cs">
+      <DependentUpon>ctrlSecheduledTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tests\TestTypes\frmEditTestType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,10 +267,10 @@
     <Compile Include="Licenses\Local Driving License\Controls\ucDriverLicenseInfo.Designer.cs">
       <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Local Driving License\Controls\ucDriverLicenses.cs">
+    <Compile Include="Licenses\Controls\ucDriverLicenses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses\Local Driving License\Controls\ucDriverLicenses.Designer.cs">
+    <Compile Include="Licenses\Controls\ucDriverLicenses.Designer.cs">
       <DependentUpon>ucDriverLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\International Licenses\Controls\ucInternationalLicenseInfo.cs">
@@ -311,6 +323,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmShowPersonCard.resx">
       <DependentUpon>frmShowPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Controls\ctrlScheduleTest.resx">
+      <DependentUpon>ctrlScheduleTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Controls\ctrlSecheduledTest.resx">
+      <DependentUpon>ctrlSecheduledTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests\TestTypes\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
@@ -406,7 +424,7 @@
     <EmbeddedResource Include="Licenses\Local Driving License\Controls\ucDriverLicenseInfo.resx">
       <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Local Driving License\Controls\ucDriverLicenses.resx">
+    <EmbeddedResource Include="Licenses\Controls\ucDriverLicenses.resx">
       <DependentUpon>ucDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\International Licenses\Controls\ucInternationalLicenseInfo.resx">

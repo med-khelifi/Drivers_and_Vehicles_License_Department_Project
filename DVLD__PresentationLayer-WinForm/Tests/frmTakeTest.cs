@@ -14,103 +14,80 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmTakeTest : Form
     {
-        public delegate void OnFormClosedEventHandler();
-        public OnFormClosedEventHandler OnFormClosedDelegated;
+        private int _AppointmentID;
+        private clsTestType.enTestType _TestType;
+
+        private int _TestID = -1;
+        private clsTest _Test;
 
 
-        //clsLocalDrivingLicenseApplicationData _LDLAppApplication;
-        clsTest _TestInfo;
-        clsApplication _app;
-        int _LDLAppID = 0;
-        int _TestType = 0;
-        int _AppointmentID = 0;
-        float _testFees = 0;
-        public frmTakeTest(int AppointmentID,int LDLAppID,int testType)
+        public frmTakeTest(int AppointmentID, clsTestType.enTestType TestType)
         {
             InitializeComponent();
-            _LDLAppID = LDLAppID;
-            _TestType = testType;
             _AppointmentID = AppointmentID;
-        }
-        private void _LoadTestLayout()
-        {
-            pbTestTypePic.Image = (_TestType == 1 ? Properties.Resources.VesionTest : _TestType == 2 ? Properties.Resources.DrivingTest : Properties.Resources.car);
-        }
-        private void _LoadData()
-        {
-            //_LDLAppApplication = clsLocalDrivingLicenseApplicationData.Find(_LDLAppID);
-            //if (_LDLAppApplication == null)
-            //{
-            //    MessageBox.Show("LDLApp is NULL ,Form Will Close.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    this.Close();
-            //    return;
-            //}
-            //lblLDLAppID.Text = _LDLAppID.ToString();
-            //lblDLClass.Text = clsLicenseClass.GetClassName(_LDLAppApplication.LicenseClassID);
-
-            //_app = clsApplication.Find(_LDLAppApplication.ApplicationID);
-            if (_app == null)
-            {
-                MessageBox.Show("Application is NULL ,Form Will Close.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-                return;
-            }
-            //lblName.Text = clsPerson.getPersonFullName(_app.ApplicantPersonID);
-            lblTrial.Text = clsTestAppointment.GetTestTrial(_LDLAppID, _TestType).ToString();
-            //_testFees = clsTestType.GetTestFees(_TestType);
-            lblTestFees.Text = _testFees.ToString();
-            lblAppointmentDate.Text = clsTestAppointment.GetAppointmentDate(_AppointmentID).ToString();
+            _TestType = TestType;
 
         }
-        private void _CheckIfTestIsPassed()
-        {
-            if (clsTestAppointment.isAppointmentLocked(_AppointmentID))
-            { 
-                lbltestPassedMessage.Visible = true;
-                btnSave.Enabled = false;
-                rbFail.Enabled = false;
-                rbPass.Enabled = false;
-                txtNotes.Enabled = false;
-            }
-        }
+
+
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
-            _LoadTestLayout();
-            _LoadData();
-            _CheckIfTestIsPassed();
-            _TestInfo = new clsTest();
+            ctrlSecheduledTest1.TestTypeID = _TestType;
+
+            ctrlSecheduledTest1.LoadInfo(_AppointmentID);
+
+            if (ctrlSecheduledTest1.TestAppointmentID == -1)
+                btnSave.Enabled = false;
+            else
+                btnSave.Enabled = true;
+
+
+            int _TestID = ctrlSecheduledTest1.TestID;
+            if (_TestID != -1)
+            {
+                _Test = clsTest.Find(_TestID);
+
+                if (_Test.TestResult)
+                    rbPass.Checked = true;
+                else
+                    rbFail.Checked = true;
+                txtNotes.Text = _Test.Notes;
+
+                lblUserMessage.Visible = true;
+                rbFail.Enabled = false;
+                rbPass.Enabled = false;
+            }
+
+            else
+                _Test = new clsTest();
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _TestInfo.TestResult =rbPass.Checked;
-            _TestInfo.Notes = txtNotes.Text;
-            _TestInfo.TestAppointmentID = _AppointmentID;
-            //_TestInfo.CreatedByUser = clsGlobal.CurrentUser.UserID;
-            if (MessageBox.Show("Are You Sure ? When You Save You Can't Change It Later", "Save Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK) 
+            if (MessageBox.Show("Are you sure you want to save? After that you cannot change the Pass/Fail results after you save?.",
+                      "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No
+             )
             {
-                if (_TestInfo.Save())
-                {
-                    if (!clsTestAppointment.LockAppointment(_AppointmentID))
-                    {
-                        MessageBox.Show("Error Was Happend < Cannot Lock This Appointment ! >", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Error Was Happend < Cannot Save >", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                return;
             }
+
+            _Test.TestAppointmentID = _AppointmentID;
+            _Test.TestResult = rbPass.Checked;
+            _Test.Notes = txtNotes.Text.Trim();
+            _Test.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+
+            if (_Test.Save())
+            {
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnSave.Enabled = false;
+
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        private void frmTakeTest_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            OnFormClosedDelegated?.Invoke();
-        }
+        
     }
 }

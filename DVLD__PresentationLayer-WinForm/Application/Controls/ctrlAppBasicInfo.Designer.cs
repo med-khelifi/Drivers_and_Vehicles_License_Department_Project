@@ -112,6 +112,7 @@
             this.llViewPersonInfo.TabIndex = 212;
             this.llViewPersonInfo.TabStop = true;
             this.llViewPersonInfo.Text = "View Person Info.";
+            this.llViewPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llViewPersonInfo_LinkClicked_1);
             // 
             // lblStatusDate
             // 

@@ -312,6 +312,7 @@ namespace BVLD__BusinessLayer
             Application.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
             Application.LastStatusDate = DateTime.Now;
             Application.PaidFees = clsApplicationType.Find((byte)Application.ApplicationTypeID).ApplicationFees;
+            /// ISSUE THERE
             Application.CreatedByUserID = CreatedByUserID;
 
             if (!Application.Save())

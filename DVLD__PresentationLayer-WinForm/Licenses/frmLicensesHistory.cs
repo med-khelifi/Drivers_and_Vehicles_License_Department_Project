@@ -13,79 +13,52 @@ using System.Windows.Forms;
 
 namespace DVLD__PresentationLayer_WinForm
 {
-    public partial class frmLicensesHistory : Form
+    public partial class frmShowPersonLicenseHistory : Form
     {
-        int _LDLAppID = -1;
-        int _PersonID = -1;
-        clsPerson _Person;
-        bool WithPerson;
-        public frmLicensesHistory(int LDLAppID,bool withPersonID = false)
+        private int _PersonID = -1;
+
+        public frmShowPersonLicenseHistory()
         {
             InitializeComponent();
-            _LDLAppID = LDLAppID;
-            WithPerson = withPersonID;
+
+
         }
 
-        private void _LoadPersonData(int x = 0)
+        public frmShowPersonLicenseHistory(int PersonID)
         {
-
-            _Person = clsPerson.Find(_PersonID);
-            //if (_Person != null)
-            //{
-            //    p1.PersonID = $"#{_Person.PersonID}";
-            //    p1.FullName = $"{_Person.FirstName} {_Person.SecondName} {_Person.ThirdName} {_Person.LastName}";
-            //    p1.NationalNo = _Person.NationalNo;
-            //    p1.Gender = (_Person.Gender == 0 ? "Male" : "Female");
-            //    p1.Address = _Person.Address;
-            //    p1.Email = _Person.Email;
-            //    p1.DateOfBirth = _Person.DateOfBirth;
-            //    p1.Phone = _Person.Phone;
-            //    p1.ImagePath = _Person.ImagePath;
-
-            //    clsCountry Country = clsCountry.Find(_Person.NationalityCountryID);
-            //    if (Country != null)
-            //    {
-            //        p1.Country = Country.CountryName;
-            //    }
-            //    else
-            //    {
-            //        p1.Country = "_____";
-            //    }
-            //}
-        }
-
-        private void _LoadLocalDrivingLicensesHistory()
-        {
-            //ucDriverLicenses1.LocalLicenseDate = clsLicense.GetLocalDrivingLicenses(_PersonID);
-        }
-        private void _InternationalDrivingLicensesHistory()
-        {
-            ucDriverLicenses1.InternationalLicenseDate = clsInternationalLicense.GetInternationalDrivingLicenses(_PersonID);
-        }
-        private void frmLicensesHistory_Load(object sender, EventArgs e)
-        {
-            //_PersonID = WithPerson ? _LDLAppID: (clsLocalDrivingLicenseApplicationData.GetApplicantPersonID(_LDLAppID));
-            if (_PersonID == -1)
-            {
-                MessageBox.Show("Invalid PersonID (-1) ,Form Will Closed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
-            //_LoadPersonData();
-            //_LoadLocalDrivingLicensesHistory();
-            //_InternationalDrivingLicensesHistory();
-            //p1.EditPersonDetailsEventFired += _ShowEditPersonForn;
-        }
-
-        void _ShowEditPersonForn(object s, EventArgs x)
-        {
-            //frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
-            //frm.OnDataback += _LoadPersonData;
-            //frm.ShowDialog();
+            InitializeComponent();
+            _PersonID = PersonID;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ucPersondetailsWithFilter1_OnPersonSelected(int obj)
+        {
+            _PersonID = obj;
+            if (_PersonID == -1)
+            {
+                ucDriverLicenses1.Clear();
+            }
+            else
+                ucDriverLicenses1.LoadInfoByPersonID(_PersonID);
+        }
+
+        private void frmShowPersonLicenseHistory_Load_1(object sender, EventArgs e)
+        {
+            if (_PersonID != -1)
+            {
+                ucPersondetailsWithFilter1.LoadPersonInfo(_PersonID);
+                ucPersondetailsWithFilter1.FilterEnabled = false;
+                ucDriverLicenses1.LoadInfoByPersonID(_PersonID);
+            }
+            else
+            {
+                ucPersondetailsWithFilter1.Enabled = true;
+                ucPersondetailsWithFilter1.FilterFocus();
+            }
         }
     }
 }

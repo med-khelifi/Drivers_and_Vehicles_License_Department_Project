@@ -61,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(945, 917);
+            this.panel1.Size = new System.Drawing.Size(945, 862);
             this.panel1.TabIndex = 0;
             // 
             // BtnClose
@@ -77,7 +77,7 @@
             this.BtnClose.HoverState.Parent = this.BtnClose;
             this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
             this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnClose.Location = new System.Drawing.Point(760, 864);
+            this.BtnClose.Location = new System.Drawing.Point(761, 802);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
             this.BtnClose.Size = new System.Drawing.Size(153, 41);
@@ -98,7 +98,7 @@
             this.btnAddNewAppointment.HoverState.Parent = this.btnAddNewAppointment;
             this.btnAddNewAppointment.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.add_event;
             this.btnAddNewAppointment.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAddNewAppointment.Location = new System.Drawing.Point(859, 675);
+            this.btnAddNewAppointment.Location = new System.Drawing.Point(860, 610);
             this.btnAddNewAppointment.Name = "btnAddNewAppointment";
             this.btnAddNewAppointment.ShadowDecoration.Parent = this.btnAddNewAppointment;
             this.btnAddNewAppointment.Size = new System.Drawing.Size(54, 47);
@@ -116,14 +116,13 @@
             this.dgvAppointments.BackgroundColor = System.Drawing.Color.White;
             this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppointments.ContextMenuStrip = this.CMSAppointments;
-            this.dgvAppointments.Location = new System.Drawing.Point(10, 731);
+            this.dgvAppointments.Location = new System.Drawing.Point(11, 666);
             this.dgvAppointments.Name = "dgvAppointments";
             this.dgvAppointments.ReadOnly = true;
             this.dgvAppointments.RowHeadersWidth = 51;
             this.dgvAppointments.RowTemplate.Height = 24;
             this.dgvAppointments.Size = new System.Drawing.Size(903, 130);
             this.dgvAppointments.TabIndex = 26;
-            this.dgvAppointments.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAppointments_CellMouseDown);
             // 
             // CMSAppointments
             // 
@@ -133,14 +132,14 @@
             this.editToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.CMSAppointments.Name = "CMSAppointments";
-            this.CMSAppointments.Size = new System.Drawing.Size(215, 84);
+            this.CMSAppointments.Size = new System.Drawing.Size(155, 56);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.edit;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -149,7 +148,7 @@
             this.takeTestToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
             this.takeTestToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.retest;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.takeTestToolStripMenuItem.Text = "Take Test";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
@@ -158,7 +157,7 @@
             this.lblAllRecords.AutoSize = true;
             this.lblAllRecords.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
             this.lblAllRecords.ForeColor = System.Drawing.Color.Black;
-            this.lblAllRecords.Location = new System.Drawing.Point(5, 864);
+            this.lblAllRecords.Location = new System.Drawing.Point(6, 799);
             this.lblAllRecords.Name = "lblAllRecords";
             this.lblAllRecords.Size = new System.Drawing.Size(162, 28);
             this.lblAllRecords.TabIndex = 24;
@@ -169,7 +168,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(5, 694);
+            this.label3.Location = new System.Drawing.Point(6, 629);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 28);
             this.label3.TabIndex = 25;
@@ -201,7 +200,7 @@
             this.ucLDLApplicationDetails1.BackColor = System.Drawing.Color.White;
             this.ucLDLApplicationDetails1.Location = new System.Drawing.Point(5, 208);
             this.ucLDLApplicationDetails1.Name = "ucLDLApplicationDetails1";
-            this.ucLDLApplicationDetails1.Size = new System.Drawing.Size(923, 461);
+            this.ucLDLApplicationDetails1.Size = new System.Drawing.Size(923, 404);
             this.ucLDLApplicationDetails1.TabIndex = 21;
             // 
             // frmTestAppointments
@@ -209,13 +208,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(945, 917);
+            this.CancelButton = this.BtnClose;
+            this.ClientSize = new System.Drawing.Size(945, 862);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmTestAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vision Test";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTestAppointments_FormClosing);
             this.Load += new System.EventHandler(this.frmScheduleTests_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

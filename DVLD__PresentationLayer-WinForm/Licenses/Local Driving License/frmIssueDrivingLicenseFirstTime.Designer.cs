@@ -48,7 +48,7 @@
             this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(2);
             this.guna2GroupBox1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 12F);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(3, 461);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(3, 408);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(913, 120);
@@ -114,7 +114,7 @@
             this.btnIssue.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.releaseCard;
             this.btnIssue.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnIssue.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnIssue.Location = new System.Drawing.Point(719, 587);
+            this.btnIssue.Location = new System.Drawing.Point(717, 534);
             this.btnIssue.Name = "btnIssue";
             this.btnIssue.ShadowDecoration.Parent = this.btnIssue;
             this.btnIssue.Size = new System.Drawing.Size(197, 45);
@@ -129,13 +129,14 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
             this.BtnClose.HoverState.Parent = this.BtnClose;
             this.BtnClose.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.close;
             this.BtnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnClose.Location = new System.Drawing.Point(516, 587);
+            this.BtnClose.Location = new System.Drawing.Point(514, 534);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
             this.BtnClose.Size = new System.Drawing.Size(197, 45);
@@ -148,15 +149,17 @@
             this.ucLDLApplicationDetails1.BackColor = System.Drawing.Color.White;
             this.ucLDLApplicationDetails1.Location = new System.Drawing.Point(3, 2);
             this.ucLDLApplicationDetails1.Name = "ucLDLApplicationDetails1";
-            this.ucLDLApplicationDetails1.Size = new System.Drawing.Size(917, 456);
+            this.ucLDLApplicationDetails1.Size = new System.Drawing.Size(917, 400);
             this.ucLDLApplicationDetails1.TabIndex = 0;
             // 
             // frmIssueDrivingLicenseFirstTime
             // 
+            this.AcceptButton = this.btnIssue;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(923, 647);
+            this.CancelButton = this.BtnClose;
+            this.ClientSize = new System.Drawing.Size(923, 598);
             this.Controls.Add(this.btnIssue);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.guna2GroupBox1);
@@ -165,7 +168,6 @@
             this.Name = "frmIssueDrivingLicenseFirstTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Issue Driving License First Time";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmIssueDrivingLicenseFirstTime_FormClosing);
             this.Load += new System.EventHandler(this.frmIssueDrivingLicenseFirstTime_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();

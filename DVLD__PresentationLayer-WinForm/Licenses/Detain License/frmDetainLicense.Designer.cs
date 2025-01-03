@@ -369,7 +369,6 @@
             this.ucLicenseWithFilter1.Name = "ucLicenseWithFilter1";
             this.ucLicenseWithFilter1.Size = new System.Drawing.Size(1096, 461);
             this.ucLicenseWithFilter1.TabIndex = 0;
-            this.ucLicenseWithFilter1.onSearchLicenseBtnClicked += new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter.SearchLicenseBtnClickedEventHandler(this.ucLicenseWithFilter1_onSearchLicenseBtnClicked);
             // 
             // frmDetainLicense
             // 

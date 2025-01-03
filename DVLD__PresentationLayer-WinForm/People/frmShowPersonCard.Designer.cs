@@ -1,6 +1,6 @@
 ﻿namespace DVLD__PresentationLayer_WinForm.People
 {
-    partial class frmShowPersonCard
+    partial class frmShowPersonInfo
     {
         /// <summary>
         /// Required designer variable.

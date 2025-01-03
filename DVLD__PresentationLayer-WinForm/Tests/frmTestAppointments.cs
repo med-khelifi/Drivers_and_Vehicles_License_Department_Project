@@ -1,4 +1,5 @@
 ﻿using BVLD__BusinessLayer;
+using DVLD__PresentationLayer_WinForm.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,138 +14,112 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmTestAppointments : Form
     {
-        public delegate void OnFormClosedEventHandler();
-        public OnFormClosedEventHandler OnFormClosedDelegated;
+        private DataTable _dtLicenseTestAppointments;
+        private int _LocalDrivingLicenseApplicationID;
+        private clsTestType.enTestType _TestType = clsTestType.enTestType.VisionTest;
 
-        int SelectedAppointmentID = -1;
-
-        int _LDLApplicationID = 0;
-        int _TestType = 0;
-
-        //clsLocalDrivingLicenseApplicationData _LDLApp;
-        clsApplication _Application;
-        public frmTestAppointments(int LDLAppID, int ScheduleTestType)
+        public frmTestAppointments(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestType)
         {
             InitializeComponent();
-            _LDLApplicationID = LDLAppID;
-            _TestType = ScheduleTestType;
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _TestType = TestType;
+
         }
-        private void _LoadDGVAppointments()
+
+        private void _LoadTestTypeImageAndTitle()
         {
-            dgvAppointments.DataSource = clsTestAppointment.GetAppointmentInfo(_LDLApplicationID, _TestType);
-            lblAllRecords.Text = "All Records = " + dgvAppointments.Rows.Count.ToString();
-        }
-        private void _LoadTestLayout()
-        {
-            string caption = (_TestType == 1 ? "Vesion" : _TestType == 2 ? "Written" : "Driving") + " test";
-            lblCaption.Text = caption + " Appointments";
-            pbTestType.Image = (_TestType == 1 ? Properties.Resources.VesionTest : _TestType == 2 ? Properties.Resources.DrivingTest : Properties.Resources.car);
-            this.Text = caption;
-        }
-        private void _LoadLDLApplicationData()
-        {
-            //_LDLApp = clsLocalDrivingLicenseApplicationData.Find(_LDLApplicationID);
-
-            //if (_LDLApp == null)
-            //{
-            //    MessageBox.Show("Error Was Happen ,Object Is Empty (clsLDLApplication) ==> Form Will Close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    Close();
-            //    return;
-            //}
-
-            //ucLDLApplicationDetails1.LDLAppID = _LDLApp.LDLApplicationID;
-            //string ClassName = clsLicenseClass.GetClassName(_LDLApp.LicenseClassID);
-            //if (ClassName == null) { ucLDLApplicationDetails1.LicenseClass = "Error getting Class Name"; }
-            //else { ucLDLApplicationDetails1.LicenseClass = ClassName; }
-            //ucLDLApplicationDetails1.PassedTests = clsLocalDrivingLicenseApplicationData.GetPassedTetsNumber(_LDLApplicationID);
-
-            //_Application = clsApplication.Find(_LDLApp.ApplicationID);
-
-            if (_Application == null)
+            switch (_TestType)
             {
-                MessageBox.Show("Error Was Happen ,Object Is Empty (clsApplication) ==> Form Will Close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-                return;
-            }
 
-            //ucLDLApplicationDetails1.AppID = _Application.ApplicationID;
-            //ucLDLApplicationDetails1.AppDate = _Application.ApplicationDate;
-            //ucLDLApplicationDetails1.AppStatusDate = _Application.LastStatusDate;
-            ////ucLDLApplicationDetails1.AppStatus = _Application.ApplicationStatus == 1 ? "New" : _Application.ApplicationStatus == 2 ? "Cancelled" : "Commpleted";
-            //ucLDLApplicationDetails1.AppFees = _Application.PaidFees;
-            //ucLDLApplicationDetails1.AppType = clsApplicationType.Find(1)?.ApplicationTypeTitle;
-            //ucLDLApplicationDetails1.CreatedByUser = clsUser.GetUserName(_Application.CreatedByUserID);
-            //ucLDLApplicationDetails1.Applicant = clsPerson.getPersonFullName(_Application.ApplicantPersonID);
+                case clsTestType.enTestType.VisionTest:
+                    {
+                        lblCaption.Text = "Vision Test Appointments";
+                        this.Text = lblCaption.Text;
+                        pbTestType.Image = Resources.VesionTest;
+                        break;
+                    }
+
+                case clsTestType.enTestType.WrittenTest:
+                    {
+                        lblCaption.Text = "Written Test Appointments";
+                        this.Text = lblCaption.Text;
+                        pbTestType.Image = Resources.DrivingTest;
+                        break;
+                    }
+                case clsTestType.enTestType.StreetTest:
+                    {
+                        lblCaption.Text = "Street Test Appointments";
+                        this.Text = lblCaption.Text;
+                        pbTestType.Image = Resources.car;
+                        break;
+                    }
+            }
         }
-        private void _FrmTakeTestDelegate()
-        {
-            //ucLDLApplicationDetails1.PassedTests = clsLocalDrivingLicenseApplicationData.GetPassedTetsNumber(_LDLApplicationID);
-            _LoadDGVAppointments();
-        }
+
+        
+       
         private void frmScheduleTests_Load(object sender, EventArgs e)
         {
-            _LoadLDLApplicationData();
-            _LoadDGVAppointments();
-            _LoadTestLayout();
+            _LoadTestTypeImageAndTitle();
 
-            ucLDLApplicationDetails1.OnShowPersonDetailsClicked += ShowPersonDetails;
-        }
-        private void ShowPersonDetails()
-        {
-            //frmShowPersonDetails frm = new frmShowPersonDetails(_Application.ApplicantPersonID);
-            //frm.FormClosedEvent += _LoadDGVAppointments;
-            //frm.ShowDialog();
+
+            ucLDLApplicationDetails1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
+            _dtLicenseTestAppointments = clsTestAppointment.GetApplicationTestAppointmentsPerTestType(_LocalDrivingLicenseApplicationID, _TestType);
+
+            dgvAppointments.DataSource = _dtLicenseTestAppointments;
+            lblAllRecords.Text = "All Records = " + dgvAppointments.Rows.Count.ToString();
+
+            if (dgvAppointments.Rows.Count > 0)
+            {
+                dgvAppointments.Columns[0].HeaderText = "Appointment ID";
+                dgvAppointments.Columns[1].HeaderText = "Appointment Date";
+                dgvAppointments.Columns[2].HeaderText = "Paid Fees";  
+                dgvAppointments.Columns[3].HeaderText = "Is Locked";
+                
+            }
         }
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            //if (clsTest.isTestAlreadyPassed(_LDLApplicationID, _TestType))
-            //{
-            //    MessageBox.Show("This Applicant Already Passed This Test !", "Test Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
 
-            if (clsTestAppointment.hasUncompleAppointment(_LDLApplicationID, _TestType))
+            if (clsLocalDrivingLicenseApplication.IsThereAnActiveScheduledTest(_LocalDrivingLicenseApplicationID,_TestType))
             {
-                MessageBox.Show("This Applicant Has Uncomplete Test.\nTake Test First !", "Uncomplete Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Person Already have an active appointment for this test, You cannot add new appointment", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            frmScheduleTest frm = new frmScheduleTest(_LDLApplicationID, _TestType, -1);
-            frm.OnFormClosedAfterScheduleDelegated += _LoadDGVAppointments;
-            frm.ShowDialog();
+
+            //if person already passed the test s/he cannot retak it.
+            if (clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID,_TestType))
+            {
+                MessageBox.Show("This person already passed this test before, you can only retake faild test", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmScheduleTest frm2 = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestType);
+            frm2.ShowDialog();
+            frmScheduleTests_Load(null, null);
+
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmScheduleTest frm = new frmScheduleTest(_LDLApplicationID, _TestType, SelectedAppointmentID);
-            frm.OnFormClosedAfterScheduleDelegated += _LoadDGVAppointments;
+            int TestAppointmentID = (int)dgvAppointments.CurrentRow.Cells[0].Value;
+
+
+            frmScheduleTest frm = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestType, TestAppointmentID);
             frm.ShowDialog();
-        }
-        private void dgvAppointments_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // Check if the right mouse button was clicked
-            if (e.Button == MouseButtons.Right)
-            {
-                // Ensure the click is on a valid row
-                if (e.RowIndex >= 0)
-                {
-                    // Select the row that was right-clicked
-                    SelectedAppointmentID = Convert.ToInt32(dgvAppointments.Rows[e.RowIndex].Cells[0].Value);
-                }
-            }
+            frmScheduleTests_Load(null, null);
         }
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTakeTest frm = new frmTakeTest(SelectedAppointmentID,_LDLApplicationID, _TestType);
-            frm.OnFormClosedDelegated += _FrmTakeTestDelegate;
+            int TestAppointmentID = (int)dgvAppointments.CurrentRow.Cells[0].Value;
+
+            frmTakeTest frm = new frmTakeTest(TestAppointmentID, _TestType);
             frm.ShowDialog();
+            frmScheduleTests_Load(null, null);
         }
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-        private void frmTestAppointments_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            OnFormClosedDelegated?.Invoke();
         }
     }
 }

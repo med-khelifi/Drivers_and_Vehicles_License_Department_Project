@@ -134,7 +134,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicensesHistory frm = new frmLicensesHistory(PersonID,true);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
             frm.ShowDialog();
         }
 

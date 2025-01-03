@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace DVLD__PresentationLayer_WinForm.People
 {
-    public partial class frmShowPersonCard : Form
+    public partial class frmShowPersonInfo : Form
     {
-        public frmShowPersonCard(int PersonID)
+        public frmShowPersonInfo(int PersonID)
         {
             InitializeComponent();
             personDetailsControl1.LoadPersonInfo(PersonID);
 
         }
-        public frmShowPersonCard(string NationalNo)
+        public frmShowPersonInfo(string NationalNo)
         {
             InitializeComponent();
             personDetailsControl1.LoadPersonInfo(NationalNo);

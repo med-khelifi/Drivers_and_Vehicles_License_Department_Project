@@ -15,56 +15,15 @@ namespace DVLD__PresentationLayer_WinForm
     
     public partial class frmIssueDrivingLicenseFirstTime : Form
     {
-        public delegate void frmIssueDrivingLicenseFirstTimeClosedEventHandler();
-        public frmIssueDrivingLicenseFirstTimeClosedEventHandler OnfrmIssueDrivingLicenseFirstTimeClosedEventHandler;
+        private int _LocalDrivingLicenseApplicationID;
+        private clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
 
-        clsLicense _NewLicense;
-        clsDriver _NewDriver;
-
-        clsApplication _Application;
-        //clsLocalDrivingLicenseApplicationData _LDLApp;
-        int _LDLApplicationID = 0;
-        bool isLicenseIssued = false;   
-        public frmIssueDrivingLicenseFirstTime(int LDLApplicationID)
+        public frmIssueDrivingLicenseFirstTime(int LocalDrivingLicenseApplicationID)
         {
             InitializeComponent();
-            _LDLApplicationID = LDLApplicationID;
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
         }
-        private void _LoadLDLApplicationData()
-        {
-            //_LDLApp = clsLocalDrivingLicenseApplicationData.Find(_LDLApplicationID);
-
-            //if (_LDLApp == null)
-            //{
-            //    MessageBox.Show("Error Was Happen ,Object Is Empty (clsLDLApplication) ==> Form Will Close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    Close();
-            //    return;
-            //}
-
-            //ucLDLApplicationDetails1.LDLAppID = _LDLApp.LDLApplicationID;
-            //string ClassName = clsLicenseClass.GetClassName(_LDLApp.LicenseClassID);
-            //if (ClassName == null) { ucLDLApplicationDetails1.LicenseClass = "Error getting Class Name"; }
-            //else { ucLDLApplicationDetails1.LicenseClass = ClassName; }
-            //ucLDLApplicationDetails1.PassedTests = clsLocalDrivingLicenseApplicationData.GetPassedTetsNumber(_LDLApplicationID);
-
-            //_Application = clsApplication.Find(_LDLApp.ApplicationID);
-
-            if (_Application == null)
-            {
-                MessageBox.Show("Error Was Happen ,Object Is Empty (clsApplication) ==> Form Will Close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-                return;
-            }
-
-            //ucLDLApplicationDetails1.AppID = _Application.ApplicationID;
-            //ucLDLApplicationDetails1.AppDate = _Application.ApplicationDate;
-            //ucLDLApplicationDetails1.AppStatusDate = _Application.LastStatusDate;
-            ////ucLDLApplicationDetails1.AppStatus = _Application.ApplicationStatus == 1 ? "New" : _Application.ApplicationStatus == 2 ? "Cancelled" : "Commpleted";
-            //ucLDLApplicationDetails1.AppFees = _Application.PaidFees;
-            //ucLDLApplicationDetails1.AppType = clsApplicationType.Find(1)?.ApplicationTypeTitle;
-            //ucLDLApplicationDetails1.CreatedByUser = clsUser.GetUserName(_Application.CreatedByUserID);
-            //ucLDLApplicationDetails1.Applicant = clsPerson.getPersonFullName(_Application.ApplicantPersonID);
-        }
+       
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -72,71 +31,54 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void frmIssueDrivingLicenseFirstTime_Load(object sender, EventArgs e)
         {
-            _LoadLDLApplicationData();
-            ucLDLApplicationDetails1.OnShowPersonDetailsClicked += _ShowPersonInfo;
+            txtNotes.Focus();
+            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
+
+            if (_LocalDrivingLicenseApplication == null)
+            {
+
+                MessageBox.Show("No Applicaiton with ID=" + _LocalDrivingLicenseApplicationID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+
+            if (!_LocalDrivingLicenseApplication.PassedAllTests())
+            {
+
+                MessageBox.Show("Person Should Pass All Tests First.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            int LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
+            if (LicenseID != -1)
+            {
+
+                MessageBox.Show("Person already has License before with License ID=" + LicenseID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+
+            }
+
+            ucLDLApplicationDetails1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
         }
-        private void _ShowPersonInfo()
-        {
-            //frmShowPersonDetails frm = new frmShowPersonDetails (_Application.ApplicantPersonID);
-            //frm.ShowDialog();
-        }
+        
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            int driverID = -1;
-            //if (clsDriver.isPersonADriver(_Application.ApplicantPersonID))
-            //{
-            //    driverID = clsDriver.GetDriverIDOfPerson(_Application.ApplicantPersonID);
-            //}
-            //else
-            //{
-            //    _NewDriver = new clsDriver();
-            //    _NewDriver.PersonID = _Application.ApplicantPersonID; 
-            //    _NewDriver.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-            //    _NewDriver.CreatedDate = DateTime.Now;
-            //    if (!_NewDriver.Save())
-            //    {
-            //        MessageBox.Show("Cannot Save Driver Info (AddNew).","Error",MessageBoxButtons.OK,MessageBoxIcon.Error); 
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        driverID = _NewDriver.DriverID;
-            //    }
-            //}
+            int LicenseID = _LocalDrivingLicenseApplication.IssueLicenseForTheFirtTime(txtNotes.Text.Trim(), clsGlobal.CurrentUser.UserID);
 
-            _NewLicense = new clsLicense();
-            _NewLicense.ApplicationID = _Application.ApplicationID;
-            _NewLicense.DriverID = driverID;
-            //_NewLicense.LicenseClassID = _LDLApp.LicenseClassID;
-            _NewLicense.IssueDate = DateTime.Now;
-            //_NewLicense.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseClassDefaultValidityLength(_LDLApp.LicenseClassID));
-            _NewLicense.Notes = txtNotes.Text.Trim();
-            //_NewLicense.PaidFees = clsLicenseClass.GetLicenseFees(_LDLApp.LicenseClassID);
-            _NewLicense.isActive = true;
-            //_NewLicense.IssueReason = 1;
-            _NewLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID ;
-
-            if (_NewLicense.Save())
+            if (LicenseID != -1)
             {
-                btnIssue.Enabled = false;
-                //if (!clsLocalDrivingLicenseApplicationData.CompleteLDLApplication(_LDLApp.LDLApplicationID, DateTime.Now)) 
-                {
-                    MessageBox.Show($"Error Cannot Change LDLApp to completed", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                MessageBox.Show($"License Added Successfully,License ID = {_NewLicense.LicenseID}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                isLicenseIssued = true;
+                MessageBox.Show("License Issued Successfully with License ID = " + LicenseID.ToString(),
+                    "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
             }
             else
             {
-                MessageBox.Show($"License Saving Faild", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void frmIssueDrivingLicenseFirstTime_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (isLicenseIssued)
-            {
-                OnfrmIssueDrivingLicenseFirstTimeClosedEventHandler?.Invoke();
+                MessageBox.Show("License Was not Issued ! ",
+                 "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

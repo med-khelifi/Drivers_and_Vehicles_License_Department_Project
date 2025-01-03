@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace DVLD__PresentationLayer_WinForm
 {
-    public partial class frmAddNewLDLApplication : Form
+    public partial class frmEditAddNewLDLApplication : Form
     {
 
         public enum enMode { AddNew = 0, Update = 1 };
@@ -14,13 +14,13 @@ namespace DVLD__PresentationLayer_WinForm
         private int _LocalDrivingLicenseApplicationID = -1;
         private int _SelectedPersonID = -1;
         clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
-        public frmAddNewLDLApplication()
+        public frmEditAddNewLDLApplication()
         {
             InitializeComponent();
             _Mode = enMode.AddNew;  
         }
 
-        public frmAddNewLDLApplication(int LocalDrivingLicenseApplicationID)
+        public frmEditAddNewLDLApplication(int LocalDrivingLicenseApplicationID)
         {
             InitializeComponent();
             _Mode = enMode.Update;

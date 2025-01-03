@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ucLicenseWithFilter2 = new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -50,7 +50,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.lblCreateByUser = new System.Windows.Forms.Label();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.gbReplacement = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rbForLost = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbForDamage = new Guna.UI2.WinForms.Guna2RadioButton();
             this.linkLShowLicenseInfo = new System.Windows.Forms.LinkLabel();
@@ -64,27 +64,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            this.guna2GroupBox1.SuspendLayout();
+            this.gbReplacement.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucLicenseWithFilter2
             // 
+            this.ucLicenseWithFilter2.BackColor = System.Drawing.Color.White;
+            this.ucLicenseWithFilter2.FilterEnabled = true;
             this.ucLicenseWithFilter2.Location = new System.Drawing.Point(-1, 41);
             this.ucLicenseWithFilter2.Name = "ucLicenseWithFilter2";
             this.ucLicenseWithFilter2.Size = new System.Drawing.Size(1095, 461);
             this.ucLicenseWithFilter2.TabIndex = 81;
-            this.ucLicenseWithFilter2.onSearchLicenseBtnClicked += new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter.SearchLicenseBtnClickedEventHandler(this.ucLicenseWithFilter2_onSearchLicenseBtnClicked);
+            this.ucLicenseWithFilter2.OnLicenseSelected += new System.Action<int>(this.ucLicenseWithFilter2_OnLicenseSelected);
             // 
-            // label8
+            // lblTitle
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(309, -2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(375, 40);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "Local License Replacement ";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblTitle.Location = new System.Drawing.Point(309, -2);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(375, 40);
+            this.lblTitle.TabIndex = 76;
+            this.lblTitle.Text = "Local License Replacement ";
             // 
             // guna2GroupBox2
             // 
@@ -321,20 +323,20 @@
             this.lblCreateByUser.TabIndex = 0;
             this.lblCreateByUser.Text = "_";
             // 
-            // guna2GroupBox1
+            // gbReplacement
             // 
-            this.guna2GroupBox1.Controls.Add(this.rbForLost);
-            this.guna2GroupBox1.Controls.Add(this.rbForDamage);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(2);
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(860, 20);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(224, 104);
-            this.guna2GroupBox1.TabIndex = 84;
-            this.guna2GroupBox1.Text = "Replacement";
+            this.gbReplacement.Controls.Add(this.rbForLost);
+            this.gbReplacement.Controls.Add(this.rbForDamage);
+            this.gbReplacement.CustomBorderColor = System.Drawing.Color.Black;
+            this.gbReplacement.CustomBorderThickness = new System.Windows.Forms.Padding(2);
+            this.gbReplacement.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbReplacement.ForeColor = System.Drawing.Color.Black;
+            this.gbReplacement.Location = new System.Drawing.Point(811, 12);
+            this.gbReplacement.Name = "gbReplacement";
+            this.gbReplacement.ShadowDecoration.Parent = this.gbReplacement;
+            this.gbReplacement.Size = new System.Drawing.Size(271, 104);
+            this.gbReplacement.TabIndex = 84;
+            this.gbReplacement.Text = "Replacement";
             // 
             // rbForLost
             // 
@@ -356,7 +358,7 @@
             this.rbForLost.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbForLost.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbForLost.UseVisualStyleBackColor = true;
-            this.rbForLost.CheckedChanged += new System.EventHandler(this.rbForDamage_CheckedChanged);
+            this.rbForLost.CheckedChanged += new System.EventHandler(this.rbForLost_CheckedChanged);
             // 
             // rbForDamage
             // 
@@ -462,14 +464,15 @@
             this.Controls.Add(this.linkLShowLicenseHistory);
             this.Controls.Add(this.btnIssueReplacement);
             this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.guna2GroupBox1);
+            this.Controls.Add(this.gbReplacement);
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.ucLicenseWithFilter2);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLicenseReplacement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLicenseReplacement";
+            this.Activated += new System.EventHandler(this.frmLicenseReplacement_Activated);
             this.Load += new System.EventHandler(this.frmLicenseReplacement_Load);
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
@@ -479,8 +482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox1.PerformLayout();
+            this.gbReplacement.ResumeLayout(false);
+            this.gbReplacement.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,7 +491,7 @@
 
         #endregion
         private ucLicenseWithFilter ucLicenseWithFilter2;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -509,7 +512,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label lblCreateByUser;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox gbReplacement;
         private Guna.UI2.WinForms.Guna2RadioButton rbForLost;
         private Guna.UI2.WinForms.Guna2RadioButton rbForDamage;
         private System.Windows.Forms.LinkLabel linkLShowLicenseInfo;

@@ -65,14 +65,14 @@ namespace DVLD__PresentationLayer_WinForm
 
             if (_Application.Save()) 
             {
-                _InternationalLicense = new clsInternationalLicense();
-                _InternationalLicense.ApplicationID = _Application.ApplicationID;
-                _InternationalLicense.DriverID = _License.DriverID;
-                _InternationalLicense.IssuedUsingLocalDrivingLicense = _License.LicenseID;
-                _InternationalLicense.IssueDate = _Date;
-                _InternationalLicense.ExpirationDate = _Date.AddYears(1);
-                _InternationalLicense.isActive = true;
-                _InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+                //_InternationalLicense = new clsInternationalLicense();
+                //_InternationalLicense.ApplicationID = _Application.ApplicationID;
+                //_InternationalLicense.DriverID = _License.DriverID;
+                //_InternationalLicense.IssuedUsingLocalDrivingLicense = _License.LicenseID;
+                //_InternationalLicense.IssueDate = _Date;
+                //_InternationalLicense.ExpirationDate = _Date.AddYears(1);
+                //_InternationalLicense.isActive = true;
+                //_InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                 if (_InternationalLicense.Save()) 
                 { 
                     lblILAppID.Text = _Application.ApplicationID.ToString();
@@ -94,7 +94,7 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicensesHistory frm = new frmLicensesHistory(PersonID, true);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
             frm.ShowDialog();
         }
         private void linkLShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -153,11 +153,11 @@ namespace DVLD__PresentationLayer_WinForm
                     return;
                 }
                 
-                if (clsInternationalLicense.isPersonHasInternationalLicense(PersonID))
-                {
-                    MessageBox.Show("Person Already has International License.", "License Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (clsInternationalLicense.isPersonHasInternationalLicense(PersonID))
+                //{
+                //    MessageBox.Show("Person Already has International License.", "License Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
                 if (!_License.isActive)
                 {
                     MessageBox.Show("License is Not Active !", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);

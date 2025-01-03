@@ -110,7 +110,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicensesHistory frm = new frmLicensesHistory(PersonID, true);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
             frm.ShowDialog();
         }
 
@@ -176,8 +176,8 @@ namespace DVLD__PresentationLayer_WinForm
             if (_DetainID != -1)
             {
                 LoadDetainedPassedID();
-                ucLicenseWithFilter1.EnableSearchText = false;
-                ucLicenseWithFilter1.SearchText = _License.LicenseID.ToString();
+                ////ucLicenseWithFilter1.EnableSearchText = false;
+                ////ucLicenseWithFilter1.SearchText = _License.LicenseID.ToString();
 
                 lblDetainDate.Text = _DetainedLicenseInfo.DetainDate.ToString("dd/MMM/yyyy");
             }

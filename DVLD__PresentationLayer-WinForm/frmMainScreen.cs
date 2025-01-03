@@ -79,7 +79,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddNewLDLApplication frm = new frmAddNewLDLApplication();
+            frmEditAddNewLDLApplication frm = new frmEditAddNewLDLApplication();
             frm.ShowDialog();
         }
 
@@ -141,7 +141,8 @@ namespace DVLD__PresentationLayer_WinForm
         {
             if(clsGlobal.CurrentUser != null)
             {
-                //Application.Exit();
+                _loginForm.Close();
+                this.Close();
             }
         }
     }

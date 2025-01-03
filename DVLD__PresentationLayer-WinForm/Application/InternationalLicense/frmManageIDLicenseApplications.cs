@@ -11,9 +11,9 @@ namespace DVLD__PresentationLayer_WinForm
         int PersonID,SelectedDriverID, SelectedLicenseID;
         void _LoadData()
         {
-            dv = clsInternationalLicense.GetAllInternationalData().DefaultView;
-            dgvIDLApp.DataSource = dv;
-            lblRecordsCount.Text = "All Records = " + dgvIDLApp.Rows.Count;
+            //dv = clsInternationalLicense.GetAllInternationalData().DefaultView;
+            //dgvIDLApp.DataSource = dv;
+            //lblRecordsCount.Text = "All Records = " + dgvIDLApp.Rows.Count;
         }
         public frmManageIDLicenseApplications()
         {
@@ -42,7 +42,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //PersonID = clsDriver.GetPersonIDOfDriver(SelectedDriverID);
-            frmLicensesHistory frm = new frmLicensesHistory(PersonID,true);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
             frm.ShowDialog();
         }
 

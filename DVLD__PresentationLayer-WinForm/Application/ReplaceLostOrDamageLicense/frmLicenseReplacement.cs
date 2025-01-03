@@ -8,124 +8,84 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BVLD__BusinessLayer.clsLicense;
 
 namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmLicenseReplacement : Form
     {
-        clsApplication _Application;
-        clsLicense _NewLicense;
-        clsLicense _License;
-
-        DateTime _Date;
-        float _AppLicenseLostFees, _AppLicenseDamagedFees;
-        int _PersonID;
+        private int _NewLicenseID = -1;
 
         public frmLicenseReplacement()
         {
             InitializeComponent();
         }
-        private void _DisplayInitialppInfo()
-        {
-            lblApplicationDate.Text = _Date.ToString("dd/MMM/yyyy");
-            lblCreateByUser.Text = clsGlobal.CurrentUser.UserName;
-            lblAppFees.Text = _AppLicenseDamagedFees.ToString();
-        }
-        string IssueReasonString(int Reason)
-        {
-            switch (Reason)
-            {
-                case 1: return "First Time";
-                case 2: return "Renew";
-                case 3: return "Replacement for Damaged";
-                case 4: return "Replacement for Lost";
-                default: return "";
-            }
-        }
-        private void _LoadLicenseData()
-        {
-            //short Gender = clsPerson.getPersonGendor(_PersonID);
 
-            //ucLicenseWithFilter2.LicenseID = _License.LicenseID;
-            //ucLicenseWithFilter2.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
-            //ucLicenseWithFilter2.FullName = clsPerson.getPersonFullName(_PersonID);
-            //ucLicenseWithFilter2.NationalNo = clsPerson.getPersonNationalNo(_PersonID);
-            //ucLicenseWithFilter2.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
-            //ucLicenseWithFilter2.IssueDate = _License.IssueDate;
-            //ucLicenseWithFilter2.IssueReason = IssueReasonString(_License.IssueReason);
-            //ucLicenseWithFilter2.Notes = _License.Notes;
-            //ucLicenseWithFilter2.isActive = (_License.isActive ? "Yes" : "No");
-            //ucLicenseWithFilter2.DateOfBirth = clsPerson.getPersonBirthDate(_PersonID);
-            //ucLicenseWithFilter2.DriverID = _License.DriverID;
-            //ucLicenseWithFilter2.ExpirationDate = _License.ExpirationDate;
-            //ucLicenseWithFilter2.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
-            //ucLicenseWithFilter2.ImagePath = clsPerson.getPersonImagePath(_PersonID);
+        private int _GetApplicationTypeID()
+        {
+            //this will decide which application type to use accirding 
+            // to user selection.
+
+            if (rbForDamage.Checked)
+
+                return (int)clsApplication.enApplicationType.ReplaceDamagedDrivingLicense;
+            else
+                return (int)clsApplication.enApplicationType.ReplaceLostDrivingLicense;
         }
+
+        private enIssueReason _GetIssueReason()
+        {
+            //this will decide which reason to issue a replacement for
+
+            if (rbForDamage.Checked)
+
+                return enIssueReason.DamagedReplacement;
+            else
+                return enIssueReason.LostReplacement;
+        }
+
         private void frmLicenseReplacement_Load(object sender, EventArgs e)
         {
-            btnIssueReplacement.Enabled = false;
+            lblApplicationDate.Text = clsFormat.DateToShort(DateTime.Now);
+            lblCreateByUser.Text = clsGlobal.CurrentUser.UserName;
+
             rbForDamage.Checked = true;
-            //_Date = DateTime.Now;
-            //_AppLicenseLostFees = clsApplicationType.GetApplicationTypeFees(3);
-            //_AppLicenseDamagedFees = clsApplicationType.GetApplicationTypeFees(4);
-            _DisplayInitialppInfo();
         }
         private void rbForDamage_CheckedChanged(object sender, EventArgs e)
         {
-            lblAppFees.Text = (rbForDamage.Checked ? _AppLicenseDamagedFees:_AppLicenseLostFees ).ToString();
+            lblTitle.Text = "Replacement for Damaged License";
+            this.Text = lblTitle.Text;
+            lblAppFees.Text = clsApplicationType.Find(_GetApplicationTypeID()).ApplicationFees.ToString();
         }
         private void btnIssueReplacement_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are You Sure You Want To Replace License ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
+            if (MessageBox.Show("Are you sure you want to Issue a Replacement for the license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
 
-            _Application = new clsApplication();
-            _Application.ApplicantPersonID = _PersonID;
-            _Application.ApplicationDate = _Date;
-            //_Application.ApplicationTypeID = (rbForDamage.Checked ? 4 : 3); // lblAppFees.Text = (rbForDamage.Checked ? _AppLicenseDamagedFees:_AppLicenseLostFees ).ToString();
-            //_Application.ApplicationStatus = 3;
-            _Application.LastStatusDate = _Date;
-            _Application.PaidFees = (rbForDamage.Checked ? _AppLicenseDamagedFees : _AppLicenseLostFees);
-            _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
-            if (_Application.Save())
-            {
-                _NewLicense = new clsLicense();
-                _NewLicense.ApplicationID = _Application.ApplicationID;
-                _NewLicense.DriverID = _License.DriverID;
-                _NewLicense.LicenseClassID = _License.LicenseClassID;
-                _NewLicense.IssueDate = _License.IssueDate;
-                _NewLicense.ExpirationDate = _License.ExpirationDate;
-                _NewLicense.isActive = true;
-                //_NewLicense.IssueReason = (rbForDamage.Checked ? 3 : 4);
-                _NewLicense.Notes = _License.Notes;
-                _NewLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            clsLicense NewLicense =
+               ucLicenseWithFilter2.SelectedLicenseInfo.Replace(_GetIssueReason(),
+               clsGlobal.CurrentUser.UserID);
 
-                _License.isActive = false;
-                //if (!clsLicense.DeactivateLicense(_License.LicenseID))
-                //{
-                //    MessageBox.Show("Saving old License Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-                if (_NewLicense.Save())
-                {
-                    lblLRAppID.Text = _Application.ApplicationID.ToString();
-                    lblReplacedLicenseID.Text = _NewLicense.LicenseID.ToString();
-                    MessageBox.Show($"New License Issued With ID : ({_NewLicense.LicenseID}).", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    linkLShowLicenseInfo.Enabled = true;
-                    btnIssueReplacement.Enabled = false;
-                }
-                else
-                {
-                    MessageBox.Show("Saving New License Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
+            if (NewLicense == null)
             {
-                MessageBox.Show("Saving New License Application Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Faild to Issue a replacemnet for this  License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
             }
+
+            lblLRAppID.Text = NewLicense.ApplicationID.ToString();
+            _NewLicenseID = NewLicense.LicenseID;
+
+            lblReplacedLicenseID.Text = _NewLicenseID.ToString();
+            MessageBox.Show("Licensed Replaced Successfully with ID=" + _NewLicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            btnIssueReplacement.Enabled = false;
+            gbReplacement.Enabled = false;
+            ucLicenseWithFilter2.FilterEnabled = false;
+            linkLShowLicenseInfo.Enabled = true;
         }
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -133,43 +93,49 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicensesHistory frm = new frmLicensesHistory(_PersonID, true);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(ucLicenseWithFilter2.SelectedLicenseInfo.DriverInfo.PersonID);
             frm.ShowDialog();
         }
         private void linkLShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_NewLicense.LicenseID);
+            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_NewLicenseID);
             frm.ShowDialog();
         }
-        private void ucLicenseWithFilter2_onSearchLicenseBtnClicked(string id)
+        
+
+        private void rbForLost_CheckedChanged(object sender, EventArgs e)
         {
-            if (id == "") return;
-            _License = clsLicense.Find(Convert.ToInt32(id));
-            if (_License != null)
+            lblTitle.Text = "Replacement for Lost License";
+            this.Text = lblTitle.Text;
+            lblAppFees.Text = clsApplicationType.Find(_GetApplicationTypeID()).ApplicationFees.ToString();
+        }
+
+        private void frmLicenseReplacement_Activated(object sender, EventArgs e)
+        {
+            ucLicenseWithFilter2.txtLicenseIDFocus();
+        }
+
+        private void ucLicenseWithFilter2_OnLicenseSelected(int obj)
+        {
+            int SelectedLicenseID = obj;
+            lblOldLicenseID.Text = SelectedLicenseID.ToString();
+            linkLShowLicenseHistory.Enabled = (SelectedLicenseID != -1);
+
+            if (SelectedLicenseID == -1)
             {
-                //_PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
-                _LoadLicenseData();
-                lblOldLicenseID.Text = _License.LicenseID.ToString();
-                linkLShowLicenseHistory.Enabled = true;
-
-
-                if (!_License.isActive)
-                {
-                    MessageBox.Show("License is Not Active ,You Cannot Replace it!", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (_License.ExpirationDate < DateTime.Now)
-                {
-                    MessageBox.Show($"License is Expired !,You cannot Replace it", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                btnIssueReplacement.Enabled = true;
+                return;
             }
-            else
+
+            //dont allow a replacement if is Active .
+            if (!ucLicenseWithFilter2.SelectedLicenseInfo.isActive)
             {
-                MessageBox.Show("License Not Found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selected License is not Not Active, choose an active license."
+                    , "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnIssueReplacement.Enabled = false;
+                return;
             }
+
+            btnIssueReplacement.Enabled = true;
         }
     }
 }

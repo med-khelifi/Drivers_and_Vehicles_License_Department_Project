@@ -1,4 +1,5 @@
 ﻿using BVLD__BusinessLayer;
+using DVLD__PresentationLayer_WinForm.People;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace DVLD__PresentationLayer_WinForm
         private void _LoadData()
         {
 
-            //DataViewDrivers = clsDriver.GetAllDriversTable().DefaultView;
+            DataViewDrivers = clsDriver.GetAllDrivers().DefaultView;
             dgvDrivers.DataSource = DataViewDrivers;
             lblRecordsCount.Text = "All Records = " + dgvDrivers.Rows.Count;
         }
@@ -65,6 +66,7 @@ namespace DVLD__PresentationLayer_WinForm
             {
                 DataViewDrivers.RowFilter = _GetFilterString(txtFilterText.Text);
             }
+            lblRecordsCount.Text = "All Records = " + dgvDrivers.Rows.Count;
         }
 
         private string _GetFilterString(string filter)
@@ -79,6 +81,22 @@ namespace DVLD__PresentationLayer_WinForm
          
             };
             return FilterString[CbFilter.SelectedIndex];
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvDrivers.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();
+            // refresh 
+            _LoadData();    
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory((int)(int)dgvDrivers.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();
+            // refresh
+            _LoadData();
         }
     }
 }

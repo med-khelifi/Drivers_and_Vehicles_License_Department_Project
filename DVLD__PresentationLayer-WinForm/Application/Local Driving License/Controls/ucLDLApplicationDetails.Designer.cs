@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.llShowLicenceInfo = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -39,13 +41,11 @@
             this.lblLicenseClass = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ctrlAppBasicInfo1 = new DVLD__PresentationLayer_WinForm.Application.Controls.ctrlAppBasicInfo();
-            this.llShowLicenceInfo = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
@@ -71,6 +71,28 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(911, 139);
             this.guna2GroupBox1.TabIndex = 1;
             this.guna2GroupBox1.Text = "Driving License Application Info";
+            // 
+            // llShowLicenceInfo
+            // 
+            this.llShowLicenceInfo.AutoSize = true;
+            this.llShowLicenceInfo.Location = new System.Drawing.Point(75, 103);
+            this.llShowLicenceInfo.Name = "llShowLicenceInfo";
+            this.llShowLicenceInfo.Size = new System.Drawing.Size(129, 24);
+            this.llShowLicenceInfo.TabIndex = 193;
+            this.llShowLicenceInfo.TabStop = true;
+            this.llShowLicenceInfo.Text = "Show License Info";
+            this.llShowLicenceInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenceInfo_LinkClicked);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.driving_license;
+            this.pictureBox1.Location = new System.Drawing.Point(38, 97);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 192;
+            this.pictureBox1.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -175,27 +197,7 @@
             this.ctrlAppBasicInfo1.Name = "ctrlAppBasicInfo1";
             this.ctrlAppBasicInfo1.Size = new System.Drawing.Size(919, 252);
             this.ctrlAppBasicInfo1.TabIndex = 2;
-            // 
-            // llShowLicenceInfo
-            // 
-            this.llShowLicenceInfo.AutoSize = true;
-            this.llShowLicenceInfo.Location = new System.Drawing.Point(75, 103);
-            this.llShowLicenceInfo.Name = "llShowLicenceInfo";
-            this.llShowLicenceInfo.Size = new System.Drawing.Size(129, 24);
-            this.llShowLicenceInfo.TabIndex = 193;
-            this.llShowLicenceInfo.TabStop = true;
-            this.llShowLicenceInfo.Text = "Show License Info";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.driving_license;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 97);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 192;
-            this.pictureBox1.TabStop = false;
+            this.ctrlAppBasicInfo1.Load += new System.EventHandler(this.ctrlAppBasicInfo1_Load);
             // 
             // ucLDLApplicationDetails
             // 
@@ -208,10 +210,10 @@
             this.Size = new System.Drawing.Size(917, 401);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

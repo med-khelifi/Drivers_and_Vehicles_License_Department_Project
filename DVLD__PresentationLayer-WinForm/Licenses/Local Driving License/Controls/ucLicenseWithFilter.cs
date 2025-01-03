@@ -13,43 +13,103 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class ucLicenseWithFilter : UserControl
     {
-        public delegate void SearchLicenseBtnClickedEventHandler(string id);
-        public event SearchLicenseBtnClickedEventHandler onSearchLicenseBtnClicked;
-
-        public string SearchText { set { txtSearchText.Text = value; } }
-        public bool EnableSearchText { set { txtSearchText.Enabled = value; } }  
-        public string LicenseClass { set { ucDriverLicenseInfo1.LicenseClass = value; } }
-        public string FullName { set { ucDriverLicenseInfo1.FullName = value; } }
-        public int LicenseID { set { ucDriverLicenseInfo1.LicenseID = value; } }
-        public string NationalNo { set { ucDriverLicenseInfo1.NationalNo = value; } }
-        public string Gender { set { ucDriverLicenseInfo1.Gender = value; } }
-        public DateTime IssueDate { set { ucDriverLicenseInfo1.IssueDate = value; } }
-        public string IssueReason { set { ucDriverLicenseInfo1.IssueReason = value; } }
-        public string Notes { set { ucDriverLicenseInfo1.Notes = value; } }
-        public string isActive { set { ucDriverLicenseInfo1.isActive = value; } }
-        public DateTime DateOfBirth { set { ucDriverLicenseInfo1.DateOfBirth = value; } }
-        public int DriverID { set { ucDriverLicenseInfo1.DriverID  = value; } }
-        public DateTime ExpirationDate { set { ucDriverLicenseInfo1.ExpirationDate = value; } }
-        public string isDetained { set { ucDriverLicenseInfo1.isDetained = value; } }
-        public string ImagePath {set{ucDriverLicenseInfo1.ImagePath =value;}}
+        // Define a custom event handler delegate with parameters
+        public event Action<int> OnLicenseSelected;
+        // Create a protected method to raise the event with a parameter
+        protected virtual void LicenseSelected(int LicenseID)
+        {
+            Action<int> handler = OnLicenseSelected;
+            if (handler != null)
+            {
+                handler(LicenseID); // Raise the event with the parameter
+            }
+        }
 
 
         public ucLicenseWithFilter()
         {
             InitializeComponent();
         }
+        private bool _FilterEnabled = true;
+        public bool FilterEnabled
+        {
+            get
+            {
+                return _FilterEnabled;
+            }
+            set
+            {
+                _FilterEnabled = value;
+                gbFilter.Enabled = _FilterEnabled;
+            }
+        }
 
-        
+        private int _LicenseID = -1;
+
+        public int LicenseID
+        {
+            get { return ucDriverLicenseInfo1.LicenseID; }
+        }
+
+        public clsLicense SelectedLicenseInfo
+        { get { return ucDriverLicenseInfo1.SelectedLicenseInfo; } }
+
+        public void LoadLicenseInfo(int LicenseID)
+        {
+
+
+            txtLicenseID.Text = LicenseID.ToString();
+            ucDriverLicenseInfo1.LoadInfo(LicenseID);
+            _LicenseID = ucDriverLicenseInfo1.LicenseID;
+            if (OnLicenseSelected != null && FilterEnabled)
+                // Raise the event with a parameter
+                OnLicenseSelected(_LicenseID);
+
+
+        }
         private void btnSearchLicense_Click(object sender, EventArgs e)
-        {           
-            onSearchLicenseBtnClicked?.Invoke(txtSearchText.Text);           
+        {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLicenseID.Focus();
+                return;
+
+            }
+            _LicenseID = int.Parse(txtLicenseID.Text);
+            LoadLicenseInfo(_LicenseID);
+        }
+
+        public void txtLicenseIDFocus()
+        {
+            txtLicenseID.Focus();
         }
 
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) 
-            { 
-                e.Handled = true; 
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+
+            // Check if the pressed key is Enter (character code 13)
+            if (e.KeyChar == (char)13)
+            {
+
+                btnSearchLicense.PerformClick();
+            }
+        }
+
+        private void txtLicenseID_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtLicenseID.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtLicenseID, "This field is required!");
+            }
+            else
+            {
+                //e.Cancel = false;
+                errorProvider1.SetError(txtLicenseID, null);
             }
         }
     }

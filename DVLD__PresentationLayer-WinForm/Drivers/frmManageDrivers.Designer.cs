@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtFilterText = new Guna.UI2.WinForms.Guna2TextBox();
             this.CbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,8 +37,12 @@
             this.dgvDrivers = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CmsManageLDLGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.CmsManageLDLGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFilterText
@@ -142,6 +147,7 @@
             this.dgvDrivers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvDrivers.BackgroundColor = System.Drawing.Color.White;
             this.dgvDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrivers.ContextMenuStrip = this.CmsManageLDLGrid;
             this.dgvDrivers.Location = new System.Drawing.Point(21, 299);
             this.dgvDrivers.Name = "dgvDrivers";
             this.dgvDrivers.ReadOnly = true;
@@ -171,6 +177,37 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
+            // CmsManageLDLGrid
+            // 
+            this.CmsManageLDLGrid.BackColor = System.Drawing.Color.White;
+            this.CmsManageLDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmsManageLDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsManageLDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLicenseToolStripMenuItem,
+            this.showPersonLicenseHistoryToolStripMenuItem});
+            this.CmsManageLDLGrid.Name = "CmsPersonGrid";
+            this.CmsManageLDLGrid.Size = new System.Drawing.Size(307, 84);
+            // 
+            // showLicenseToolStripMenuItem
+            // 
+            this.showLicenseToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showLicenseToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showLicenseToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
+            this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
+            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(306, 26);
+            this.showLicenseToolStripMenuItem.Text = "Show Person Info";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
+            // 
+            // showPersonLicenseHistoryToolStripMenuItem
+            // 
+            this.showPersonLicenseHistoryToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPersonLicenseHistoryToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.releaseCard;
+            this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
+            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(306, 26);
+            this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
+            // 
             // frmManageDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,6 +229,7 @@
             this.Load += new System.EventHandler(this.frmManageDrivers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.CmsManageLDLGrid.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +244,8 @@
         private System.Windows.Forms.DataGridView dgvDrivers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ContextMenuStrip CmsManageLDLGrid;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
     }
 }

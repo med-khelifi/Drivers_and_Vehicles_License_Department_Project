@@ -34,9 +34,7 @@ namespace BVLD__BusinessLayer
 
         }
 
-        public clsTest(int TestID, int TestAppointmentID,
-            bool TestResult, string Notes, int CreatedByUserID)
-
+        public clsTest(int TestID, int TestAppointmentID,bool TestResult, string Notes, int CreatedByUserID)
         {
             this.TestID = TestID;
             this.TestAppointmentID = TestAppointmentID;
@@ -58,7 +56,6 @@ namespace BVLD__BusinessLayer
 
             return (this.TestID != -1);
         }
-
         private bool _UpdateTest()
         {
             //call DataAccess Layer 
@@ -66,7 +63,6 @@ namespace BVLD__BusinessLayer
             return clsTestData.UpdateTest(this.TestID, this.TestAppointmentID,
                 this.TestResult, this.Notes, this.CreatedByUserID);
         }
-
         public static clsTest Find(int TestID)
         {
             int TestAppointmentID = -1;
@@ -83,9 +79,7 @@ namespace BVLD__BusinessLayer
                 return null;
 
         }
-
-        public static clsTest FindLastTestPerPersonAndLicenseClass
-            (int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
+        public static clsTest FindLastTestPerPersonAndLicenseClass(int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
         {
             int TestID = -1;
             int TestAppointmentID = -1;
@@ -103,13 +97,11 @@ namespace BVLD__BusinessLayer
                 return null;
 
         }
-
         public static DataTable GetAllTests()
         {
             return clsTestData.GetAllTests();
 
         }
-
         public bool Save()
         {
             switch (Mode)
@@ -134,12 +126,10 @@ namespace BVLD__BusinessLayer
 
             return false;
         }
-
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         {
             return clsTestData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
-
         public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
         {
             //if total passed test less than 3 it will return false otherwise will return true

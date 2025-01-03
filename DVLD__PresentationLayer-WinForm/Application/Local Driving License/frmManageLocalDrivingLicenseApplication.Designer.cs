@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblRecordsCount = new System.Windows.Forms.Label();
-            this.dgvLDLApplication = new System.Windows.Forms.DataGridView();
+            this.dgvLocalDrivingLicenseApplications = new System.Windows.Forms.DataGridView();
             this.CmsManageLDLGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +50,7 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLDLApplication)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).BeginInit();
             this.CmsManageLDLGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,25 +65,25 @@
             this.lblRecordsCount.TabIndex = 13;
             this.lblRecordsCount.Text = "All Records = ???";
             // 
-            // dgvLDLApplication
+            // dgvLocalDrivingLicenseApplications
             // 
-            this.dgvLDLApplication.AllowUserToAddRows = false;
-            this.dgvLDLApplication.AllowUserToDeleteRows = false;
-            this.dgvLDLApplication.AllowUserToResizeColumns = false;
-            this.dgvLDLApplication.AllowUserToResizeRows = false;
-            this.dgvLDLApplication.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLDLApplication.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dgvLDLApplication.BackgroundColor = System.Drawing.Color.White;
-            this.dgvLDLApplication.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLDLApplication.ContextMenuStrip = this.CmsManageLDLGrid;
-            this.dgvLDLApplication.Location = new System.Drawing.Point(10, 299);
-            this.dgvLDLApplication.Name = "dgvLDLApplication";
-            this.dgvLDLApplication.ReadOnly = true;
-            this.dgvLDLApplication.RowHeadersWidth = 51;
-            this.dgvLDLApplication.RowTemplate.Height = 24;
-            this.dgvLDLApplication.Size = new System.Drawing.Size(1398, 346);
-            this.dgvLDLApplication.TabIndex = 12;
-            this.dgvLDLApplication.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLDLApplication_CellMouseDown);
+            this.dgvLocalDrivingLicenseApplications.AllowUserToAddRows = false;
+            this.dgvLocalDrivingLicenseApplications.AllowUserToDeleteRows = false;
+            this.dgvLocalDrivingLicenseApplications.AllowUserToResizeColumns = false;
+            this.dgvLocalDrivingLicenseApplications.AllowUserToResizeRows = false;
+            this.dgvLocalDrivingLicenseApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLocalDrivingLicenseApplications.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dgvLocalDrivingLicenseApplications.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocalDrivingLicenseApplications.ContextMenuStrip = this.CmsManageLDLGrid;
+            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(10, 299);
+            this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
+            this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
+            this.dgvLocalDrivingLicenseApplications.RowHeadersWidth = 51;
+            this.dgvLocalDrivingLicenseApplications.RowTemplate.Height = 24;
+            this.dgvLocalDrivingLicenseApplications.Size = new System.Drawing.Size(1398, 346);
+            this.dgvLocalDrivingLicenseApplications.TabIndex = 12;
+            this.dgvLocalDrivingLicenseApplications.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLDLApplication_CellMouseDown);
             // 
             // CmsManageLDLGrid
             // 
@@ -91,7 +91,7 @@
             this.CmsManageLDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmsManageLDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.CmsManageLDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem,
+            this.DetailsToolStripMenuItem,
             this.editTestToolStripMenuItem,
             this.deleteApplicationToolStripMenuItem,
             this.canToolStripMenuItem,
@@ -101,19 +101,18 @@
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.CmsManageLDLGrid.Name = "CmsPersonGrid";
             this.CmsManageLDLGrid.Size = new System.Drawing.Size(353, 336);
-            this.CmsManageLDLGrid.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.CmsManageLDLGrid_Closing);
             this.CmsManageLDLGrid.Opening += new System.ComponentModel.CancelEventHandler(this.CmsManageLDLGrid_Opening);
             // 
-            // editToolStripMenuItem
+            // DetailsToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.ApplicationDetails;
-            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
-            this.editToolStripMenuItem.Text = "Application Details";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            this.DetailsToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DetailsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.DetailsToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.ApplicationDetails;
+            this.DetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.DetailsToolStripMenuItem.Name = "DetailsToolStripMenuItem";
+            this.DetailsToolStripMenuItem.Size = new System.Drawing.Size(352, 38);
+            this.DetailsToolStripMenuItem.Text = "Application Details";
+            this.DetailsToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // editTestToolStripMenuItem
             // 
@@ -271,9 +270,9 @@
             this.CbFilter.ItemHeight = 30;
             this.CbFilter.Items.AddRange(new object[] {
             "None",
-            "LDL AppID",
-            "NationalNo",
-            "FullName",
+            "L.D.L.AppID",
+            "National No.",
+            "Full Name",
             "Status"});
             this.CbFilter.ItemsAppearance.Parent = this.CbFilter;
             this.CbFilter.Location = new System.Drawing.Point(107, 247);
@@ -356,7 +355,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.lblRecordsCount);
-            this.Controls.Add(this.dgvLDLApplication);
+            this.Controls.Add(this.dgvLocalDrivingLicenseApplications);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -364,7 +363,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManageLocalDrivingLicenseApplication";
             this.Load += new System.EventHandler(this.frmManageLocalDrivingLicenseApplication_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLDLApplication)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).EndInit();
             this.CmsManageLDLGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -376,7 +375,7 @@
 
         private Guna.UI2.WinForms.Guna2Button BtnClose;
         private System.Windows.Forms.Label lblRecordsCount;
-        private System.Windows.Forms.DataGridView dgvLDLApplication;
+        private System.Windows.Forms.DataGridView dgvLocalDrivingLicenseApplications;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
@@ -384,7 +383,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox CbFilter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip CmsManageLDLGrid;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem canToolStripMenuItem;

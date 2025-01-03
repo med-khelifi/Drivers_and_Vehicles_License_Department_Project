@@ -125,7 +125,7 @@ namespace BVLD__BusinessLayer
 
         public static DataTable GetInternationalLicenses(int DriverID)
         {
-            return null;//clsInternationalLicense.GetDriverInternationalLicenses(DriverID);
+            return clsInternationalLicense.GetDriverInternationalLicenses(DriverID);
         }
     }
 

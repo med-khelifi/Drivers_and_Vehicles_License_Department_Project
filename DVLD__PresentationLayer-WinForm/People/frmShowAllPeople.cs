@@ -64,7 +64,7 @@ namespace DVLD__PresentationLayer_WinForm
         {
             
             //int PersonID = Convert.ToInt32(dgvAllPeopleData.SelectedRows[0].Cells[0].Value);
-           frmShowPersonCard frm = new frmShowPersonCard((int)dgvAllPeopleData.CurrentRow.Cells[0].Value);
+           frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvAllPeopleData.CurrentRow.Cells[0].Value);
            frm.ShowDialog();
 
             _RefreshPeopleList();
