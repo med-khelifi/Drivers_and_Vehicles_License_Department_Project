@@ -460,10 +460,13 @@
             // 
             // ucLicenseWithFilter1
             // 
+            this.ucLicenseWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucLicenseWithFilter1.FilterEnabled = true;
             this.ucLicenseWithFilter1.Location = new System.Drawing.Point(3, 52);
             this.ucLicenseWithFilter1.Name = "ucLicenseWithFilter1";
             this.ucLicenseWithFilter1.Size = new System.Drawing.Size(1099, 461);
             this.ucLicenseWithFilter1.TabIndex = 0;
+            this.ucLicenseWithFilter1.OnLicenseSelected += new System.Action<int>(this.ucLicenseWithFilter1_OnLicenseSelected);
             // 
             // frmReleaseLicense
             // 
@@ -482,7 +485,6 @@
             this.Name = "frmReleaseLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Release License";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReleaseLicense_FormClosed);
             this.Load += new System.EventHandler(this.frmReleaseLicense_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();

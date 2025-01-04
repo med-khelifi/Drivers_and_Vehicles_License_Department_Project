@@ -16,93 +16,22 @@ namespace DVLD__PresentationLayer_WinForm
     public partial class frmReleaseLicense : Form
     {
 
-        public delegate void onFormCloseEventHandler();
-        public onFormCloseEventHandler onFormCloseDelegate;
+        private int _SelectedLicenseID = -1;
 
-        bool hasChanged = false;
-        clsLicense _License;
-        clsApplication _Application;
-        clsDetainedLicense _DetainedLicenseInfo;
-        int PersonID, _DetainID;
-        float _AppFees, _DetainFineFees;
-        DateTime _Date;
-        public frmReleaseLicense(int detainID)
+        public frmReleaseLicense()
         {
             InitializeComponent();
-            _DetainID = detainID;
         }
-        string IssueReasonString(int Reason)
+
+        public frmReleaseLicense(int LicenseID)
         {
-            switch (Reason)
-            {
-                case 1: return "First Time";
-                case 2: return "Renew";
-                case 3: return "Replacement for Damaged";
-                case 4: return "Replacement for Lost";
-                default: return "";
-            }
+            InitializeComponent();
+            _SelectedLicenseID = LicenseID;
+
+            ucLicenseWithFilter1.LoadLicenseInfo(_SelectedLicenseID);
+            ucLicenseWithFilter1.FilterEnabled = false;
         }
-        private void _LoadLicenseData()
-        {
-            //short Gender = clsPerson.getPersonGendor(PersonID);
-
-            //ucLicenseWithFilter1.LicenseID = _License.LicenseID;
-            //ucLicenseWithFilter1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
-            //ucLicenseWithFilter1.FullName = clsPerson.getPersonFullName(PersonID);
-            //ucLicenseWithFilter1.NationalNo = clsPerson.getPersonNationalNo(PersonID);
-            //ucLicenseWithFilter1.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
-            //ucLicenseWithFilter1.IssueDate = _License.IssueDate;
-            //ucLicenseWithFilter1.IssueReason = IssueReasonString(_License.IssueReason);
-            //ucLicenseWithFilter1.Notes = _License.Notes;
-            //ucLicenseWithFilter1.isActive = (_License.isActive ? "Yes" : "No");
-            //ucLicenseWithFilter1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
-            //ucLicenseWithFilter1.DriverID = _License.DriverID;
-            //ucLicenseWithFilter1.ExpirationDate = _License.ExpirationDate;
-            //ucLicenseWithFilter1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
-            //ucLicenseWithFilter1.ImagePath = clsPerson.getPersonImagePath(PersonID);
-        }
-        private void ucLicenseWithFilter1_onSearchLicenseBtnClicked(string id)
-        {
-            if (id == "") return;
-            _License = clsLicense.Find(Convert.ToInt32(id));
-            if (_License != null)
-            {
-                //if (!clsLicense.isLicenseDetained(_License.LicenseID))
-                //{
-                //    MessageBox.Show("License is Not Detained !", "Invalid License", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
-                //_DetainID = clsDetainedLicense.GetDetainID(_License.LicenseID);
-                //_DetainedLicenseInfo = clsDetainedLicense.Find(_DetainID);
-
-                if (_DetainedLicenseInfo == null)
-                {
-                    MessageBox.Show("Detain ID retrieving faild ?", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                _LoadLicenseData();
-
-
-                _DetainFineFees = _DetainedLicenseInfo.FineFees;
-                lblFineFees.Text = _DetainFineFees.ToString();
-
-
-                lblDetainID.Text = _DetainID.ToString();
-                lblDetainDate.Text = _DetainedLicenseInfo.DetainDate.ToString("dd/MMM/yyyy");
-                lblLicenseID.Text = _License.LicenseID.ToString();
-
-                linkLShowLicenseHistory.Enabled = true;
-
-                btnRelease.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("License Not Found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -110,117 +39,87 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(ucLicenseWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
             frm.ShowDialog();
         }
 
         private void linkLShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_License.LicenseID);
+            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_SelectedLicenseID);
             frm.ShowDialog();
         }
 
-        private void frmReleaseLicense_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (hasChanged)
-                onFormCloseDelegate?.Invoke();
-        }
+       
 
         private void btnRelease_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are You Sure You Want To Release This License ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
+            if (MessageBox.Show("Are you sure you want to release this detained  license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
 
-            _Application = new clsApplication();
-            _Application.ApplicantPersonID = PersonID;
-            _Application.ApplicationDate = _Date;
-            //_Application.ApplicationTypeID = 5;
-            //_Application.ApplicationStatus = 3;
-            _Application.LastStatusDate = _Date;
-            _Application.PaidFees = _DetainFineFees + _AppFees;
-            _Application.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            int ApplicationID = -1;
 
-            if (_Application.Save())
-            {
-                _DetainedLicenseInfo.ReleaseDate = _Date;
-                _DetainedLicenseInfo.ReleasedByUserID = clsGlobal.CurrentUser.UserID;
-                _DetainedLicenseInfo.ReleaseApplicationID = _Application.ApplicationID;
-                _DetainedLicenseInfo.IsReleased = true;
 
-                if (_DetainedLicenseInfo.Save())
-                {
-                    lblRLAppID.Text = _Application.ApplicationID.ToString();
-                    MessageBox.Show($"License Released Successfully .", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    linkLShowLicenseInfo.Enabled = true;
-                    btnRelease.Enabled = false;
-                    hasChanged = true;
-                }
-                else
-                {
-                    MessageBox.Show("Saving detained Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
+            bool IsReleased = ucLicenseWithFilter1.SelectedLicenseInfo.ReleaseDetainedLicense(clsGlobal.CurrentUser.UserID, ref ApplicationID);
+
+            lblRLAppID.Text = ApplicationID.ToString();
+
+            if (!IsReleased)
             {
-                MessageBox.Show("Saving Release Application Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Faild to to release the Detain License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            MessageBox.Show("Detained License released Successfully ", "Detained License Released", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            btnRelease.Enabled = false;
+            ucLicenseWithFilter1.FilterEnabled = false;
+            linkLShowLicenseInfo.Enabled = true;
         }
 
         private void frmReleaseLicense_Load(object sender, EventArgs e)
         {
-            _Date = DateTime.Now;
-            //_AppFees = clsApplicationType.GetApplicationTypeFees(5);
+            lblAppFees.Text = clsApplicationType.Find((byte)clsApplication.enApplicationType.ReleaseDetainedDrivingLicsense).ApplicationFees.ToString();
+        }
+       
+        
+        
 
-            if (_DetainID != -1)
+        private void ucLicenseWithFilter1_OnLicenseSelected(int obj)
+        {
+            _SelectedLicenseID = obj;
+
+            lblLicenseID.Text = _SelectedLicenseID.ToString();
+
+            linkLShowLicenseInfo.Enabled = (_SelectedLicenseID != -1);
+            linkLShowLicenseHistory.Enabled = (_SelectedLicenseID != -1);
+
+            if (_SelectedLicenseID == -1)
+
             {
-                LoadDetainedPassedID();
-                ////ucLicenseWithFilter1.EnableSearchText = false;
-                ////ucLicenseWithFilter1.SearchText = _License.LicenseID.ToString();
-
-                lblDetainDate.Text = _DetainedLicenseInfo.DetainDate.ToString("dd/MMM/yyyy");
+                return;
             }
 
-            ShowInitialValue();
-        }
-        void ShowInitialValue()
-        {
+            //ToDo: make sure the license is not detained already.
+            if (!ucLicenseWithFilter1.SelectedLicenseInfo.IsDetained)
+            {
+                MessageBox.Show("Selected License i is not detained, choose another one.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            lblRLAppID.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.ReleaseDetainedDrivingLicsense).ApplicationFees.ToString();
             lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
-            lblAppFees.Text = _AppFees.ToString();
-            lblFineFees.Text = _DetainFineFees.ToString();
-            lblTotalFees.Text = (_AppFees + _DetainFineFees).ToString();
-            
-        }
-        private void LoadDetainedPassedID()
-        {
-            _DetainedLicenseInfo = clsDetainedLicense.Find(_DetainID);
-            if (_DetainedLicenseInfo == null)
-            {
-                MessageBox.Show("Detain Not Found.===> form will close", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
-            _License = clsLicense.Find(_DetainedLicenseInfo.LicenseID);
-            if (_License != null)
-            {
-                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
 
-                _DetainFineFees = _DetainedLicenseInfo.FineFees;
-                lblAppFees.Text = _DetainFineFees.ToString();
+            lblDetainID.Text = ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.DetainID.ToString();
+            lblLicenseID.Text = ucLicenseWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
 
-                _LoadLicenseData();
+            lblCreatedByUser.Text = ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.CreatedByUserInfo.UserName;
+            lblDetainDate.Text = clsFormat.DateToShort(ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.DetainDate);
+            lblFineFees.Text = ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.FineFees.ToString();
+            lblTotalFees.Text = (Convert.ToSingle(lblAppFees.Text) + Convert.ToSingle(lblFineFees.Text)).ToString();
 
-                lblLicenseID.Text = _License.LicenseID.ToString();
-                linkLShowLicenseHistory.Enabled = true;
-                lblDetainID.Text = _DetainID.ToString();
-
-                btnRelease.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("License Not Found.===> form will close", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
+            btnRelease.Enabled = true;
         }
     }
 }

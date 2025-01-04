@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txtFineFees = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,6 +51,7 @@
             this.linkLShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.btnDetain = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ucLicenseWithFilter1 = new DVLD__PresentationLayer_WinForm.ucLicenseWithFilter();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -131,6 +134,7 @@
             this.txtFineFees.TabIndex = 43;
             this.txtFineFees.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFineFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFineFees_KeyPress);
+            this.txtFineFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFineFees_Validating);
             // 
             // pictureBox11
             // 
@@ -349,6 +353,7 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -363,12 +368,19 @@
             this.BtnClose.Text = "Close";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ucLicenseWithFilter1
             // 
+            this.ucLicenseWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ucLicenseWithFilter1.FilterEnabled = true;
             this.ucLicenseWithFilter1.Location = new System.Drawing.Point(4, 47);
             this.ucLicenseWithFilter1.Name = "ucLicenseWithFilter1";
             this.ucLicenseWithFilter1.Size = new System.Drawing.Size(1096, 461);
             this.ucLicenseWithFilter1.TabIndex = 0;
+            this.ucLicenseWithFilter1.OnLicenseSelected += new System.Action<int>(this.ucLicenseWithFilter1_OnLicenseSelected);
             // 
             // frmDetainLicense
             // 
@@ -376,6 +388,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(1100, 837);
             this.Controls.Add(this.linkLShowLicenseInfo);
             this.Controls.Add(this.linkLShowLicenseHistory);
@@ -388,7 +401,6 @@
             this.Name = "frmDetainLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detain License";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDetainLicense_FormClosed);
             this.Load += new System.EventHandler(this.frmDetainLicense_Load);
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
@@ -397,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +440,6 @@
         private System.Windows.Forms.LinkLabel linkLShowLicenseHistory;
         private Guna.UI2.WinForms.Guna2Button btnDetain;
         private Guna.UI2.WinForms.Guna2Button BtnClose;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

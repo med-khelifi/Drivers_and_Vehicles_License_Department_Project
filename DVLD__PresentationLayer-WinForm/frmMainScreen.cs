@@ -127,7 +127,7 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void releaseDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReleaseLicense frm = new frmReleaseLicense(-1);
+            frmReleaseLicense frm = new frmReleaseLicense();
             frm.ShowDialog();   
         }
 

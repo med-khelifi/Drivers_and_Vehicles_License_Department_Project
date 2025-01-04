@@ -15,15 +15,8 @@ namespace DVLD__PresentationLayer_WinForm
 {
     public partial class frmDetainLicense : Form
     {
-        public delegate void onFormCloseEventHandler();
-        public onFormCloseEventHandler onFormCloseDelegate;
-
-
-        clsDetainedLicense DetainedLicense;
-        clsLicense _License;
-        DateTime _Date;
-        int PersonID;
-        bool haschanges = false;    
+        private int _DetainID = -1;
+        private int _SelectedLicenseID = -1;
         public frmDetainLicense()
         {
             InitializeComponent();
@@ -35,112 +28,56 @@ namespace DVLD__PresentationLayer_WinForm
                 e.Handled = true;
             }
         }
-        string IssueReasonString(int Reason)
-        {
-            switch (Reason)
-            {
-                case 1: return "First Time";
-                case 2: return "Renew";
-                case 3: return "Replacement for Damaged";
-                case 4: return "Replacement for Lost";
-                default: return "";
-            }
-        }
-        private void _LoadData()
-        {
-            //short Gender = clsPerson.getPersonGendor(PersonID);
-
-            //ucLicenseWithFilter1.LicenseID = _License.LicenseID;
-            //ucLicenseWithFilter1.LicenseClass = clsLicenseClass.GetClassName(_License.LicenseClassID);
-            //ucLicenseWithFilter1.FullName = clsPerson.getPersonFullName(PersonID);
-            //ucLicenseWithFilter1.NationalNo = clsPerson.getPersonNationalNo(PersonID);
-            //ucLicenseWithFilter1.Gender = (Gender == 0 ? "Male" : (Gender == -1 ? "NULL" : "Female"));
-            //ucLicenseWithFilter1.IssueDate = _License.IssueDate;
-            //ucLicenseWithFilter1.IssueReason = IssueReasonString(_License.IssueReason);
-            //ucLicenseWithFilter1.Notes = _License.Notes;
-            //ucLicenseWithFilter1.isActive = (_License.isActive ? "Yes" : "No");
-            //ucLicenseWithFilter1.DateOfBirth = clsPerson.getPersonBirthDate(PersonID);
-            //ucLicenseWithFilter1.DriverID = _License.DriverID;
-            //ucLicenseWithFilter1.ExpirationDate = _License.ExpirationDate;
-            //ucLicenseWithFilter1.isDetained = clsLicense.isLicenseDetained(_License.LicenseID) ? "Yes" : "No";
-            //ucLicenseWithFilter1.ImagePath = clsPerson.getPersonImagePath(PersonID);
-        }
-        private void ucLicenseWithFilter1_onSearchLicenseBtnClicked(string id)
-        {
-            if (id == "") return;
-            _License = clsLicense.Find(Convert.ToInt32(id));
-            if (_License != null)
-            {
-                //PersonID = clsDriver.GetPersonIDOfDriver(_License.DriverID);
-                _LoadData();
-                lblLicenseID.Text = _License.LicenseID.ToString();
-                linkLShowLicenseHistory.Enabled = true;
-                linkLShowLicenseInfo.Enabled = true;
-
-                //if (clsLicense.isLicenseDetained(_License.LicenseID)) 
-                //{
-                //    MessageBox.Show("License is Already Detained !.", "License is Detained", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                btnDetain.Enabled = true;
-                //
-            }
-            else
-            {
-                MessageBox.Show("License Not Found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void DesplayInitialValue()
-        {
-            _Date = DateTime.Now;
-            lblDetainDate.Text = _Date.ToString("dd/MMM/yyyy");
-            lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName; 
-        }
+        
+        
+        
+        
         private void btnDetain_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are You Sure You Want To Detain This License ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
+            if (!ValidateChildren())
+            {
+                MessageBox.Show("Invalid Inputs !.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Clear errors if all validations pass
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure you want to detain this license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
 
-            DetainedLicense = new clsDetainedLicense();
-            DetainedLicense.LicenseID = _License.LicenseID;
-            DetainedLicense.DetainDate = _Date;
-            DetainedLicense.FineFees = Convert.ToInt32(txtFineFees.Text);
-            DetainedLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-            DetainedLicense.IsReleased = false;
 
-            DetainedLicense.ReleaseDate = DateTime.MinValue;
-            DetainedLicense.ReleasedByUserID = -1;
-            DetainedLicense.ReleaseApplicationID = -1;
+            _DetainID = ucLicenseWithFilter1.SelectedLicenseInfo.Detain(Convert.ToSingle(txtFineFees.Text), clsGlobal.CurrentUser.UserID);
+            if (_DetainID == -1)
+            {
+                MessageBox.Show("Faild to Detain License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            if (DetainedLicense.Save())
-            {
-                lblDetainID.Text = DetainedLicense.DetainID.ToString();
-                MessageBox.Show($"License Detained.", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                btnDetain.Enabled = false;
-                haschanges = true;
+                return;
             }
-            else
-            {
-                MessageBox.Show("Saving Detain License Faild", "Saving Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            lblDetainID.Text = _DetainID.ToString();
+            MessageBox.Show("License Detained Successfully with ID=" + _DetainID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            btnDetain.Enabled = false;
+            ucLicenseWithFilter1.FilterEnabled = false;
+            txtFineFees.Enabled = false;
+            linkLShowLicenseInfo.Enabled = true;
         }
         private void frmDetainLicense_Load(object sender, EventArgs e)
         {
-            DesplayInitialValue();
+            lblDetainDate.Text = clsFormat.DateToShort(DateTime.Now);
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
         }
 
         private void linkLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(ucLicenseWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
             frm.ShowDialog();
         }
 
         private void linkLShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_License.LicenseID);
+            frmLocalLicenseInfo frm = new frmLocalLicenseInfo(_SelectedLicenseID);
             frm.ShowDialog();
         }
 
@@ -149,12 +86,54 @@ namespace DVLD__PresentationLayer_WinForm
             Close();
         }
 
-        private void frmDetainLicense_FormClosed(object sender, FormClosedEventArgs e)
+        private void ucLicenseWithFilter1_OnLicenseSelected(int obj)
         {
-            if (haschanges)
+            _SelectedLicenseID = obj;
+
+            lblLicenseID.Text = _SelectedLicenseID.ToString();
+
+            linkLShowLicenseInfo.Enabled = (_SelectedLicenseID != -1);
+            linkLShowLicenseHistory.Enabled = (_SelectedLicenseID != -1);
+
+            if (_SelectedLicenseID == -1)
+
             {
-                onFormCloseDelegate?.Invoke();
+                return;
             }
+
+            //ToDo: make sure the license is not detained already.
+            if (ucLicenseWithFilter1.SelectedLicenseInfo.IsDetained)
+            {
+                MessageBox.Show("Selected License is already detained, choose another one.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            txtFineFees.Focus();
+            btnDetain.Enabled = true;
+        }
+
+        private void txtFineFees_Validating(object sender, CancelEventArgs e)
+        {
+            string input = txtFineFees.Text.Trim();
+
+            // Check if the input is empty
+            if (string.IsNullOrEmpty(input))
+            {
+                e.Cancel = true; // Prevent focus change
+                errorProvider1.SetError(txtFineFees, "Fees cannot be empty!");
+                return;
+            }
+
+            // Check if the input is a valid positive number
+            if (!float.TryParse(input, out float value) || value <= 0)
+            {
+                e.Cancel = true; // Prevent focus change
+                errorProvider1.SetError(txtFineFees, "Enter a valid positive number.");
+                return;
+            }
+
+            // Clear errors if valid
+            errorProvider1.SetError(txtFineFees, null);
         }
     }
 }

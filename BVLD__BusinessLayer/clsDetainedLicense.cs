@@ -63,7 +63,7 @@ namespace BVLD__BusinessLayer
             this.ReleaseDate = ReleaseDate;
             this.ReleasedByUserID = ReleasedByUserID;
             this.ReleaseApplicationID = ReleaseApplicationID;
-            this.ReleasedByUserInfo = clsUser.FindByPersonID(this.ReleasedByUserID);
+            this.ReleasedByUserInfo = clsUser.FindByUserID(this.ReleasedByUserID);
             Mode = enMode.Update;
         }
 

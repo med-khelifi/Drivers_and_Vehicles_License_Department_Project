@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.pbPersonPicture = new System.Windows.Forms.PictureBox();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -64,7 +64,7 @@
             this.lblAppID = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.guna2GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,7 +80,7 @@
             // 
             // guna2GroupBox2
             // 
-            this.guna2GroupBox2.Controls.Add(this.pbPersonPicture);
+            this.guna2GroupBox2.Controls.Add(this.pbPersonImage);
             this.guna2GroupBox2.Controls.Add(this.pictureBox10);
             this.guna2GroupBox2.Controls.Add(this.pictureBox17);
             this.guna2GroupBox2.Controls.Add(this.pictureBox1);
@@ -128,13 +128,13 @@
             // 
             // pbPersonPicture
             // 
-            this.pbPersonPicture.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
-            this.pbPersonPicture.Location = new System.Drawing.Point(848, 42);
-            this.pbPersonPicture.Name = "pbPersonPicture";
-            this.pbPersonPicture.Size = new System.Drawing.Size(223, 224);
-            this.pbPersonPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonPicture.TabIndex = 20;
-            this.pbPersonPicture.TabStop = false;
+            this.pbPersonImage.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
+            this.pbPersonImage.Location = new System.Drawing.Point(848, 42);
+            this.pbPersonImage.Name = "pbPersonPicture";
+            this.pbPersonImage.Size = new System.Drawing.Size(223, 224);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 20;
+            this.pbPersonImage.TabStop = false;
             // 
             // pictureBox10
             // 
@@ -498,7 +498,7 @@
             this.Size = new System.Drawing.Size(1092, 285);
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -517,7 +517,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private System.Windows.Forms.PictureBox pbPersonPicture;
+        private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.PictureBox pictureBox1;

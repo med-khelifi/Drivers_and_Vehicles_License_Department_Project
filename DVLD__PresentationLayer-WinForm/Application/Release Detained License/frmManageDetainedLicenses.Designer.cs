@@ -34,17 +34,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.dgvDetainLicenses = new System.Windows.Forms.DataGridView();
+            this.CmsManageDLGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbReleasedStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnDetain = new Guna.UI2.WinForms.Guna2Button();
             this.btnRelease = new Guna.UI2.WinForms.Guna2Button();
-            this.CmsManageDLGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetainLicenses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CmsManageDLGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFilterText
@@ -137,7 +141,66 @@
             this.dgvDetainLicenses.RowTemplate.Height = 24;
             this.dgvDetainLicenses.Size = new System.Drawing.Size(1398, 346);
             this.dgvDetainLicenses.TabIndex = 29;
-            this.dgvDetainLicenses.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetainLicenses_CellMouseDown);
+            // 
+            // CmsManageDLGrid
+            // 
+            this.CmsManageDLGrid.BackColor = System.Drawing.Color.White;
+            this.CmsManageDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmsManageDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CmsManageDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showPersonToolStripMenuItem,
+            this.showLicenseDetailsToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem1,
+            this.ReleaseToolStripMenuItem});
+            this.CmsManageDLGrid.Name = "CmsPersonGrid";
+            this.CmsManageDLGrid.Size = new System.Drawing.Size(319, 162);
+            this.CmsManageDLGrid.Opening += new System.ComponentModel.CancelEventHandler(this.CmsManageDLGrid_Opening);
+            // 
+            // showPersonToolStripMenuItem
+            // 
+            this.showPersonToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
+            this.showPersonToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.Person;
+            this.showPersonToolStripMenuItem.Name = "showPersonToolStripMenuItem";
+            this.showPersonToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
+            this.showPersonToolStripMenuItem.Text = "Show Person Details";
+            this.showPersonToolStripMenuItem.Click += new System.EventHandler(this.showPersonToolStripMenuItem_Click);
+            // 
+            // showLicenseDetailsToolStripMenuItem
+            // 
+            this.showLicenseDetailsToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F);
+            this.showLicenseDetailsToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.driving_license;
+            this.showLicenseDetailsToolStripMenuItem.Name = "showLicenseDetailsToolStripMenuItem";
+            this.showLicenseDetailsToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
+            this.showLicenseDetailsToolStripMenuItem.Text = " Show License Details";
+            this.showLicenseDetailsToolStripMenuItem.Click += new System.EventHandler(this.showLicenseDetailsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.Black;
+            this.toolStripMenuItem2.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.releaseCard;
+            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(318, 38);
+            this.toolStripMenuItem2.Text = "Show Person License History";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(315, 6);
+            // 
+            // ReleaseToolStripMenuItem
+            // 
+            this.ReleaseToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReleaseToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.ReleaseToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.credit__1_;
+            this.ReleaseToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ReleaseToolStripMenuItem.Name = "ReleaseToolStripMenuItem";
+            this.ReleaseToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
+            this.ReleaseToolStripMenuItem.Text = "Release License";
+            this.ReleaseToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -157,6 +220,7 @@
             this.BtnClose.BorderThickness = 2;
             this.BtnClose.CheckedState.Parent = this.BtnClose;
             this.BtnClose.CustomImages.Parent = this.BtnClose;
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.FillColor = System.Drawing.Color.White;
             this.BtnClose.Font = new System.Drawing.Font("Bahnschrift SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClose.ForeColor = System.Drawing.Color.Black;
@@ -245,34 +309,12 @@
             this.btnRelease.TabIndex = 37;
             this.btnRelease.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // CmsManageDLGrid
-            // 
-            this.CmsManageDLGrid.BackColor = System.Drawing.Color.White;
-            this.CmsManageDLGrid.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmsManageDLGrid.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.CmsManageDLGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem});
-            this.CmsManageDLGrid.Name = "CmsPersonGrid";
-            this.CmsManageDLGrid.Size = new System.Drawing.Size(227, 70);
-            this.CmsManageDLGrid.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.CmsManageDLGrid_Closed);
-            this.CmsManageDLGrid.Opening += new System.ComponentModel.CancelEventHandler(this.CmsManageDLGrid_Opening);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift SemiLight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.editToolStripMenuItem.Image = global::DVLD__PresentationLayer_WinForm.Properties.Resources.credit__1_;
-            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(226, 38);
-            this.editToolStripMenuItem.Text = "Release License";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
             // frmManageDetainedLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(1424, 671);
             this.Controls.Add(this.btnRelease);
             this.Controls.Add(this.btnDetain);
@@ -291,8 +333,8 @@
             this.Text = "Manage Detained Licenses";
             this.Load += new System.EventHandler(this.frmManageDetainedLicenses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetainLicenses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CmsManageDLGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,6 +354,10 @@
         private Guna.UI2.WinForms.Guna2Button btnDetain;
         private Guna.UI2.WinForms.Guna2Button btnRelease;
         private System.Windows.Forms.ContextMenuStrip CmsManageDLGrid;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ReleaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem showPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BVLD__BusinessLayer;
+using DVLD__PresentationLayer_WinForm.People;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +15,13 @@ namespace DVLD__PresentationLayer_WinForm
     public partial class frmManageDetainedLicenses : Form
     {
         DataView dv;
-        int SelectedDetainID;
         public frmManageDetainedLicenses()
         {
             InitializeComponent();
         }
         void _LoadGridDate()
         {
-            //dv = clsDetainedLicense.GetDetainedLicenses().DefaultView;
+            dv = clsDetainedLicense.GetAllDetainedLicenses().DefaultView;
             dgvDetainLicenses.DataSource = dv;
             lblRecordsCount.Text = "All Records = " + dv.Count.ToString();
         }
@@ -36,17 +36,21 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dv.RowFilter = "";
+            txtFilterText.Text = "";
+            lblRecordsCount.Text = "All Records = " + dv.Count.ToString();
             if (CbFilter.SelectedIndex == 0)
             {
                 txtFilterText.Visible = false;
                 cbReleasedStatus.Visible = false;
-                dv.RowFilter = "";
+                
             }
             else if (CbFilter.SelectedIndex == 2)
             {
                 cbReleasedStatus.Visible = true;
                 txtFilterText.Visible = false;
-                txtFilterText.Text = string.Empty;
+                cbReleasedStatus.SelectedIndex = 0;
+                
             }
             else
             {
@@ -61,7 +65,7 @@ namespace DVLD__PresentationLayer_WinForm
                 {0,string.Empty},
                 {1,$"DetainID = {filter}"},
                 {2,$"isReleased = '{filter}%'"},
-                {3,$"N.No LIKE '{filter}%'"},
+                {3,$"NationalNo LIKE '{filter}%'"},
                 {4,$"FullName LIKE '{filter}%'"},
                 {5,$"ReleaseApplicationID = {filter}"}
             };
@@ -86,6 +90,8 @@ namespace DVLD__PresentationLayer_WinForm
                     dv.RowFilter = _GetFilterString(txtFilterText.Text);
             }
             catch { txtFilterText.Text = ""; }
+            if (txtFilterText.Text == "") dv.RowFilter = "";
+            lblRecordsCount.Text = "All Records = " + dv.Count.ToString();
         }
 
         private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
@@ -103,60 +109,64 @@ namespace DVLD__PresentationLayer_WinForm
         {
 
             dv.RowFilter = _GetisReleasedFilterString();
-
+            lblRecordsCount.Text = "All Records = " + dv.Count.ToString();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             frmDetainLicense frmDetainLicense = new frmDetainLicense();
-            frmDetainLicense.onFormCloseDelegate += _LoadGridDate;
             frmDetainLicense.ShowDialog();
+            _LoadGridDate();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            frmReleaseLicense frm = new frmReleaseLicense(-1);
-            frm.onFormCloseDelegate += _LoadGridDate;
+            frmReleaseLicense frm = new frmReleaseLicense();
             frm.ShowDialog();
+            _LoadGridDate();
         }
 
         private void CmsManageDLGrid_Opening(object sender, CancelEventArgs e)
         {
-            //if (clsDetainedLicense.isDetained(SelectedDetainID))
-            //{
-            //    CmsManageDLGrid.Items[0].Enabled = true;
-            //}
-            //else
-            //{
-            //    CmsManageDLGrid.Items[0].Enabled = false;
-            //}
+            Boolean isReleased = (bool)dgvDetainLicenses.CurrentRow.Cells[3].Value; 
+            
+                ReleaseToolStripMenuItem.Enabled = !isReleased;
+            
         }
 
-        private void dgvDetainLicenses_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // Check if the right mouse button was clicked
-            if (e.Button == MouseButtons.Right)
-            {
-                // Ensure the click is on a valid row
-                if (e.RowIndex >= 0)
-                {
-                    // Select the row that was right-clicked
-                    
-                    SelectedDetainID = Convert.ToInt32(dgvDetainLicenses.Rows[e.RowIndex].Cells[0].Value);
-                }
-            }
-        }
+        
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReleaseLicense frm = new frmReleaseLicense(SelectedDetainID);
-            frm.onFormCloseDelegate += _LoadGridDate;
+            frmReleaseLicense frm = new frmReleaseLicense((int)dgvDetainLicenses.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();
+            _LoadGridDate();
+        }
+
+        private void showPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dgvDetainLicenses.CurrentRow.Cells[1].Value;
+            int PersonID = clsLicense.Find(LicenseID).DriverInfo.PersonID;
+
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog(); 
+
+        }
+
+        private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalLicenseInfo frm = new frmLocalLicenseInfo((int)dgvDetainLicenses.CurrentRow.Cells[1].Value);
             frm.ShowDialog();
         }
 
-        private void CmsManageDLGrid_Closed(object sender, ToolStripDropDownClosedEventArgs e)
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            CmsManageDLGrid.Items[0].Enabled = true;
+            int LicenseID = (int)dgvDetainLicenses.CurrentRow.Cells[1].Value;
+            int PersonID = clsLicense.Find(LicenseID).DriverInfo.PersonID;
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frm.ShowDialog();
+           
         }
     }
 }
