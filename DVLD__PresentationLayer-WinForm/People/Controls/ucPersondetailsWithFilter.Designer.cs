@@ -63,8 +63,7 @@
             this.txtFilterValue.ShadowDecoration.Parent = this.txtFilterValue;
             this.txtFilterValue.Size = new System.Drawing.Size(334, 34);
             this.txtFilterValue.TabIndex = 9;
-            this.txtFilterValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterText_KeyDown);
-            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterText_KeyPress);
+            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
             // 
             // cbFilterBy
             // 
@@ -89,8 +88,6 @@
             this.cbFilterBy.TabIndex = 8;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.CbFilter_SelectedIndexChanged);
             this.cbFilterBy.SelectedValueChanged += new System.EventHandler(this.CbFilter_SelectedValueChanged);
-            this.cbFilterBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbFilterBy_KeyPress);
-            this.cbFilterBy.Validating += new System.ComponentModel.CancelEventHandler(this.CbFilterBy_Validating);
             // 
             // label2
             // 

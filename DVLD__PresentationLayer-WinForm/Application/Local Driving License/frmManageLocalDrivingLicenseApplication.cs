@@ -264,12 +264,12 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void vesionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _ScheduleTest(clsTestType.enTestType.WrittenTest);
+            _ScheduleTest(clsTestType.enTestType.VisionTest);
         }
 
         private void sechduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _ScheduleTest(clsTestType.enTestType.VisionTest);
+            _ScheduleTest(clsTestType.enTestType.WrittenTest);
         }
 
         private void sechduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)

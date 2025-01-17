@@ -117,7 +117,7 @@ namespace DVLD__PresentationLayer_WinForm
             lblCreatedByUser.Text = ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.CreatedByUserInfo.UserName;
             lblDetainDate.Text = clsFormat.DateToShort(ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.DetainDate);
             lblFineFees.Text = ucLicenseWithFilter1.SelectedLicenseInfo.DetainedInfo.FineFees.ToString();
-            lblTotalFees.Text = (Convert.ToSingle(lblAppFees.Text) + Convert.ToSingle(lblFineFees.Text)).ToString();
+            //lblTotalFees.Text = (Convert.ToSingle(lblAppFees.Text) + Convert.ToSingle(lblFineFees.Text)).ToString();
 
             btnRelease.Enabled = true;
         }

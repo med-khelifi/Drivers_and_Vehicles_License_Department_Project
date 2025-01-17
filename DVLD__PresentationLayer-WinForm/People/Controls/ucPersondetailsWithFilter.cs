@@ -83,14 +83,14 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void FindNow()
         {
-            switch (cbFilterBy.Text)
+            switch (cbFilterBy.SelectedIndex)
             {
-                case "Person ID":
+                case 0:
                     Person1.LoadPersonInfo(int.Parse(txtFilterValue.Text));
 
                     break;
 
-                case "National No.":
+                case 1:
                     Person1.LoadPersonInfo(txtFilterValue.Text);
                     break;
 
@@ -104,21 +104,14 @@ namespace DVLD__PresentationLayer_WinForm
         }
         private void btnSearchPerson_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateChildren())
-            {
-                //Here we dont continue becuase the form is not valid
-                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-
-            }
+            
 
             FindNow();
         }
         private void CbFilter_SelectedValueChanged(object sender, EventArgs e)
         {
             txtFilterValue.Text = "";
-        }
-       
+        }       
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm1 = new frmAddUpdatePerson();
@@ -142,45 +135,17 @@ namespace DVLD__PresentationLayer_WinForm
         {
             cbFilterBy.SelectedIndex = 0;
             txtFilterValue.Focus();
-        }
-        private void txtFilterText_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSearchPerson_Click(sender, e);
-            }
-
-        }
+        }    
         public void SetFocus()
         {
             txtFilterValue.Focus();
-        }
-        private void txtFilterText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (cbFilterBy.SelectedIndex == 0)
-            {
-                if (char.IsLetter(e.KeyChar)) { e.Handled = true; }
-            }
         }
         private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtFilterValue.Text = "";
             txtFilterValue.Focus();
         }
-        private void CbFilterBy_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtFilterValue, "This field is required!");
-            }
-            else
-            {
-                //e.Cancel = false;
-                errorProvider1.SetError(txtFilterValue, null);
-            }
-        }
-        private void CbFilterBy_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Check if the pressed key is Enter (character code 13)
             if (e.KeyChar == (char)13)
