@@ -44,6 +44,7 @@ namespace BVLD__BusinessLayer
         }
         private bool _AddNew()
         {
+            this.Password = clsBusinessUtility.ComputeHash(Password);
             UserID = clsUsersData.AddNewUser(PersonID, UserName,Password,isActive);
             return UserID != -1;
         }
@@ -53,6 +54,7 @@ namespace BVLD__BusinessLayer
         }
         private bool _Update()
         {
+            this.Password = clsBusinessUtility.ComputeHash(Password);
             return clsUsersData.UpdateUser(UserID,PersonID,UserName,Password,isActive);
         }
         public bool Save()

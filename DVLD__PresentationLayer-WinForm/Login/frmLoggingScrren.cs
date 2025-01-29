@@ -22,8 +22,9 @@ namespace DVLD__PresentationLayer_WinForm
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsUser user = clsUser.LogIn(txtUserName.Text.Trim(), txtPassword.Text.Trim());
-
+            string hashedPassword = clsBusinessUtility.ComputeHash(txtPassword.Text.Trim());
+            clsUser user = clsUser.LogIn(txtUserName.Text.Trim(), hashedPassword);
+            
             if (user != null)
             {
 

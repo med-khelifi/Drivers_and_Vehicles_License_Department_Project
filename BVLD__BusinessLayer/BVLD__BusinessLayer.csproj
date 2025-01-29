@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="clsApplication.cs" />
     <Compile Include="clsApplicationType.cs" />
+    <Compile Include="clsBusinessUtility.cs" />
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsDetainedLicense.cs" />
     <Compile Include="clsDriver.cs" />
